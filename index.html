@@ -427,10 +427,10 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 72px 20px 40px;
+      padding: 36px 20px 40px;
       order: 2;
     }
-    @media (min-width: 640px) { .hero-content { padding: 80px 32px 56px; } }
+    @media (min-width: 640px) { .hero-content { padding: 48px 32px 56px; } }
     @media (min-width: 1024px) {
       .hero-content { padding: 80px 64px 64px; order: 1; }
     }
@@ -538,11 +538,13 @@
     .hero-visual {
       position: relative;
       order: 1;
-      min-height: 40vh;
-      max-height: 55vh;
+      height: calc(52vh - 64px);
+      min-height: 260px;
+      max-height: 380px;
+      margin-top: 64px;
     }
     @media (min-width: 1024px) {
-      .hero-visual { order: 2; min-height: 100vh; max-height: none; }
+      .hero-visual { order: 2; height: auto; min-height: 100vh; max-height: none; margin-top: 0; }
     }
     .hero-visual-bg {
       position: absolute;
@@ -563,7 +565,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top;
+      object-position: center 15%;
+    }
+    @media (min-width: 1024px) {
+      .hero-visual img { object-position: center top; }
     }
     .hero-badge {
       position: absolute;
