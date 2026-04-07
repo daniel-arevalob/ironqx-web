@@ -610,13 +610,18 @@
 
     /* Slot dots grid */
     .cupos-slots {
-      display: flex; flex-wrap: wrap; gap: 7px;
-      justify-content: center; width: 100%;
+      display: grid;
+      grid-template-columns: repeat(15, 1fr);
+      gap: 5px;
+      width: 100%;
     }
     .cupos-slot {
-      width: 18px; height: 18px; border-radius: 4px;
+      aspect-ratio: 1;
+      border-radius: 3px;
       transition: transform 0.2s ease;
+      min-width: 0;
     }
+    @media (min-width: 400px) { .cupos-slots { gap: 6px; } .cupos-slot { border-radius: 4px; } }
     .cupos-slot.taken {
       background: var(--gold);
       opacity: 0.75;
@@ -815,7 +820,7 @@
         <div class="hero-visual-fade"></div>
         <img src="images/hero-main.jpeg" alt="Dr. Daniel Arevalo - Medico y Atleta" loading="eager" />
         <div class="hero-badge reveal stagger-2" id="heroBadge">
-          <div class="hero-badge-label">Hola! Soy el Dr. Daniel Arevalo</div>
+          <div class="hero-badge-label">Hola! Soy el Dr. Arevalo</div>
           <div class="hero-badge-typewriter" id="badgeTypewriter"><span id="badgeText"></span><span class="badge-cursor">|</span></div>
         </div>
       </div>
@@ -861,7 +866,7 @@
     <div class="gallery-item touch-scale">
       <img src="images/gallery-3.jpeg" alt="Medico Nutricionista" loading="lazy" />
       <div class="gallery-item-overlay"></div>
-      <div class="gallery-item-label">Medico Experto en Fitness</div>
+      <div class="gallery-item-label">Medico Nutricionista</div>
     </div>
   </div>
 
@@ -895,11 +900,11 @@
           <div class="bio-text">
             <p>
               Soy el Dr. Daniel Arevalo. Medico graduado de la Universidad de Cuenca,
-              master en Nutricion Clinica y Deportiva por la Universidad Autonoma de Chile, especialista en Biomecanica del Ejercicio.
+              master en Nutricion Clinica y Deportiva, especialista en Biomecanica del Ejercicio.
               Campeon Mr. Cuenca y Top 2 Mr. Ecuador.
             </p>
             <p>
-              Mi trabajo es diferente porque no delego en asistentes. Cada protocolo lo diseño yo,
+              Mi trabajo es diferente porque no delego en asistentes. Cada protocolo lo diseno yo,
               cada ajuste pasa por mi criterio medico. No vendo motivacion. Vendo
               <strong>control biologico documentado</strong>.
             </p>
@@ -1353,7 +1358,7 @@
               <div class="tech-feat-dot"></div>
               <div>
                 <div class="tech-feat-title">Graficas de Composicion Corporal</div>
-                <p class="tech-feat-desc">Visualizacion de evolucion de masa muscular, grasa y metricas evolutivas semana a semana.</p>
+                <p class="tech-feat-desc">Visualizacion de evolucion de masa muscular, grasa y metricas biometricas semana a semana.</p>
               </div>
             </div>
             <div class="tech-feat touch-scale">
@@ -1590,7 +1595,7 @@
 
       <div class="footer-bottom">
         <p>&copy; 2026 Iron QX. Todos los derechos reservados.</p>
-        <p>Dr. Daniel Arevalo &mdash; Medico | Nutriologo | Atleta</p>
+        <p>Dr. Daniel Arevalo &mdash; Medico | Nutricionista | Atleta</p>
       </div>
     </div>
   </footer>
