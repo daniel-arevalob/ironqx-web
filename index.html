@@ -188,11 +188,10 @@
     .hero-stat-num { font-size: 1.75rem; font-family: 'Cormorant Garamond', serif; color: var(--gold); }
     .hero-stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
 
-    .hero-visual { position: relative; order: 1; min-height: 45vh; max-height: 50vh; }
-    @media (min-width: 640px) { .hero-visual { min-height: 50vh; max-height: 55vh; } }
-    @media (min-width: 1024px) { .hero-visual { order: 2; min-height: 100vh; max-height: none; } }
+    .hero-visual { position: relative; order: 1; width: 100%; aspect-ratio: 9/16; }
+    @media (min-width: 1024px) { .hero-visual { order: 2; aspect-ratio: auto; min-height: 100vh; max-height: none; } }
     .hero-visual-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, #111, #0a0a0a); }
-    .hero-visual-fade { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 60%, var(--bg)), linear-gradient(to right, var(--bg), transparent 30%); z-index: 10; pointer-events: none; }
+    .hero-visual-fade { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 75%, var(--bg) 100%); z-index: 10; pointer-events: none; }
     @media (min-width: 1024px) { .hero-visual-fade { background: linear-gradient(to right, var(--bg), transparent 40%), linear-gradient(to bottom, transparent 70%, var(--bg)); } }
     .hero-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 
@@ -1273,9 +1272,9 @@
                 </div>
                 <div class="app-sparkline">
                   <svg viewBox="0 0 80 28" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:28px;">
-                    <polyline points="0,22 14,20 28,18 42,16 56,13 70,10 80,8" fill="none" stroke="rgba(212,175,55,0.35)" stroke-width="1"/>
-                    <polyline points="0,22 14,20 28,18 42,16 56,13 70,10 80,8" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="200" stroke-dashoffset="0"/>
-                    <circle cx="80" cy="8" r="2.5" fill="#D4AF37"/>
+                    <polyline points="0,6 14,8 28,10 42,13 56,16 70,19 80,22" fill="none" stroke="rgba(212,175,55,0.25)" stroke-width="1"/>
+                    <polyline points="0,6 14,8 28,10 42,13 56,16 70,19 80,22" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="80" cy="22" r="2.5" fill="#D4AF37"/>
                   </svg>
                 </div>
               </div>
@@ -1704,37 +1703,43 @@
     let plansTouchEndX = 0;
     let plansTouchStartY = 0;
     let plansTouchEndY = 0;
+    let plansSwipeAxis = null; // 'h' horizontal, 'v' vertical, null undecided
 
     if (plansScroll) {
       plansScroll.addEventListener('touchstart', (e) => {
         plansTouchStartX = e.changedTouches[0].screenX;
         plansTouchStartY = e.changedTouches[0].screenY;
+        plansTouchEndX = plansTouchStartX;
+        plansTouchEndY = plansTouchStartY;
+        plansSwipeAxis = null;
       }, { passive: true });
 
-      plansScroll.addEventListener('touchend', (e) => {
+      plansScroll.addEventListener('touchmove', (e) => {
+        const dx = Math.abs(e.changedTouches[0].screenX - plansTouchStartX);
+        const dy = Math.abs(e.changedTouches[0].screenY - plansTouchStartY);
+        if (plansSwipeAxis === null && (dx > 8 || dy > 8)) {
+          plansSwipeAxis = dx >= dy ? 'h' : 'v';
+        }
+        if (plansSwipeAxis === 'h') {
+          e.preventDefault(); // block page scroll during horizontal swipe
+        }
         plansTouchEndX = e.changedTouches[0].screenX;
         plansTouchEndY = e.changedTouches[0].screenY;
-        handlePlansSwipe();
+      }, { passive: false });
+
+      plansScroll.addEventListener('touchend', () => {
+        if (plansSwipeAxis === 'h') handlePlansSwipe();
+        plansSwipeAxis = null;
       }, { passive: true });
     }
 
     function handlePlansSwipe() {
-      const swipeThreshold = 50;
+      const swipeThreshold = 40;
       const diffX = plansTouchStartX - plansTouchEndX;
-      const diffY = plansTouchStartY - plansTouchEndY;
-
-      // Only handle if horizontal movement is dominant over vertical
-      if (Math.abs(diffX) <= Math.abs(diffY)) return;
-
       const cardWidth = plansScroll.querySelector('.plan-card').offsetWidth + 16;
       const currentScroll = plansScroll.scrollLeft;
-
       if (Math.abs(diffX) > swipeThreshold) {
-        if (diffX > 0) {
-          plansScroll.scrollTo({ left: currentScroll + cardWidth, behavior: 'smooth' });
-        } else {
-          plansScroll.scrollTo({ left: currentScroll - cardWidth, behavior: 'smooth' });
-        }
+        plansScroll.scrollTo({ left: currentScroll + (diffX > 0 ? cardWidth : -cardWidth), behavior: 'smooth' });
       }
     }
 
