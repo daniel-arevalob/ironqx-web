@@ -427,10 +427,10 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 96px 24px 96px;
+      padding: 72px 20px 40px;
       order: 2;
     }
-    @media (min-width: 640px) { .hero-content { padding: 96px 32px; } }
+    @media (min-width: 640px) { .hero-content { padding: 80px 32px 56px; } }
     @media (min-width: 1024px) {
       .hero-content { padding: 80px 64px 64px; order: 1; }
     }
@@ -516,9 +516,11 @@
     }
     .hero-stats {
       display: flex;
-      gap: 32px;
-      margin-top: 48px;
+      gap: 20px;
+      margin-top: 32px;
+      flex-wrap: wrap;
     }
+    @media (min-width: 640px) { .hero-stats { gap: 32px; margin-top: 48px; } }
     .hero-stat-num {
       font-size: 1.875rem;
       font-family: 'Cormorant Garamond', serif;
@@ -536,10 +538,11 @@
     .hero-visual {
       position: relative;
       order: 1;
-      min-height: 50vh;
+      min-height: 40vh;
+      max-height: 55vh;
     }
     @media (min-width: 1024px) {
-      .hero-visual { order: 2; min-height: 100vh; }
+      .hero-visual { order: 2; min-height: 100vh; max-height: none; }
     }
     .hero-visual-bg {
       position: absolute;
@@ -571,7 +574,9 @@
       border: 1px solid rgba(212,175,55,0.4);
       padding: 24px;
       backdrop-filter: blur(4px);
+      display: none;
     }
+    @media (min-width: 640px) { .hero-badge { display: block; } }
     .hero-badge-num {
       font-size: 3rem;
       font-family: 'Cormorant Garamond', serif;
@@ -624,15 +629,19 @@
     .gallery-strip {
       display: grid;
       grid-template-columns: 1fr;
-      height: 300px;
-    }
-    @media (min-width: 768px) {
-      .gallery-strip { grid-template-columns: repeat(3, 1fr); height: 400px; }
+      height: auto;
+      gap: 4px;
     }
     .gallery-item {
       position: relative;
       overflow: hidden;
       cursor: pointer;
+      height: 220px;
+    }
+    @media (min-width: 768px) {
+      .gallery-strip { grid-template-columns: repeat(3, 1fr); height: 400px; gap: 0; }
+      .gallery-item { height: auto; }
+    }
     }
     .gallery-item img {
       position: absolute;
@@ -661,8 +670,9 @@
 
     /* ==================== SECTIONS ==================== */
     .section {
-      padding: 80px 0;
+      padding: 56px 0;
     }
+    @media (min-width: 768px) { .section { padding: 80px 0; } }
     @media (min-width: 1024px) { .section { padding: 112px 0; } }
     .section-inner {
       max-width: 1200px;
@@ -854,9 +864,16 @@
     }
     .form-row {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 20px;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-bottom: 0;
+    }
+    @media (min-width: 480px) {
+      .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
     }
     .form-group {
       margin-bottom: 20px;
@@ -941,9 +958,10 @@
     .cals-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 8px;
       margin-bottom: 16px;
     }
+    @media (min-width: 480px) { .cals-grid { gap: 12px; } }
     .cal-box { background: var(--bg3); border-radius: 8px; padding: 16px; border: 1px solid #222; }
     .cal-box-label { color: var(--muted); font-size: 14px; margin-bottom: 4px; }
     .cal-box-value { font-size: 1.5rem; font-weight: 700; }
@@ -975,13 +993,14 @@
     /* ==================== PLANES ==================== */
     .plans-scroll {
       display: flex;
-      gap: 24px;
+      gap: 16px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
       padding-bottom: 16px;
-      margin: 0 -24px;
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin: 0 -20px;
     }
     @media (min-width: 768px) {
       .plans-scroll {
@@ -990,22 +1009,24 @@
         overflow: visible;
         margin: 0;
         padding: 0;
-        padding-bottom: 0;
+        gap: 24px;
       }
     }
     .plan-card {
       background: var(--bg2);
       border: 1px solid var(--border);
-      padding: 32px;
+      padding: 24px 20px;
       display: flex;
       flex-direction: column;
       position: relative;
-      scroll-snap-align: center;
-      min-width: 85vw;
+      scroll-snap-align: start;
+      min-width: 82vw;
+      max-width: 320px;
       flex-shrink: 0;
     }
+    @media (min-width: 400px) { .plan-card { min-width: 78vw; } }
     @media (min-width: 768px) {
-      .plan-card { min-width: 0; }
+      .plan-card { min-width: 0; max-width: none; padding: 32px; }
     }
     .plan-card.featured {
       border-color: var(--gold);
@@ -1082,13 +1103,20 @@
       display: flex;
       justify-content: center;
       gap: 8px;
-      margin-bottom: 24px;
+      margin-top: 20px;
+      margin-bottom: 8px;
     }
     @media (min-width: 768px) { .scroll-dots { display: none; } }
     .scroll-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
+      transition: background 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+    .scroll-dot.active {
+      background: var(--gold) !important;
+      transform: scale(1.3);
     }
     .forged-x {
       background: linear-gradient(to right, rgba(212,175,55,0.1), transparent);
@@ -1616,6 +1644,64 @@
     /* Result hidden state */
     .results-hidden { display: none; }
     .results-visible { display: block; }
+
+    /* ==================== MOBILE OVERRIDES ==================== */
+    @media (max-width: 767px) {
+      /* General spacing */
+      .section-inner { padding: 0 20px; }
+      .section-header { margin-bottom: 32px; }
+      .section h2 { font-size: 1.6rem; }
+
+      /* Hero h1 */
+      .hero h1 { font-size: 2rem; }
+      .hero-label-text { font-size: 10px; }
+      .hero-desc { font-size: 14px; }
+      .hero-buttons { flex-direction: column; gap: 12px; }
+      .hero-buttons a, .hero-buttons button { width: 100%; text-align: center; }
+
+      /* Stats bar */
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .stat-number { font-size: 1.75rem; }
+
+      /* Filosofia photo grid */
+      .photo-grid { max-height: 260px; }
+
+      /* Calculadora */
+      .calc-card-header { padding: 16px 16px 0; }
+      .calc-card-body { padding: 16px; }
+      .form-group { margin-bottom: 14px; }
+      .result-value { font-size: 1.5rem; }
+
+      /* Plans section inner padding */
+      #planes .section-inner { padding: 0; }
+      #planes .section-inner > .section-header,
+      #planes .section-inner > .scroll-dots,
+      #planes .section-inner > .forged-x,
+      #planes .section-inner > p { padding-left: 20px; padding-right: 20px; }
+      .plans-scroll { margin: 0; padding-left: 20px; padding-right: 20px; }
+      .forged-x { margin: 0 20px; }
+
+      /* IA Bot chat */
+      .chat-window { height: 300px; }
+
+      /* Tecnologia app card */
+      .app-logo { width: 80px; height: 80px; }
+
+      /* Contacto cupos box */
+      .cupos-box { padding: 20px; }
+      .cupos-num { font-size: 2.5rem; }
+
+      /* Footer */
+      .footer { padding: 40px 0; }
+      .footer-grid { gap: 28px; }
+      .footer-brand img { width: 40px; height: 40px; }
+
+      /* Fix horizontal overflow from hero badge and elements */
+      .hero-visual-bg, .hero-visual-fade { max-width: 100vw; }
+
+      /* Navbar WhatsApp button hidden on very small screens */
+      .nav-wa-btn { display: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -2110,10 +2196,10 @@
       </div>
 
       <!-- Scroll dots mobile -->
-      <div class="scroll-dots">
-        <div class="scroll-dot" style="background:rgba(212,175,55,0.3)"></div>
-        <div class="scroll-dot" style="background:var(--gold)"></div>
-        <div class="scroll-dot" style="background:rgba(212,175,55,0.3)"></div>
+      <div class="scroll-dots" id="plansDots">
+        <div class="scroll-dot active" style="background:var(--gold)" data-index="0"></div>
+        <div class="scroll-dot" style="background:rgba(212,175,55,0.3)" data-index="1"></div>
+        <div class="scroll-dot" style="background:rgba(212,175,55,0.3)" data-index="2"></div>
       </div>
 
       <!-- Forged X -->
@@ -2677,6 +2763,27 @@
       calcResults.classList.remove('results-hidden');
       calcResults.classList.add('results-visible', 'animate-fadeInUp');
     });
+
+    // ===== PLANS SCROLL DOTS SYNC =====
+    var plansScrollEl = document.querySelector('.plans-scroll');
+    var dotsEl = document.querySelectorAll('#plansDots .scroll-dot');
+    if (plansScrollEl && dotsEl.length) {
+      plansScrollEl.addEventListener('scroll', function() {
+        var cardWidth = plansScrollEl.scrollWidth / dotsEl.length;
+        var idx = Math.round(plansScrollEl.scrollLeft / cardWidth);
+        dotsEl.forEach(function(d, i) {
+          d.classList.toggle('active', i === idx);
+          d.style.background = i === idx ? 'var(--gold)' : 'rgba(212,175,55,0.3)';
+        });
+      }, { passive: true });
+      // Dot click → scroll to card
+      dotsEl.forEach(function(dot, i) {
+        dot.addEventListener('click', function() {
+          var cards = plansScrollEl.querySelectorAll('.plan-card');
+          if (cards[i]) cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        });
+      });
+    }
 
   })();
   </script>
