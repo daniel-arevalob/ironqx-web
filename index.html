@@ -188,11 +188,10 @@
     .hero-stat-num { font-size: 1.75rem; font-family: 'Cormorant Garamond', serif; color: var(--gold); }
     .hero-stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
 
-    .hero-visual { position: relative; order: 1; min-height: 45vh; max-height: 50vh; }
-    @media (min-width: 640px) { .hero-visual { min-height: 50vh; max-height: 55vh; } }
-    @media (min-width: 1024px) { .hero-visual { order: 2; min-height: 100vh; max-height: none; } }
+    .hero-visual { position: relative; order: 1; width: 100%; aspect-ratio: 9/16; }
+    @media (min-width: 1024px) { .hero-visual { order: 2; aspect-ratio: auto; min-height: 100vh; max-height: none; } }
     .hero-visual-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, #111, #0a0a0a); }
-    .hero-visual-fade { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 60%, var(--bg)), linear-gradient(to right, var(--bg), transparent 30%); z-index: 10; pointer-events: none; }
+    .hero-visual-fade { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 75%, var(--bg) 100%); z-index: 10; pointer-events: none; }
     @media (min-width: 1024px) { .hero-visual-fade { background: linear-gradient(to right, var(--bg), transparent 40%), linear-gradient(to bottom, transparent 70%, var(--bg)); } }
     .hero-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 
