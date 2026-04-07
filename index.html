@@ -1,0 +1,2685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>IronQX | Medicina del Rendimiento Corporal</title>
+  <meta name="description" content="Protocolos clinicos de composicion corporal disenados por un medico que compite. Dr. Daniel Arevalo. Cuenca, Ecuador." />
+  <meta name="theme-color" content="#050505" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Iron QX | Medicina del Rendimiento Corporal" />
+  <meta property="og:description" content="Protocolos clinicos de composicion corporal disenados por un medico que compite." />
+  <meta property="og:image" content="images/hero-main.jpeg" />
+  <meta property="og:url" content="https://ironqx.fit" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Iron QX | Medicina del Rendimiento Corporal" />
+  <meta name="twitter:description" content="Protocolos clinicos de composicion corporal disenados por un medico que compite." />
+  <meta name="twitter:image" content="images/hero-main.jpeg" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Iron QX",
+    "description": "Medicina del Rendimiento Corporal. Protocolos clinicos de composicion corporal.",
+    "url": "https://ironqx.fit",
+    "image": "images/hero-main.jpeg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cuenca",
+      "addressCountry": "EC"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Dr. Daniel Arevalo",
+      "jobTitle": "Medico Nutricionista"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==================== CSS RESET & VARIABLES ==================== */
+    :root {
+      --bg: #050505;
+      --bg2: #0a0a0a;
+      --bg3: #111111;
+      --gold: #D4AF37;
+      --gold-lt: #F0DC8A;
+      --gold-dk: #9A7C1F;
+      --silver: #C0C0C0;
+      --text: #ffffff;
+      --muted: #777777;
+      --border: rgba(255,255,255,0.06);
+      --wa: #25D366;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* Noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.022;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+    }
+
+    em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    a { text-decoration: none; color: inherit; }
+    button { background: none; border: none; cursor: pointer; color: inherit; font-family: inherit; }
+    img { display: block; max-width: 100%; }
+    input, select { font-family: inherit; }
+    ul { list-style: none; }
+
+    /* ==================== SCROLLBAR ==================== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg2); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dk); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+    /* ==================== SELECTION ==================== */
+    ::selection {
+      background: rgba(212, 175, 55, 0.3);
+      color: var(--text);
+    }
+
+    /* ==================== KEYFRAMES ==================== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse-wa {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5), 0 0 0 0 rgba(37, 211, 102, 0.3); }
+      40% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0), 0 0 0 6px rgba(37, 211, 102, 0.15); }
+      80%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    @keyframes glow {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5)); }
+      50% { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8)); }
+    }
+
+    @keyframes slideInBottom {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==================== UTILITY CLASSES ==================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+
+    .glass {
+      background: rgba(5, 5, 5, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .gold-text {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .btn-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-lift:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    }
+
+    .card-hover {
+      transition: transform 0.4s ease, border-color 0.4s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212, 175, 55, 0.3);
+    }
+
+    .touch-scale {
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .touch-scale:active {
+      transform: scale(0.97);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25), 0 0 16px rgba(212, 175, 55, 0.1);
+    }
+
+    .wa-halo {
+      animation: pulse-wa 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    .wa-halo::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 9999px;
+      border: 2px solid rgba(37, 211, 102, 0.35);
+      animation: pulse-wa 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      animation-delay: 0.4s;
+      pointer-events: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+    .animate-slideInBottom {
+      animation: slideInBottom 0.35s ease-out forwards;
+    }
+
+    .animate-fadeInUp {
+      animation: fadeInUp 0.7s ease forwards;
+    }
+
+    .border-l-3 { border-left-width: 3px; }
+
+    .progress-animate { transition: width 1s ease-out; }
+
+    /* ==================== NAVBAR ==================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 50;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+    .navbar.scrolled {
+      border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    }
+    .navbar-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+    }
+    @media (min-width: 640px) { .navbar-inner { padding: 0 24px; } }
+    @media (min-width: 1024px) { .navbar-inner { padding: 0 32px; } }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 0;
+      object-fit: contain;
+    }
+    .nav-brand-text {
+      display: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.05em;
+    }
+    @media (min-width: 640px) { .nav-brand-text { display: block; } }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 32px;
+    }
+    @media (min-width: 1024px) { .nav-links { display: flex; } }
+
+    .nav-link {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--silver);
+      transition: color 0.3s;
+      position: relative;
+      padding: 4px 0;
+      font-family: 'Barlow', sans-serif;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--gold); }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active::after { width: 100%; }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-wa-btn {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: var(--wa);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+    .nav-wa-btn:hover { opacity: 0.9; }
+    @media (min-width: 768px) { .nav-wa-btn { display: flex; } }
+
+    .hamburger {
+      display: block;
+      padding: 8px;
+    }
+    @media (min-width: 1024px) { .hamburger { display: none; } }
+    .hamburger svg { width: 24px; height: 24px; }
+
+    /* ==================== MOBILE MENU ==================== */
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    .mobile-overlay.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .mobile-overlay-bg {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(4px);
+    }
+    .mobile-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 80%;
+      max-width: 320px;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(20px);
+      border-left: 1px solid rgba(212,175,55,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-overlay.open .mobile-panel {
+      transform: translateX(0);
+    }
+    .mobile-link {
+      font-size: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--silver);
+      transition: color 0.3s;
+    }
+    .mobile-link:hover { color: var(--gold); }
+    .mobile-wa-btn {
+      margin-top: 24px;
+      background: var(--wa);
+      color: white;
+      padding: 12px 32px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+    }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(212,175,55,0.05) 0%, transparent 50%, rgba(212,175,55,0.03) 100%);
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 96px 24px 96px;
+      order: 2;
+    }
+    @media (min-width: 640px) { .hero-content { padding: 96px 32px; } }
+    @media (min-width: 1024px) {
+      .hero-content { padding: 80px 64px 64px; order: 1; }
+    }
+    .hero-label {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .hero-label-line {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero-label-text {
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      font-weight: 500;
+    }
+    .hero h1 {
+      font-size: 2.25rem;
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    @media (min-width: 640px) { .hero h1 { font-size: 3rem; } }
+    @media (min-width: 1024px) { .hero h1 { font-size: 3.75rem; } }
+    .hero h1 span {
+      display: block;
+      font-weight: 600;
+      color: var(--gold);
+      font-style: italic;
+      margin-top: 8px;
+    }
+    .hero-desc {
+      color: var(--silver);
+      font-size: 1.125rem;
+      max-width: 28rem;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(to right, var(--gold), var(--gold-dk));
+      color: black;
+      padding: 16px 32px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 14px;
+      font-family: 'Barlow', sans-serif;
+      transition: all 0.3s;
+    }
+    .btn-gold:hover {
+      box-shadow: 0 8px 32px rgba(212,175,55,0.4);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(192,192,192,0.3);
+      color: var(--silver);
+      padding: 16px 32px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 14px;
+      font-family: 'Barlow', sans-serif;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .hero-stat-num {
+      font-size: 1.875rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+    }
+    .hero-stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+
+    /* Hero Visual */
+    .hero-visual {
+      position: relative;
+      order: 1;
+      min-height: 50vh;
+    }
+    @media (min-width: 1024px) {
+      .hero-visual { order: 2; min-height: 100vh; }
+    }
+    .hero-visual-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, #111, #0a0a0a);
+    }
+    .hero-visual-fade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, #050505, transparent, transparent);
+      z-index: 10;
+      display: none;
+    }
+    @media (min-width: 1024px) { .hero-visual-fade { display: block; } }
+    .hero-visual img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 32px;
+      left: 0;
+      z-index: 20;
+      background: rgba(8,8,8,0.95);
+      border: 1px solid rgba(212,175,55,0.4);
+      padding: 24px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-badge-num {
+      font-size: 3rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+    }
+    .hero-badge-text {
+      font-size: 14px;
+      color: var(--silver);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 8px;
+    }
+
+    /* ==================== STATS BAR ==================== */
+    .stats-bar {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 0;
+    }
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      text-align: center;
+    }
+    @media (min-width: 1024px) {
+      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .stat-number {
+      font-size: 2.25rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    @media (min-width: 1024px) { .stat-number { font-size: 3rem; } }
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    /* ==================== GALLERY ==================== */
+    .gallery-strip {
+      display: grid;
+      grid-template-columns: 1fr;
+      height: 300px;
+    }
+    @media (min-width: 768px) {
+      .gallery-strip { grid-template-columns: repeat(3, 1fr); height: 400px; }
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.7s;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5,5,5,0.8), transparent);
+    }
+    .gallery-item-label {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ==================== SECTIONS ==================== */
+    .section {
+      padding: 80px 0;
+    }
+    @media (min-width: 1024px) { .section { padding: 112px 0; } }
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 64px;
+    }
+    .section-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .section-label-line {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .section-label-text {
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      font-weight: 500;
+    }
+    .section-label-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .section h2 {
+      font-size: 1.875rem;
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+    @media (min-width: 1024px) { .section h2 { font-size: 2.25rem; } }
+    .section-desc {
+      color: var(--muted);
+    }
+
+    /* ==================== FILOSOFIA ==================== */
+    .filosofia { background: var(--bg2); position: relative; overflow: hidden; }
+    .filosofia-gradient {
+      position: absolute;
+      top: 0; right: 0;
+      width: 33%;
+      height: 100%;
+      background: linear-gradient(to left, rgba(212,175,55,0.05), transparent);
+      pointer-events: none;
+    }
+    .filosofia-grid {
+      display: grid;
+      gap: 32px;
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .filosofia-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-height: 400px;
+      overflow: hidden;
+    }
+    @media (min-width: 1024px) { .photo-grid { max-height: none; } }
+    .photo-large {
+      grid-column: span 2;
+      aspect-ratio: 4/3;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(212,175,55,0.1);
+    }
+    .photo-small {
+      aspect-ratio: 3/4;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(212,175,55,0.1);
+    }
+    .photo-large img, .photo-small img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .bio-text {
+      color: var(--silver);
+      line-height: 1.7;
+    }
+    .bio-text p { margin-bottom: 16px; }
+    .bio-text strong { color: white; }
+    .cred-list { margin-top: 32px; }
+    .cred-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--silver);
+      margin-bottom: 12px;
+    }
+    .cred-bullet { color: var(--gold); font-size: 12px; }
+
+    /* ==================== METODOLOGIA ==================== */
+    .method-grid {
+      display: grid;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .method-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .method-card {
+      background: #0f0f0f;
+      border: 1px solid var(--border);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .method-card-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--gold);
+      transition: height 0.4s;
+    }
+    .method-card:hover .method-card-bar { height: 100%; }
+    .method-num {
+      font-size: 3.75rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: rgba(212,175,55,0.1);
+      margin-bottom: 16px;
+    }
+    .method-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-lt);
+      margin-bottom: 12px;
+      font-family: 'Barlow', sans-serif;
+    }
+    .method-desc {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ==================== CALCULADORA ==================== */
+    .calculadora { background: var(--bg2); position: relative; }
+    .calculadora-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(212,175,55,0.05), transparent, transparent);
+      pointer-events: none;
+    }
+    .calc-grid {
+      display: grid;
+      gap: 32px;
+    }
+    @media (min-width: 1024px) {
+      .calc-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .calc-card {
+      background: var(--bg2);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .calc-card-header {
+      padding: 24px 24px 0;
+    }
+    .calc-card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Barlow', sans-serif;
+    }
+    .calc-card-title svg { color: var(--gold); }
+    .calc-card-body {
+      padding: 24px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-label {
+      display: block;
+      color: var(--silver);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .form-input, .form-select {
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid #222;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .form-input:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(212,175,55,0.2);
+    }
+    .form-select { appearance: auto; }
+    .form-select option { background: #111; color: white; }
+    .calc-submit {
+      width: 100%;
+      background: linear-gradient(to right, var(--gold), var(--gold-dk));
+      color: black;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Barlow', sans-serif;
+    }
+
+    .results-card {
+      border-color: rgba(212,175,55,0.3);
+    }
+    .result-box {
+      background: var(--bg3);
+      border-radius: 8px;
+      padding: 16px;
+      border: 1px solid #222;
+      margin-bottom: 16px;
+    }
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .result-label { color: var(--muted); font-size: 14px; }
+    .result-badge {
+      font-size: 12px;
+      padding: 2px 10px;
+      border-radius: 9999px;
+      border: 1px solid;
+    }
+    .result-value {
+      font-size: 1.875rem;
+      font-weight: 700;
+    }
+    .result-bar-track {
+      height: 8px;
+      background: #222;
+      border-radius: 9999px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .result-bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 1s ease-out;
+    }
+    .cals-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .cal-box { background: var(--bg3); border-radius: 8px; padding: 16px; border: 1px solid #222; }
+    .cal-box-label { color: var(--muted); font-size: 14px; margin-bottom: 4px; }
+    .cal-box-value { font-size: 1.5rem; font-weight: 700; }
+    .cal-box-unit { font-size: 12px; color: var(--muted); }
+    .target-box {
+      background: linear-gradient(to right, rgba(212,175,55,0.1), transparent);
+      border-radius: 8px;
+      padding: 16px;
+      border: 1px solid rgba(212,175,55,0.3);
+      margin-bottom: 16px;
+    }
+    .target-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .target-header svg { color: var(--gold); }
+    .target-header span { color: var(--silver); }
+    .target-value { font-size: 2.25rem; font-weight: 700; }
+    .target-unit { font-size: 14px; color: var(--muted); }
+    .macro-section-label { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
+    .macro-row { margin-bottom: 12px; }
+    .macro-row-header { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px; }
+    .macro-bar-track { height: 8px; background: #222; border-radius: 9999px; overflow: hidden; }
+    .macro-bar-fill { height: 100%; border-radius: 9999px; transition: width 1s ease-out; }
+    .calc-footer { text-align: center; font-size: 12px; color: #666; margin-top: 16px; }
+
+    /* ==================== PLANES ==================== */
+    .plans-scroll {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 16px;
+      margin: 0 -24px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    @media (min-width: 768px) {
+      .plans-scroll {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow: visible;
+        margin: 0;
+        padding: 0;
+        padding-bottom: 0;
+      }
+    }
+    .plan-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      scroll-snap-align: center;
+      min-width: 85vw;
+      flex-shrink: 0;
+    }
+    @media (min-width: 768px) {
+      .plan-card { min-width: 0; }
+    }
+    .plan-card.featured {
+      border-color: var(--gold);
+      z-index: 10;
+    }
+    @media (min-width: 768px) {
+      .plan-card.featured { transform: scale(1.05); }
+    }
+    .plan-badge {
+      position: absolute;
+      top: -1px;
+      right: 32px;
+      background: var(--gold);
+      color: black;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 16px;
+    }
+    .plan-icon { font-size: 2.25rem; margin-bottom: 16px; }
+    .plan-name {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .plan-price {
+      font-size: 2.25rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .plan-price-unit { font-size: 1rem; color: var(--muted); font-family: 'Barlow', sans-serif; }
+    .plan-desc {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+      min-height: 40px;
+    }
+    .plan-features { flex: 1; margin-bottom: 32px; }
+    .plan-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--silver);
+      margin-bottom: 12px;
+    }
+    .plan-features li span { color: var(--gold); margin-top: 2px; }
+    .plan-cta {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 14px;
+      transition: all 0.3s;
+      font-family: 'Barlow', sans-serif;
+    }
+    .plan-cta-filled {
+      background: var(--gold);
+      color: black;
+    }
+    .plan-cta-filled:hover { background: var(--gold-lt); }
+    .plan-cta-outline {
+      border: 1px solid rgba(212,175,55,0.3);
+      color: var(--gold);
+    }
+    .plan-cta-outline:hover {
+      background: var(--gold);
+      color: black;
+    }
+    .scroll-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    @media (min-width: 768px) { .scroll-dots { display: none; } }
+    .scroll-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .forged-x {
+      background: linear-gradient(to right, rgba(212,175,55,0.1), transparent);
+      border: 1px solid rgba(212,175,55,0.3);
+      padding: 32px;
+      display: grid;
+      gap: 24px;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .forged-x { grid-template-columns: auto 1fr auto; }
+    }
+    .forged-x-icon { font-size: 3rem; }
+    .forged-x-title {
+      font-size: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .forged-x-desc {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .forged-x-desc strong { color: var(--silver); }
+    .forged-x-price {
+      font-size: 1.875rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+    }
+    .forged-x-price span { font-size: 1rem; color: var(--muted); }
+
+    /* ==================== IA BOT ==================== */
+    .ia-bot { background: var(--bg2); position: relative; overflow: hidden; }
+    .ia-bot-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to left, rgba(37,211,102,0.05), transparent, transparent);
+      pointer-events: none;
+    }
+    .ia-bot-grid {
+      display: grid;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .ia-bot-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .ia-bot-desc {
+      color: var(--silver);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .ia-feat-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      transition: border-color 0.3s;
+    }
+    .ia-feat-card:hover { border-color: rgba(37,211,102,0.2); }
+    .ia-feat-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(37,211,102,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ia-feat-icon svg { width: 20px; height: 20px; color: var(--wa); }
+    .ia-feat-title {
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--silver);
+      margin-bottom: 4px;
+      font-family: 'Barlow', sans-serif;
+    }
+    .ia-feat-desc { color: var(--muted); font-size: 14px; }
+    .btn-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--wa);
+      color: white;
+      padding: 16px 32px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 14px;
+      font-family: 'Barlow', sans-serif;
+      transition: all 0.3s;
+    }
+    .btn-green:hover {
+      box-shadow: 0 8px 32px rgba(37,211,102,0.4);
+    }
+    .ia-info-box {
+      margin-top: 24px;
+      padding: 16px;
+      background: rgba(212,175,55,0.05);
+      border-left: 3px solid var(--gold);
+    }
+    .ia-info-box p { font-size: 14px; color: var(--muted); }
+    .ia-info-box strong { color: var(--silver); }
+
+    /* Chat Mockup */
+    .chat-mockup {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    }
+    .chat-header {
+      background: #1a1a1a;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .chat-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--silver));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .chat-avatar svg { width: 20px; height: 20px; color: black; }
+    .chat-name { font-weight: 600; font-size: 14px; }
+    .chat-status { font-size: 12px; color: var(--wa); }
+    .chat-body {
+      padding: 16px;
+      background: #0d0d0d;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .chat-msg {
+      border-radius: 8px;
+      padding: 12px;
+      max-width: 85%;
+      font-size: 14px;
+      color: var(--silver);
+    }
+    .chat-msg strong { color: white; }
+    .chat-msg-bot {
+      background: #1c1c24;
+      border: 1px solid var(--border);
+      border-top-left-radius: 0;
+    }
+    .chat-msg-user {
+      background: #1e3a1e;
+      border: 1px solid rgba(37,211,102,0.2);
+      border-top-right-radius: 0;
+      margin-left: auto;
+    }
+    .chat-time {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+      display: block;
+    }
+    .chat-input-bar {
+      padding: 12px;
+      background: #141414;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .chat-input {
+      flex: 1;
+      height: 36px;
+      background: #1e1e1e;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .chat-send {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--wa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .chat-send svg { width: 16px; height: 16px; color: white; }
+
+    /* ==================== TECNOLOGIA ==================== */
+    .tech-grid {
+      display: grid;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .tech-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .tech-desc {
+      color: var(--silver);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .tech-desc strong { color: white; }
+    .tech-quote {
+      background: rgba(212,175,55,0.05);
+      border-left: 3px solid var(--gold);
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .tech-quote p {
+      font-size: 1.125rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--silver);
+    }
+    .tech-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 8px;
+      margin: 0 -8px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .tech-feat-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+    .tech-feat-title {
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--silver);
+      margin-bottom: 4px;
+      font-family: 'Barlow', sans-serif;
+    }
+    .tech-feat-desc { color: var(--muted); font-size: 14px; }
+
+    /* App Card */
+    .app-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .app-card-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .app-logo {
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 24px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(212,175,55,0.2);
+    }
+    .app-logo img { width: 100%; height: 100%; object-fit: contain; }
+    .app-title {
+      font-size: 1.875rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .app-title a:hover { text-decoration: underline; }
+    .app-subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 32px;
+    }
+    .app-screens {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .app-screen {
+      background: #1a1a1a;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .app-screen-label {
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .app-screen-bars { display: flex; flex-direction: column; gap: 8px; }
+    .app-bar-track {
+      height: 4px;
+      background: #222;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .app-bar-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--gold), var(--gold-dk));
+      border-radius: 9999px;
+    }
+
+    /* ==================== CONTACTO ==================== */
+    .contacto {
+      background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.05), transparent);
+    }
+    .contacto-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .contacto h2 {
+      font-size: 1.875rem;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+    @media (min-width: 1024px) { .contacto h2 { font-size: 3rem; } }
+    .contacto-desc {
+      color: var(--muted);
+      margin-bottom: 40px;
+      max-width: 32rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cupos-box {
+      background: rgba(212,175,55,0.1);
+      border: 1px solid rgba(212,175,55,0.3);
+      padding: 32px;
+      margin-bottom: 40px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+    @media (min-width: 640px) {
+      .cupos-box { flex-direction: row; }
+    }
+    .cupos-num {
+      font-size: 3.75rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+    }
+    .cupos-text { text-align: left; }
+    .cupos-text-sub {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    .cupos-text-main {
+      font-size: 1.25rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--silver);
+    }
+    .contacto-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+    .contacto-note {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 24px;
+    }
+
+    /* ==================== FOOTER ==================== */
+    .footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 64px 0;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .footer-brand img {
+      width: 52px;
+      height: 52px;
+      border-radius: 0;
+      object-fit: contain;
+    }
+    .footer-brand-text {
+      font-size: 1.35rem;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.05em;
+    }
+    .footer-desc {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 24rem;
+    }
+    .footer-heading {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-family: 'Barlow', sans-serif;
+    }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a, .footer-links span {
+      color: var(--muted);
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .footer-bottom { flex-direction: row; justify-content: space-between; }
+    }
+    .footer-bottom p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* ==================== FLOATING ELEMENTS ==================== */
+    .floating-wa {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background: var(--wa);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      z-index: 50;
+      transition: transform 0.3s;
+    }
+    .floating-wa:hover { transform: scale(1.1); }
+    .floating-wa svg { width: 28px; height: 28px; color: white; }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 96px;
+      right: 24px;
+      width: 48px;
+      height: 48px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(212,175,55,0.35);
+    }
+    .back-to-top:hover {
+      background: var(--gold-lt);
+      transform: scale(1.1);
+    }
+    .back-to-top.show {
+      display: flex;
+    }
+    .back-to-top svg { width: 24px; height: 24px; color: black; }
+
+    /* ==================== REDUCED MOTION ==================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Hidden on mobile / desktop helpers */
+    .hide-mobile { display: none; }
+    @media (min-width: 768px) { .hide-mobile { display: block; } }
+    .hide-desktop {}
+    @media (min-width: 768px) { .hide-desktop { display: none; } }
+
+    /* Result hidden state */
+    .results-hidden { display: none; }
+    .results-visible { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="nav-brand" onclick="event.preventDefault(); window.scrollTo({top:0,behavior:'smooth'});">
+        <img src="images/logo.webp" alt="Iron QX" />
+        <span class="nav-brand-text">Iron<span style="color:var(--gold)">QX</span></span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <button class="nav-link" data-section="filosofia">Filosofia</button>
+        <button class="nav-link" data-section="metodologia">Metodologia</button>
+        <button class="nav-link" data-section="calculadora">Calculadora</button>
+        <button class="nav-link" data-section="planes">Planes</button>
+        <button class="nav-link" data-section="ia-bot">IronQx Assistant</button>
+        <button class="nav-link" data-section="tecnologia">Tecnologia</button>
+        <button class="nav-link" data-section="contacto">Contacto</button>
+      </div>
+
+      <div class="nav-right">
+        <a href="https://wa.me/593984490998?text=Hola%20IronQx%20Assistant" target="_blank" rel="noopener noreferrer" class="nav-wa-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+          IronQx Assistant 24/7
+        </a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+          <svg id="menuIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+          <svg id="closeIcon" style="display:none" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== MOBILE MENU ==================== -->
+  <div class="mobile-overlay" id="mobileMenu">
+    <div class="mobile-overlay-bg" id="mobileOverlayBg"></div>
+    <div class="mobile-panel" id="mobilePanel">
+      <button class="mobile-link" data-section="filosofia">Filosofia</button>
+      <button class="mobile-link" data-section="metodologia">Metodologia</button>
+      <button class="mobile-link" data-section="calculadora">Calculadora</button>
+      <button class="mobile-link" data-section="planes">Planes</button>
+      <button class="mobile-link" data-section="ia-bot">IronQx Assistant</button>
+      <button class="mobile-link" data-section="tecnologia">Tecnologia</button>
+      <button class="mobile-link" data-section="contacto">Contacto</button>
+      <a href="https://wa.me/593984490998" target="_blank" rel="noopener noreferrer" class="mobile-wa-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+        Chatear
+      </a>
+    </div>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="hero">
+    <div class="hero-gradient"></div>
+    <div class="hero-grid">
+      <!-- Content -->
+      <div class="hero-content">
+        <div class="reveal">
+          <div class="hero-label">
+            <div class="hero-label-line"></div>
+            <span class="hero-label-text">Medicina del Rendimiento Corporal</span>
+          </div>
+
+          <h1>
+            No necesitas otro plan generico.
+            <span>Necesitas un protocolo clinico.</span>
+          </h1>
+
+          <p class="hero-desc">
+            Protocolos clinicos de composicion corporal disenados por un medico que compite.
+            50+ transformaciones documentadas. Sin improvisacion, sin plantillas. Solo ciencia aplicada a tu biologia.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="btn-gold btn-lift">
+              Aplicar ahora
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <button class="btn-outline" onclick="document.getElementById('planes').scrollIntoView({behavior:'smooth'})">
+              Ver planes
+            </button>
+          </div>
+
+          <div class="hero-stats">
+            <div class="reveal stagger-1">
+              <div class="hero-stat-num">50+</div>
+              <div class="hero-stat-label">Transformaciones</div>
+            </div>
+            <div class="reveal stagger-2">
+              <div class="hero-stat-num">15</div>
+              <div class="hero-stat-label">Cupos mensuales</div>
+            </div>
+            <div class="reveal stagger-3">
+              <div class="hero-stat-num">24/7</div>
+              <div class="hero-stat-label">Asistente IA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div class="hero-visual">
+        <div class="hero-visual-bg"></div>
+        <div class="hero-visual-fade"></div>
+        <img src="images/hero-main.jpeg" alt="Dr. Daniel Arevalo - Medico y Atleta" />
+        <div class="hero-badge">
+          <div class="hero-badge-num">50+</div>
+          <div class="hero-badge-text">Transformaciones en 12 meses</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STATS BAR ==================== -->
+  <div class="stats-bar" id="statsBar">
+    <div class="stats-inner">
+      <div class="stats-grid">
+        <div class="reveal">
+          <div class="stat-number" data-count="50" data-suffix="+">0+</div>
+          <div class="stat-label">Transformaciones</div>
+        </div>
+        <div class="reveal stagger-1">
+          <div class="stat-number" data-count="15" data-suffix="">0</div>
+          <div class="stat-label">Cupos mensuales</div>
+        </div>
+        <div class="reveal stagger-2">
+          <div class="stat-number" data-count="100" data-suffix="%">0%</div>
+          <div class="stat-label">Protocolos unicos</div>
+        </div>
+        <div class="reveal stagger-3">
+          <div class="stat-number" data-no-count="true">24/7</div>
+          <div class="stat-label">IronQx Assistant activo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== GALLERY STRIP ==================== -->
+  <div class="gallery-strip">
+    <div class="gallery-item">
+      <img src="images/gallery-1.jpeg" alt="Entrenamiento de elite" />
+      <div class="gallery-item-overlay"></div>
+      <div class="gallery-item-label">Entrenamiento de elite</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery-2.jpeg" alt="Top 2 Mr. Ecuador" />
+      <div class="gallery-item-overlay"></div>
+      <div class="gallery-item-label">Top 2 Mr. Ecuador</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery-3.jpeg" alt="Medico Nutricionista" />
+      <div class="gallery-item-overlay"></div>
+      <div class="gallery-item-label">Medico Nutricionista</div>
+    </div>
+  </div>
+
+  <!-- ==================== FILOSOFIA ==================== -->
+  <section id="filosofia" class="section filosofia">
+    <div class="filosofia-gradient"></div>
+    <div class="section-inner">
+      <div class="filosofia-grid">
+        <!-- Photos -->
+        <div class="reveal">
+          <div class="photo-grid">
+            <div class="photo-large">
+              <img src="images/about-large.jpeg" alt="Dr. Daniel Arevalo" />
+            </div>
+            <div class="photo-small">
+              <img src="images/about-small-1.jpeg" alt="Dr. Daniel Arevalo - Entrenamiento" />
+            </div>
+            <div class="photo-small">
+              <img src="images/about-small-2.jpeg" alt="Dr. Daniel Arevalo - Competicion" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="reveal">
+          <div class="section-label-left">
+            <div class="section-label-line" style="width:32px"></div>
+            <span class="section-label-text">Quien esta detras</span>
+          </div>
+
+          <h2>Medico. <em>Atleta.</em><br>Cientifico del Cuerpo.</h2>
+
+          <div class="bio-text">
+            <p>
+              Soy el Dr. Daniel Arevalo. Medico graduado de la Universidad de Cuenca,
+              master en Nutricion Clinica y Deportiva, especialista en Biomecanica del Ejercicio.
+              Campeon Mr. Cuenca y Top 2 Mr. Ecuador.
+            </p>
+            <p>
+              Mi trabajo es diferente porque no delego en asistentes. Cada protocolo lo diseno yo,
+              cada ajuste pasa por mi criterio medico. No vendo motivacion. Vendo
+              <strong>control biologico documentado</strong>.
+            </p>
+            <p>
+              Por eso trabajo solo con 15 personas simultaneamente. La calidad clinica no escala.
+            </p>
+          </div>
+
+          <ul class="cred-list">
+            <li><span class="cred-bullet">&#10022;</span> Medico - Universidad de Cuenca</li>
+            <li><span class="cred-bullet">&#10022;</span> Master en Nutricion Clinica y Deportiva</li>
+            <li><span class="cred-bullet">&#10022;</span> Especialista en Biomecanica del Ejercicio</li>
+            <li><span class="cred-bullet">&#10022;</span> Campeon Mr. Cuenca / Top 2 Mr. Ecuador</li>
+            <li><span class="cred-bullet">&#10022;</span> 10+ anos experiencia en fitness competitivo</li>
+            <li><span class="cred-bullet">&#10022;</span> Desarrollador de la plataforma app.ironqx.fit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== METODOLOGIA ==================== -->
+  <section id="metodologia" class="section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Metodologia</span>
+          <div class="section-label-line"></div>
+        </div>
+        <h2>Cuatro pilares. <em>Cero improvisacion.</em></h2>
+        <p class="section-desc">
+          Cada protocolo se construye desde la interseccion entre medicina, fisiologia y rendimiento.
+          No hay plantillas. Cada cuerpo es un caso clinico unico.
+        </p>
+      </div>
+
+      <div class="method-grid">
+        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0s">
+          <div class="method-card-bar"></div>
+          <div class="method-num">01</div>
+          <div class="method-title">Nutricion Estrategica</div>
+          <p class="method-desc">Estructuracion alimentaria con equivalencias calculadas y macros precisos. Adaptacion metabolica real segun composicion corporal, contexto hormonal y adherencia medida.</p>
+        </div>
+        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.1s">
+          <div class="method-card-bar"></div>
+          <div class="method-num">02</div>
+          <div class="method-title">Entrenamiento Estructurado</div>
+          <p class="method-desc">Programacion basada en principios cientificos de hipertrofia, biomecanica avanzada y progresion de carga verificable. Volumen e intensidad periodizados en fases medibles.</p>
+        </div>
+        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.2s">
+          <div class="method-card-bar"></div>
+          <div class="method-num">03</div>
+          <div class="method-title">Suplementacion Racional</div>
+          <p class="method-desc">Solo lo que aporta valor fisiologico demostrable. Justificacion cientifica para cada intervencion. Cero marketing de suplementos innecesarios.</p>
+        </div>
+        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.3s">
+          <div class="method-card-bar"></div>
+          <div class="method-num">04</div>
+          <div class="method-title">Quimica con Criterio Medico</div>
+          <p class="method-desc">En casos avanzados: evaluacion de riesgos, monitoreo hematologico completo y toma de decisiones informada. Etica medica por encima de cualquier resultado inmediato.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CALCULADORA ==================== -->
+  <section id="calculadora" class="section calculadora">
+    <div class="calculadora-gradient"></div>
+    <div class="section-inner" style="position:relative;z-index:10">
+      <div class="section-header reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Calculadora Fitness</span>
+          <div class="section-label-line"></div>
+        </div>
+        <h2>Conoce tus numeros. <em>Optimiza tu protocolo.</em></h2>
+        <p class="section-desc">
+          Calcula tu IMC, metabolismo basal con la formula de Mifflin-St Jeor y
+          calorias recomendadas segun tu objetivo. Datos precisos para decisiones informadas.
+        </p>
+      </div>
+
+      <div class="reveal">
+        <div class="calc-grid">
+          <!-- Input Form -->
+          <div class="calc-card">
+            <div class="calc-card-header">
+              <div class="calc-card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+                Datos Personales
+              </div>
+            </div>
+            <div class="calc-card-body">
+              <div class="form-row">
+                <div>
+                  <label class="form-label">Peso (kg)</label>
+                  <input type="number" class="form-input" id="calcWeight" value="70" />
+                </div>
+                <div>
+                  <label class="form-label">Altura (cm)</label>
+                  <input type="number" class="form-input" id="calcHeight" value="170" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label class="form-label">Edad</label>
+                  <input type="number" class="form-input" id="calcAge" value="30" />
+                </div>
+                <div>
+                  <label class="form-label">Genero</label>
+                  <select class="form-select" id="calcGender">
+                    <option value="male">Masculino</option>
+                    <option value="female">Femenino</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Nivel de Actividad</label>
+                <select class="form-select" id="calcActivity">
+                  <option value="1.2">Sedentario (poco o ningun ejercicio)</option>
+                  <option value="1.375" selected>Ligero (ejercicio 1-3 dias/semana)</option>
+                  <option value="1.55">Moderado (ejercicio 3-5 dias/semana)</option>
+                  <option value="1.725">Activo (ejercicio 6-7 dias/semana)</option>
+                  <option value="1.9">Muy activo (ejercicio fisico intenso)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Objetivo</label>
+                <select class="form-select" id="calcGoal">
+                  <option value="lose">Perdida de grasa (-500 kcal)</option>
+                  <option value="maintain" selected>Mantenimiento</option>
+                  <option value="gain">Ganancia muscular (+300 kcal)</option>
+                </select>
+              </div>
+              <button class="calc-submit btn-lift" id="calcBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+                Calcular Mi Protocolo
+              </button>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div class="calc-card results-card results-hidden" id="calcResults">
+            <div class="calc-card-header">
+              <div class="calc-card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                Tus Resultados
+              </div>
+            </div>
+            <div class="calc-card-body">
+              <!-- BMI -->
+              <div class="result-box">
+                <div class="result-row">
+                  <span class="result-label">IMC (Indice de Masa Corporal)</span>
+                  <span class="result-badge" id="bmiBadge">-</span>
+                </div>
+                <div class="result-value gold-text" id="bmiValue">-</div>
+                <div class="result-bar-track">
+                  <div class="result-bar-fill" id="bmiBar" style="width:0%;background:linear-gradient(to right,#3b82f6,#22c55e,#ef4444)"></div>
+                </div>
+              </div>
+
+              <!-- Calories Grid -->
+              <div class="cals-grid">
+                <div class="cal-box">
+                  <div class="cal-box-label">Metabolismo Basal</div>
+                  <div class="cal-box-value" style="color:var(--silver)" id="bmrValue">-</div>
+                  <div class="cal-box-unit">kcal/dia</div>
+                </div>
+                <div class="cal-box">
+                  <div class="cal-box-label">Calorias Totales</div>
+                  <div class="cal-box-value" style="color:var(--gold)" id="tdeeValue">-</div>
+                  <div class="cal-box-unit">kcal/dia</div>
+                </div>
+              </div>
+
+              <!-- Target -->
+              <div class="target-box">
+                <div class="target-header">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                  <span id="goalLabel">-</span>
+                </div>
+                <div class="target-value gold-text" id="targetValue">-</div>
+                <div class="target-unit">kcal recomendadas por dia</div>
+              </div>
+
+              <!-- Macros -->
+              <div>
+                <div class="macro-section-label">Distribucion de Macronutrientes</div>
+                <div class="macro-row">
+                  <div class="macro-row-header">
+                    <span style="color:var(--silver)">Proteinas</span>
+                    <span style="color:var(--gold)" id="proteinVal">-</span>
+                  </div>
+                  <div class="macro-bar-track">
+                    <div class="macro-bar-fill" id="proteinBar" style="width:0%;background:var(--gold)"></div>
+                  </div>
+                </div>
+                <div class="macro-row">
+                  <div class="macro-row-header">
+                    <span style="color:var(--silver)">Carbohidratos</span>
+                    <span style="color:var(--silver)" id="carbsVal">-</span>
+                  </div>
+                  <div class="macro-bar-track">
+                    <div class="macro-bar-fill" id="carbsBar" style="width:0%;background:var(--silver)"></div>
+                  </div>
+                </div>
+                <div class="macro-row">
+                  <div class="macro-row-header">
+                    <span style="color:var(--silver)">Grasas</span>
+                    <span style="color:var(--gold-dk)" id="fatsVal">-</span>
+                  </div>
+                  <div class="macro-bar-track">
+                    <div class="macro-bar-fill" id="fatsBar" style="width:0%;background:var(--gold-dk)"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc-footer">* Calculos basados en la formula de Mifflin-St Jeor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PLANES ==================== -->
+  <section id="planes" class="section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Inversion</span>
+          <div class="section-label-line"></div>
+        </div>
+        <h2>Planes por nivel de <em>intervencion</em></h2>
+        <p class="section-desc">
+          Modalidad hibrida: seguimiento principalmente online via app propietaria + sesiones presenciales.
+          Todos incluyen acceso al IronQx Assistant 24/7 y a la plataforma Iron QX.
+        </p>
+      </div>
+
+      <div class="plans-scroll scrollbar-hide">
+        <!-- Balance -->
+        <div class="reveal plan-card card-hover touch-scale" style="transition-delay:0s">
+          <div class="plan-icon">&#128154;</div>
+          <h3 class="plan-name">Balance</h3>
+          <div class="plan-price">$45<span class="plan-price-unit">/mes</span></div>
+          <p class="plan-desc">Para personas nuevas o que buscan recomposicion corporal solida. El inicio correcto.</p>
+          <ul class="plan-features">
+            <li><span>&mdash;</span> Plan de entrenamiento personalizado</li>
+            <li><span>&mdash;</span> Nutricion estructurada (macros y equivalencias)</li>
+            <li><span>&mdash;</span> 1 sesion presencial semanal (4/mes)</li>
+            <li><span>&mdash;</span> Controles quincenales de progreso</li>
+            <li><span>&mdash;</span> Acceso a app Iron QX</li>
+            <li><span>&mdash;</span> IronQx Assistant 24/7 en WhatsApp</li>
+          </ul>
+          <a href="https://wa.me/593984490998?text=Hola,%20me%20interesa%20el%20plan%20BALANCE" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-outline">Seleccionar Balance</a>
+        </div>
+
+        <!-- Forged -->
+        <div class="reveal plan-card featured touch-scale" style="transition-delay:0.1s">
+          <div class="plan-badge">Mas Elegido</div>
+          <div class="plan-icon">&#128293;</div>
+          <h3 class="plan-name">Forged</h3>
+          <div class="plan-price">$60<span class="plan-price-unit">/mes</span></div>
+          <p class="plan-desc">Para atletas con objetivos claros y alto compromiso. Maxima frecuencia de ajustes.</p>
+          <ul class="plan-features">
+            <li><span>&mdash;</span> Plan de entrenamiento avanzado</li>
+            <li><span>&mdash;</span> Nutricion periodizada por fases</li>
+            <li><span>&mdash;</span> 6 sesiones presenciales/mes</li>
+            <li><span>&mdash;</span> Controles semanales de progreso</li>
+            <li><span>&mdash;</span> Acceso prioritario a app + IronQx Assistant</li>
+            <li><span>&mdash;</span> Ajustes de protocolo en tiempo real</li>
+            <li><span>&mdash;</span> Preparacion para competicion</li>
+          </ul>
+          <a href="https://wa.me/593984490998?text=Hola,%20me%20interesa%20el%20plan%20FORGED" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-filled">Seleccionar Forged</a>
+        </div>
+
+        <!-- Restore -->
+        <div class="reveal plan-card card-hover touch-scale" style="transition-delay:0.2s">
+          <div class="plan-icon">&#127973;</div>
+          <h3 class="plan-name">Restore</h3>
+          <div class="plan-price">$75<span class="plan-price-unit">/mes</span></div>
+          <p class="plan-desc">Para personas con patologias que requieren supervision medica integral y criterio clinico.</p>
+          <ul class="plan-features">
+            <li><span>&mdash;</span> Consultas medicas incluidas</li>
+            <li><span>&mdash;</span> Plan nutricional adaptado clinicamente</li>
+            <li><span>&mdash;</span> 6 sesiones/mes coordinadas</li>
+            <li><span>&mdash;</span> Evaluacion de riesgos metabolicos</li>
+            <li><span>&mdash;</span> Coordinacion con especialistas</li>
+            <li><span>&mdash;</span> Enfoque integral salud + composicion</li>
+          </ul>
+          <a href="https://wa.me/593984490998?text=Hola,%20me%20interesa%20el%20plan%20RESTORE" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-outline">Seleccionar Restore</a>
+        </div>
+      </div>
+
+      <!-- Scroll dots mobile -->
+      <div class="scroll-dots">
+        <div class="scroll-dot" style="background:rgba(212,175,55,0.3)"></div>
+        <div class="scroll-dot" style="background:var(--gold)"></div>
+        <div class="scroll-dot" style="background:rgba(212,175,55,0.3)"></div>
+      </div>
+
+      <!-- Forged X -->
+      <div class="reveal forged-x">
+        <div class="forged-x-icon">&#9889;</div>
+        <div>
+          <div class="forged-x-title">Forged X</div>
+          <p class="forged-x-desc">
+            Complemento exclusivo para pacientes Forged con protocolos de quimica deportiva.
+            Supervision medica directa: evaluacion de riesgos, monitoreo hematologico y toma de decisiones informada.
+            <strong>Disponibilidad limitada - consultar directamente.</strong>
+          </p>
+        </div>
+        <div class="forged-x-price">+$15<span>/mes</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== IA BOT ==================== -->
+  <section id="ia-bot" class="section ia-bot">
+    <div class="ia-bot-gradient"></div>
+    <div class="section-inner">
+      <div class="ia-bot-grid">
+        <!-- Left -->
+        <div class="reveal">
+          <div class="section-label-left">
+            <div class="section-label-line" style="width:32px"></div>
+            <span class="section-label-text">IronQx Assistant</span>
+          </div>
+
+          <h2>Tu guia inteligente.<br><em>Disponible siempre.</em></h2>
+
+          <p class="ia-bot-desc">
+            IronQx Assistant es un asistente de inteligencia artificial configurado con toda la metodologia,
+            filosofia y precision clinica de IronQx. No es un chatbot generico: fue construido desde adentro
+            para responder preguntas de nutricion, entrenamiento, suplementacion y seguimiento de protocolo
+            con el mismo rigor que yo aplicaria - disponible las 24 horas, los 7 dias.
+          </p>
+
+          <div style="margin-bottom:32px">
+            <!-- Brain -->
+            <div class="ia-feat-card touch-scale">
+              <div class="ia-feat-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M12 18v-5"/></svg>
+              </div>
+              <div>
+                <div class="ia-feat-title">Nutricion personalizada al instante</div>
+                <p class="ia-feat-desc">Resuelve dudas sobre macros, equivalencias, timing de comidas y adaptaciones segun tu protocolo actual.</p>
+              </div>
+            </div>
+            <!-- Dumbbell -->
+            <div class="ia-feat-card touch-scale">
+              <div class="ia-feat-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="m21.5 21.5-1.4-1.4"/><path d="M3.9 3.9 2.5 2.5"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/></svg>
+              </div>
+              <div>
+                <div class="ia-feat-title">Guia de entrenamiento 24/7</div>
+                <p class="ia-feat-desc">Orientacion sobre ejecucion, progresiones, volumen y ajustes de carga basados en biomecanica.</p>
+              </div>
+            </div>
+            <!-- BarChart3 -->
+            <div class="ia-feat-card touch-scale">
+              <div class="ia-feat-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+              </div>
+              <div>
+                <div class="ia-feat-title">Seguimiento de pacientes activos</div>
+                <p class="ia-feat-desc">Los pacientes en protocolo pueden consultar y reportar en cualquier momento del dia.</p>
+              </div>
+            </div>
+            <!-- Users -->
+            <div class="ia-feat-card touch-scale">
+              <div class="ia-feat-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <div class="ia-feat-title">Admision y ventas inteligente</div>
+                <p class="ia-feat-desc">Resuelve dudas sobre planes y coordina tu proceso de aplicacion antes de comprometerte.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/593984490998?text=Hola%20IronQx%20Assistant,%20quiero%20empezar" target="_blank" rel="noopener noreferrer" class="btn-green btn-lift">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            Hablar con IronQx Assistant
+          </a>
+
+          <div class="ia-info-box">
+            <p>
+              <strong>Libre y gratuito para todos.</strong> Disponible en WhatsApp
+              para pacientes activos y para cualquier persona que quiera conocer el metodo, resolver dudas
+              o iniciar su admision - sin costo, sin compromiso, a cualquier hora.
+            </p>
+          </div>
+        </div>
+
+        <!-- Chat Mockup -->
+        <div class="reveal">
+          <div class="chat-mockup">
+            <div class="chat-header">
+              <div class="chat-avatar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+              </div>
+              <div>
+                <div class="chat-name">IronQx Assistant</div>
+                <div class="chat-status">&#9679; En linea ahora</div>
+              </div>
+            </div>
+            <div class="chat-body">
+              <div class="chat-msg chat-msg-bot">
+                <p>Hola &#128075; Soy <strong>IronQx Assistant</strong>. Puedo ayudarte con nutricion,
+                entrenamiento o tus dudas sobre los planes. &iquest;En que te ayudo?</p>
+                <span class="chat-time">9:01 am &#10003;&#10003;</span>
+              </div>
+              <div class="chat-msg chat-msg-user">
+                <p>&iquest;Cuantas calorias debo comer si quiero ganar musculo sin ganar grasa?</p>
+                <span class="chat-time">9:02 am &#10003;&#10003;</span>
+              </div>
+              <div class="chat-msg chat-msg-bot">
+                <p>Excelente pregunta. Para recomposicion efectiva el superavit debe ser controlado:
+                150-300 kcal sobre tu mantenimiento. Lo clave no es solo el numero total, sino la
+                <strong>distribucion de macros</strong> y el timing. &iquest;Cuanto pesas y cuantos dias entrenas?</p>
+                <span class="chat-time">9:02 am &#10003;&#10003;</span>
+              </div>
+            </div>
+            <div class="chat-input-bar">
+              <div class="chat-input">Escribe tu pregunta...</div>
+              <div class="chat-send">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TECNOLOGIA ==================== -->
+  <section id="tecnologia" class="section">
+    <div class="section-inner">
+      <div class="tech-grid">
+        <!-- Left -->
+        <div class="reveal">
+          <div class="section-label-left">
+            <div class="section-label-line" style="width:32px"></div>
+            <span class="section-label-text">Tecnologia Propietaria</span>
+          </div>
+
+          <h2>La app que construi <em>yo mismo</em> para ti.</h2>
+
+          <p class="tech-desc">
+            No uso Excel ni plataformas genericas. Desarrolle <strong>app.ironqx.fit</strong> desde cero
+            para centralizar cada aspecto de tu protocolo: graficas de evolucion, metricas biometricas
+            en tiempo real, planes dinamicos y reportes clinicos exportables.
+          </p>
+
+          <div class="tech-quote">
+            <p>"La construi porque necesitaba una herramienta que manejara la complejidad de 15 pacientes
+            simultaneos sin perder la precision clinica que cada caso exige."</p>
+          </div>
+
+          <div>
+            <div class="tech-feat touch-scale">
+              <div class="tech-feat-dot"></div>
+              <div>
+                <div class="tech-feat-title">Graficas de Composicion Corporal</div>
+                <p class="tech-feat-desc">Visualizacion de evolucion de masa muscular, grasa y metricas biometricas semana a semana.</p>
+              </div>
+            </div>
+            <div class="tech-feat touch-scale">
+              <div class="tech-feat-dot"></div>
+              <div>
+                <div class="tech-feat-title">Ajustes de Protocolo en Tiempo Real</div>
+                <p class="tech-feat-desc">Modificaciones de nutricion y entrenamiento basadas en datos objetivos, sin esperar la proxima sesion.</p>
+              </div>
+            </div>
+            <div class="tech-feat touch-scale">
+              <div class="tech-feat-dot"></div>
+              <div>
+                <div class="tech-feat-title">Reportes Clinicos Exportables</div>
+                <p class="tech-feat-desc">Documentacion medica completa de tu proceso, ideal para consultas con otros especialistas.</p>
+              </div>
+            </div>
+            <div class="tech-feat touch-scale">
+              <div class="tech-feat-dot"></div>
+              <div>
+                <div class="tech-feat-title">Integracion con IronQx Assistant</div>
+                <p class="tech-feat-desc">El asistente IA opera en sinergia con tu perfil en la app para respuestas mas precisas y contextualizadas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- App Card -->
+        <div class="reveal">
+          <div class="app-card">
+            <div class="app-card-line"></div>
+            <div class="app-logo">
+              <img src="images/app-logo.webp" alt="IronQx App" />
+            </div>
+            <h3 class="app-title">
+              <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">app.ironqx.fit</a>
+            </h3>
+            <p class="app-subtitle">Plataforma Web Propietaria</p>
+            <div class="app-screens">
+              <div class="app-screen">
+                <div class="app-screen-label">Progreso</div>
+                <div class="app-screen-bars">
+                  <div class="app-bar-track"><div class="app-bar-fill" style="width:80%"></div></div>
+                  <div class="app-bar-track"><div class="app-bar-fill" style="width:65%"></div></div>
+                  <div class="app-bar-track"><div class="app-bar-fill" style="width:90%"></div></div>
+                </div>
+              </div>
+              <div class="app-screen">
+                <div class="app-screen-label">Macros</div>
+                <div class="app-screen-bars">
+                  <div class="app-bar-track"><div class="app-bar-fill" style="width:70%"></div></div>
+                  <div class="app-bar-track"><div class="app-bar-fill" style="width:85%"></div></div>
+                  <div class="app-bar-track"><div class="app-bar-fill" style="width:60%"></div></div>
+                </div>
+              </div>
+              <div class="app-screen">
+                <div class="app-screen-label">Peso</div>
+                <div class="app-screen-bars">
+                  <div class="app-bar-track"><div class="app-bar-fill" style="width:90%"></div></div>
+                  <div class="app-bar-track"><div class="app-bar-fill" style="width:75%"></div></div>
+                  <div class="app-bar-track"><div class="app-bar-fill" style="width:80%"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACTO ==================== -->
+  <section id="contacto" class="section contacto">
+    <div class="contacto-inner">
+      <div class="reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Admision</span>
+          <div class="section-label-line"></div>
+        </div>
+
+        <h2>Solo 15 cupos.<br><em>Un protocolo a la vez.</em></h2>
+
+        <p class="contacto-desc">
+          No trabajo con plantillas. Cada protocolo es disenado desde cero segun tu biologia,
+          tu historial y tus objetivos reales. La calidad clinica exige limitacion.
+        </p>
+
+        <div class="cupos-box">
+          <div class="cupos-num">15</div>
+          <div class="cupos-text">
+            <p class="cupos-text-sub">Cupos disponibles</p>
+            <p class="cupos-text-main">Por mes. Sin excepciones.</p>
+          </div>
+        </div>
+
+        <div class="contacto-buttons">
+          <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="btn-gold btn-lift">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            Aplicar por WhatsApp
+          </a>
+          <button class="btn-outline" onclick="document.getElementById('planes').scrollIntoView({behavior:'smooth'})">
+            Ver planes de inversion
+          </button>
+        </div>
+
+        <p class="contacto-note">Respuesta en menos de 24 horas. Evaluacion de compatibilidad sin compromiso.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="images/footer-logo.webp" alt="Iron QX" />
+            <span class="footer-brand-text">Iron<span style="color:var(--gold)">QX</span></span>
+          </div>
+          <p class="footer-desc">
+            Medicina del Rendimiento Corporal. Protocolos clinicos disenados por el Dr. Daniel Arevalo.
+            Cuenca, Ecuador.
+          </p>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Navegacion</h5>
+          <ul class="footer-links">
+            <li><a href="#filosofia">Filosofia</a></li>
+            <li><a href="#metodologia">Metodologia</a></li>
+            <li><a href="#calculadora">Calculadora</a></li>
+            <li><a href="#planes">Planes</a></li>
+            <li><a href="#ia-bot">IronQx Assistant</a></li>
+            <li><a href="#tecnologia">Tecnologia</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Contacto</h5>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/593984490998" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">App Iron QX</a></li>
+            <li><span>Cuenca, Ecuador</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Iron QX. Todos los derechos reservados.</p>
+        <p>Dr. Daniel Arevalo &mdash; Medico | Nutricionista | Atleta</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING ELEMENTS ==================== -->
+  <a href="https://wa.me/593984490998?text=Hola%20IronQx%20Assistant" target="_blank" rel="noopener noreferrer" class="floating-wa wa-halo">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+  </a>
+
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+  (function() {
+    'use strict';
+
+    // ===== ELEMENTS =====
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlayBg = document.getElementById('mobileOverlayBg');
+    const mobilePanel = document.getElementById('mobilePanel');
+
+    // ===== SCROLL HANDLER =====
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          const scrollY = window.scrollY;
+          if (scrollY > 50) {
+            navbar.classList.add('glass', 'scrolled');
+          } else {
+            navbar.classList.remove('glass', 'scrolled');
+          }
+          if (scrollY > 500) {
+            backToTop.classList.add('show', 'animate-slideInBottom');
+          } else {
+            backToTop.classList.remove('show', 'animate-slideInBottom');
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // ===== MOBILE MENU =====
+    function openMobileMenu() {
+      mobileMenu.classList.add('open');
+      menuIcon.style.display = 'none';
+      closeIcon.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      menuIcon.style.display = 'block';
+      closeIcon.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    hamburgerBtn.addEventListener('click', function() {
+      if (mobileMenu.classList.contains('open')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+    mobileOverlayBg.addEventListener('click', closeMobileMenu);
+
+    // Swipe to close
+    var touchStartX = 0;
+    mobilePanel.addEventListener('touchstart', function(e) {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    mobilePanel.addEventListener('touchend', function(e) {
+      var deltaX = e.changedTouches[0].clientX - touchStartX;
+      if (deltaX > 100) closeMobileMenu();
+    }, { passive: true });
+
+    // ===== NAV LINK CLICKS =====
+    function scrollToSection(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        closeMobileMenu();
+      }
+    }
+    document.querySelectorAll('[data-section]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        scrollToSection(this.getAttribute('data-section'));
+      });
+    });
+
+    // ===== INTERSECTION OBSERVER - REVEAL =====
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+
+    // ===== ACTIVE SECTION TRACKING =====
+    var sectionIds = ['filosofia', 'metodologia', 'calculadora', 'planes', 'ia-bot', 'tecnologia', 'contacto'];
+    var navLinkEls = document.querySelectorAll('.nav-link');
+
+    var sectionObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          navLinkEls.forEach(function(link) {
+            link.classList.remove('active');
+            if (link.getAttribute('data-section') === entry.target.id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-80px 0px -40% 0px' });
+
+    sectionIds.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) sectionObserver.observe(el);
+    });
+
+    // ===== COUNT UP ANIMATION =====
+    var statsAnimated = false;
+    var statsObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !statsAnimated) {
+          statsAnimated = true;
+          document.querySelectorAll('.stat-number[data-count]').forEach(function(el) {
+            var end = parseInt(el.getAttribute('data-count'));
+            var suffix = el.getAttribute('data-suffix') || '';
+            var start = 0;
+            var duration = 1500;
+            var increment = end / (duration / 16);
+            var timer = setInterval(function() {
+              start += increment;
+              if (start >= end) {
+                el.textContent = end + suffix;
+                clearInterval(timer);
+              } else {
+                el.textContent = Math.floor(start) + suffix;
+              }
+            }, 16);
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    var statsBar = document.getElementById('statsBar');
+    if (statsBar) statsObserver.observe(statsBar);
+
+    // ===== CALCULATOR =====
+    var calcBtn = document.getElementById('calcBtn');
+    var calcResults = document.getElementById('calcResults');
+
+    calcBtn.addEventListener('click', function() {
+      var weight = parseFloat(document.getElementById('calcWeight').value) || 70;
+      var height = parseFloat(document.getElementById('calcHeight').value) || 170;
+      var age = parseFloat(document.getElementById('calcAge').value) || 30;
+      var gender = document.getElementById('calcGender').value;
+      var activityLevel = parseFloat(document.getElementById('calcActivity').value);
+      var goal = document.getElementById('calcGoal').value;
+
+      // BMI
+      var heightM = height / 100;
+      var bmi = weight / (heightM * heightM);
+      var bmiCategory = '';
+      var bmiColor = '';
+      var bmiBorderColor = '';
+      if (bmi < 18.5) { bmiCategory = 'Bajo peso'; bmiColor = '#60a5fa'; bmiBorderColor = '#3b82f6'; }
+      else if (bmi < 25) { bmiCategory = 'Peso normal'; bmiColor = '#4ade80'; bmiBorderColor = '#22c55e'; }
+      else if (bmi < 30) { bmiCategory = 'Sobrepeso'; bmiColor = '#facc15'; bmiBorderColor = '#eab308'; }
+      else { bmiCategory = 'Obesidad'; bmiColor = '#f87171'; bmiBorderColor = '#ef4444'; }
+
+      // BMR (Mifflin-St Jeor)
+      var bmr;
+      if (gender === 'male') {
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+      } else {
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+      }
+
+      // TDEE
+      var tdee = bmr * activityLevel;
+
+      // Target calories
+      var targetCalories = tdee;
+      if (goal === 'lose') targetCalories = tdee - 500;
+      else if (goal === 'gain') targetCalories = tdee + 300;
+
+      // Macros
+      var protein = weight * (goal === 'gain' ? 2.2 : 2.0);
+      var fats = (targetCalories * 0.25) / 9;
+      var carbs = (targetCalories - (protein * 4) - (targetCalories * 0.25)) / 4;
+
+      // Round
+      bmi = Math.round(bmi * 10) / 10;
+      bmr = Math.round(bmr);
+      tdee = Math.round(tdee);
+      targetCalories = Math.round(targetCalories);
+      protein = Math.round(protein);
+      carbs = Math.round(carbs);
+      fats = Math.round(fats);
+
+      // Goal label
+      var goalLabel = '';
+      if (goal === 'lose') goalLabel = 'Perdida de grasa';
+      else if (goal === 'maintain') goalLabel = 'Mantenimiento';
+      else goalLabel = 'Ganancia muscular';
+
+      // Update DOM
+      document.getElementById('bmiValue').textContent = bmi;
+      var bmiBadge = document.getElementById('bmiBadge');
+      bmiBadge.textContent = bmiCategory;
+      bmiBadge.style.color = bmiColor;
+      bmiBadge.style.borderColor = bmiBorderColor;
+      document.getElementById('bmiBar').style.width = Math.min((bmi / 40) * 100, 100) + '%';
+      document.getElementById('bmrValue').textContent = bmr;
+      document.getElementById('tdeeValue').textContent = tdee;
+      document.getElementById('goalLabel').textContent = 'Objetivo: ' + goalLabel;
+      document.getElementById('targetValue').textContent = targetCalories;
+      document.getElementById('proteinVal').textContent = protein + 'g';
+      document.getElementById('carbsVal').textContent = carbs + 'g';
+      document.getElementById('fatsVal').textContent = fats + 'g';
+
+      // Macro bars proportional
+      var total = protein + carbs + fats;
+      if (total > 0) {
+        document.getElementById('proteinBar').style.width = ((protein / total) * 100) + '%';
+        document.getElementById('carbsBar').style.width = ((carbs / total) * 100) + '%';
+        document.getElementById('fatsBar').style.width = ((fats / total) * 100) + '%';
+      }
+
+      // Show results
+      calcResults.classList.remove('results-hidden');
+      calcResults.classList.add('results-visible', 'animate-fadeInUp');
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
