@@ -198,9 +198,9 @@
     .hero-badge { position: absolute; bottom: 20px; left: 16px; z-index: 20; margin-top: 0; background: rgba(8,8,8,0.92); border: 1px solid rgba(212,175,55,0.4); padding: 16px 20px; backdrop-filter: blur(8px); display: inline-block; min-width: 220px; max-width: 80vw; }
     @media (min-width: 1024px) { .hero-badge { bottom: 40px; left: 0; padding: 20px 24px; min-width: 260px; max-width: 340px; } }
     .hero-badge-label { font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.25em; margin-bottom: 8px; opacity: 0.8; }
-    .hero-badge-typewriter { font-size: 1rem; font-family: 'Cormorant Garamond', serif; color: var(--silver); line-height: 1.4; min-height: 2.8em; display: flex; align-items: flex-start; }
+    .hero-badge-typewriter { font-size: 1rem; font-family: 'Cormorant Garamond', serif; color: var(--silver); line-height: 1.4; min-height: 2.8em; display: block; }
     @media (min-width: 640px) { .hero-badge-typewriter { font-size: 1.125rem; } }
-    .badge-cursor { display: inline-block; color: var(--gold); animation: blink-cursor 0.75s step-end infinite; margin-left: 1px; font-weight: 300; }
+    .badge-cursor { display: inline; color: var(--gold); animation: blink-cursor 0.75s step-end infinite; margin-left: 1px; font-weight: 300; }
     @keyframes blink-cursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
     /* Stats Bar */
@@ -531,18 +531,124 @@
     @media (min-width: 1024px) { .contacto h2 { font-size: 2.75rem; margin-bottom: 24px; } }
     .contacto-desc { color: var(--muted); margin-bottom: 32px; max-width: 32rem; margin-left: auto; margin-right: auto; font-size: 0.95rem; line-height: 1.7; }
     @media (min-width: 640px) { .contacto-desc { font-size: 1rem; margin-bottom: 36px; } }
-    .cupos-box { background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); padding: 24px; margin-bottom: 32px; display: inline-flex; flex-direction: column; align-items: center; gap: 16px; border-radius: 12px; }
-    @media (min-width: 640px) { .cupos-box { padding: 28px; gap: 20px; } }
-    @media (min-width: 768px) { .cupos-box { flex-direction: row; padding: 32px; gap: 24px; } }
-    .cupos-num { font-size: 3rem; font-family: 'Cormorant Garamond', serif; color: var(--gold); }
-    @media (min-width: 640px) { .cupos-num { font-size: 3.5rem; } }
-    @media (min-width: 768px) { .cupos-num { font-size: 3.75rem; } }
-    .cupos-text { text-align: center; }
-    @media (min-width: 768px) { .cupos-text { text-align: left; } }
-    .cupos-text-sub { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
-    @media (min-width: 640px) { .cupos-text-sub { font-size: 12px; } }
-    .cupos-text-main { font-size: 1.125rem; font-family: 'Cormorant Garamond', serif; color: var(--silver); }
-    @media (min-width: 640px) { .cupos-text-main { font-size: 1.25rem; } }
+    /* ── Cupos Badge ── */
+    @keyframes cupos-pulse-border { 0%, 100% { box-shadow: 0 0 0 0 rgba(212,175,55,0.35), inset 0 0 0 0 rgba(212,175,55,0); } 50% { box-shadow: 0 0 24px 4px rgba(212,175,55,0.18), inset 0 0 0 0 rgba(212,175,55,0); } }
+    @keyframes live-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
+    @keyframes cupos-count { from { opacity: 0; transform: translateY(12px) scale(0.85); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes bar-fill { from { width: 0; } to { width: var(--bar-w); } }
+
+    .cupos-box {
+      background: linear-gradient(135deg, rgba(212,175,55,0.07) 0%, rgba(212,175,55,0.03) 100%);
+      border: 1px solid rgba(212,175,55,0.35);
+      padding: 28px 24px;
+      margin: 0 auto 32px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      animation: cupos-pulse-border 3s ease-in-out infinite;
+      width: 100%;
+      max-width: 520px;
+    }
+    .cupos-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.6), transparent);
+    }
+
+    /* Live badge */
+    .cupos-live {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .cupos-live-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #f87171;
+      animation: live-dot 1.4s ease-in-out infinite;
+      box-shadow: 0 0 6px rgba(248,113,113,0.7);
+    }
+
+    /* Main counter row */
+    .cupos-main-row {
+      display: flex; align-items: center; gap: 20px;
+    }
+    .cupos-num-wrap { position: relative; text-align: center; }
+    .cupos-num {
+      font-size: 5rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+      animation: cupos-count 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    @media (min-width: 640px) { .cupos-num { font-size: 6rem; } }
+    .cupos-num-label {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-top: 4px;
+    }
+    .cupos-divider {
+      width: 1px; height: 64px;
+      background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.3), transparent);
+    }
+    .cupos-info { text-align: left; }
+    .cupos-info-title {
+      font-size: 1.1rem; font-family: 'Cormorant Garamond', serif;
+      color: var(--silver); margin-bottom: 6px; line-height: 1.3;
+    }
+    @media (min-width: 640px) { .cupos-info-title { font-size: 1.25rem; } }
+    .cupos-social-proof {
+      font-size: 12px; color: var(--gold); opacity: 0.8;
+      display: flex; align-items: center; gap: 6px; margin-top: 4px;
+    }
+    .cupos-social-proof svg { flex-shrink: 0; }
+
+    /* Slot dots grid */
+    .cupos-slots {
+      display: flex; flex-wrap: wrap; gap: 7px;
+      justify-content: center; width: 100%;
+    }
+    .cupos-slot {
+      width: 18px; height: 18px; border-radius: 4px;
+      transition: transform 0.2s ease;
+    }
+    .cupos-slot.taken {
+      background: var(--gold);
+      opacity: 0.75;
+      box-shadow: 0 1px 4px rgba(212,175,55,0.3);
+    }
+    .cupos-slot.available {
+      background: transparent;
+      border: 1px solid rgba(212,175,55,0.35);
+    }
+    .cupos-slot.available:hover { transform: scale(1.2); border-color: var(--gold); }
+
+    /* Urgency bar */
+    .cupos-bar-wrap { width: 100%; }
+    .cupos-bar-labels {
+      display: flex; justify-content: space-between;
+      font-size: 10px; color: var(--muted); letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .cupos-bar-track {
+      width: 100%; height: 4px; border-radius: 2px;
+      background: rgba(255,255,255,0.06); overflow: hidden;
+    }
+    .cupos-bar-fill {
+      height: 100%; border-radius: 2px;
+      background: linear-gradient(90deg, var(--gold-dk), var(--gold), #f59e0b);
+      --bar-w: 60%;
+      width: var(--bar-w);
+      animation: bar-fill 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+    }
+
+    /* Legacy compat — remove old text classes */
+    .cupos-text, .cupos-text-sub, .cupos-text-main { display: none; }
     .contacto-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
     .contacto-note { color: var(--muted); font-size: 13px; margin-top: 24px; }
     @media (min-width: 640px) { .contacto-note { font-size: 14px; margin-top: 28px; } }
@@ -709,7 +815,7 @@
         <div class="hero-visual-fade"></div>
         <img src="images/hero-main.jpeg" alt="Dr. Daniel Arevalo - Medico y Atleta" loading="eager" />
         <div class="hero-badge reveal stagger-2" id="heroBadge">
-          <div class="hero-badge-label">Hola! Soy el Dr. Arevalo</div>
+          <div class="hero-badge-label">Hola! Soy el Dr. Daniel Arevalo</div>
           <div class="hero-badge-typewriter" id="badgeTypewriter"><span id="badgeText"></span><span class="badge-cursor">|</span></div>
         </div>
       </div>
@@ -755,7 +861,7 @@
     <div class="gallery-item touch-scale">
       <img src="images/gallery-3.jpeg" alt="Medico Nutricionista" loading="lazy" />
       <div class="gallery-item-overlay"></div>
-      <div class="gallery-item-label">Medico Nutricionista</div>
+      <div class="gallery-item-label">Medico Experto en Fitness</div>
     </div>
   </div>
 
@@ -789,11 +895,11 @@
           <div class="bio-text">
             <p>
               Soy el Dr. Daniel Arevalo. Medico graduado de la Universidad de Cuenca,
-              master en Nutricion Clinica y Deportiva, especialista en Biomecanica del Ejercicio.
+              master en Nutricion Clinica y Deportiva por la Universidad Autonoma de Chile, especialista en Biomecanica del Ejercicio.
               Campeon Mr. Cuenca y Top 2 Mr. Ecuador.
             </p>
             <p>
-              Mi trabajo es diferente porque no delego en asistentes. Cada protocolo lo diseno yo,
+              Mi trabajo es diferente porque no delego en asistentes. Cada protocolo lo diseño yo,
               cada ajuste pasa por mi criterio medico. No vendo motivacion. Vendo
               <strong>control biologico documentado</strong>.
             </p>
@@ -1247,7 +1353,7 @@
               <div class="tech-feat-dot"></div>
               <div>
                 <div class="tech-feat-title">Graficas de Composicion Corporal</div>
-                <p class="tech-feat-desc">Visualizacion de evolucion de masa muscular, grasa y metricas biometricas semana a semana.</p>
+                <p class="tech-feat-desc">Visualizacion de evolucion de masa muscular, grasa y metricas evolutivas semana a semana.</p>
               </div>
             </div>
             <div class="tech-feat touch-scale">
@@ -1388,12 +1494,45 @@
           tu historial y tus objetivos reales. La calidad clinica exige limitacion.
         </p>
 
-        <div class="cupos-box">
-          <div class="cupos-num">15</div>
-          <div class="cupos-text">
-            <p class="cupos-text-sub">Cupos disponibles</p>
-            <p class="cupos-text-main">Por mes. Sin excepciones.</p>
+        <div class="cupos-box" id="cuposBox">
+
+          <!-- Live indicator -->
+          <div class="cupos-live">
+            <div class="cupos-live-dot"></div>
+            <span>Actualizado en tiempo real</span>
           </div>
+
+          <!-- Main counter -->
+          <div class="cupos-main-row">
+            <div class="cupos-num-wrap">
+              <span class="cupos-num" id="cuposNum">6</span>
+              <div class="cupos-num-label">disponibles</div>
+            </div>
+            <div class="cupos-divider"></div>
+            <div class="cupos-info">
+              <div class="cupos-info-title">de 15 cupos<br>por mes.</div>
+              <div class="cupos-social-proof">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                9 pacientes activos este mes
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual slot grid -->
+          <div class="cupos-slots" id="cuposSlots"></div>
+
+          <!-- Urgency bar -->
+          <div class="cupos-bar-wrap">
+            <div class="cupos-bar-labels">
+              <span>0 cupos</span>
+              <span style="color:var(--gold);font-weight:600">⚡ Solo quedan 6</span>
+              <span>15 cupos</span>
+            </div>
+            <div class="cupos-bar-track">
+              <div class="cupos-bar-fill"></div>
+            </div>
+          </div>
+
         </div>
 
         <div class="contacto-buttons">
@@ -1451,7 +1590,7 @@
 
       <div class="footer-bottom">
         <p>&copy; 2026 Iron QX. Todos los derechos reservados.</p>
-        <p>Dr. Daniel Arevalo &mdash; Medico | Nutricionista | Atleta</p>
+        <p>Dr. Daniel Arevalo &mdash; Medico | Nutriologo | Atleta</p>
       </div>
     </div>
   </footer>
@@ -1830,7 +1969,68 @@
       setTimeout(type, 1200);
     })();
 
-    // ==================== INITIAL ANIMATIONS ====================
+    // ==================== CUPOS COUNTER ====================
+    (function() {
+      const TOTAL = 15;
+      const TAKEN = 9;
+      const AVAILABLE = TOTAL - TAKEN;
+
+      // Build slot grid
+      const slotsEl = document.getElementById('cuposSlots');
+      if (slotsEl) {
+        for (let i = 0; i < TOTAL; i++) {
+          const dot = document.createElement('div');
+          dot.className = 'cupos-slot ' + (i < TAKEN ? 'taken' : 'available');
+          if (i >= TAKEN) {
+            dot.title = 'Cupo disponible';
+          }
+          slotsEl.appendChild(dot);
+        }
+      }
+
+      // Animate counter from 15 down to AVAILABLE when section enters view
+      const numEl = document.getElementById('cuposNum');
+      const boxEl = document.getElementById('cuposBox');
+      if (!numEl || !boxEl) return;
+
+      numEl.textContent = TOTAL;
+      let animated = false;
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !animated) {
+            animated = true;
+            let current = TOTAL;
+            const duration = 900; // ms
+            const steps = TOTAL - AVAILABLE;
+            const interval = duration / steps;
+
+            numEl.textContent = current;
+
+            const countdown = setInterval(() => {
+              current--;
+              numEl.textContent = current;
+
+              // Flash gold on each decrement
+              numEl.style.transition = 'color 0.1s ease';
+              numEl.style.color = '#F0DC8A';
+              setTimeout(() => { numEl.style.color = ''; }, 120);
+
+              if (current <= AVAILABLE) {
+                clearInterval(countdown);
+                // Add urgency glow when done
+                numEl.style.transition = 'all 0.4s ease';
+                boxEl.style.borderColor = 'rgba(212,175,55,0.6)';
+              }
+            }, interval);
+          }
+        });
+      }, { threshold: 0.4 });
+
+      obs.observe(boxEl);
+    })();
+
+    
     document.addEventListener('DOMContentLoaded', () => {
       // Trigger initial reveal animations
       setTimeout(() => {
