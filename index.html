@@ -340,6 +340,43 @@
     .macro-bar-fill { height: 100%; border-radius: 9999px; transition: width 1s ease-out; }
     .calc-footer { text-align: center; font-size: 11px; color: #666; margin-top: 16px; }
 
+    /* Profile Questions */
+    .profile-section { margin-top: 20px; padding-top: 20px; border-top: 1px solid #222; }
+    .profile-section-label { color: var(--gold); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .profile-question { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); gap: 12px; }
+    .profile-question:last-child { border-bottom: none; }
+    .profile-question-text { color: var(--silver); font-size: 13px; line-height: 1.5; flex: 1; }
+    @media (min-width: 640px) { .profile-question-text { font-size: 14px; } }
+    .toggle-switch { position: relative; width: 48px; height: 26px; flex-shrink: 0; }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider { position: absolute; inset: 0; background: #222; border-radius: 26px; cursor: pointer; transition: background 0.3s ease; border: 1px solid #333; }
+    .toggle-slider::before { content: ''; position: absolute; height: 20px; width: 20px; left: 2px; bottom: 2px; background: #666; border-radius: 50%; transition: all 0.3s ease; }
+    .toggle-switch input:checked + .toggle-slider { background: rgba(212,175,55,0.3); border-color: var(--gold); }
+    .toggle-switch input:checked + .toggle-slider::before { transform: translateX(22px); background: var(--gold); }
+    .optional-badge { font-size: 10px; padding: 2px 8px; border-radius: 9999px; background: rgba(212,175,55,0.1); color: var(--gold); border: 1px solid rgba(212,175,55,0.2); font-weight: 500; letter-spacing: 0.05em; }
+
+    /* FFMI Result */
+    .ffmi-box { background: var(--bg3); border-radius: 8px; padding: 16px; border: 1px solid #222; margin-bottom: 16px; }
+    .ffmi-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px; }
+    .ffmi-label { color: var(--muted); font-size: 13px; }
+    .ffmi-value { font-size: 1.75rem; font-weight: 700; }
+    @media (min-width: 640px) { .ffmi-value { font-size: 1.875rem; } }
+    .ffmi-scale { display: flex; gap: 2px; margin-top: 10px; border-radius: 6px; overflow: hidden; height: 6px; }
+    .ffmi-scale-seg { flex: 1; transition: opacity 0.5s ease; }
+    .ffmi-classification { display: flex; justify-content: space-between; margin-top: 6px; font-size: 10px; color: var(--muted); }
+
+    /* Plan Recommendation */
+    .plan-recommendation { margin-top: 20px; background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(212,175,55,0.02)); border: 1px solid rgba(212,175,55,0.35); border-radius: 12px; padding: 20px; position: relative; overflow: hidden; animation: fadeInUp 0.6s ease; }
+    .plan-recommendation::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--gold-dk), var(--gold), var(--gold-dk)); }
+    .plan-rec-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+    .plan-rec-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    @media (min-width: 640px) { .plan-rec-name { font-size: 1.75rem; } }
+    .plan-rec-reason { color: var(--muted); font-size: 13px; line-height: 1.6; margin-bottom: 16px; }
+    .plan-rec-cta { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(to right, var(--gold), var(--gold-dk)); color: black; font-weight: 600; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-family: 'Barlow', sans-serif; transition: all 0.3s ease; text-decoration: none; }
+    .plan-rec-cta:hover { box-shadow: 0 8px 24px rgba(212,175,55,0.3); transform: translateY(-2px); }
+    .plan-rec-cta:active { transform: translateY(0); }
+    .plan-rec-price { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; margin-bottom: 16px; }
+
     /* Planes */
     .plans-container { position: relative; overflow: hidden; }
     @media (min-width: 1024px) { .plans-container { overflow: visible; } }
@@ -1039,7 +1076,51 @@
                   <option value="gain">Ganancia muscular (+300 kcal)</option>
                 </select>
               </div>
-              <button class="calc-submit btn-lift touch-scale" id="calcBtn">
+              <div class="form-group">
+                <label class="form-label">% Grasa Corporal <span class="optional-badge">Opcional</span></label>
+                <input type="number" class="form-input" id="calcBodyFat" placeholder="Ej: 18" inputmode="decimal" min="3" max="60" />
+              </div>
+
+              <div class="profile-section">
+                <div class="profile-section-label">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  Perfil del Prospecto
+                </div>
+
+                <div class="profile-question">
+                  <span class="profile-question-text">Tengo diagnostico de alguna patologia (diabetes, HTA, dislipidemia, tiroides, etc.)</span>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="profilePatologia" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="profile-question">
+                  <span class="profile-question-text">Mi objetivo incluye competir en algun deporte o categoria</span>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="profileCompetir" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="profile-question">
+                  <span class="profile-question-text">Requiero supervision medica por edad o condicion especial</span>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="profileSupervision" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="profile-question">
+                  <span class="profile-question-text">He tenido seguimiento nutricional previo</span>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="profileExperiencia" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <button class="calc-submit btn-lift touch-scale" id="calcBtn" style="margin-top:20px">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
                 Calcular Mi Protocolo
               </button>
@@ -1118,7 +1199,47 @@
                 </div>
               </div>
 
-              <div class="calc-footer">* Calculos basados en la formula de Mifflin-St Jeor</div>
+              <div id="ffmiSection" style="display:none">
+                <div class="ffmi-box">
+                  <div class="ffmi-header">
+                    <span class="ffmi-label">FFMI Normalizado (Kouri)</span>
+                    <span class="result-badge" id="ffmiBadge">-</span>
+                  </div>
+                  <div class="ffmi-value gold-text" id="ffmiValue">-</div>
+                  <div class="ffmi-scale">
+                    <div class="ffmi-scale-seg" id="ffmiSeg1" style="background:#3b82f6;opacity:0.3"></div>
+                    <div class="ffmi-scale-seg" id="ffmiSeg2" style="background:#22c55e;opacity:0.3"></div>
+                    <div class="ffmi-scale-seg" id="ffmiSeg3" style="background:#eab308;opacity:0.3"></div>
+                    <div class="ffmi-scale-seg" id="ffmiSeg4" style="background:#f97316;opacity:0.3"></div>
+                    <div class="ffmi-scale-seg" id="ffmiSeg5" style="background:#ef4444;opacity:0.3"></div>
+                  </div>
+                  <div class="ffmi-classification">
+                    <span>Principiante</span>
+                    <span>Promedio</span>
+                    <span>Avanzado</span>
+                    <span>Elite</span>
+                    <span>Supra</span>
+                  </div>
+                </div>
+              </div>
+
+              <div id="planRecommendation" style="display:none">
+                <div class="plan-recommendation">
+                  <div class="plan-rec-label">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Plan recomendado para tu perfil
+                  </div>
+                  <div class="plan-rec-name" id="recPlanName">-</div>
+                  <div class="plan-rec-price" id="recPlanPrice">-</div>
+                  <p class="plan-rec-reason" id="recPlanReason">-</p>
+                  <a class="plan-rec-cta touch-scale" id="recPlanCta" href="#" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span id="recPlanCtaText">Solicitar Plan</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="calc-footer">* Calculos basados en la formula de Mifflin-St Jeor y FFMI normalizado de Kouri et al.</div>
             </div>
           </div>
         </div>
@@ -1756,6 +1877,14 @@
       const gender = document.getElementById('calcGender').value;
       const activity = parseFloat(document.getElementById('calcActivity').value);
       const goal = document.getElementById('calcGoal').value;
+      const bodyFatInput = document.getElementById('calcBodyFat').value;
+      const bodyFat = bodyFatInput ? parseFloat(bodyFatInput) : null;
+
+      // Profile questions
+      const hasPatologia = document.getElementById('profilePatologia').checked;
+      const wantsCompetir = document.getElementById('profileCompetir').checked;
+      const needsSupervision = document.getElementById('profileSupervision').checked;
+      const hasExperiencia = document.getElementById('profileExperiencia').checked;
 
       if (!weight || !height || !age) {
         alert('Por favor completa todos los campos');
@@ -1796,7 +1925,79 @@
       const carbs = Math.round((targetCals * 0.4) / 4);
       const fats = Math.round((targetCals * 0.3) / 9);
 
-      // Update UI
+      // FFMI (Kouri normalized) - only if body fat provided
+      let ffmi = null;
+      let ffmiNorm = null;
+      let ffmiCategory = '';
+      let ffmiColor = '';
+      let ffmiActiveSeg = 0;
+      const ffmiSection = document.getElementById('ffmiSection');
+
+      if (bodyFat !== null && bodyFat >= 3 && bodyFat <= 60) {
+        const leanMass = weight * (1 - bodyFat / 100);
+        ffmi = leanMass / (heightM * heightM);
+        ffmiNorm = ffmi + 6.1 * (1.8 - heightM);
+
+        if (gender === 'male') {
+          if (ffmiNorm < 18) { ffmiCategory = 'Principiante'; ffmiColor = '#3b82f6'; ffmiActiveSeg = 1; }
+          else if (ffmiNorm < 20) { ffmiCategory = 'Promedio'; ffmiColor = '#22c55e'; ffmiActiveSeg = 2; }
+          else if (ffmiNorm < 22) { ffmiCategory = 'Avanzado'; ffmiColor = '#eab308'; ffmiActiveSeg = 3; }
+          else if (ffmiNorm < 25) { ffmiCategory = 'Elite natural'; ffmiColor = '#f97316'; ffmiActiveSeg = 4; }
+          else { ffmiCategory = 'Suprafisiologico'; ffmiColor = '#ef4444'; ffmiActiveSeg = 5; }
+        } else {
+          if (ffmiNorm < 14) { ffmiCategory = 'Principiante'; ffmiColor = '#3b82f6'; ffmiActiveSeg = 1; }
+          else if (ffmiNorm < 16) { ffmiCategory = 'Promedio'; ffmiColor = '#22c55e'; ffmiActiveSeg = 2; }
+          else if (ffmiNorm < 18) { ffmiCategory = 'Avanzada'; ffmiColor = '#eab308'; ffmiActiveSeg = 3; }
+          else if (ffmiNorm < 21) { ffmiCategory = 'Elite natural'; ffmiColor = '#f97316'; ffmiActiveSeg = 4; }
+          else { ffmiCategory = 'Suprafisiologico'; ffmiColor = '#ef4444'; ffmiActiveSeg = 5; }
+        }
+
+        document.getElementById('ffmiValue').textContent = ffmiNorm.toFixed(1);
+        document.getElementById('ffmiBadge').textContent = ffmiCategory;
+        document.getElementById('ffmiBadge').style.borderColor = ffmiColor;
+        document.getElementById('ffmiBadge').style.color = ffmiColor;
+
+        for (let i = 1; i <= 5; i++) {
+          document.getElementById('ffmiSeg' + i).style.opacity = i === ffmiActiveSeg ? '1' : '0.3';
+        }
+
+        ffmiSection.style.display = 'block';
+      } else {
+        ffmiSection.style.display = 'none';
+      }
+
+      // ==================== PLAN RECOMMENDATION ====================
+      const planRec = document.getElementById('planRecommendation');
+      let recPlan = '';
+      let recReason = '';
+      let recPrice = '';
+      let recWaText = '';
+
+      if (hasPatologia || needsSupervision || (age >= 55 && (bmi >= 30 || hasPatologia))) {
+        recPlan = 'Restore';
+        recPrice = '$75/mes';
+        recReason = 'Tu perfil indica que necesitas supervision medica integral. El plan Restore incluye consultas medicas, evaluacion de riesgos metabolicos y coordinacion con especialistas para un enfoque seguro y clinicamente fundamentado.';
+        recWaText = 'RESTORE';
+      } else if (wantsCompetir || (ffmiNorm !== null && ((gender === 'male' && ffmiNorm >= 22) || (gender === 'female' && ffmiNorm >= 18))) || (goal === 'gain' && hasExperiencia && activity >= 1.725)) {
+        recPlan = 'Forged';
+        recPrice = '$60/mes';
+        recReason = 'Tu perfil sugiere un nivel avanzado con objetivos de alto rendimiento. El plan Forged ofrece entrenamiento avanzado, nutricion periodizada por fases, ajustes en tiempo real y preparacion para competicion.';
+        recWaText = 'FORGED';
+      } else {
+        recPlan = 'Balance';
+        recPrice = '$45/mes';
+        recReason = 'El plan Balance es ideal para iniciar tu transformacion con bases solidas. Incluye entrenamiento personalizado, nutricion estructurada y seguimiento quincenal para lograr una recomposicion corporal consistente.';
+        recWaText = 'BALANCE';
+      }
+
+      document.getElementById('recPlanName').textContent = recPlan;
+      document.getElementById('recPlanPrice').textContent = recPrice;
+      document.getElementById('recPlanReason').textContent = recReason;
+      document.getElementById('recPlanCtaText').textContent = 'Solicitar ' + recPlan;
+      document.getElementById('recPlanCta').href = 'https://wa.me/593984490998?text=Hola,%20la%20calculadora%20me%20recomendo%20el%20plan%20' + recWaText + '.%20Me%20interesa%20saber%20mas.';
+      planRec.style.display = 'block';
+
+      // Update base UI
       calcResults.classList.remove('results-hidden');
       calcResults.classList.add('results-visible');
 
