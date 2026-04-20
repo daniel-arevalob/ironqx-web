@@ -378,7 +378,7 @@
     .plan-rec-price { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; margin-bottom: 16px; }
 
     /* Planes */
-    .plans-container { position: relative; overflow: hidden; }
+    .plans-container { position: relative; overflow: clip; }
     @media (min-width: 1024px) { .plans-container { overflow: visible; } }
     .plans-scroll { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 8px 20px 24px; margin: 0 -20px; -webkit-overflow-scrolling: touch; }
     @media (min-width: 640px) { .plans-scroll { gap: 20px; padding: 8px 24px 24px; margin: 0 -24px; } }
