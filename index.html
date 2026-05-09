@@ -261,14 +261,18 @@
     @media (min-width: 1024px) { .filosofia-grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
     .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     @media (min-width: 640px) { .photo-grid { gap: 16px; } }
-    .photo-large { grid-column: span 2; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; border: 1px solid rgba(212,175,55,0.1); }
+    .photo-large { grid-column: span 2; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; border: 1px solid rgba(212,175,55,0.1); background: transparent; }
     .photo-small { aspect-ratio: 3/4; border-radius: 8px; overflow: hidden; border: 1px solid rgba(212,175,55,0.1); }
     .photo-large img, .photo-small img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    @media (min-width: 768px) {
+      .photo-large img { object-fit: contain; }
+    }
     @media (max-width: 767px) {
       .photo-large { aspect-ratio: 2/3; }
       .photo-large img, .photo-small img { object-position: top center; }
     }
     .photo-large:hover img, .photo-small:hover img { transform: scale(1.03); }
+    @media (min-width: 768px) { .photo-large:hover img { transform: none; } }
     .bio-text { color: var(--silver); line-height: 1.75; font-size: 0.95rem; }
     @media (min-width: 640px) { .bio-text { font-size: 1rem; } }
     .bio-text p { margin-bottom: 16px; }
@@ -533,26 +537,47 @@
     .tech-feat-desc { color: var(--muted); font-size: 13px; line-height: 1.6; }
     @media (min-width: 640px) { .tech-feat-desc { font-size: 14px; } }
 
-    .app-card { background: var(--bg3); border: 1px solid var(--border); padding: 28px; text-align: center; position: relative; overflow: hidden; border-radius: 12px; }
+    .app-card { background: radial-gradient(circle at 50% 0%, rgba(212,175,55,0.12), transparent 38%), var(--bg3); border: 1px solid var(--border); padding: 24px; text-align: center; position: relative; overflow: hidden; border-radius: 12px; }
     @media (min-width: 640px) { .app-card { padding: 32px; } }
     .app-card-line { position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
-    .app-logo { width: 90px; height: 90px; margin: 0 auto 20px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(212,175,55,0.2); }
-    @media (min-width: 640px) { .app-logo { width: 112px; height: 112px; margin-bottom: 24px; } }
-    .app-logo img { width: 100%; height: 100%; object-fit: contain; }
+    .app-logo { width: 86px; height: 86px; margin: 0 auto 18px; border-radius: 24%; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: linear-gradient(145deg, #1a1a1a, #050505); padding: 10px; box-shadow: 0 18px 42px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,175,55,0.18), inset 0 1px 0 rgba(255,255,255,0.16); position: relative; }
+    .app-logo::before { content: ''; position: absolute; inset: 0; background: linear-gradient(145deg, rgba(255,255,255,0.2), transparent 42%); pointer-events: none; }
+    @media (min-width: 640px) { .app-logo { width: 102px; height: 102px; margin-bottom: 22px; padding: 12px; } }
+    .app-logo img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.55)); }
     .app-title { font-size: 1.625rem; color: var(--gold); margin-bottom: 6px; }
     @media (min-width: 640px) { .app-title { font-size: 1.875rem; margin-bottom: 8px; } }
     .app-title a:hover { text-decoration: underline; }
     .app-subtitle { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 28px; }
     @media (min-width: 640px) { .app-subtitle { font-size: 14px; margin-bottom: 32px; } }
-    .app-screens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    @media (min-width: 640px) { .app-screens { gap: 16px; } }
-    .app-screen { background: #1a1a1a; border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+    .app-device { max-width: 330px; margin: 0 auto; padding: 10px; border-radius: 34px; background: linear-gradient(145deg, #2a2a2a, #090909 42%, #000); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 28px 70px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.05); }
+    .app-device-screen { border-radius: 26px; background: #080808; border: 1px solid rgba(212,175,55,0.1); overflow: hidden; min-height: 570px; text-align: left; position: relative; }
+    .app-statusbar { height: 30px; padding: 8px 18px 0; display: flex; align-items: center; justify-content: space-between; color: rgba(255,255,255,0.72); font-size: 10px; font-weight: 600; letter-spacing: 0.04em; }
+    .app-status-icons { display: flex; align-items: center; gap: 5px; }
+    .app-signal { display: flex; align-items: flex-end; gap: 2px; height: 10px; }
+    .app-signal span { display: block; width: 3px; border-radius: 2px; background: rgba(255,255,255,0.76); }
+    .app-signal span:nth-child(1) { height: 4px; } .app-signal span:nth-child(2) { height: 6px; } .app-signal span:nth-child(3) { height: 8px; }
+    .app-battery { width: 18px; height: 9px; border: 1px solid rgba(255,255,255,0.55); border-radius: 3px; position: relative; }
+    .app-battery::before { content: ''; position: absolute; right: -3px; top: 2px; width: 2px; height: 4px; background: rgba(255,255,255,0.55); border-radius: 0 2px 2px 0; }
+    .app-battery::after { content: ''; position: absolute; inset: 2px 4px 2px 2px; background: var(--gold); border-radius: 2px; }
+    .app-header { padding: 12px 18px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .app-header-icon { width: 42px; height: 42px; border-radius: 22%; background: linear-gradient(145deg, #1d1d1d, #030303); border: 1px solid rgba(212,175,55,0.22); padding: 6px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.12); flex-shrink: 0; }
+    .app-header-icon img { width: 100%; height: 100%; object-fit: contain; }
+    .app-header-kicker { color: var(--gold); font-size: 9px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; }
+    .app-header-name { color: white; font-size: 17px; font-family: 'Cormorant Garamond', serif; line-height: 1.1; }
+    .app-header-meta { margin-left: auto; color: #4ade80; font-size: 10px; font-weight: 600; }
+    .app-content { padding: 16px 16px 76px; display: grid; gap: 12px; }
+    .app-summary { background: linear-gradient(135deg, rgba(212,175,55,0.13), rgba(212,175,55,0.03)); border: 1px solid rgba(212,175,55,0.18); border-radius: 16px; padding: 16px; }
+    .app-summary-label { color: rgba(255,255,255,0.54); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
+    .app-summary-main { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; }
+    .app-summary-value { color: white; font-family: 'Cormorant Garamond', serif; font-size: 2.25rem; line-height: 1; }
+    .app-summary-value span { color: var(--muted); font-size: 0.9rem; font-family: 'Barlow', sans-serif; }
+    .app-summary-pill { color: #4ade80; background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.18); border-radius: 999px; padding: 4px 8px; font-size: 10px; font-weight: 700; white-space: nowrap; }
+    .app-screens { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .app-screen { background: #111; border: 1px solid var(--border); border-radius: 14px; padding: 12px; min-height: 116px; }
+    .app-screen-wide { grid-column: span 2; }
     .app-screen-label { color: var(--gold); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
-    @media (min-width: 640px) { .app-screen-label { font-size: 12px; letter-spacing: 0.1em; } }
     .app-screen-bars { display: flex; flex-direction: column; gap: 6px; }
-    @media (min-width: 640px) { .app-screen-bars { gap: 8px; } }
     .app-bar-track { height: 3px; background: #222; border-radius: 9999px; overflow: hidden; }
-    @media (min-width: 640px) { .app-bar-track { height: 4px; } }
     .app-bar-fill { height: 100%; background: linear-gradient(to right, var(--gold), var(--gold-dk)); border-radius: 9999px; }
     /* App screen metric */
     .app-screen-metric { display: flex; align-items: baseline; gap: 3px; margin: 6px 0 4px; }
@@ -571,6 +596,10 @@
     /* Ring */
     .app-ring-wrap { display: flex; flex-direction: column; align-items: center; margin-top: 4px; gap: 2px; }
     .app-ring-label { font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .app-bottom-nav { position: absolute; left: 16px; right: 16px; bottom: 12px; height: 48px; background: rgba(20,20,20,0.94); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; }
+    .app-nav-item { display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.42); }
+    .app-nav-item svg { width: 17px; height: 17px; stroke-width: 2; }
+    .app-nav-item.active { color: var(--gold); }
 
     /* Contacto */
     .contacto { background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.05), transparent); }
@@ -1553,69 +1582,103 @@
               <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">app.ironqx.fit</a>
             </h3>
             <p class="app-subtitle">Plataforma Web Propietaria</p>
-            <div class="app-screens">
-
-              <!-- Evolución de Peso -->
-              <div class="app-screen">
-                <div class="app-screen-label">Evolución de Peso</div>
-                <div class="app-screen-metric">
-                  <span class="app-metric-val">76.4</span>
-                  <span class="app-metric-unit">kg</span>
-                  <span class="app-metric-delta app-metric-down">↓ 3.8</span>
-                </div>
-                <div class="app-sparkline">
-                  <svg viewBox="0 0 80 28" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:28px;">
-                    <polyline points="0,6 14,8 28,10 42,13 56,16 70,19 80,22" fill="none" stroke="rgba(212,175,55,0.25)" stroke-width="1"/>
-                    <polyline points="0,6 14,8 28,10 42,13 56,16 70,19 80,22" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="80" cy="22" r="2.5" fill="#D4AF37"/>
-                  </svg>
-                </div>
-              </div>
-
-              <!-- Macros del Día -->
-              <div class="app-screen">
-                <div class="app-screen-label">Macros del Día</div>
-                <div class="app-macros-rows">
-                  <div class="app-macro-item">
-                    <span class="app-macro-letter" style="color:#D4AF37">P</span>
-                    <div class="app-bar-track" style="flex:1"><div class="app-bar-fill" style="width:78%;background:#D4AF37"></div></div>
-                    <span class="app-macro-g">156g</span>
-                  </div>
-                  <div class="app-macro-item">
-                    <span class="app-macro-letter" style="color:#7ec8e3">C</span>
-                    <div class="app-bar-track" style="flex:1"><div class="app-bar-fill" style="width:62%;background:#7ec8e3"></div></div>
-                    <span class="app-macro-g">210g</span>
-                  </div>
-                  <div class="app-macro-item">
-                    <span class="app-macro-letter" style="color:#b8860b">G</span>
-                    <div class="app-bar-track" style="flex:1"><div class="app-bar-fill" style="width:55%;background:#b8860b"></div></div>
-                    <span class="app-macro-g">58g</span>
+            <div class="app-device" aria-label="Vista previa de la app IronQx">
+              <div class="app-device-screen">
+                <div class="app-statusbar">
+                  <span>9:41</span>
+                  <div class="app-status-icons" aria-hidden="true">
+                    <div class="app-signal"><span></span><span></span><span></span></div>
+                    <span>5G</span>
+                    <div class="app-battery"></div>
                   </div>
                 </div>
-              </div>
 
-              <!-- % Grasa / Progreso -->
-              <div class="app-screen">
-                <div class="app-screen-label">% Grasa</div>
-                <div class="app-screen-metric">
-                  <span class="app-metric-val">16.2</span>
-                  <span class="app-metric-unit">%</span>
-                  <span class="app-metric-delta app-metric-down">↓ 4.6</span>
+                <div class="app-header">
+                  <div class="app-header-icon">
+                    <img src="images/app-logo.webp" alt="" loading="lazy" />
+                  </div>
+                  <div>
+                    <div class="app-header-kicker">IronQx App</div>
+                    <div class="app-header-name">Panel del paciente</div>
+                  </div>
+                  <div class="app-header-meta">Activo</div>
                 </div>
-                <div class="app-ring-wrap">
-                  <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" style="width:44px;height:44px;">
-                    <circle cx="22" cy="22" r="17" fill="none" stroke="#222" stroke-width="4"/>
-                    <circle cx="22" cy="22" r="17" fill="none" stroke="#D4AF37" stroke-width="4"
-                      stroke-dasharray="106.8" stroke-dashoffset="26.7"
-                      stroke-linecap="round" transform="rotate(-90 22 22)"/>
-                    <text x="22" y="26" text-anchor="middle" fill="#D4AF37" font-size="9" font-family="Barlow,sans-serif" font-weight="600">75%</text>
-                  </svg>
-                  <span class="app-ring-label">meta</span>
+
+                <div class="app-content">
+                  <div class="app-summary">
+                    <div class="app-summary-label">Progreso total</div>
+                    <div class="app-summary-main">
+                      <div class="app-summary-value">-4.6<span>% grasa</span></div>
+                      <div class="app-summary-pill">En ruta</div>
+                    </div>
+                    <div class="app-sparkline">
+                      <svg viewBox="0 0 240 54" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:54px;">
+                        <defs>
+                          <linearGradient id="appChartGold" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.35"/>
+                            <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+                          </linearGradient>
+                        </defs>
+                        <path d="M0 18 C30 20 40 24 67 22 C98 20 108 36 137 34 C170 31 183 22 210 26 C224 28 233 24 240 20 L240 54 L0 54 Z" fill="url(#appChartGold)"/>
+                        <path d="M0 18 C30 20 40 24 67 22 C98 20 108 36 137 34 C170 31 183 22 210 26 C224 28 233 24 240 20" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="240" cy="20" r="4" fill="#D4AF37"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div class="app-screens">
+                    <div class="app-screen">
+                      <div class="app-screen-label">Peso</div>
+                      <div class="app-screen-metric">
+                        <span class="app-metric-val">76.4</span>
+                        <span class="app-metric-unit">kg</span>
+                      </div>
+                      <span class="app-metric-delta app-metric-down">-3.8 kg</span>
+                    </div>
+
+                    <div class="app-screen">
+                      <div class="app-screen-label">Meta</div>
+                      <div class="app-ring-wrap">
+                        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:52px;">
+                          <circle cx="22" cy="22" r="17" fill="none" stroke="#222" stroke-width="4"/>
+                          <circle cx="22" cy="22" r="17" fill="none" stroke="#D4AF37" stroke-width="4" stroke-dasharray="106.8" stroke-dashoffset="26.7" stroke-linecap="round" transform="rotate(-90 22 22)"/>
+                          <text x="22" y="26" text-anchor="middle" fill="#D4AF37" font-size="9" font-family="Barlow,sans-serif" font-weight="600">75%</text>
+                        </svg>
+                        <span class="app-ring-label">completado</span>
+                      </div>
+                    </div>
+
+                    <div class="app-screen app-screen-wide">
+                      <div class="app-screen-label">Macros del dia</div>
+                      <div class="app-macros-rows">
+                        <div class="app-macro-item">
+                          <span class="app-macro-letter" style="color:#D4AF37">P</span>
+                          <div class="app-bar-track" style="flex:1"><div class="app-bar-fill" style="width:78%;background:#D4AF37"></div></div>
+                          <span class="app-macro-g">156g</span>
+                        </div>
+                        <div class="app-macro-item">
+                          <span class="app-macro-letter" style="color:#7ec8e3">C</span>
+                          <div class="app-bar-track" style="flex:1"><div class="app-bar-fill" style="width:62%;background:#7ec8e3"></div></div>
+                          <span class="app-macro-g">210g</span>
+                        </div>
+                        <div class="app-macro-item">
+                          <span class="app-macro-letter" style="color:#b8860b">G</span>
+                          <div class="app-bar-track" style="flex:1"><div class="app-bar-fill" style="width:55%;background:#b8860b"></div></div>
+                          <span class="app-macro-g">58g</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="app-bottom-nav" aria-hidden="true">
+                  <div class="app-nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+                  <div class="app-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/></svg></div>
+                  <div class="app-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg></div>
+                  <div class="app-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div>
                 </div>
               </div>
-
             </div>
-
             <!-- Platform Access Badge -->
             <div class="app-access-badge">
               <div class="app-access-divider">
