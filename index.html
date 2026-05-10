@@ -409,11 +409,13 @@
     @media (min-width: 640px) { .plan-icon { width: 48px; height: 48px; margin-bottom: 16px; } .plan-icon svg { width: 38px; height: 38px; } }
     .plan-name { font-size: 1.35rem; margin-bottom: 6px; }
     @media (min-width: 640px) { .plan-name { font-size: 1.5rem; margin-bottom: 8px; } }
+    .plan-kicker { color: var(--gold); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 10px; }
     .plan-price { font-size: 2rem; font-family: 'Cormorant Garamond', serif; color: var(--gold); margin-bottom: 6px; }
     @media (min-width: 640px) { .plan-price { font-size: 2.25rem; margin-bottom: 8px; } }
     .plan-price-unit { font-size: 0.9rem; color: var(--muted); font-family: 'Barlow', sans-serif; }
     .plan-desc { color: var(--muted); font-size: 13px; margin-bottom: 20px; min-height: auto; line-height: 1.6; }
-    @media (min-width: 640px) { .plan-desc { font-size: 14px; margin-bottom: 24px; min-height: 40px; } }
+    .plan-desc strong { color: var(--silver); font-weight: 600; }
+    @media (min-width: 640px) { .plan-desc { font-size: 14px; margin-bottom: 24px; min-height: 96px; } }
     .plan-features { flex: 1; margin-bottom: 24px; }
     @media (min-width: 640px) { .plan-features { margin-bottom: 32px; } }
     .plan-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--silver); margin-bottom: 10px; line-height: 1.5; }
@@ -827,19 +829,19 @@
       </a>
 
       <div class="nav-links" id="navLinks">
-        <button class="nav-link" data-section="filosofia">Filosofia</button>
-        <button class="nav-link" data-section="metodologia">Metodologia</button>
-        <button class="nav-link" data-section="calculadora">Calculadora</button>
+        <button class="nav-link" data-section="calculadora">Diagnostico</button>
         <button class="nav-link" data-section="planes">Planes</button>
-        <button class="nav-link" data-section="ia-bot">IronQx Assistant</button>
+        <button class="nav-link" data-section="filosofia">Autoridad</button>
+        <button class="nav-link" data-section="metodologia">Metodo</button>
         <button class="nav-link" data-section="tecnologia">Tecnologia</button>
+        <button class="nav-link" data-section="ia-bot">Assistant</button>
         <button class="nav-link" data-section="contacto">Contacto</button>
       </div>
 
       <div class="nav-right">
-        <a href="https://wa.me/593984490998?text=Hola%20IronQx%20Assistant" target="_blank" rel="noopener noreferrer" class="nav-wa-btn">
+        <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="nav-wa-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-          IronQx Assistant 24/7
+          Aplicar por WhatsApp
         </a>
         <button class="hamburger touch-scale" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
           <svg id="menuIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
@@ -854,16 +856,16 @@
     <div class="mobile-overlay-bg" id="mobileOverlayBg"></div>
     <div class="mobile-panel" id="mobilePanel">
       <div class="swipe-indicator"></div>
-      <button class="mobile-link touch-scale" data-section="filosofia">Filosofia</button>
-      <button class="mobile-link touch-scale" data-section="metodologia">Metodologia</button>
-      <button class="mobile-link touch-scale" data-section="calculadora">Calculadora</button>
+      <button class="mobile-link touch-scale" data-section="calculadora">Diagnostico</button>
       <button class="mobile-link touch-scale" data-section="planes">Planes</button>
-      <button class="mobile-link touch-scale" data-section="ia-bot">IronQx Assistant</button>
+      <button class="mobile-link touch-scale" data-section="filosofia">Autoridad</button>
+      <button class="mobile-link touch-scale" data-section="metodologia">Metodo</button>
       <button class="mobile-link touch-scale" data-section="tecnologia">Tecnologia</button>
+      <button class="mobile-link touch-scale" data-section="ia-bot">Assistant</button>
       <button class="mobile-link touch-scale" data-section="contacto">Contacto</button>
-      <a href="https://wa.me/593984490998" target="_blank" rel="noopener noreferrer" class="mobile-wa-btn touch-scale">
+      <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="mobile-wa-btn touch-scale">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-        Chatear por WhatsApp
+        Aplicar por WhatsApp
       </a>
     </div>
   </div>
@@ -876,42 +878,27 @@
         <div class="reveal">
           <div class="hero-label">
             <div class="hero-label-line"></div>
-            <span class="hero-label-text">Medicina del Rendimiento Corporal</span>
+            <span class="hero-label-text">Diagnostico antes que rutina</span>
           </div>
 
           <h1>
-            No necesitas otro plan generico.
-            <span>Necesitas un protocolo clinico.</span>
+            Entrenas duro, pero tu cuerpo no cambia como deberia.
+            <span>El problema no es tu esfuerzo. Es el protocolo.</span>
           </h1>
 
           <p class="hero-desc">
-            Entrena con un método pensado para tu cuerpo, no con lo que le funciona a otros.
-            50+ transformaciones documentadas. Sin improvisacion, sin plantillas. Solo ciencia aplicada a tu biologia.
+            Si tu nutricion, tus cargas y tu seguimiento no responden a tus datos,
+            terminas probando planes. IronQX convierte tu punto de partida en una estrategia clinica de composicion corporal.
           </p>
 
           <div class="hero-buttons">
             <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="btn-gold btn-lift touch-scale">
-              Aplicar ahora
+              Aplicar por WhatsApp
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
-            <button class="btn-outline touch-scale" onclick="document.getElementById('planes').scrollIntoView({behavior:'smooth'})">
-              Ver planes
+            <button class="btn-outline touch-scale" onclick="document.getElementById('calculadora').scrollIntoView({behavior:'smooth'})">
+              Diagnostico inicial
             </button>
-          </div>
-
-          <div class="hero-stats">
-            <div class="reveal stagger-1">
-              <div class="hero-stat-num">50+</div>
-              <div class="hero-stat-label">Transformaciones</div>
-            </div>
-            <div class="reveal stagger-2">
-              <div class="hero-stat-num">15</div>
-              <div class="hero-stat-label">Cupos mensuales</div>
-            </div>
-            <div class="reveal stagger-3">
-              <div class="hero-stat-num">24/7</div>
-              <div class="hero-stat-label">Asistente IA</div>
-            </div>
           </div>
 
         </div>
@@ -953,107 +940,6 @@
     </div>
   </div>
 
-  <!-- Filosofia -->
-  <section id="filosofia" class="section filosofia">
-    <div class="filosofia-gradient"></div>
-    <div class="section-inner">
-      <div class="filosofia-grid">
-        <div class="reveal">
-          <div class="photo-grid">
-            <div class="photo-large touch-scale">
-              <img src="images/about-large.jpeg" alt="Dr. Daniel Arevalo" loading="lazy" />
-            </div>
-            <div class="photo-small touch-scale">
-              <img src="images/about-small-1.jpeg" alt="Dr. Daniel Arevalo - Entrenamiento" loading="lazy" />
-            </div>
-            <div class="photo-small touch-scale">
-              <img src="images/about-small-2.jpeg" alt="Dr. Daniel Arevalo - Competicion" loading="lazy" />
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal">
-          <div class="section-label-left">
-            <div class="section-label-line" style="width:28px"></div>
-            <span class="section-label-text">Quien esta detras</span>
-          </div>
-
-          <h2>Medico. <em>Atleta.</em><br>Cientifico del Cuerpo.</h2>
-
-          <div class="bio-text">
-            <p>
-              Soy el Dr. Daniel Arevalo. Medico graduado de la Universidad de Cuenca,
-              master en Nutricion Clinica y Deportiva, especialista en Biomecanica del Ejercicio.
-              Campeon Mr. Cuenca y Top 2 Mr. Ecuador.
-            </p>
-            <p>
-              Mi trabajo es diferente porque no delego en asistentes. Cada protocolo lo diseno yo,
-              cada ajuste pasa por mi criterio medico. No vendo motivacion. Vendo
-              <strong>control biologico documentado</strong>.
-            </p>
-            <p>
-              Por eso trabajo solo con 15 personas simultaneamente. La calidad clinica no escala.
-            </p>
-          </div>
-
-          <ul class="cred-list">
-            <li><span class="cred-bullet">&#10022;</span> Medico - Universidad de Cuenca</li>
-            <li><span class="cred-bullet">&#10022;</span> Master en Nutricion Clinica y Deportiva por la Universidad Autonoma de Chile</li>
-            <li><span class="cred-bullet">&#10022;</span> Especialista en Biomecanica del Ejercicio por la IFBB</li>
-            <li><span class="cred-bullet">&#10022;</span> Campeon Mr. Cuenca / Top 2 Mr. Ecuador</li>
-            <li><span class="cred-bullet">&#10022;</span> 10+ anos experiencia en fitness competitivo</li>
-            <li><span class="cred-bullet">&#10022;</span> Desarrollador de la plataforma app.ironqx.fit</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Metodologia -->
-  <section id="metodologia" class="section">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <div class="section-label">
-          <div class="section-label-line"></div>
-          <span class="section-label-text">Metodologia</span>
-          <div class="section-label-line"></div>
-        </div>
-        <h2>Cuatro pilares. <em>Cero improvisacion.</em></h2>
-        <p class="section-desc">
-          Cada protocolo se construye desde la interseccion entre medicina, fisiologia y rendimiento.
-          No hay plantillas. Cada cuerpo es un caso clinico unico.
-        </p>
-      </div>
-
-      <div class="method-grid">
-        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0s">
-          <div class="method-card-bar"></div>
-          <div class="method-num">01</div>
-          <div class="method-title">Nutricion Estrategica</div>
-          <p class="method-desc">Estructuracion alimentaria con equivalencias calculadas y macros precisos. Adaptacion metabolica real segun composicion corporal, contexto hormonal y adherencia medida.</p>
-        </div>
-        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.1s">
-          <div class="method-card-bar"></div>
-          <div class="method-num">02</div>
-          <div class="method-title">Entrenamiento Estructurado</div>
-          <p class="method-desc">Programacion basada en principios cientificos de hipertrofia, biomecanica avanzada y progresion de carga verificable. Volumen e intensidad periodizados en fases medibles.</p>
-        </div>
-        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.2s">
-          <div class="method-card-bar"></div>
-          <div class="method-num">03</div>
-          <div class="method-title">Suplementacion Racional</div>
-          <p class="method-desc">Solo lo que aporta valor fisiologico demostrable. Justificacion cientifica para cada intervencion. Cero marketing de suplementos innecesarios.</p>
-        </div>
-        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.3s">
-          <div class="method-card-bar"></div>
-          <div class="method-num">04</div>
-          <div class="method-title">Quimica con Criterio Medico</div>
-          <p class="method-desc">En casos avanzados: evaluacion de riesgos, monitoreo hematologico completo y toma de decisiones informada. Etica medica por encima de cualquier resultado inmediato.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Calculadora -->
   <section id="calculadora" class="section calculadora">
     <div class="calculadora-gradient"></div>
@@ -1061,13 +947,13 @@
       <div class="section-header reveal">
         <div class="section-label">
           <div class="section-label-line"></div>
-          <span class="section-label-text">Calculadora Fitness</span>
+          <span class="section-label-text">Diagnostico Inicial</span>
           <div class="section-label-line"></div>
         </div>
-        <h2>Conoce tus numeros. <em>Optimiza tu protocolo.</em></h2>
+        <h2>Antes de elegir un plan, <em>mide tu punto de partida.</em></h2>
         <p class="section-desc">
-          Calcula tu IMC, metabolismo basal con la formula de Mifflin-St Jeor y
-          calorias recomendadas segun tu objetivo. Datos precisos para decisiones informadas.
+          Estima tu metabolismo, calorias objetivo, macronutrientes y perfil de riesgo.
+          El resultado conecta tus datos con el nivel de intervencion que mejor encaja contigo.
         </p>
       </div>
 
@@ -1077,7 +963,7 @@
             <div class="calc-card-header">
               <div class="calc-card-title">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-                Datos Personales
+                Datos Clinicos Iniciales
               </div>
             </div>
             <div class="calc-card-body">
@@ -1130,7 +1016,7 @@
               <div class="profile-section">
                 <div class="profile-section-label">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                  Perfil del Prospecto
+                  Perfil de Intervencion
                 </div>
 
                 <div class="profile-question">
@@ -1168,7 +1054,7 @@
 
               <button class="calc-submit btn-lift touch-scale" id="calcBtn" style="margin-top:20px">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-                Calcular Mi Protocolo
+                Obtener recomendacion clinica
               </button>
             </div>
           </div>
@@ -1177,7 +1063,7 @@
             <div class="calc-card-header">
               <div class="calc-card-title">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                Tus Resultados
+                Diagnostico y recomendacion
               </div>
             </div>
             <div class="calc-card-body">
@@ -1273,14 +1159,14 @@
                 <div class="plan-recommendation">
                   <div class="plan-rec-label">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    Plan recomendado para tu perfil
+                    Nivel de intervencion recomendado
                   </div>
                   <div class="plan-rec-name" id="recPlanName">-</div>
                   <div class="plan-rec-price" id="recPlanPrice">-</div>
                   <p class="plan-rec-reason" id="recPlanReason">-</p>
                   <a class="plan-rec-cta touch-scale" id="recPlanCta" href="#" target="_blank" rel="noopener noreferrer">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <span id="recPlanCtaText">Solicitar Plan</span>
+                    <span id="recPlanCtaText">Aplicar con este plan</span>
                   </a>
                 </div>
               </div>
@@ -1299,13 +1185,13 @@
       <div class="section-header reveal">
         <div class="section-label">
           <div class="section-label-line"></div>
-          <span class="section-label-text">Inversion</span>
+          <span class="section-label-text">Planes Clinicos</span>
           <div class="section-label-line"></div>
         </div>
-        <h2>Planes por nivel de <em>intervencion</em></h2>
+        <h2>Elige el nivel correcto de <em>intervencion.</em></h2>
         <p class="section-desc">
-          Modalidad hibrida: seguimiento principalmente online via app propietaria + sesiones presenciales.
-          Todos incluyen acceso al IronQx Assistant 24/7 y a la plataforma Iron QX.
+          Tres rutas segun tu punto de partida: estructura, rendimiento o supervision medica.
+          Todos los planes integran app, seguimiento y criterio clinico.
         </p>
       </div>
 
@@ -1318,8 +1204,9 @@
               </svg>
             </div>
             <h3 class="plan-name">Balance</h3>
+            <div class="plan-kicker">Inicio estructurado</div>
             <div class="plan-price">$45<span class="plan-price-unit">/mes</span></div>
-            <p class="plan-desc">Para personas nuevas o que buscan recomposicion corporal solida. El inicio correcto.</p>
+            <p class="plan-desc"><strong>Ideal para iniciar bien:</strong> personas nuevas, intermedias o con poca estructura que buscan recomposicion corporal, habitos sostenibles y control basico sin saltar directo a una intervencion avanzada.</p>
             <ul class="plan-features">
               <li><span>&mdash;</span> Plan de entrenamiento personalizado</li>
               <li><span>&mdash;</span> Nutricion estructurada (macros y equivalencias)</li>
@@ -1328,7 +1215,7 @@
               <li><span>&mdash;</span> Acceso a app Iron QX</li>
               <li><span>&mdash;</span> IronQx Assistant 24/7 en WhatsApp</li>
             </ul>
-            <a href="https://wa.me/593984490998?text=Hola,%20me%20interesa%20el%20plan%20BALANCE" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-outline touch-scale">Seleccionar Balance</a>
+            <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20al%20plan%20BALANCE%20de%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-outline touch-scale">Aplicar a Balance</a>
           </div>
 
           <div class="reveal plan-card featured touch-scale" data-plan="1" style="transition-delay:0.1s">
@@ -1339,8 +1226,9 @@
               </svg>
             </div>
             <h3 class="plan-name">Forged</h3>
+            <div class="plan-kicker">Rendimiento y ajuste semanal</div>
             <div class="plan-price">$60<span class="plan-price-unit">/mes</span></div>
-            <p class="plan-desc">Para atletas con objetivos claros y alto compromiso. Maxima frecuencia de ajustes.</p>
+            <p class="plan-desc"><strong>Ideal para alto compromiso:</strong> atletas, competidores o personas con experiencia que necesitan mas frecuencia de ajustes, periodizacion, seguimiento cercano y una estrategia agresiva pero controlada.</p>
             <ul class="plan-features">
               <li><span>&mdash;</span> Plan de entrenamiento avanzado</li>
               <li><span>&mdash;</span> Nutricion periodizada por fases</li>
@@ -1350,7 +1238,7 @@
               <li><span>&mdash;</span> Ajustes de protocolo en tiempo real</li>
               <li><span>&mdash;</span> Preparacion para competicion</li>
             </ul>
-            <a href="https://wa.me/593984490998?text=Hola,%20me%20interesa%20el%20plan%20FORGED" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-filled touch-scale">Seleccionar Forged</a>
+            <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20al%20plan%20FORGED%20de%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-filled touch-scale">Aplicar a Forged</a>
           </div>
 
           <div class="reveal plan-card card-hover touch-scale" data-plan="2" style="transition-delay:0.2s">
@@ -1364,8 +1252,9 @@
               </svg>
             </div>
             <h3 class="plan-name">Restore</h3>
+            <div class="plan-kicker">Supervision medica</div>
             <div class="plan-price">$75<span class="plan-price-unit">/mes</span></div>
-            <p class="plan-desc">Para personas con patologias que requieren supervision medica integral y criterio clinico.</p>
+            <p class="plan-desc"><strong>Ideal cuando la salud manda:</strong> personas con patologias, riesgos metabolicos, medicacion, edad avanzada o condiciones que requieren supervision medica antes de perseguir cambios corporales.</p>
             <ul class="plan-features">
               <li><span>&mdash;</span> Consultas medicas incluidas</li>
               <li><span>&mdash;</span> Plan nutricional adaptado clinicamente</li>
@@ -1374,7 +1263,7 @@
               <li><span>&mdash;</span> Coordinacion con especialistas</li>
               <li><span>&mdash;</span> Enfoque integral salud + composicion</li>
             </ul>
-            <a href="https://wa.me/593984490998?text=Hola,%20me%20interesa%20el%20plan%20RESTORE" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-outline touch-scale">Seleccionar Restore</a>
+            <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20al%20plan%20RESTORE%20de%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-outline touch-scale">Aplicar a Restore</a>
           </div>
         </div>
 
@@ -1394,7 +1283,7 @@
         <div>
           <div class="forged-x-title">Forged X</div>
           <p class="forged-x-desc">
-            Complemento exclusivo para pacientes Forged con protocolos de quimica deportiva.
+            Add-on exclusivo para pacientes Forged con protocolos de quimica deportiva.
             Supervision medica directa: evaluacion de riesgos, monitoreo hematologico y toma de decisiones informada.
             <strong>Disponibilidad limitada - consultar directamente.</strong>
           </p>
@@ -1404,114 +1293,102 @@
     </div>
   </section>
 
-  <!-- IA Bot -->
-  <section id="ia-bot" class="section ia-bot">
-    <div class="ia-bot-gradient"></div>
+  <!-- Filosofia -->
+  <section id="filosofia" class="section filosofia">
+    <div class="filosofia-gradient"></div>
     <div class="section-inner">
-      <div class="ia-bot-grid">
+      <div class="filosofia-grid">
         <div class="reveal">
-          <div class="section-label-left">
-            <div class="section-label-line" style="width:28px"></div>
-            <span class="section-label-text">IronQx Assistant</span>
-          </div>
-
-          <h2>Tu guia inteligente.<br><em>Disponible siempre.</em></h2>
-
-          <p class="ia-bot-desc">
-            IronQx Assistant es un asistente de inteligencia artificial configurado con toda la metodologia,
-            filosofia y precision clinica de IronQx. No es un chatbot generico: fue construido desde adentro
-            para responder preguntas de nutricion, entrenamiento, suplementacion y seguimiento de protocolo
-            con el mismo rigor que yo aplicaria - disponible las 24 horas, los 7 dias.
-          </p>
-
-          <div style="margin-bottom:28px">
-            <div class="ia-feat-card touch-scale">
-              <div class="ia-feat-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M12 18v-5"/></svg>
-              </div>
-              <div>
-                <div class="ia-feat-title">Nutricion personalizada al instante</div>
-                <p class="ia-feat-desc">Resuelve dudas sobre macros, equivalencias, timing de comidas y adaptaciones segun tu protocolo actual.</p>
-              </div>
+          <div class="photo-grid">
+            <div class="photo-large touch-scale">
+              <img src="images/about-large.png" alt="Dr. Daniel Arevalo" loading="lazy" />
             </div>
-            <div class="ia-feat-card touch-scale">
-              <div class="ia-feat-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="m21.5 21.5-1.4-1.4"/><path d="M3.9 3.9 2.5 2.5"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/></svg>
-              </div>
-              <div>
-                <div class="ia-feat-title">Guia de entrenamiento 24/7</div>
-                <p class="ia-feat-desc">Orientacion sobre ejecucion, progresiones, volumen y ajustes de carga basados en biomecanica.</p>
-              </div>
+            <div class="photo-small touch-scale">
+              <img src="images/about-small-1.jpeg" alt="Dr. Daniel Arevalo - Entrenamiento" loading="lazy" />
             </div>
-            <div class="ia-feat-card touch-scale">
-              <div class="ia-feat-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
-              </div>
-              <div>
-                <div class="ia-feat-title">Seguimiento de pacientes activos</div>
-                <p class="ia-feat-desc">Los pacientes en protocolo pueden consultar y reportar en cualquier momento del dia.</p>
-              </div>
+            <div class="photo-small touch-scale">
+              <img src="images/about-small-2.jpeg" alt="Dr. Daniel Arevalo - Competicion" loading="lazy" />
             </div>
-            <div class="ia-feat-card touch-scale">
-              <div class="ia-feat-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <div>
-                <div class="ia-feat-title">Admision y ventas inteligente</div>
-                <p class="ia-feat-desc">Resuelve dudas sobre planes y coordina tu proceso de aplicacion antes de comprometerte.</p>
-              </div>
-            </div>
-          </div>
-
-          <a href="https://wa.me/593984490998?text=Hola%20IronQx%20Assistant,%20quiero%20empezar" target="_blank" rel="noopener noreferrer" class="btn-green btn-lift touch-scale">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-            Hablar con IronQx Assistant
-          </a>
-
-          <div class="ia-info-box">
-            <p>
-              <strong>Libre y gratuito para todos.</strong> Disponible en WhatsApp
-              para pacientes activos y para cualquier persona que quiera conocer el metodo, resolver dudas
-              o iniciar su admision - sin costo, sin compromiso, a cualquier hora.
-            </p>
           </div>
         </div>
 
         <div class="reveal">
-          <div class="chat-mockup">
-            <div class="chat-header">
-              <div class="chat-avatar">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-              </div>
-              <div>
-                <div class="chat-name">IronQx Assistant</div>
-                <div class="chat-status">&#9679; En linea ahora</div>
-              </div>
-            </div>
-            <div class="chat-body">
-              <div class="chat-msg chat-msg-bot">
-                <p>Hola &#128075; Soy <strong>IronQx Assistant</strong>. Puedo ayudarte con nutricion,
-                entrenamiento o tus dudas sobre los planes. &iquest;En que te ayudo?</p>
-                <span class="chat-time">9:01 am &#10003;&#10003;</span>
-              </div>
-              <div class="chat-msg chat-msg-user">
-                <p>&iquest;Cuantas calorias debo comer si quiero ganar musculo sin ganar grasa?</p>
-                <span class="chat-time">9:02 am &#10003;&#10003;</span>
-              </div>
-              <div class="chat-msg chat-msg-bot">
-                <p>Excelente pregunta. Para recomposicion efectiva el superavit debe ser controlado:
-                150-300 kcal sobre tu mantenimiento. Lo clave no es solo el numero total, sino la
-                <strong>distribucion de macros</strong> y el timing. &iquest;Cuanto pesas y cuantos dias entrenas?</p>
-                <span class="chat-time">9:02 am &#10003;&#10003;</span>
-              </div>
-            </div>
-            <div class="chat-input-bar">
-              <div class="chat-input">Escribe tu pregunta...</div>
-              <div class="chat-send touch-scale">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </div>
-            </div>
+          <div class="section-label-left">
+            <div class="section-label-line" style="width:28px"></div>
+            <span class="section-label-text">Quien esta detras</span>
           </div>
+
+          <h2>Medico. <em>Atleta.</em><br>Cientifico del Cuerpo.</h2>
+
+          <div class="bio-text">
+            <p>
+              Soy el Dr. Daniel Arevalo. Medico graduado de la Universidad de Cuenca,
+              master en Nutricion Clinica y Deportiva, especialista en Biomecanica del Ejercicio.
+              Campeon Mr. Cuenca y Top 2 Mr. Ecuador.
+            </p>
+            <p>
+              Mi trabajo es diferente porque no delego en asistentes. Cada protocolo lo diseno yo,
+              cada ajuste pasa por mi criterio medico. No vendo motivacion. Vendo
+              <strong>control biologico documentado</strong>.
+            </p>
+            <p>
+              Por eso trabajo solo con 15 personas simultaneamente. La calidad clinica no escala.
+            </p>
+          </div>
+
+          <ul class="cred-list">
+            <li><span class="cred-bullet">&#10022;</span> Medico - Universidad de Cuenca</li>
+            <li><span class="cred-bullet">&#10022;</span> Master en Nutricion Clinica y Deportiva por la Universidad Autonoma de Chile</li>
+            <li><span class="cred-bullet">&#10022;</span> Especialista en Biomecanica del Ejercicio por la IFBB</li>
+            <li><span class="cred-bullet">&#10022;</span> Campeon Mr. Cuenca / Top 2 Mr. Ecuador</li>
+            <li><span class="cred-bullet">&#10022;</span> 10+ anos experiencia en fitness competitivo</li>
+            <li><span class="cred-bullet">&#10022;</span> Desarrollador de la plataforma app.ironqx.fit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodologia -->
+  <section id="metodologia" class="section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Metodologia</span>
+          <div class="section-label-line"></div>
+        </div>
+        <h2>Un metodo de cuatro pasos. <em>Medir, decidir, ajustar.</em></h2>
+        <p class="section-desc">
+          El protocolo no empieza con una dieta. Empieza con diagnostico, estructura,
+          seguimiento y ajustes segun respuesta real.
+        </p>
+      </div>
+
+      <div class="method-grid">
+        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0s">
+          <div class="method-card-bar"></div>
+          <div class="method-num">01</div>
+          <div class="method-title">Diagnostico</div>
+          <p class="method-desc">Lectura inicial de composicion, historial, objetivo, riesgo metabolico y nivel de experiencia. Sin datos claros no hay intervencion seria.</p>
+        </div>
+        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.1s">
+          <div class="method-card-bar"></div>
+          <div class="method-num">02</div>
+          <div class="method-title">Protocolo</div>
+          <p class="method-desc">Nutricion, entrenamiento y suplementacion se integran en una estructura medible, con macros, cargas y objetivos definidos por fase.</p>
+        </div>
+        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.2s">
+          <div class="method-card-bar"></div>
+          <div class="method-num">03</div>
+          <div class="method-title">Seguimiento</div>
+          <p class="method-desc">La app centraliza metricas, reportes y evolucion. El progreso se evalua con datos, no con sensaciones aisladas.</p>
+        </div>
+        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.3s">
+          <div class="method-card-bar"></div>
+          <div class="method-num">04</div>
+          <div class="method-title">Ajuste Clinico</div>
+          <p class="method-desc">Cada cambio responde a evidencia del proceso: adherencia, sintomas, composicion corporal y seguridad clinica.</p>
         </div>
       </div>
     </div>
@@ -1527,45 +1404,44 @@
             <span class="section-label-text">Tecnologia Propietaria</span>
           </div>
 
-          <h2>La app que construi <em>yo mismo</em> para ti.</h2>
+          <h2>Un sistema de seguimiento, <em>no una hoja de calculo.</em></h2>
 
           <p class="tech-desc">
-            No uso Excel ni plataformas genericas. Desarrolle <strong>app.ironqx.fit</strong> desde cero
-            para centralizar cada aspecto de tu protocolo: graficas de evolucion, metricas biometricas
-            en tiempo real, planes dinamicos y reportes clinicos exportables.
+            <strong>app.ironqx.fit</strong> centraliza tu protocolo: evolucion corporal,
+            adherencia, ajustes, reportes y decisiones de seguimiento en un solo lugar.
+            Es la capa tecnica que permite trabajar con precision clinica.
           </p>
 
           <div class="tech-quote">
-            <p>"La construi porque necesitaba una herramienta que manejara la complejidad de 15 pacientes
-            simultaneos sin perder la precision clinica que cada caso exige."</p>
+            <p>"La construi para que cada decision del protocolo tenga trazabilidad, contexto y seguimiento real."</p>
           </div>
 
           <div>
             <div class="tech-feat touch-scale">
               <div class="tech-feat-dot"></div>
               <div>
-                <div class="tech-feat-title">Graficas de Composicion Corporal</div>
+                <div class="tech-feat-title">Evolucion de Composicion</div>
                 <p class="tech-feat-desc">Visualizacion de evolucion de masa muscular, grasa y metricas biometricas semana a semana.</p>
               </div>
             </div>
             <div class="tech-feat touch-scale">
               <div class="tech-feat-dot"></div>
               <div>
-                <div class="tech-feat-title">Ajustes de Protocolo en Tiempo Real</div>
+                <div class="tech-feat-title">Ajustes por Respuesta Real</div>
                 <p class="tech-feat-desc">Modificaciones de nutricion y entrenamiento basadas en datos objetivos, sin esperar la proxima sesion.</p>
               </div>
             </div>
             <div class="tech-feat touch-scale">
               <div class="tech-feat-dot"></div>
               <div>
-                <div class="tech-feat-title">Reportes Clinicos Exportables</div>
+                <div class="tech-feat-title">Reportes Clinicos</div>
                 <p class="tech-feat-desc">Documentacion medica completa de tu proceso, ideal para consultas con otros especialistas.</p>
               </div>
             </div>
             <div class="tech-feat touch-scale">
               <div class="tech-feat-dot"></div>
               <div>
-                <div class="tech-feat-title">Integracion con IronQx Assistant</div>
+                <div class="tech-feat-title">Contexto para el Assistant</div>
                 <p class="tech-feat-desc">El asistente IA opera en sinergia con tu perfil en la app para respuestas mas precisas y contextualizadas.</p>
               </div>
             </div>
@@ -1581,7 +1457,7 @@
             <h3 class="app-title">
               <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">app.ironqx.fit</a>
             </h3>
-            <p class="app-subtitle">Plataforma Web Propietaria</p>
+            <p class="app-subtitle">Sistema clinico de seguimiento</p>
             <div class="app-device" aria-label="Vista previa de la app IronQx">
               <div class="app-device-screen">
                 <div class="app-statusbar">
@@ -1694,9 +1570,120 @@
                 <div class="app-access-name">Accede a la plataforma</div>
               </a>
               </div>
-              <p class="app-access-note">Acceso exclusivo <span>&mdash;</span> Pacientes con plan activo</p>
+              <p class="app-access-note">Acceso exclusivo <span>&mdash;</span> Pacientes activos</p>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IA Bot -->
+  <section id="ia-bot" class="section ia-bot">
+    <div class="ia-bot-gradient"></div>
+    <div class="section-inner">
+      <div class="ia-bot-grid">
+        <div class="reveal">
+          <div class="section-label-left">
+            <div class="section-label-line" style="width:28px"></div>
+            <span class="section-label-text">IronQx Assistant</span>
+          </div>
+
+          <h2>Soporte inteligente.<br><em>Dentro del metodo.</em></h2>
+
+          <p class="ia-bot-desc">
+            IronQx Assistant es un asistente de inteligencia artificial configurado con toda la metodologia,
+            filosofia y precision clinica de IronQx. No es un chatbot generico: fue construido desde adentro
+            para orientar dudas de nutricion, entrenamiento y seguimiento sin reemplazar el criterio medico.
+          </p>
+
+          <div style="margin-bottom:28px">
+            <div class="ia-feat-card touch-scale">
+              <div class="ia-feat-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M12 18v-5"/></svg>
+              </div>
+              <div>
+                <div class="ia-feat-title">Nutricion personalizada al instante</div>
+                <p class="ia-feat-desc">Resuelve dudas sobre macros, equivalencias, timing de comidas y adaptaciones segun tu protocolo actual.</p>
+              </div>
+            </div>
+            <div class="ia-feat-card touch-scale">
+              <div class="ia-feat-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="m21.5 21.5-1.4-1.4"/><path d="M3.9 3.9 2.5 2.5"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/></svg>
+              </div>
+              <div>
+                <div class="ia-feat-title">Guia de entrenamiento 24/7</div>
+                <p class="ia-feat-desc">Orientacion sobre ejecucion, progresiones, volumen y ajustes de carga basados en biomecanica.</p>
+              </div>
+            </div>
+            <div class="ia-feat-card touch-scale">
+              <div class="ia-feat-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+              </div>
+              <div>
+                <div class="ia-feat-title">Seguimiento de pacientes activos</div>
+                <p class="ia-feat-desc">Los pacientes en protocolo pueden consultar y reportar en cualquier momento del dia.</p>
+              </div>
+            </div>
+            <div class="ia-feat-card touch-scale">
+              <div class="ia-feat-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <div class="ia-feat-title">Admision y ventas inteligente</div>
+                <p class="ia-feat-desc">Resuelve dudas sobre planes y coordina tu proceso de aplicacion antes de comprometerte.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/593984490998?text=Hola%20IronQx%20Assistant,%20quiero%20empezar" target="_blank" rel="noopener noreferrer" class="btn-green btn-lift touch-scale">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            Consultar al Assistant
+          </a>
+
+          <div class="ia-info-box">
+            <p>
+              <strong>Disponible como apoyo 24/7.</strong> Resuelve dudas frecuentes,
+              orienta sobre el metodo y ayuda a iniciar la admision, pero la aplicacion formal se revisa por WhatsApp.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="chat-mockup">
+            <div class="chat-header">
+              <div class="chat-avatar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+              </div>
+              <div>
+                <div class="chat-name">IronQx Assistant</div>
+                <div class="chat-status">&#9679; En linea ahora</div>
+              </div>
+            </div>
+            <div class="chat-body">
+              <div class="chat-msg chat-msg-bot">
+                <p>Hola &#128075; Soy <strong>IronQx Assistant</strong>. Puedo ayudarte con nutricion,
+                entrenamiento o tus dudas sobre los planes. &iquest;En que te ayudo?</p>
+                <span class="chat-time">9:01 am &#10003;&#10003;</span>
+              </div>
+              <div class="chat-msg chat-msg-user">
+                <p>&iquest;Cuantas calorias debo comer si quiero ganar musculo sin ganar grasa?</p>
+                <span class="chat-time">9:02 am &#10003;&#10003;</span>
+              </div>
+              <div class="chat-msg chat-msg-bot">
+                <p>Excelente pregunta. Para recomposicion efectiva el superavit debe ser controlado:
+                150-300 kcal sobre tu mantenimiento. Lo clave no es solo el numero total, sino la
+                <strong>distribucion de macros</strong> y el timing. &iquest;Cuanto pesas y cuantos dias entrenas?</p>
+                <span class="chat-time">9:02 am &#10003;&#10003;</span>
+              </div>
+            </div>
+            <div class="chat-input-bar">
+              <div class="chat-input">Escribe tu pregunta...</div>
+              <div class="chat-send touch-scale">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1767,7 +1754,7 @@
             Aplicar por WhatsApp
           </a>
           <button class="btn-outline touch-scale" onclick="document.getElementById('planes').scrollIntoView({behavior:'smooth'})">
-            Ver planes de inversion
+            Comparar planes
           </button>
         </div>
 
@@ -1802,16 +1789,16 @@
             <ul class="footer-links">
               <li><a href="#filosofia">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                Filosofia</a></li>
-              <li><a href="#metodologia">
-                <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                Metodologia</a></li>
+                Autoridad</a></li>
               <li><a href="#calculadora">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="12" y2="18"/></svg>
-                Calculadora</a></li>
+                Diagnostico</a></li>
               <li><a href="#planes">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 Planes</a></li>
+              <li><a href="#metodologia">
+                <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                Metodo</a></li>
               <li><a href="#ia-bot">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 IronQx AI</a></li>
@@ -1820,9 +1807,9 @@
 
           <div class="footer-contact-cta">
             <h5 class="footer-heading">Contacto</h5>
-            <a href="https://wa.me/593984490998" target="_blank" rel="noopener noreferrer" class="footer-wa-btn">
+            <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="footer-wa-btn">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-              WhatsApp
+              Aplicar por WhatsApp
             </a>
             <ul class="footer-links">
               <li><a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">
@@ -1845,7 +1832,7 @@
   </footer>
 
   <!-- Floating Elements -->
-  <a href="https://wa.me/593984490998?text=Hola%20IronQx%20Assistant" target="_blank" rel="noopener noreferrer" class="floating-wa wa-halo">
+  <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="floating-wa wa-halo">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
   </a>
 
@@ -2116,8 +2103,8 @@
       document.getElementById('recPlanName').textContent = recPlan;
       document.getElementById('recPlanPrice').textContent = recPrice;
       document.getElementById('recPlanReason').textContent = recReason;
-      document.getElementById('recPlanCtaText').textContent = 'Solicitar ' + recPlan;
-      document.getElementById('recPlanCta').href = 'https://wa.me/593984490998?text=Hola,%20la%20calculadora%20me%20recomendo%20el%20plan%20' + recWaText + '.%20Me%20interesa%20saber%20mas.';
+      document.getElementById('recPlanCtaText').textContent = 'Aplicar a ' + recPlan;
+      document.getElementById('recPlanCta').href = 'https://wa.me/593984490998?text=Hola,%20hice%20el%20diagnostico%20inicial%20y%20me%20recomendo%20el%20plan%20' + recWaText + '.%20Quiero%20aplicar.';
       planRec.style.display = 'block';
 
       // Update base UI
