@@ -150,14 +150,31 @@
     /* Mobile Menu */
     .mobile-overlay { position: fixed; inset: 0; z-index: 999; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.35s; }
     .mobile-overlay.open { opacity: 1; visibility: visible; pointer-events: auto; }
-    .mobile-overlay-bg { position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-    .mobile-panel { position: absolute; top: 0; right: 0; height: 100%; width: 85%; max-width: 360px; background: rgba(10,10,10,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-left: 1px solid rgba(212,175,55,0.15); display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; padding: 100px 32px 48px; gap: 8px; transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
+    .mobile-overlay-bg { position: absolute; inset: 0; background: rgba(0,0,0,0.78); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    .mobile-panel { position: absolute; top: 0; right: 0; height: 100%; width: min(88vw, 390px); background: radial-gradient(circle at 100% 0%, rgba(212,175,55,0.1), transparent 34%), linear-gradient(180deg, rgba(18,18,18,0.99), rgba(5,5,5,0.99)); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border-left: 1px solid rgba(212,175,55,0.18); display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; padding: 78px 24px 28px; gap: 14px; transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; box-shadow: -24px 0 70px rgba(0,0,0,0.45); }
     .mobile-overlay.open .mobile-panel { transform: translateX(0); }
-    .mobile-link { font-size: 1.35rem; font-family: 'Cormorant Garamond', serif; color: var(--silver); transition: all 0.25s ease; padding: 12px 0; width: 100%; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); background: none; border-left: none; border-right: none; border-top: none; cursor: pointer; }
-    .mobile-link:hover, .mobile-link:active { color: var(--gold); padding-left: 8px; }
-    .mobile-wa-btn { margin-top: 32px; background: var(--wa); color: white; padding: 14px 28px; border-radius: 8px; display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; transition: all 0.3s ease; width: 100%; justify-content: center; }
-    .mobile-wa-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-    .swipe-indicator { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 4px; height: 40px; background: rgba(212,175,55,0.3); border-radius: 2px; }
+    .mobile-menu-head { padding-bottom: 12px; border-bottom: 1px solid rgba(212,175,55,0.14); }
+    .mobile-menu-eyebrow { color: var(--gold); font-size: 9px; text-transform: uppercase; letter-spacing: 0.22em; font-weight: 700; margin-bottom: 8px; }
+    .mobile-menu-title { font-family: 'Cormorant Garamond', serif; color: var(--text); font-size: 1.75rem; line-height: 1.05; margin-bottom: 8px; }
+    .mobile-menu-desc { color: var(--muted); font-size: 12px; line-height: 1.45; max-width: 18rem; }
+    .mobile-menu-list { display: grid; gap: 4px; }
+    .mobile-link { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 13px; color: var(--silver); transition: all 0.25s ease; padding: 10px 0; width: 100%; text-align: left; border: 0; border-bottom: 1px solid rgba(255,255,255,0.06); background: none; cursor: pointer; }
+    .mobile-link:hover, .mobile-link:active { color: var(--text); transform: translateX(4px); }
+    .mobile-link-index { color: var(--gold); font-size: 10px; letter-spacing: 0.16em; font-weight: 700; min-width: 24px; }
+    .mobile-link-title { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.38rem; line-height: 1.05; }
+    .mobile-link-desc { display: block; color: var(--muted); font-size: 10.5px; line-height: 1.35; margin-top: 3px; font-family: 'Barlow', sans-serif; }
+    .mobile-link svg { color: rgba(212,175,55,0.7); width: 16px; height: 16px; transition: transform 0.25s ease; }
+    .mobile-link:hover svg, .mobile-link:active svg { transform: translateX(3px); }
+    .mobile-action-card { margin-top: 2px; padding: 14px; border-radius: 16px; background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(255,255,255,0.03)); border: 1px solid rgba(212,175,55,0.18); }
+    .mobile-action-kicker { color: var(--gold); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 700; margin-bottom: 7px; }
+    .mobile-action-copy { color: var(--silver); font-size: 12px; line-height: 1.4; margin-bottom: 12px; }
+    .mobile-wa-btn { background: var(--wa); color: white; padding: 13px 16px; border-radius: 10px; display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; transition: all 0.3s ease; width: 100%; justify-content: center; box-shadow: 0 16px 36px rgba(37,211,102,0.2); }
+    .mobile-wa-btn:hover { opacity: 0.95; transform: translateY(-2px); }
+    .mobile-quick-links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .mobile-quick-links a { color: var(--muted); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 10px 12px; display: flex; align-items: center; justify-content: center; gap: 7px; font-size: 12px; transition: all 0.25s ease; }
+    .mobile-quick-links a:hover { color: var(--gold); border-color: rgba(212,175,55,0.28); background: rgba(212,175,55,0.05); }
+    .mobile-quick-links svg { width: 14px; height: 14px; }
+    .swipe-indicator { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 3px; height: 64px; background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.55), transparent); border-radius: 2px; }
 
     /* Hero */
     .hero { min-height: 100vh; min-height: 100dvh; position: relative; overflow: hidden; }
@@ -870,17 +887,82 @@
     <div class="mobile-overlay-bg" id="mobileOverlayBg"></div>
     <div class="mobile-panel" id="mobilePanel">
       <div class="swipe-indicator"></div>
-      <button class="mobile-link touch-scale" data-section="calculadora">Diagnostico</button>
-      <button class="mobile-link touch-scale" data-section="planes">Planes</button>
-      <button class="mobile-link touch-scale" data-section="filosofia">Autoridad</button>
-      <button class="mobile-link touch-scale" data-section="metodologia">Metodo</button>
-      <button class="mobile-link touch-scale" data-section="tecnologia">Tecnologia</button>
-      <button class="mobile-link touch-scale" data-section="ia-bot">Assistant</button>
-      <button class="mobile-link touch-scale" data-section="contacto">Contacto</button>
-      <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="mobile-wa-btn touch-scale">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-        Aplicar por WhatsApp
-      </a>
+      <div class="mobile-menu-head">
+        <div class="mobile-menu-eyebrow">Ruta IronQX</div>
+        <div class="mobile-menu-title">Elige por donde avanzar.</div>
+        <p class="mobile-menu-desc">Empieza con tu diagnostico, compara planes o revisa el sistema antes de aplicar.</p>
+      </div>
+
+      <div class="mobile-menu-list">
+        <button class="mobile-link touch-scale" data-section="calculadora">
+          <span class="mobile-link-index">01</span>
+          <span>
+            <span class="mobile-link-title">Diagnostico</span>
+            <span class="mobile-link-desc">Calcula tu punto de partida</span>
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="mobile-link touch-scale" data-section="planes">
+          <span class="mobile-link-index">02</span>
+          <span>
+            <span class="mobile-link-title">Planes</span>
+            <span class="mobile-link-desc">Balance, Forged y Restore</span>
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="mobile-link touch-scale" data-section="filosofia">
+          <span class="mobile-link-index">03</span>
+          <span>
+            <span class="mobile-link-title">Autoridad</span>
+            <span class="mobile-link-desc">Medico, atleta y metodo propio</span>
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="mobile-link touch-scale" data-section="metodologia">
+          <span class="mobile-link-index">04</span>
+          <span>
+            <span class="mobile-link-title">Metodo</span>
+            <span class="mobile-link-desc">Diagnostico, protocolo y ajuste</span>
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="mobile-link touch-scale" data-section="tecnologia">
+          <span class="mobile-link-index">05</span>
+          <span>
+            <span class="mobile-link-title">Tecnologia</span>
+            <span class="mobile-link-desc">App, seguimiento y reportes</span>
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="mobile-link touch-scale" data-section="ia-bot">
+          <span class="mobile-link-index">06</span>
+          <span>
+            <span class="mobile-link-title">Assistant</span>
+            <span class="mobile-link-desc">Soporte contextual 24/7</span>
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="mobile-action-card">
+        <div class="mobile-action-kicker">Admisión</div>
+        <p class="mobile-action-copy">Si ya sabes que quieres direccion medica y rendimiento, envia tu solicitud.</p>
+        <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="mobile-wa-btn touch-scale">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+          Aplicar por WhatsApp
+        </a>
+      </div>
+
+      <div class="mobile-quick-links">
+        <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+          App
+        </a>
+        <a href="https://www.instagram.com/iron.qx/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37a4 4 0 1 1-4.63-4.63A4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg>
+          Instagram
+        </a>
+      </div>
     </div>
   </div>
 
