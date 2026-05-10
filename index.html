@@ -175,8 +175,13 @@
     @media (min-width: 640px) { .hero h1 { font-size: 2.75rem; } }
     @media (min-width: 1024px) { .hero h1 { font-size: 3.25rem; } }
     .hero h1 span { display: block; font-weight: 600; color: var(--gold); font-style: italic; margin-top: 8px; }
-    .hero-desc { color: var(--silver); font-size: 1rem; max-width: 28rem; margin-bottom: 28px; line-height: 1.7; }
+    .hero-desc { color: var(--silver); font-size: 1rem; max-width: 28rem; margin-bottom: 18px; line-height: 1.7; }
     @media (min-width: 640px) { .hero-desc { font-size: 1.125rem; } }
+    .hero-bullets { display: grid; gap: 10px; max-width: 29rem; margin: 0 0 28px; list-style: none; }
+    .hero-bullets li { display: flex; align-items: flex-start; gap: 10px; color: var(--silver); font-size: 0.95rem; line-height: 1.45; }
+    .hero-bullets li::before { content: ""; width: 7px; height: 7px; margin-top: 0.45em; border-radius: 999px; background: var(--gold); box-shadow: 0 0 0 4px rgba(212,175,55,0.1); flex: 0 0 auto; }
+    .hero-bullets strong { color: var(--text); font-weight: 600; }
+    @media (min-width: 640px) { .hero-bullets li { font-size: 1rem; } }
     .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
 
     .btn-gold { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(to right, var(--gold), var(--gold-dk)); color: black; padding: 14px 24px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; font-family: 'Barlow', sans-serif; transition: all 0.3s ease; border-radius: 4px; min-height: 48px; }
@@ -897,9 +902,14 @@
 
           <p class="hero-desc">
             IronQX convierte tu punto de partida en un protocolo de nutrición,
-            entrenamiento y seguimiento diseñado para tu metabolismo, tu fuerza,
-            tu rutina y tu objetivo. Sin planes genéricos. Sin improvisar. Sin perder meses probando qué funciona.
+            entrenamiento y seguimiento diseñado para tu metabolismo, tu fuerza, tu rutina y tu objetivo.
           </p>
+
+          <ul class="hero-bullets">
+            <li><strong>Sin planes genéricos.</strong></li>
+            <li><strong>Sin improvisar.</strong></li>
+            <li><strong>Sin perder meses probando qué funciona.</strong></li>
+          </ul>
 
           <div class="hero-buttons">
             <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="btn-gold btn-lift touch-scale">
