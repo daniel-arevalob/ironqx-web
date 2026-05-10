@@ -573,6 +573,10 @@
     .app-title a:hover { text-decoration: underline; }
     .app-subtitle { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 28px; }
     @media (min-width: 640px) { .app-subtitle { font-size: 14px; margin-bottom: 32px; } }
+    .app-mockup-figure { position: relative; width: min(100%, 360px); margin: 0 auto; filter: drop-shadow(0 34px 70px rgba(0,0,0,0.58)); }
+    .app-mockup-figure::before { content: ""; position: absolute; inset: 10% -10% 8%; background: radial-gradient(circle, rgba(212,175,55,0.18), transparent 62%); filter: blur(18px); z-index: 0; pointer-events: none; }
+    .app-mockup-img { position: relative; z-index: 1; width: 100%; height: auto; object-fit: contain; }
+    @media (max-width: 479px) { .app-mockup-figure { width: min(100%, 315px); } }
     .app-device { max-width: 330px; margin: 0 auto; padding: 10px; border-radius: 34px; background: linear-gradient(145deg, #2a2a2a, #090909 42%, #000); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 28px 70px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.05); }
     .app-device-screen { border-radius: 26px; background: #080808; border: 1px solid rgba(212,175,55,0.1); overflow: hidden; min-height: 650px; text-align: left; position: relative; }
     .app-statusbar { height: 30px; padding: 8px 18px 0; display: flex; align-items: center; justify-content: space-between; color: rgba(255,255,255,0.72); font-size: 10px; font-weight: 600; letter-spacing: 0.04em; }
@@ -1560,127 +1564,9 @@
               <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">app.ironqx.fit</a>
             </h3>
             <p class="app-subtitle">Sistema clinico de seguimiento</p>
-            <div class="app-device" aria-label="Vista previa de la app IronQx">
-              <div class="app-device-screen">
-                <div class="app-statusbar">
-                  <span>9:41</span>
-                  <div class="app-status-icons" aria-hidden="true">
-                    <div class="app-signal"><span></span><span></span><span></span></div>
-                    <span>5G</span>
-                    <div class="app-battery"></div>
-                  </div>
-                </div>
-
-                <div class="app-header">
-                  <div class="app-header-icon">
-                    <img src="images/app-logo.webp" alt="" loading="lazy" />
-                  </div>
-                  <div>
-                    <div class="app-header-kicker">IronQx App</div>
-                    <div class="app-header-name">Panel del paciente</div>
-                  </div>
-                  <div class="app-header-meta">Activo</div>
-                </div>
-
-                <div class="app-content">
-                  <div class="app-summary">
-                    <div class="app-summary-label">Progreso total</div>
-                    <div class="app-summary-main">
-                      <div class="app-summary-value">-4.6<span>% grasa</span></div>
-                      <div class="app-summary-pill">En ruta</div>
-                    </div>
-                    <div class="app-sparkline">
-                      <svg viewBox="0 0 240 54" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:54px;">
-                        <defs>
-                          <linearGradient id="appChartGold" x1="0" x2="0" y1="0" y2="1">
-                            <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.35"/>
-                            <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
-                          </linearGradient>
-                        </defs>
-                        <path d="M0 18 C30 20 40 24 67 22 C98 20 108 36 137 34 C170 31 183 22 210 26 C224 28 233 24 240 20 L240 54 L0 54 Z" fill="url(#appChartGold)"/>
-                        <path d="M0 18 C30 20 40 24 67 22 C98 20 108 36 137 34 C170 31 183 22 210 26 C224 28 233 24 240 20" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
-                        <circle cx="240" cy="20" r="4" fill="#D4AF37"/>
-                      </svg>
-                    </div>
-                  </div>
-
-                  <div class="app-protocol-card">
-                    <div class="app-protocol-top">
-                      <div>
-                        <div class="app-protocol-label">Protocolo activo</div>
-                        <div class="app-protocol-name">Fase 02 - Recomp</div>
-                      </div>
-                      <span class="app-protocol-status">Check-in 3d</span>
-                    </div>
-                    <div class="app-protocol-steps">
-                      <div class="app-step">
-                        <div class="app-step-num">92%</div>
-                        <div class="app-step-label">adherencia</div>
-                      </div>
-                      <div class="app-step">
-                        <div class="app-step-num">4/6</div>
-                        <div class="app-step-label">sesiones</div>
-                      </div>
-                      <div class="app-step">
-                        <div class="app-step-num">-0.8</div>
-                        <div class="app-step-label">kg/sem</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="app-screens">
-                    <div class="app-screen">
-                      <div class="app-screen-label">Peso</div>
-                      <div class="app-screen-metric">
-                        <span class="app-metric-val">76.4</span>
-                        <span class="app-metric-unit">kg</span>
-                      </div>
-                      <span class="app-metric-delta app-metric-down">-3.8 kg</span>
-                    </div>
-
-                    <div class="app-screen">
-                      <div class="app-screen-label">Meta</div>
-                      <div class="app-ring-wrap">
-                        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:52px;">
-                          <circle cx="22" cy="22" r="17" fill="none" stroke="#222" stroke-width="4"/>
-                          <circle cx="22" cy="22" r="17" fill="none" stroke="#D4AF37" stroke-width="4" stroke-dasharray="106.8" stroke-dashoffset="26.7" stroke-linecap="round" transform="rotate(-90 22 22)"/>
-                          <text x="22" y="26" text-anchor="middle" fill="#D4AF37" font-size="9" font-family="Barlow,sans-serif" font-weight="600">75%</text>
-                        </svg>
-                        <span class="app-ring-label">completado</span>
-                      </div>
-                    </div>
-
-                    <div class="app-screen app-screen-wide">
-                      <div class="app-screen-label">Macros del dia</div>
-                      <div class="app-macros-rows">
-                        <div class="app-macro-item">
-                          <span class="app-macro-letter" style="color:#D4AF37">P</span>
-                          <div class="app-bar-track" style="flex:1"><div class="app-bar-fill" style="width:78%;background:#D4AF37"></div></div>
-                          <span class="app-macro-g">156g</span>
-                        </div>
-                        <div class="app-macro-item">
-                          <span class="app-macro-letter" style="color:#7ec8e3">C</span>
-                          <div class="app-bar-track" style="flex:1"><div class="app-bar-fill" style="width:62%;background:#7ec8e3"></div></div>
-                          <span class="app-macro-g">210g</span>
-                        </div>
-                        <div class="app-macro-item">
-                          <span class="app-macro-letter" style="color:#b8860b">G</span>
-                          <div class="app-bar-track" style="flex:1"><div class="app-bar-fill" style="width:55%;background:#b8860b"></div></div>
-                          <span class="app-macro-g">58g</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="app-bottom-nav" aria-hidden="true">
-                  <div class="app-nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
-                  <div class="app-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/></svg></div>
-                  <div class="app-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg></div>
-                  <div class="app-nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div>
-                </div>
-              </div>
-            </div>
+            <figure class="app-mockup-figure" aria-label="Vista previa de la app IronQx">
+              <img class="app-mockup-img" src="images/mockup-app.webp" alt="Pantalla de inicio de IronQx App con estado del plan, membresia activa y progreso del paciente" loading="lazy" />
+            </figure>
             <!-- Platform Access Badge -->
             <div class="app-access-badge">
               <div class="app-access-divider">

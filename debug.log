@@ -1,1 +1,5 @@
 [0509/235945.632:ERROR:components\viz\service\display\display.cc:286] Frame latency is negative: -0.241 ms
+[0510/064725.155:WARNING:net\dns\dns_config_service_win.cc:609] Failed to read DnsConfig.
+[0510/064725.332:WARNING:net\dns\dns_config_service_win.cc:609] Failed to read DnsConfig.
+[0510/064740.827:ERROR:components\viz\service\display\display.cc:286] Frame latency is negative: -0.087 ms
+[0510/064759.159:ERROR:components\viz\service\display\display.cc:286] Frame latency is negative: -0.236 ms
