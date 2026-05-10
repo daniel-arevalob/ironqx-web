@@ -552,7 +552,7 @@
     .app-subtitle { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 28px; }
     @media (min-width: 640px) { .app-subtitle { font-size: 14px; margin-bottom: 32px; } }
     .app-device { max-width: 330px; margin: 0 auto; padding: 10px; border-radius: 34px; background: linear-gradient(145deg, #2a2a2a, #090909 42%, #000); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 28px 70px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.05); }
-    .app-device-screen { border-radius: 26px; background: #080808; border: 1px solid rgba(212,175,55,0.1); overflow: hidden; min-height: 570px; text-align: left; position: relative; }
+    .app-device-screen { border-radius: 26px; background: #080808; border: 1px solid rgba(212,175,55,0.1); overflow: hidden; min-height: 650px; text-align: left; position: relative; }
     .app-statusbar { height: 30px; padding: 8px 18px 0; display: flex; align-items: center; justify-content: space-between; color: rgba(255,255,255,0.72); font-size: 10px; font-weight: 600; letter-spacing: 0.04em; }
     .app-status-icons { display: flex; align-items: center; gap: 5px; }
     .app-signal { display: flex; align-items: flex-end; gap: 2px; height: 10px; }
@@ -574,6 +574,15 @@
     .app-summary-value { color: white; font-family: 'Cormorant Garamond', serif; font-size: 2.25rem; line-height: 1; }
     .app-summary-value span { color: var(--muted); font-size: 0.9rem; font-family: 'Barlow', sans-serif; }
     .app-summary-pill { color: #4ade80; background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.18); border-radius: 999px; padding: 4px 8px; font-size: 10px; font-weight: 700; white-space: nowrap; }
+    .app-protocol-card { background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(255,255,255,0.02)); border: 1px solid rgba(212,175,55,0.14); border-radius: 16px; padding: 13px; display: grid; gap: 12px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
+    .app-protocol-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .app-protocol-label { color: var(--gold); font-size: 9px; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 800; margin-bottom: 5px; }
+    .app-protocol-name { color: var(--text); font-size: 15px; font-weight: 700; line-height: 1.15; }
+    .app-protocol-status { flex: 0 0 auto; padding: 6px 9px; border-radius: 999px; background: rgba(34,197,94,0.14); color: #86efac; font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800; white-space: nowrap; }
+    .app-protocol-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+    .app-step { background: rgba(0,0,0,0.24); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 9px 7px; min-width: 0; }
+    .app-step-num { color: var(--text); font-size: 15px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .app-step-label { color: var(--muted); font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.25; }
     .app-screens { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .app-screen { background: #111; border: 1px solid var(--border); border-radius: 14px; padding: 12px; min-height: 116px; }
     .app-screen-wide { grid-column: span 2; }
@@ -1502,6 +1511,30 @@
                     </div>
                   </div>
 
+                  <div class="app-protocol-card">
+                    <div class="app-protocol-top">
+                      <div>
+                        <div class="app-protocol-label">Protocolo activo</div>
+                        <div class="app-protocol-name">Fase 02 - Recomp</div>
+                      </div>
+                      <span class="app-protocol-status">Check-in 3d</span>
+                    </div>
+                    <div class="app-protocol-steps">
+                      <div class="app-step">
+                        <div class="app-step-num">92%</div>
+                        <div class="app-step-label">adherencia</div>
+                      </div>
+                      <div class="app-step">
+                        <div class="app-step-num">4/6</div>
+                        <div class="app-step-label">sesiones</div>
+                      </div>
+                      <div class="app-step">
+                        <div class="app-step-num">-0.8</div>
+                        <div class="app-step-label">kg/sem</div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="app-screens">
                     <div class="app-screen">
                       <div class="app-screen-label">Peso</div>
@@ -1815,6 +1848,9 @@
               <li><a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
                 App Iron QX</a></li>
+              <li><a href="https://www.instagram.com/iron.qx/" target="_blank" rel="noopener noreferrer">
+                <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37a4 4 0 1 1-4.63-4.63A4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                @iron.qx</a></li>
               <li><span>
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 Cuenca, Ecuador</span></li>
