@@ -4,20 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
   <title>IronQX | Medicina del Rendimiento Corporal</title>
-  <meta name="description" content="Asesoría clínica en composición corporal. Control médico en tu entrenamiento y nutrición. Dr. Daniel Arevalo. Cuenca, Ecuador." />
+  <meta name="description" content="Consulta medica de rendimiento, metabolismo y musculo. Protocolos IronQX de nutricion, entrenamiento y composicion corporal. Dr. Daniel Arevalo." />
   <meta name="theme-color" content="#050505" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="IronQX | Medicina del Rendimiento Corporal" />
-  <meta property="og:description" content="Asesoría clínica en composición corporal. Control médico en tu entrenamiento y nutrición." />
+  <meta property="og:description" content="Consulta medica de rendimiento, metabolismo y musculo. Protocolos IronQX de nutricion, entrenamiento y composicion corporal." />
   <meta property="og:image" content="images/hero-main.jpeg" />
   <meta property="og:url" content="https://ironqx.fit" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="IronQX | Medicina del Rendimiento Corporal" />
-  <meta name="twitter:description" content="Asesoría clínica en composición corporal. Control médico en tu entrenamiento y nutrición." />
+  <meta name="twitter:description" content="Consulta medica de rendimiento, metabolismo y musculo. Protocolos IronQX de nutricion, entrenamiento y composicion corporal." />
   <meta name="twitter:image" content="images/hero-main.jpeg" />
 
   <!-- Structured Data -->
@@ -26,7 +26,7 @@
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     "name": "IronQX",
-    "description": "Medicina del Rendimiento Corporal. Asesoria Clinica en Entrenamiento & Nutricion.",
+    "description": "Consulta medica de rendimiento, metabolismo y musculo. Protocolos clinicos de nutricion, entrenamiento y composicion corporal.",
     "url": "https://ironqx.fit",
     "image": "images/hero-main.jpeg",
     "address": {
@@ -223,6 +223,11 @@
     .hero-badge-label { font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.25em; margin-bottom: 8px; opacity: 0.8; }
     .hero-badge-typewriter { font-size: 1rem; font-family: 'Cormorant Garamond', serif; color: var(--silver); line-height: 1.4; min-height: 2.8em; display: block; }
     @media (min-width: 640px) { .hero-badge-typewriter { font-size: 1.125rem; } }
+    .hero-mobile-primary { display: none; }
+    @media (max-width: 767px) {
+      .hero-mobile-primary { position: absolute; left: 14px; right: 14px; bottom: 126px; z-index: 24; min-height: 46px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 8px; background: linear-gradient(to right, var(--gold), var(--gold-dk)); color: #050505; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Barlow', sans-serif; box-shadow: 0 18px 42px rgba(0,0,0,0.38); }
+      .hero-mobile-primary svg { width: 15px; height: 15px; }
+    }
     .badge-cursor { display: inline; color: var(--gold); animation: blink-cursor 0.75s step-end infinite; margin-left: 1px; font-weight: 300; }
     @keyframes blink-cursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
@@ -375,6 +380,25 @@
     .macro-bar-track { height: 8px; background: #222; border-radius: 9999px; overflow: hidden; }
     .macro-bar-fill { height: 100%; border-radius: 9999px; transition: width 1s ease-out; }
     .calc-footer { text-align: center; font-size: 11px; color: #666; margin-top: 16px; }
+
+    /* Consulta Medica */
+    .consulta-medica { background: linear-gradient(180deg, var(--bg), rgba(212,175,55,0.035), var(--bg)); position: relative; overflow: hidden; }
+    .consulta-medica::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 15% 20%, rgba(212,175,55,0.08), transparent 32%), radial-gradient(circle at 85% 80%, rgba(255,255,255,0.035), transparent 30%); pointer-events: none; }
+    .consulta-grid { position: relative; z-index: 1; display: grid; gap: 24px; align-items: stretch; }
+    @media (min-width: 1024px) { .consulta-grid { grid-template-columns: 0.95fr 1.05fr; gap: 32px; } }
+    .consulta-card { background: rgba(15,15,15,0.86); border: 1px solid rgba(212,175,55,0.16); border-radius: 16px; padding: 24px; box-shadow: 0 24px 70px rgba(0,0,0,0.22); }
+    @media (min-width: 640px) { .consulta-card { padding: 32px; } }
+    .consulta-kicker { color: var(--gold); font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em; font-weight: 700; margin-bottom: 14px; }
+    .consulta-card h2 { font-size: 1.75rem; margin-bottom: 16px; }
+    @media (min-width: 640px) { .consulta-card h2 { font-size: 2.2rem; } }
+    .consulta-copy { color: var(--silver); line-height: 1.75; margin-bottom: 22px; }
+    .consulta-note { color: var(--muted); font-size: 13px; line-height: 1.6; margin-top: 16px; }
+    .consulta-use-grid { display: grid; gap: 12px; }
+    @media (min-width: 640px) { .consulta-use-grid { grid-template-columns: 1fr 1fr; } }
+    .consulta-use { background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 16px; display: flex; gap: 12px; align-items: flex-start; min-height: 94px; }
+    .consulta-use svg { width: 20px; height: 20px; color: var(--gold); flex: 0 0 auto; margin-top: 2px; }
+    .consulta-use-title { color: var(--text); font-size: 14px; font-weight: 700; margin-bottom: 5px; letter-spacing: 0.02em; }
+    .consulta-use-desc { color: var(--muted); font-size: 13px; line-height: 1.45; }
 
     /* Profile Questions */
     .profile-section { margin-top: 20px; padding-top: 20px; border-top: 1px solid #222; }
@@ -864,8 +888,8 @@
       </a>
 
       <div class="nav-links" id="navLinks">
-        <button class="nav-link" data-section="calculadora">Diagnostico</button>
-        <button class="nav-link" data-section="planes">Planes</button>
+        <button class="nav-link" data-section="consulta">Consulta</button>
+        <button class="nav-link" data-section="planes">Protocolos</button>
         <button class="nav-link" data-section="filosofia">Autoridad</button>
         <button class="nav-link" data-section="metodologia">Metodo</button>
         <button class="nav-link" data-section="tecnologia">Tecnologia</button>
@@ -874,9 +898,9 @@
       </div>
 
       <div class="nav-right">
-        <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="nav-wa-btn">
+        <a href="https://wa.me/593984490998?text=Hola,%20quiero%20agendar%20una%20consulta%20medica%20con%20el%20Dr.%20Daniel%20Arevalo.%20Me%20interesa%20orientacion%20sobre%20metabolismo,%20composicion%20corporal%20o%20rendimiento." target="_blank" rel="noopener noreferrer" class="nav-wa-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-          Aplicar por WhatsApp
+          Agendar consulta
         </a>
         <button class="hamburger touch-scale" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
           <svg id="menuIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
@@ -894,23 +918,23 @@
       <div class="mobile-menu-head">
         <div class="mobile-menu-eyebrow">Ruta IronQX</div>
         <div class="mobile-menu-title">Elige por donde avanzar.</div>
-        <p class="mobile-menu-desc">Empieza con tu diagnostico, compara planes o revisa el sistema antes de aplicar.</p>
+        <p class="mobile-menu-desc">Agenda una consulta medica puntual o revisa los protocolos de acompanamiento continuo.</p>
       </div>
 
       <div class="mobile-menu-list">
-        <button class="mobile-link touch-scale" data-section="calculadora">
+        <button class="mobile-link touch-scale" data-section="consulta">
           <span class="mobile-link-index">01</span>
           <span>
-            <span class="mobile-link-title">Diagnostico</span>
-            <span class="mobile-link-desc">Calcula tu punto de partida</span>
+            <span class="mobile-link-title">Consulta</span>
+            <span class="mobile-link-desc">Medicina de rendimiento y metabolismo</span>
           </span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
         <button class="mobile-link touch-scale" data-section="planes">
           <span class="mobile-link-index">02</span>
           <span>
-            <span class="mobile-link-title">Planes</span>
-            <span class="mobile-link-desc">Balance, Forged y Restore</span>
+            <span class="mobile-link-title">Protocolos</span>
+            <span class="mobile-link-desc">Acompanamiento continuo IronQX</span>
           </span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
@@ -946,14 +970,22 @@
           </span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
+        <button class="mobile-link touch-scale" data-section="contacto">
+          <span class="mobile-link-index">07</span>
+          <span>
+            <span class="mobile-link-title">Contacto</span>
+            <span class="mobile-link-desc">Consulta o protocolo por WhatsApp</span>
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
       </div>
 
       <div class="mobile-action-card">
-        <div class="mobile-action-kicker">Admisión</div>
-        <p class="mobile-action-copy">Si ya sabes que quieres direccion medica y rendimiento, envia tu solicitud.</p>
-        <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="mobile-wa-btn touch-scale">
+        <div class="mobile-action-kicker">Consulta medica</div>
+        <p class="mobile-action-copy">Si necesitas orientacion puntual sobre metabolismo, musculo o rendimiento, agenda una consulta.</p>
+        <a href="https://wa.me/593984490998?text=Hola,%20quiero%20agendar%20una%20consulta%20medica%20con%20el%20Dr.%20Daniel%20Arevalo.%20Me%20interesa%20orientacion%20sobre%20metabolismo,%20composicion%20corporal%20o%20rendimiento." target="_blank" rel="noopener noreferrer" class="mobile-wa-btn touch-scale">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-          Aplicar por WhatsApp
+          Agendar consulta
         </a>
       </div>
 
@@ -978,32 +1010,32 @@
         <div class="reveal">
           <div class="hero-label">
             <div class="hero-label-line"></div>
-            <span class="hero-label-text">Medicina del rendimiento corporal</span>
+            <span class="hero-label-text">Medicina de rendimiento, metabolismo y musculo</span>
           </div>
 
           <h1>
-            No necesitas entrenar más.
-            <span>Necesitas que tu cuerpo empiece a responder.</span>
+            No todo problema corporal
+            <span>se resuelve entrenando mas.</span>
           </h1>
 
           <p class="hero-desc">
-            IronQX convierte tu punto de partida en un protocolo de nutrición,
-            entrenamiento y seguimiento diseñado para tu metabolismo, tu fuerza, tu rutina y tu objetivo.
+            A veces necesitas entender tu metabolismo, tus sintomas, tus examenes
+            y la forma en que tu cuerpo esta respondiendo.
           </p>
 
           <ul class="hero-bullets">
-            <li><strong>Sin planes genéricos.</strong></li>
-            <li><strong>Sin improvisar.</strong></li>
-            <li><strong>Sin perder meses probando qué funciona.</strong></li>
+            <li><span><strong>Soy medico:</strong> integro fisiologia, nutricion y entrenamiento.</span></li>
+            <li><span><strong>Criterio clinico:</strong> farmacologia y riesgo cuando el caso lo requiere.</span></li>
+            <li><span><strong>Mejores decisiones:</strong> salud, composicion corporal y rendimiento.</span></li>
           </ul>
 
           <div class="hero-buttons">
-            <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="btn-gold btn-lift touch-scale">
-              Aplicar por WhatsApp
+            <a href="https://wa.me/593984490998?text=Hola,%20quiero%20agendar%20una%20consulta%20medica%20con%20el%20Dr.%20Daniel%20Arevalo.%20Me%20interesa%20orientacion%20sobre%20metabolismo,%20composicion%20corporal%20o%20rendimiento." target="_blank" rel="noopener noreferrer" class="btn-gold btn-lift touch-scale">
+              Agendar consulta medica
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
-            <button class="btn-outline touch-scale" onclick="document.getElementById('calculadora').scrollIntoView({behavior:'smooth'})">
-              Calcular mi protocolo
+            <button class="btn-outline touch-scale" onclick="document.getElementById('planes').scrollIntoView({behavior:'smooth'})">
+              Ver protocolos IronQX
             </button>
           </div>
 
@@ -1018,6 +1050,10 @@
           <div class="hero-badge-label">Hola! Soy el Dr. Daniel Arévalo</div>
           <div class="hero-badge-typewriter" id="badgeTypewriter"><span id="badgeText"></span><span class="badge-cursor">|</span></div>
         </div>
+        <a href="https://wa.me/593984490998?text=Hola,%20quiero%20agendar%20una%20consulta%20medica%20con%20el%20Dr.%20Daniel%20Arevalo.%20Me%20interesa%20orientacion%20sobre%20metabolismo,%20composicion%20corporal%20o%20rendimiento." target="_blank" rel="noopener noreferrer" class="hero-mobile-primary touch-scale">
+          Agendar consulta medica
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -1285,19 +1321,88 @@
     </div>
   </section>
 
-  <!-- Planes -->
+  <!-- Consulta Medica -->
+  <section id="consulta" class="section consulta-medica">
+    <div class="section-inner">
+      <div class="consulta-grid">
+        <div class="consulta-card reveal">
+          <div class="consulta-kicker">Consulta medica puntual</div>
+          <h2>Medicina para entender tu cuerpo, no solo para entrenarlo.</h2>
+          <p class="consulta-copy">
+            No todas las personas necesitan entrar a un plan mensual. A veces necesitas una consulta
+            para ordenar sintomas, examenes, antecedentes, medicacion, metabolismo y objetivos antes de decidir que hacer.
+          </p>
+          <p class="consulta-copy">
+            Esta ruta es para recibir criterio medico aplicado a rendimiento, musculo, composicion corporal y salud metabolica.
+          </p>
+          <a href="https://wa.me/593984490998?text=Hola,%20quiero%20agendar%20una%20consulta%20medica%20con%20el%20Dr.%20Daniel%20Arevalo.%20Me%20interesa%20orientacion%20sobre%20metabolismo,%20composicion%20corporal%20o%20rendimiento." target="_blank" rel="noopener noreferrer" class="btn-gold btn-lift touch-scale">
+            Agendar consulta por WhatsApp
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <p class="consulta-note">Consulta independiente. No necesitas estar en un protocolo IronQX para agendar.</p>
+        </div>
+
+        <div class="consulta-use-grid reveal stagger-1">
+          <div class="consulta-use">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <div>
+              <div class="consulta-use-title">Metabolismo y peso</div>
+              <p class="consulta-use-desc">Lectura de estancamiento, composicion corporal y respuesta metabolica.</p>
+            </div>
+          </div>
+          <div class="consulta-use">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 6.5h11"/><path d="M6.5 17.5h11"/><path d="M3 9.5v5"/><path d="M21 9.5v5"/></svg>
+            <div>
+              <div class="consulta-use-title">Musculo y rendimiento</div>
+              <p class="consulta-use-desc">Fuerza, masa muscular, fatiga, recuperacion y capacidad de progreso.</p>
+            </div>
+          </div>
+          <div class="consulta-use">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>
+            <div>
+              <div class="consulta-use-title">Examenes e imagenes</div>
+              <p class="consulta-use-desc">Interpretacion de laboratorios, reportes, imagenologia y contexto clinico.</p>
+            </div>
+          </div>
+          <div class="consulta-use">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 21h4"/><path d="M12 17v4"/><path d="M8 3h8l1 5H7z"/><path d="M7 8h10l-1 9H8z"/></svg>
+            <div>
+              <div class="consulta-use-title">Farmacos y suplementos</div>
+              <p class="consulta-use-desc">Riesgo, interacciones, uso responsable y decisiones informadas.</p>
+            </div>
+          </div>
+          <div class="consulta-use">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M2 12h20"/><path d="M5 5l14 14"/><path d="M19 5 5 19"/></svg>
+            <div>
+              <div class="consulta-use-title">Sintomas y baja respuesta</div>
+              <p class="consulta-use-desc">Fatiga, bajo rendimiento, hambre, sueno, recuperacion o dudas persistentes.</p>
+            </div>
+          </div>
+          <div class="consulta-use">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+            <div>
+              <div class="consulta-use-title">Enfermedad y antecedentes</div>
+              <p class="consulta-use-desc">Orientacion cuando hay patologias, riesgos o decisiones que requieren prudencia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Protocolos -->
   <section id="planes" class="section">
     <div class="section-inner">
       <div class="section-header reveal">
         <div class="section-label">
           <div class="section-label-line"></div>
-          <span class="section-label-text">Planes Clinicos</span>
+          <span class="section-label-text">Protocolos IronQX</span>
           <div class="section-label-line"></div>
         </div>
-        <h2>Elige el nivel correcto de <em>intervencion.</em></h2>
+        <h2>Cuando necesitas continuidad, <em>elige un protocolo.</em></h2>
         <p class="section-desc">
-          Tres rutas segun tu punto de partida: estructura, rendimiento o supervision medica.
-          Todos los planes integran app, seguimiento y criterio clinico.
+          Balance, Forged y Restore son rutas de acompanamiento continuo para nutricion,
+          entrenamiento, seguimiento y ajustes. Si solo necesitas una consulta puntual, empieza por la ruta medica.
         </p>
       </div>
 
@@ -1424,7 +1529,7 @@
             <span class="section-label-text">Quien esta detras</span>
           </div>
 
-          <h2>Medico. <em>Atleta.</em><br>Cientifico del Cuerpo.</h2>
+          <h2>Medico que entiende <em>musculo, metabolismo y rendimiento.</em></h2>
 
           <div class="bio-text">
             <p>
@@ -1433,18 +1538,19 @@
               Campeon Mr. Cuenca y Top 2 Mr. Ecuador.
             </p>
             <p>
-              Mi trabajo es diferente porque no delego en asistentes. Cada protocolo lo diseno yo,
-              cada ajuste pasa por mi criterio medico. No vendo motivacion. Vendo
-              <strong>control biologico documentado</strong>.
+              Mi trabajo nace de la medicina y evoluciona hacia la nutricion, el entrenamiento y el rendimiento.
+              Leo el cuerpo desde su fisiologia, sus examenes, sus sintomas, sus antecedentes y su contexto real.
             </p>
             <p>
-              Por eso trabajo solo con 15 personas simultaneamente. La calidad clinica no escala.
+              Cuando diseno un protocolo o atiendo una consulta, no vendo motivacion. Aplico criterio medico
+              para tomar mejores decisiones sobre salud, composicion corporal y rendimiento.
             </p>
           </div>
 
           <ul class="cred-list">
             <li><span class="cred-bullet">&#10022;</span> Medico - Universidad de Cuenca</li>
             <li><span class="cred-bullet">&#10022;</span> Master en Nutricion Clinica y Deportiva por la Universidad Autonoma de Chile</li>
+            <li><span class="cred-bullet">&#10022;</span> Fisiologia, enfermedades metabolicas, farmacologia e imagenologia aplicada</li>
             <li><span class="cred-bullet">&#10022;</span> Especialista en Biomecanica del Ejercicio por la IFBB</li>
             <li><span class="cred-bullet">&#10022;</span> Campeon Mr. Cuenca / Top 2 Mr. Ecuador</li>
             <li><span class="cred-bullet">&#10022;</span> 10+ anos experiencia en fitness competitivo</li>
@@ -1643,8 +1749,8 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </div>
               <div>
-                <div class="ia-feat-title">Admision y ventas inteligente</div>
-                <p class="ia-feat-desc">Resuelve dudas sobre planes y coordina tu proceso de aplicacion antes de comprometerte.</p>
+                <div class="ia-feat-title">Consulta o admision guiada</div>
+                <p class="ia-feat-desc">Resuelve dudas sobre consulta medica, protocolos y el camino mas adecuado antes de comprometerte.</p>
               </div>
             </div>
           </div>
@@ -1675,8 +1781,8 @@
             </div>
             <div class="chat-body">
               <div class="chat-msg chat-msg-bot">
-                <p>Hola &#128075; Soy <strong>IronQx Assistant</strong>. Puedo ayudarte con nutricion,
-                entrenamiento o tus dudas sobre los planes. &iquest;En que te ayudo?</p>
+                <p>Hola &#128075; Soy <strong>IronQx Assistant</strong>. Puedo ayudarte con consulta medica,
+                nutricion, entrenamiento o tus dudas sobre los protocolos. &iquest;En que te ayudo?</p>
                 <span class="chat-time">9:01 am &#10003;&#10003;</span>
               </div>
               <div class="chat-msg chat-msg-user">
@@ -1708,15 +1814,15 @@
       <div class="reveal">
         <div class="section-label">
           <div class="section-label-line"></div>
-          <span class="section-label-text">Admision</span>
+          <span class="section-label-text">Contacto</span>
           <div class="section-label-line"></div>
         </div>
 
-        <h2>Solo 15 cupos.<br><em>Un protocolo a la vez.</em></h2>
+        <h2>Consulta puntual o protocolo continuo.<br><em>Elige la ruta correcta.</em></h2>
 
         <p class="contacto-desc">
-          No trabajo con plantillas. Cada protocolo es disenado desde cero segun tu biologia,
-          tu historial y tus objetivos reales. La calidad clinica exige limitacion.
+          Puedes agendar una consulta medica para resolver una duda puntual o aplicar a un protocolo
+          IronQX si necesitas seguimiento continuo. La primera conversacion define que camino tiene mas sentido.
         </p>
 
         <div class="cupos-box" id="cuposBox">
@@ -1761,16 +1867,16 @@
         </div>
 
         <div class="contacto-buttons">
-          <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="btn-gold btn-lift touch-scale">
+          <a href="https://wa.me/593984490998?text=Hola,%20quiero%20agendar%20una%20consulta%20medica%20con%20el%20Dr.%20Daniel%20Arevalo.%20Me%20interesa%20orientacion%20sobre%20metabolismo,%20composicion%20corporal%20o%20rendimiento." target="_blank" rel="noopener noreferrer" class="btn-gold btn-lift touch-scale">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-            Aplicar por WhatsApp
+            Agendar consulta
           </a>
           <button class="btn-outline touch-scale" onclick="document.getElementById('planes').scrollIntoView({behavior:'smooth'})">
-            Comparar planes
+            Ver protocolos
           </button>
         </div>
 
-        <p class="contacto-note">Respuesta en menos de 24 horas. Evaluacion de compatibilidad sin compromiso.</p>
+        <p class="contacto-note">Respuesta en menos de 24 horas. Puedes consultar por una cita puntual o por acompanamiento mensual.</p>
       </div>
     </div>
   </section>
@@ -1791,7 +1897,7 @@
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
             Medicina del Rendimiento
           </div>
-          <p class="footer-desc">Protocolos clinicos disenados por el Dr. Daniel Arevalo.</p>
+          <p class="footer-desc">Consulta medica de rendimiento y protocolos clinicos disenados por el Dr. Daniel Arevalo.</p>
         </div>
 
         <!-- Nav + Contact: 2-col on mobile via wrapper -->
@@ -1799,6 +1905,9 @@
           <div>
             <h5 class="footer-heading">Navegacion</h5>
             <ul class="footer-links">
+              <li><a href="#consulta">
+                <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                Consulta</a></li>
               <li><a href="#filosofia">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
                 Autoridad</a></li>
@@ -1807,7 +1916,7 @@
                 Diagnostico</a></li>
               <li><a href="#planes">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                Planes</a></li>
+                Protocolos</a></li>
               <li><a href="#metodologia">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
                 Metodo</a></li>
@@ -1819,9 +1928,9 @@
 
           <div class="footer-contact-cta">
             <h5 class="footer-heading">Contacto</h5>
-            <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="footer-wa-btn">
+            <a href="https://wa.me/593984490998?text=Hola,%20quiero%20agendar%20una%20consulta%20medica%20con%20el%20Dr.%20Daniel%20Arevalo.%20Me%20interesa%20orientacion%20sobre%20metabolismo,%20composicion%20corporal%20o%20rendimiento." target="_blank" rel="noopener noreferrer" class="footer-wa-btn">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-              Aplicar por WhatsApp
+              Agendar consulta
             </a>
             <ul class="footer-links">
               <li><a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">
@@ -1841,13 +1950,13 @@
 
       <div class="footer-bottom">
         <p>&copy; 2026 Iron QX. Todos los derechos reservados.</p>
-        <p class="footer-bottom-credential">Dr. Daniel Arevalo &mdash; Medico | Nutriologo | Atleta</p>
+        <p class="footer-bottom-credential">Dr. Daniel Arevalo &mdash; Medico | Metabolismo | Musculo | Rendimiento</p>
       </div>
     </div>
   </footer>
 
   <!-- Floating Elements -->
-  <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20para%20trabajar%20con%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="floating-wa wa-halo">
+  <a href="https://wa.me/593984490998?text=Hola,%20quiero%20orientacion%20con%20IronQX.%20Quiero%20saber%20si%20me%20conviene%20una%20consulta%20medica%20o%20un%20protocolo%20de%20acompanamiento." target="_blank" rel="noopener noreferrer" class="floating-wa wa-halo">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
   </a>
 
@@ -2260,13 +2369,13 @@
     // ==================== HERO BADGE TYPEWRITER ====================
     (function() {
       const phrases = [
-        "Fundador de IronQX Clinical & Performance, y estoy aqui para responder tus dudas.",
-        "No es que tu cuerpo no responda. Es que nadie lo midió cómo corresponde.",
-        "No necesitas más fuerza de voluntad. Necesitas un protocolo adaptado a tu fisiología.",
-        "Lo que llaman 'metabolismo lento' suele ser imprecisión nutricional.",
-        "Si no hay control de composicion corporal documentado no hay evolución.",
-        "Los resultados son predecibles cuando la medicina entra al gimnasio.",
-        "IronQX no es solo fitness con dedicación, es dedicación con precisión clinica.",        
+        "Soy medico, y mi campo es el rendimiento, el metabolismo y el musculo.",
+        "No todo estancamiento se resuelve con mas entrenamiento.",
+        "A veces el cuerpo necesita diagnostico, no otro plan generico.",
+        "Tu metabolismo, tus examenes y tus sintomas tambien cuentan.",
+        "La nutricion y el entrenamiento funcionan mejor con criterio clinico.",
+        "Consulta puntual o protocolo continuo: primero entendemos el caso.",
+        "IronQX une medicina, composicion corporal y rendimiento con precision.",
       ];
       const el = document.getElementById('badgeText');
       if (!el) return;
