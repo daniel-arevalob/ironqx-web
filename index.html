@@ -3,22 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
-  <title>IronQX | Medicina del Rendimiento Corporal</title>
-  <meta name="description" content="Consulta médica de rendimiento, metabolismo y músculo. Protocolos IronQX de nutrición, entrenamiento y composición corporal. Dr. Daniel Arévalo." />
+  <title>IRONQx | Medicina, nutrición y entrenamiento personalizado</title>
+  <meta name="description" content="Protocolos personalizados de nutrición, entrenamiento y seguimiento médico-deportivo en Cuenca, Ecuador. Balance, Forged y Restore por el Dr. Daniel Arévalo." />
   <meta name="theme-color" content="#050505" />
+  <link rel="canonical" href="https://ironqx.fit/" />
+  <link rel="icon" type="image/webp" href="https://ironqx.fit/images/app-logo.webp" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="IronQX | Medicina del Rendimiento Corporal" />
-  <meta property="og:description" content="Consulta médica de rendimiento, metabolismo y músculo. Protocolos IronQX de nutrición, entrenamiento y composición corporal." />
-  <meta property="og:image" content="images/hero-main.jpeg" />
-  <meta property="og:url" content="https://ironqx.fit" />
+  <meta property="og:title" content="IRONQx | Medicina, nutrición y entrenamiento personalizado" />
+  <meta property="og:description" content="Un protocolo construido alrededor de tus datos, tu respuesta y tu objetivo: nutrición, entrenamiento y seguimiento en un solo sistema." />
+  <meta property="og:image" content="https://ironqx.fit/images/hero-main.jpeg" />
+  <meta property="og:url" content="https://ironqx.fit/" />
+  <meta property="og:locale" content="es_EC" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="IronQX | Medicina del Rendimiento Corporal" />
-  <meta name="twitter:description" content="Consulta médica de rendimiento, metabolismo y músculo. Protocolos IronQX de nutrición, entrenamiento y composición corporal." />
-  <meta name="twitter:image" content="images/hero-main.jpeg" />
+  <meta name="twitter:title" content="IRONQx | Medicina, nutrición y entrenamiento personalizado" />
+  <meta name="twitter:description" content="Protocolos personalizados con criterio médico, nutrición aplicada, entrenamiento periodizado y seguimiento real." />
+  <meta name="twitter:image" content="https://ironqx.fit/images/hero-main.jpeg" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -26,9 +29,16 @@
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     "name": "IronQX",
-    "description": "Consulta médica de rendimiento, metabolismo y músculo. Protocolos clínicos de nutrición, entrenamiento y composición corporal.",
-    "url": "https://ironqx.fit",
-    "image": "images/hero-main.jpeg",
+    "description": "Protocolos personalizados de nutrición, entrenamiento, composición corporal y seguimiento médico-deportivo.",
+    "url": "https://ironqx.fit/",
+    "image": "https://ironqx.fit/images/hero-main.jpeg",
+    "telephone": "+593984490998",
+    "priceRange": "$60-$100",
+    "areaServed": "Ecuador",
+    "sameAs": [
+      "https://www.instagram.com/iron.qx/",
+      "https://app.ironqx.fit"
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Cuenca",
@@ -37,8 +47,13 @@
     "founder": {
       "@type": "Person",
       "name": "Dr. Daniel Arévalo",
-      "jobTitle": "Médico Nutriólogo"
-    }
+      "jobTitle": "Médico y máster en Nutrición Clínica y Deportiva"
+    },
+    "makesOffer": [
+      {"@type":"Offer","name":"Balance","price":"60","priceCurrency":"USD"},
+      {"@type":"Offer","name":"Forged","price":"75","priceCurrency":"USD"},
+      {"@type":"Offer","name":"Restore","price":"100","priceCurrency":"USD"}
+    ]
   }
   </script>
 
@@ -65,6 +80,7 @@
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+    [id] { scroll-margin-top: 78px; }
     body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; min-height: 100vh; }
 
     /* Noise overlay */
@@ -348,6 +364,9 @@
     .form-input:focus, .form-select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,175,55,0.15); }
     .form-select { appearance: auto; cursor: pointer; }
     .form-select option { background: #111; color: white; }
+    .form-hint { display: block; margin-top: 6px; color: #666; font-size: 11px; line-height: 1.45; }
+    .calc-method-note { margin: 18px 0 2px; padding: 14px 16px; border-left: 2px solid var(--gold-dk); background: rgba(212,175,55,0.055); color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .calc-method-note strong { color: var(--silver); }
     .calc-submit { width: 100%; background: linear-gradient(to right, var(--gold), var(--gold-dk)); color: black; font-weight: 600; padding: 14px; border-radius: 8px; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Barlow', sans-serif; transition: all 0.3s ease; min-height: 52px; border: none; cursor: pointer; }
     .calc-submit:hover { box-shadow: 0 8px 24px rgba(212,175,55,0.3); transform: translateY(-2px); }
     .calc-submit:active { transform: translateY(0); }
@@ -379,7 +398,7 @@
     .macro-row-header { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
     .macro-bar-track { height: 8px; background: #222; border-radius: 9999px; overflow: hidden; }
     .macro-bar-fill { height: 100%; border-radius: 9999px; transition: width 1s ease-out; }
-    .calc-footer { text-align: center; font-size: 11px; color: #666; margin-top: 16px; }
+    .calc-footer { text-align: left; font-size: 11px; line-height: 1.55; color: #777; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
 
     /* Consulta Medica */
     .consulta-medica { background: linear-gradient(180deg, var(--bg), rgba(212,175,55,0.035), var(--bg)); position: relative; overflow: hidden; }
@@ -750,7 +769,7 @@
     /* Slot dots grid */
     .cupos-slots {
       display: grid;
-      grid-template-columns: repeat(15, 1fr);
+      grid-template-columns: repeat(10, 1fr);
       gap: 5px;
       width: 100%;
     }
@@ -790,12 +809,31 @@
       width: var(--bar-w);
       animation: bar-fill 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
     }
+    .cupos-box.is-fallback { animation: none; }
+    .cupos-box.is-fallback .cupos-live-dot { background: var(--gold); box-shadow: 0 0 6px rgba(212,175,55,0.55); animation: none; }
+    .cupos-box.is-fallback .cupos-main-row { justify-content: center; }
+    .cupos-box.is-fallback .cupos-num-wrap,
+    .cupos-box.is-fallback .cupos-divider,
+    .cupos-box.is-fallback .cupos-slots,
+    .cupos-box.is-fallback .cupos-bar-wrap { display: none; }
+    .cupos-box.is-fallback .cupos-info { text-align: center; }
+    .cupos-box.is-fallback .cupos-info-title { font-family: 'Barlow', sans-serif; font-size: 1rem; color: var(--gold-lt); }
 
     /* Legacy compat — remove old text classes */
     .cupos-text, .cupos-text-sub, .cupos-text-main { display: none; }
     .contacto-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
     .contacto-note { color: var(--muted); font-size: 13px; margin-top: 24px; }
     @media (min-width: 640px) { .contacto-note { font-size: 14px; margin-top: 28px; } }
+
+    /* Privacidad y alcance */
+    .legal { background: var(--bg); padding-top: 0; }
+    .legal-card { max-width: 1000px; margin: 0 auto; background: rgba(255,255,255,0.025); border: 1px solid rgba(212,175,55,0.16); border-radius: 16px; padding: 24px; }
+    @media (min-width: 768px) { .legal-card { padding: 32px; } }
+    .legal-title { color: var(--gold-lt); font-family: 'Barlow', sans-serif; font-size: 1rem; letter-spacing: 0.05em; margin-bottom: 14px; }
+    .legal-grid { display: grid; gap: 18px; }
+    @media (min-width: 768px) { .legal-grid { grid-template-columns: repeat(3, 1fr); gap: 26px; } }
+    .legal-item h3 { color: var(--silver); font-family: 'Barlow', sans-serif; font-size: 13px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.1em; }
+    .legal-item p { color: var(--muted); font-size: 12px; line-height: 1.65; }
 
     /* Footer */
     .footer { background: var(--bg2); border-top: none; padding: 0; position: relative; }
@@ -883,7 +921,7 @@
   <nav class="navbar" id="navbar">
     <div class="navbar-inner">
       <a href="#" class="nav-brand" onclick="event.preventDefault(); window.scrollTo({top:0,behavior:'smooth'});">
-        <img src="images/logo.webp" alt="Iron QX" />
+        <img src="images/logo.webp" alt="IRONQx" width="862" height="862" />
         <span class="nav-brand-text">Iron<span style="color:var(--gold)">QX</span></span>
       </a>
 
@@ -1010,23 +1048,23 @@
         <div class="reveal">
           <div class="hero-label">
             <div class="hero-label-line"></div>
-            <span class="hero-label-text">Medicina de rendimiento, metabolismo y músculo</span>
+            <span class="hero-label-text">Medicina · nutrición · biomecánica · rendimiento</span>
           </div>
 
           <h1>
-            No todo problema corporal
-            <span>se resuelve entrenando más.</span>
+            Tu cuerpo no necesita otro plan genérico.
+            <span>Necesita criterio.</span>
           </h1>
 
           <p class="hero-desc">
-            A veces necesitas entender tu metabolismo, tus síntomas, tus exámenes
-            y la forma en que tu cuerpo está respondiendo.
+            Integro medicina, nutrición aplicada, biomecánica y seguimiento para construir
+            un protocolo que se ajusta a tu objetivo, tu respuesta y tu vida real.
           </p>
 
           <ul class="hero-bullets">
-            <li><span><strong>Soy médico:</strong> integro fisiología, nutrición y entrenamiento.</span></li>
-            <li><span><strong>Criterio clínico:</strong> farmacología y riesgo cuando el caso lo requiere.</span></li>
-            <li><span><strong>Mejores decisiones:</strong> salud, composición corporal y rendimiento.</span></li>
+            <li><span><strong>Nutrición utilizable:</strong> menús opcionales, alimentos reales, equivalencias y periodización cuando corresponde.</span></li>
+            <li><span><strong>Entrenamiento medible:</strong> cargas, repeticiones, RIR, descansos y progresión dentro de tu plan.</span></li>
+            <li><span><strong>Decisiones con contexto:</strong> composición, rendimiento, síntomas, adherencia y recuperación.</span></li>
           </ul>
 
           <div class="hero-buttons">
@@ -1045,7 +1083,7 @@
       <div class="hero-visual">
         <div class="hero-visual-bg"></div>
         <div class="hero-visual-fade"></div>
-        <img src="images/hero-main.jpeg" alt="Dr. Daniel Arévalo - Médico y Atleta" loading="eager" />
+        <img src="images/hero-main.jpeg" alt="Dr. Daniel Arévalo - Médico y atleta" loading="eager" fetchpriority="high" width="896" height="1592" />
         <div class="hero-badge reveal stagger-2" id="heroBadge">
           <div class="hero-badge-label">Hola! Soy el Dr. Daniel Arévalo</div>
           <div class="hero-badge-typewriter" id="badgeTypewriter"><span id="badgeText"></span><span class="badge-cursor">|</span></div>
@@ -1067,12 +1105,12 @@
           <div class="stat-label">Transformaciones</div>
         </div>
         <div class="reveal stagger-1">
-          <div class="stat-number" data-count="15" data-suffix="">0</div>
-          <div class="stat-label">Cupos mensuales</div>
+          <div class="stat-number" id="capacityStat" data-no-count="true">—</div>
+          <div class="stat-label">Capacidad de acompañamiento</div>
         </div>
         <div class="reveal stagger-2">
-          <div class="stat-number" data-count="100" data-suffix="%">0%</div>
-          <div class="stat-label">Protocolos únicos</div>
+          <div class="stat-number" data-no-count="true">A medida</div>
+          <div class="stat-label">Protocolo individual</div>
         </div>
         <div class="reveal stagger-3">
           <div class="stat-number" data-no-count="true">24/7</div>
@@ -1089,13 +1127,13 @@
       <div class="section-header reveal">
         <div class="section-label">
           <div class="section-label-line"></div>
-          <span class="section-label-text">Diagnóstico Inicial</span>
+          <span class="section-label-text">Estimación inicial</span>
           <div class="section-label-line"></div>
         </div>
         <h2>Antes de elegir un plan, <em>mide tu punto de partida.</em></h2>
         <p class="section-desc">
-          Estima tu metabolismo, calorías objetivo, macronutrientes y perfil de riesgo.
-          El resultado conecta tus datos con el nivel de intervención que mejor encaja contigo.
+          Separamos actividad cotidiana y entrenamiento para evitar contar dos veces el ejercicio.
+          Obtendrás un punto de partida científico que luego debe validarse con tu respuesta real.
         </p>
       </div>
 
@@ -1105,7 +1143,7 @@
             <div class="calc-card-header">
               <div class="calc-card-title">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-                Datos Clínicos Iniciales
+                Datos para la estimación
               </div>
             </div>
             <div class="calc-card-body">
@@ -1133,26 +1171,43 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="form-label">Nivel de Actividad</label>
+                <label class="form-label">Actividad cotidiana (sin contar el entrenamiento)</label>
                 <select class="form-select" id="calcActivity">
-                  <option value="1.2">Sedentario (poco o ningún ejercicio)</option>
-                  <option value="1.375" selected>Ligero (ejercicio 1-3 días/semana)</option>
-                  <option value="1.55">Moderado (ejercicio 3-5 días/semana)</option>
-                  <option value="1.725">Activo (ejercicio 6-7 días/semana)</option>
-                  <option value="1.9">Muy activo (ejercicio físico intenso)</option>
+                  <option value="1.25" selected>Oficina / menos de 5.000 pasos</option>
+                  <option value="1.35">Poco activo / 5.000–7.500 pasos</option>
+                  <option value="1.45">Activo / 7.500–10.000 pasos</option>
+                  <option value="1.60">Trabajo físico / más de 10.000 pasos</option>
                 </select>
+                <span class="form-hint">Elige según tu día normal. El ejercicio se calcula aparte.</span>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label class="form-label">Sesiones por semana</label>
+                  <input type="number" class="form-input" id="calcSessions" value="4" inputmode="numeric" min="0" max="14" />
+                </div>
+                <div>
+                  <label class="form-label">Minutos por sesión</label>
+                  <input type="number" class="form-input" id="calcMinutes" value="60" inputmode="numeric" min="0" max="240" />
+                </div>
               </div>
               <div class="form-group">
                 <label class="form-label">Objetivo</label>
                 <select class="form-select" id="calcGoal">
-                  <option value="lose">Pérdida de grasa (-500 kcal)</option>
+                  <option value="lose">Definición / pérdida de grasa</option>
+                  <option value="recomp">Recomposición corporal</option>
                   <option value="maintain" selected>Mantenimiento</option>
-                  <option value="gain">Ganancia muscular (+300 kcal)</option>
+                  <option value="gain">Ganancia muscular controlada</option>
+                  <option value="performance">Rendimiento</option>
+                  <option value="metabolic">Salud metabólica</option>
                 </select>
               </div>
               <div class="form-group">
                 <label class="form-label">% Grasa Corporal <span class="optional-badge">Opcional</span></label>
                 <input type="number" class="form-input" id="calcBodyFat" placeholder="Ej: 18" inputmode="decimal" min="3" max="60" />
+              </div>
+
+              <div class="calc-method-note">
+                <strong>Cómo calcula IRONQx:</strong> metabolismo basal × actividad cotidiana + costo neto promedio del entrenamiento. El objetivo se aplica como porcentaje, no como una resta o suma fija para todos.
               </div>
 
               <div class="profile-section">
@@ -1196,7 +1251,7 @@
 
               <button class="calc-submit btn-lift touch-scale" id="calcBtn" style="margin-top:20px">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-                Obtener recomendación clínica
+                Calcular punto de partida
               </button>
             </div>
           </div>
@@ -1205,13 +1260,13 @@
             <div class="calc-card-header">
               <div class="calc-card-title">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                Diagnóstico y recomendación
+                Estimación y siguiente paso
               </div>
             </div>
             <div class="calc-card-body">
               <div class="result-box">
                 <div class="result-row">
-                  <span class="result-label">IMC (Índice de Masa Corporal)</span>
+                  <span class="result-label">IMC orientativo</span>
                   <span class="result-badge" id="bmiBadge">-</span>
                 </div>
                 <div class="result-value gold-text" id="bmiValue">-</div>
@@ -1227,9 +1282,14 @@
                   <div class="cal-box-unit">kcal/día</div>
                 </div>
                 <div class="cal-box">
-                  <div class="cal-box-label">Calorías Totales</div>
+                  <div class="cal-box-label">Gasto estimado</div>
                   <div class="cal-box-value" style="color:var(--gold)" id="tdeeValue">-</div>
                   <div class="cal-box-unit">kcal/día</div>
+                </div>
+                <div class="cal-box" style="grid-column:1 / -1">
+                  <div class="cal-box-label">Entrenamiento añadido al promedio diario</div>
+                  <div class="cal-box-value" style="color:var(--silver)" id="trainingValue">-</div>
+                  <div class="cal-box-unit">kcal netas/día estimadas · MET 5</div>
                 </div>
               </div>
 
@@ -1239,7 +1299,7 @@
                   <span id="goalLabel">-</span>
                 </div>
                 <div class="target-value gold-text" id="targetValue">-</div>
-                <div class="target-unit">kcal recomendadas por día</div>
+                <div class="target-unit">kcal iniciales por día</div>
               </div>
 
               <div>
@@ -1276,7 +1336,7 @@
               <div id="ffmiSection" style="display:none">
                 <div class="ffmi-box">
                   <div class="ffmi-header">
-                    <span class="ffmi-label">FFMI Normalizado (Kouri)</span>
+                    <span class="ffmi-label">FFMI normalizado orientativo</span>
                     <span class="result-badge" id="ffmiBadge">-</span>
                   </div>
                   <div class="ffmi-value gold-text" id="ffmiValue">-</div>
@@ -1288,11 +1348,11 @@
                     <div class="ffmi-scale-seg" id="ffmiSeg5" style="background:#ef4444;opacity:0.3"></div>
                   </div>
                   <div class="ffmi-classification">
-                    <span>Principiante</span>
-                    <span>Promedio</span>
-                    <span>Avanzado</span>
-                    <span>Élite</span>
-                    <span>Supra</span>
+                    <span>Bajo</span>
+                    <span>Medio</span>
+                    <span>Alto</span>
+                    <span>Muy alto</span>
+                    <span>Extremo</span>
                   </div>
                 </div>
               </div>
@@ -1301,7 +1361,7 @@
                 <div class="plan-recommendation">
                   <div class="plan-rec-label">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    Nivel de intervención recomendado
+                    Ruta de acompañamiento sugerida
                   </div>
                   <div class="plan-rec-name" id="recPlanName">-</div>
                   <div class="plan-rec-price" id="recPlanPrice">-</div>
@@ -1313,7 +1373,9 @@
                 </div>
               </div>
 
-              <div class="calc-footer">* Cálculos basados en la fórmula de Mifflin-St Jeor y FFMI normalizado de Kouri et al.</div>
+              <div class="calc-footer">
+                Estimación orientativa basada en Mifflin–St Jeor, actividad cotidiana y costo neto del entrenamiento. No es diagnóstico ni prescripción médica. El porcentaje de grasa autoinformado y la intensidad real del ejercicio modifican la precisión; el punto de partida se valida con evolución, adherencia, hambre, energía, sueño, digestión y rendimiento.
+              </div>
             </div>
           </div>
         </div>
@@ -1336,10 +1398,10 @@
             Esta ruta es para recibir criterio médico aplicado a rendimiento, músculo, composición corporal y salud metabólica.
           </p>
           <a href="https://wa.me/593984490998?text=Hola,%20quiero%20agendar%20una%20consulta%20medica%20con%20el%20Dr.%20Daniel%20Arevalo.%20Me%20interesa%20orientacion%20sobre%20metabolismo,%20composicion%20corporal%20o%20rendimiento." target="_blank" rel="noopener noreferrer" class="btn-gold btn-lift touch-scale">
-            Agendar consulta por WhatsApp
+            Agendar consulta · $60
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
-          <p class="consulta-note">Consulta independiente. No necesitas estar en un protocolo IronQX para agendar.</p>
+          <p class="consulta-note">Consulta independiente. No necesitas estar en un protocolo IRONQx para agendar.</p>
         </div>
 
         <div class="consulta-use-grid reveal stagger-1">
@@ -1401,8 +1463,8 @@
         </div>
         <h2>Cuando necesitas continuidad, <em>elige un protocolo.</em></h2>
         <p class="section-desc">
-          Balance, Forged y Restore son rutas de acompañamiento continuo para nutrición,
-          entrenamiento, seguimiento y ajustes. Si solo necesitas una consulta puntual, empieza por la ruta médica.
+          Los tres protocolos integran nutrición, entrenamiento interactivo, seguimiento y acceso a la app.
+          Lo que cambia es la frecuencia de atención 1 a 1 y el nivel de complejidad clínica o deportiva.
         </p>
       </div>
 
@@ -1420,15 +1482,15 @@
             </div>
             <h3 class="plan-name">Balance</h3>
             <div class="plan-kicker">Inicio estructurado</div>
-            <div class="plan-price">$45<span class="plan-price-unit">/mes</span></div>
-            <p class="plan-desc"><strong>Ideal para iniciar bien:</strong> personas nuevas, intermedias o con poca estructura que buscan recomposición corporal, hábitos sostenibles y control básico sin saltar directo a una intervención avanzada.</p>
+            <div class="plan-price">$60<span class="plan-price-unit">/mes</span></div>
+            <p class="plan-desc"><strong>Estructura completa sin sesiones 1 a 1:</strong> para quien entrena de forma autónoma y necesita un protocolo claro, medible y ajustable para composición corporal.</p>
             <ul class="plan-features">
-              <li><span>&mdash;</span> Plan de entrenamiento personalizado</li>
-              <li><span>&mdash;</span> Nutrición estructurada (macros y equivalencias)</li>
-              <li><span>&mdash;</span> 1 sesión presencial semanal (4/mes)</li>
+              <li><span>&mdash;</span> Entrenamiento personalizado con registro de carga, reps, RIR y descanso</li>
+              <li><span>&mdash;</span> Nutrición por menús opcionales, porciones, macros y equivalencias</li>
+              <li><span>&mdash;</span> Sin sesiones presenciales 1 a 1</li>
               <li><span>&mdash;</span> Controles quincenales de progreso</li>
-              <li><span>&mdash;</span> Acceso a app Iron QX</li>
-              <li><span>&mdash;</span> IronQx Assistant 24/7 en WhatsApp</li>
+              <li><span>&mdash;</span> App IRONQx: progreso, adherencia y plan centralizado</li>
+              <li><span>&mdash;</span> IRONQx Assistant como apoyo sobre tu protocolo</li>
             </ul>
             <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20al%20plan%20BALANCE%20de%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-outline touch-scale">Aplicar a Balance</a>
           </div>
@@ -1446,15 +1508,15 @@
             </div>
             <h3 class="plan-name">Forged</h3>
             <div class="plan-kicker">Rendimiento y ajuste semanal</div>
-            <div class="plan-price">$60<span class="plan-price-unit">/mes</span></div>
-            <p class="plan-desc"><strong>Ideal para alto compromiso:</strong> atletas, competidores o personas con experiencia que necesitan más frecuencia de ajustes, periodización, seguimiento cercano y una estrategia agresiva pero controlada.</p>
+            <div class="plan-price">$75<span class="plan-price-unit">/mes</span></div>
+            <p class="plan-desc"><strong>Rendimiento con contacto semanal:</strong> para atletas, competidores o personas con experiencia que necesitan periodización, control de fatiga y ajustes más frecuentes.</p>
             <ul class="plan-features">
-              <li><span>&mdash;</span> Plan de entrenamiento avanzado</li>
-              <li><span>&mdash;</span> Nutrición periodizada por fases</li>
-              <li><span>&mdash;</span> 6 sesiones presenciales/mes</li>
+              <li><span>&mdash;</span> Entrenamiento periodizado por volumen, intensidad y recuperación</li>
+              <li><span>&mdash;</span> Nutrición por fases, ciclado o refeed cuando está indicado</li>
+              <li><span>&mdash;</span> 1 sesión presencial 1 a 1 por semana</li>
               <li><span>&mdash;</span> Controles semanales de progreso</li>
-              <li><span>&mdash;</span> Acceso prioritario a app + IronQx Assistant</li>
-              <li><span>&mdash;</span> Ajustes de protocolo en tiempo real</li>
+              <li><span>&mdash;</span> Acceso prioritario a app + IRONQx Assistant</li>
+              <li><span>&mdash;</span> Ajustes según seguimiento y respuesta</li>
               <li><span>&mdash;</span> Preparación para competición</li>
             </ul>
             <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20al%20plan%20FORGED%20de%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-filled touch-scale">Aplicar a Forged</a>
@@ -1472,15 +1534,15 @@
             </div>
             <h3 class="plan-name">Restore</h3>
             <div class="plan-kicker">Supervisión médica</div>
-            <div class="plan-price">$75<span class="plan-price-unit">/mes</span></div>
-            <p class="plan-desc"><strong>Ideal cuando la salud manda:</strong> personas con patologías, riesgos metabólicos, medicación, edad avanzada o condiciones que requieren supervisión médica antes de perseguir cambios corporales.</p>
+            <div class="plan-price">$100<span class="plan-price-unit">/mes</span></div>
+            <p class="plan-desc"><strong>Mayor acompañamiento médico y presencial:</strong> para patologías, riesgo metabólico, medicación o condiciones que requieren una progresión más vigilada.</p>
             <ul class="plan-features">
-              <li><span>&mdash;</span> Consultas médicas incluidas</li>
+              <li><span>&mdash;</span> Seguimiento médico dentro del proceso</li>
               <li><span>&mdash;</span> Plan nutricional adaptado clínicamente</li>
-              <li><span>&mdash;</span> 6 sesiones/mes coordinadas</li>
+              <li><span>&mdash;</span> 2 sesiones presenciales 1 a 1 por semana</li>
               <li><span>&mdash;</span> Evaluación de riesgos metabólicos</li>
               <li><span>&mdash;</span> Coordinación con especialistas</li>
-              <li><span>&mdash;</span> Enfoque integral salud + composición</li>
+              <li><span>&mdash;</span> App, entrenamiento y seguimiento integral</li>
             </ul>
             <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20al%20plan%20RESTORE%20de%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-outline touch-scale">Aplicar a Restore</a>
           </div>
@@ -1502,12 +1564,53 @@
         <div>
           <div class="forged-x-title">Forged X</div>
           <p class="forged-x-desc">
-            Add-on exclusivo para pacientes Forged con protocolos de química deportiva.
-            Supervisión médica directa: evaluación de riesgos, monitoreo hematológico y toma de decisiones informada.
-            <strong>Disponibilidad limitada - consultar directamente.</strong>
+            Acompañamiento médico para adultos que ya utilizan o contemplan farmacología aplicada al rendimiento.
+            Evaluación individual, reducción de riesgo, analíticas, seguimiento y criterios de suspensión.
+            <strong>No normaliza el uso ni sustituye la atención especializada. Disponibilidad limitada.</strong>
           </p>
         </div>
         <div class="forged-x-price">+$15<span>/mes</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Entrega IRONQx -->
+  <section id="entrega" class="section" style="background:var(--bg2)">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Qué recibes</span>
+          <div class="section-label-line"></div>
+        </div>
+        <h2>Un plan que se puede ejecutar, <em>registrar y ajustar.</em></h2>
+        <p class="section-desc">Cada módulo responde a una decisión del caso. No se agregan alimentos, ejercicios o suplementos para llenar una plantilla.</p>
+      </div>
+      <div class="method-grid">
+        <div class="reveal method-card card-hover touch-scale">
+          <div class="method-card-bar"></div>
+          <div class="method-num">N</div>
+          <div class="method-title">Nutrición aplicable</div>
+          <p class="method-desc">Menús opcionales coherentes, gramajes, macros, preparaciones, equivalencias y productos que realmente utilizas. Refeed o ciclado solo cuando está indicado.</p>
+        </div>
+        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.1s">
+          <div class="method-card-bar"></div>
+          <div class="method-num">E</div>
+          <div class="method-title">Entrenamiento interactivo</div>
+          <p class="method-desc">Orden biomecánico, series útiles, progresión y técnica. Registra carga, repeticiones, RIR y descanso para que la siguiente decisión parta de evidencia.</p>
+        </div>
+        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.2s">
+          <div class="method-card-bar"></div>
+          <div class="method-num">S</div>
+          <div class="method-title">Seguimiento real</div>
+          <p class="method-desc">Peso, composición, fotos, adherencia, hambre, energía, sueño, digestión y rendimiento se leen juntos. Una cifra aislada no dirige el proceso.</p>
+        </div>
+        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.3s">
+          <div class="method-card-bar"></div>
+          <div class="method-num">+</div>
+          <div class="method-title">Cardio y suplementación</div>
+          <p class="method-desc">Dosis, intensidad y timing se prescriben cuando aportan al objetivo. Se prioriza tolerancia, seguridad, recuperación y adherencia.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1520,13 +1623,13 @@
         <div class="reveal">
           <div class="photo-grid">
             <div class="photo-large touch-scale">
-              <img src="images/about-large.png" alt="Dr. Daniel Arévalo" loading="lazy" />
+              <img src="images/about-large.webp" alt="Dr. Daniel Arévalo" loading="lazy" width="640" height="958" />
             </div>
             <div class="photo-small touch-scale">
-              <img src="images/about-small-1.jpeg" alt="Dr. Daniel Arévalo - Entrenamiento" loading="lazy" />
+              <img src="images/about-small-1.jpeg" alt="Dr. Daniel Arévalo - Entrenamiento" loading="lazy" width="800" height="1187" />
             </div>
             <div class="photo-small touch-scale">
-              <img src="images/about-small-2.jpeg" alt="Dr. Daniel Arévalo - Competición" loading="lazy" />
+              <img src="images/about-small-2.jpeg" alt="Dr. Daniel Arévalo - Competición" loading="lazy" width="800" height="1226" />
             </div>
           </div>
         </div>
@@ -1547,7 +1650,8 @@
             </p>
             <p>
               Mi trabajo nace de la medicina y evoluciona hacia la nutrición, el entrenamiento y el rendimiento.
-              Leo el cuerpo desde su fisiología, sus exámenes, sus síntomas, sus antecedentes y su contexto real.
+              IRONQx reúne esa formación con mi experiencia de campo como atleta y entrenador. Leo el cuerpo desde
+              su fisiología, sus exámenes, sus síntomas, sus antecedentes y su contexto real.
             </p>
             <p>
               Cuando diseño un protocolo o atiendo una consulta, no vendo motivación. Aplico criterio médico
@@ -1580,7 +1684,7 @@
         </div>
         <h2>Un método de cuatro pasos. <em>Medir, decidir, ajustar.</em></h2>
         <p class="section-desc">
-          El protocolo no empieza con una dieta. Empieza con diagnóstico, estructura,
+          El protocolo no empieza con una dieta. Empieza con evaluación, estructura,
           seguimiento y ajustes según respuesta real.
         </p>
       </div>
@@ -1589,7 +1693,7 @@
         <div class="reveal method-card card-hover touch-scale" style="transition-delay:0s">
           <div class="method-card-bar"></div>
           <div class="method-num">01</div>
-          <div class="method-title">Diagnóstico</div>
+          <div class="method-title">Evaluación</div>
           <p class="method-desc">Lectura inicial de composición, historial, objetivo, riesgo metabólico y nivel de experiencia. Sin datos claros no hay intervención seria.</p>
         </div>
         <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.1s">
@@ -1602,7 +1706,7 @@
           <div class="method-card-bar"></div>
           <div class="method-num">03</div>
           <div class="method-title">Seguimiento</div>
-          <p class="method-desc">La app centraliza métricas, reportes y evolución. El progreso se evalúa con datos, no con sensaciones aisladas.</p>
+          <p class="method-desc">La app centraliza métricas, reportes y evolución. Los datos objetivos se concilian con hambre, energía, sueño, digestión, adherencia y rendimiento.</p>
         </div>
         <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.3s">
           <div class="method-card-bar"></div>
@@ -1628,8 +1732,8 @@
 
           <p class="tech-desc">
             <strong>app.ironqx.fit</strong> centraliza tu protocolo: evolución corporal,
-            adherencia, ajustes, reportes y decisiones de seguimiento en un solo lugar.
-            Es la capa técnica que permite trabajar con precisión clínica.
+            adherencia, ajustes y decisiones de seguimiento en un solo lugar.
+            Es la capa técnica que da continuidad al criterio profesional.
           </p>
 
           <div class="tech-quote">
@@ -1648,21 +1752,21 @@
               <div class="tech-feat-dot"></div>
               <div>
                 <div class="tech-feat-title">Ajustes por Respuesta Real</div>
-                <p class="tech-feat-desc">Modificaciones de nutrición y entrenamiento basadas en datos objetivos, sin esperar la próxima sesión.</p>
+                <p class="tech-feat-desc">Modificaciones de nutrición y entrenamiento según evolución, adherencia, síntomas, recuperación y desempeño.</p>
               </div>
             </div>
             <div class="tech-feat touch-scale">
               <div class="tech-feat-dot"></div>
               <div>
-                <div class="tech-feat-title">Reportes Clínicos</div>
-                <p class="tech-feat-desc">Documentación médica completa de tu proceso, ideal para consultas con otros especialistas.</p>
+                <div class="tech-feat-title">Resumen de evolución</div>
+                <p class="tech-feat-desc">Historial y reportes descargables para entender el proceso y comunicarlo cuando sea necesario.</p>
               </div>
             </div>
             <div class="tech-feat touch-scale">
               <div class="tech-feat-dot"></div>
               <div>
                 <div class="tech-feat-title">Contexto para el Assistant</div>
-                <p class="tech-feat-desc">El asistente IA opera en sinergia con tu perfil en la app para respuestas más precisas y contextualizadas.</p>
+                <p class="tech-feat-desc">El asistente orienta sobre el protocolo vigente y deriva al seguimiento humano cuando la decisión lo requiere.</p>
               </div>
             </div>
           </div>
@@ -1672,14 +1776,14 @@
           <div class="app-card">
             <div class="app-card-line"></div>
             <div class="app-logo">
-              <img src="images/app-logo.webp" alt="IronQx App" loading="lazy" />
+              <img src="images/app-logo.webp" alt="IRONQx App" loading="lazy" width="862" height="862" />
             </div>
             <h3 class="app-title">
               <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">app.ironqx.fit</a>
             </h3>
             <p class="app-subtitle">Sistema clínico de seguimiento</p>
             <figure class="app-mockup-figure" aria-label="Vista previa de la app IronQx">
-              <img class="app-mockup-img" src="images/mockup-app.webp" alt="Pantalla de inicio de IronQx App con estado del plan, membresía activa y progreso del paciente" loading="lazy" />
+              <img class="app-mockup-img" src="images/mockup-app.webp" alt="Pantalla de inicio de IRONQx App con estado del plan, membresía activa y progreso del paciente" loading="lazy" width="752" height="1502" />
             </figure>
             <!-- Platform Access Badge -->
             <div class="app-access-badge">
@@ -1730,7 +1834,7 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M12 18v-5"/></svg>
               </div>
               <div>
-                <div class="ia-feat-title">Nutrición personalizada al instante</div>
+                <div class="ia-feat-title">Orientación sobre tu nutrición</div>
                 <p class="ia-feat-desc">Resuelve dudas sobre macros, equivalencias, timing de comidas y adaptaciones según tu protocolo actual.</p>
               </div>
             </div>
@@ -1740,7 +1844,7 @@
               </div>
               <div>
                 <div class="ia-feat-title">Guía de entrenamiento 24/7</div>
-                <p class="ia-feat-desc">Orientación sobre ejecución, progresiones, volumen y ajustes de carga basados en biomecánica.</p>
+                <p class="ia-feat-desc">Aclara ejecución, progresiones, volumen y registro de carga dentro de la prescripción vigente.</p>
               </div>
             </div>
             <div class="ia-feat-card touch-scale">
@@ -1833,26 +1937,26 @@
           IronQX si necesitas seguimiento continuo. La primera conversación define qué camino tiene más sentido.
         </p>
 
-        <div class="cupos-box" id="cuposBox">
+        <div class="cupos-box is-fallback" id="cuposBox">
 
           <!-- Live indicator -->
           <div class="cupos-live">
             <div class="cupos-live-dot"></div>
-            <span>Actualizado en tiempo real</span>
+            <span id="capacityStatus">Consulta disponibilidad actual</span>
           </div>
 
           <!-- Main counter -->
           <div class="cupos-main-row">
             <div class="cupos-num-wrap">
-              <span class="cupos-num" id="cuposNum">6</span>
+              <span class="cupos-num" id="cuposNum">—</span>
               <div class="cupos-num-label">disponibles</div>
             </div>
             <div class="cupos-divider"></div>
             <div class="cupos-info">
-              <div class="cupos-info-title">de 15 cupos<br>por mes.</div>
-              <div class="cupos-social-proof">
+              <div class="cupos-info-title" id="capacityTitle">Acompañamiento de cupos limitados.</div>
+              <div class="cupos-social-proof" id="capacityActive">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                9 pacientes activos este mes
+                La disponibilidad se confirma al aplicar
               </div>
             </div>
           </div>
@@ -1864,8 +1968,8 @@
           <div class="cupos-bar-wrap">
             <div class="cupos-bar-labels">
               <span>0 cupos</span>
-              <span style="color:var(--gold);font-weight:600">Solo quedan 6</span>
-              <span>15 cupos</span>
+              <span id="capacityRemaining" style="color:var(--gold);font-weight:600">Disponibilidad limitada</span>
+              <span id="capacityTotal">Capacidad</span>
             </div>
             <div class="cupos-bar-track">
               <div class="cupos-bar-fill"></div>
@@ -1889,6 +1993,29 @@
     </div>
   </section>
 
+  <!-- Privacidad y alcance profesional -->
+  <section id="privacidad" class="section legal">
+    <div class="section-inner">
+      <div class="legal-card reveal">
+        <h2 class="legal-title">Privacidad y alcance profesional</h2>
+        <div class="legal-grid">
+          <div class="legal-item">
+            <h3>Calculadora</h3>
+            <p>Los cálculos se procesan en tu navegador y ofrecen una estimación inicial. No sustituyen anamnesis, exploración, diagnóstico ni prescripción individual.</p>
+          </div>
+          <div class="legal-item">
+            <h3>Datos y seguimiento</h3>
+            <p>Esta página pública no muestra información identificable de pacientes. La disponibilidad, cuando está sincronizada, se publica únicamente como conteo agregado.</p>
+          </div>
+          <div class="legal-item">
+            <h3>Atención médica</h3>
+            <p>IRONQx no reemplaza atención de urgencias. Ante síntomas graves o una emergencia, utiliza los servicios de emergencia locales. En Ecuador, llama al 911.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-accent"></div>
@@ -1898,7 +2025,7 @@
         <!-- Brand col -->
         <div class="footer-brand-col">
           <div class="footer-brand">
-            <img src="images/footer-logo.webp" alt="Iron QX" />
+            <img src="images/footer-logo.webp" alt="IRONQx" loading="lazy" width="862" height="862" />
             <span class="footer-brand-text">Iron<span style="color:var(--gold)">QX</span></span>
           </div>
           <div class="footer-tagline">
@@ -1921,7 +2048,7 @@
                 Autoridad</a></li>
               <li><a href="#calculadora">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="12" y2="18"/></svg>
-                Diagnóstico</a></li>
+                Calculadora</a></li>
               <li><a href="#planes">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 Protocolos</a></li>
@@ -1931,6 +2058,9 @@
               <li><a href="#ia-bot">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 IronQx AI</a></li>
+              <li><a href="#privacidad">
+                <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                Privacidad</a></li>
             </ul>
           </div>
 
@@ -2118,152 +2248,165 @@
       const age = parseFloat(document.getElementById('calcAge').value);
       const gender = document.getElementById('calcGender').value;
       const activity = parseFloat(document.getElementById('calcActivity').value);
+      const sessions = parseInt(document.getElementById('calcSessions').value, 10);
+      const minutes = parseFloat(document.getElementById('calcMinutes').value);
       const goal = document.getElementById('calcGoal').value;
-      const bodyFatInput = document.getElementById('calcBodyFat').value;
+      const bodyFatInput = document.getElementById('calcBodyFat').value.trim();
       const bodyFat = bodyFatInput ? parseFloat(bodyFatInput) : null;
 
-      // Profile questions
       const hasPatologia = document.getElementById('profilePatologia').checked;
       const wantsCompetir = document.getElementById('profileCompetir').checked;
       const needsSupervision = document.getElementById('profileSupervision').checked;
       const hasExperiencia = document.getElementById('profileExperiencia').checked;
 
-      if (!weight || !height || !age) {
-        alert('Por favor completa todos los campos');
+      const invalidBase = !Number.isFinite(weight) || weight < 30 || weight > 300 ||
+        !Number.isFinite(height) || height < 120 || height > 230 ||
+        !Number.isFinite(age) || age < 16 || age > 90;
+      const invalidTraining = !Number.isFinite(sessions) || sessions < 0 || sessions > 14 ||
+        !Number.isFinite(minutes) || minutes < 0 || minutes > 240;
+      const invalidBodyFat = bodyFat !== null && (!Number.isFinite(bodyFat) || bodyFat < 3 || bodyFat > 60);
+
+      if (invalidBase || invalidTraining || invalidBodyFat) {
+        alert('Revisa los datos: peso 30–300 kg, altura 120–230 cm, edad 16–90 años, 0–14 sesiones y 0–240 minutos. El % de grasa debe estar entre 3 y 60.');
         return;
       }
 
-      // BMI
       const heightM = height / 100;
       const bmi = weight / (heightM * heightM);
       let bmiCategory = '';
       let bmiColor = '';
       let bmiPercent = 0;
 
-      if (bmi < 18.5) { bmiCategory = 'Bajo peso'; bmiColor = '#3b82f6'; bmiPercent = 25; }
-      else if (bmi < 25) { bmiCategory = 'Normal'; bmiColor = '#22c55e'; bmiPercent = 50; }
-      else if (bmi < 30) { bmiCategory = 'Sobrepeso'; bmiColor = '#eab308'; bmiPercent = 75; }
-      else { bmiCategory = 'Obesidad'; bmiColor = '#ef4444'; bmiPercent = 100; }
+      if (bmi < 18.5) { bmiCategory = 'Rango bajo'; bmiColor = '#3b82f6'; bmiPercent = 25; }
+      else if (bmi < 25) { bmiCategory = 'Rango habitual'; bmiColor = '#22c55e'; bmiPercent = 50; }
+      else if (bmi < 30) { bmiCategory = 'Rango elevado'; bmiColor = '#eab308'; bmiPercent = 75; }
+      else { bmiCategory = 'Rango muy elevado'; bmiColor = '#ef4444'; bmiPercent = 100; }
 
-      // BMR (Mifflin-St Jeor)
-      let bmr;
-      if (gender === 'male') {
-        bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+      // Mifflin–St Jeor. El PAL describe la vida diaria; el entrenamiento se suma aparte.
+      const bmr = gender === 'male'
+        ? (10 * weight) + (6.25 * height) - (5 * age) + 5
+        : (10 * weight) + (6.25 * height) - (5 * age) - 161;
+      const trainingPerSession = sessions === 0 ? 0 : (5 - 1) * 3.5 * weight / 200 * minutes;
+      const trainingDaily = trainingPerSession * sessions / 7;
+      const tdee = Math.round((bmr * activity) + trainingDaily);
+
+      const goalConfig = {
+        lose: { multiplier: 0.80, label: 'Definición · inicio al −20%' },
+        recomp: { multiplier: 0.875, label: 'Recomposición · inicio al −12,5%' },
+        maintain: { multiplier: 1, label: 'Mantenimiento' },
+        gain: { multiplier: 1.075, label: 'Ganancia controlada · inicio al +7,5%' },
+        performance: { multiplier: 1, label: 'Rendimiento · mantenimiento inicial' },
+        metabolic: { multiplier: 1, label: 'Salud metabólica · mantenimiento inicial' }
+      }[goal];
+      const targetCals = Math.round(tdee * goalConfig.multiplier);
+
+      const leanMass = bodyFat === null ? null : weight * (1 - bodyFat / 100);
+      const referenceMass = leanMass || (bmi >= 30 ? 25 * heightM * heightM : weight);
+      let proteinFactor = 1.8;
+      let fats = 0;
+
+      if (goal === 'lose') {
+        proteinFactor = leanMass ? 2.75 : 2.0;
+        fats = Math.max(50, 0.7 * weight);
+      } else if (goal === 'recomp') {
+        proteinFactor = leanMass ? 2.6 : 1.9;
+        fats = 0.9 * weight;
+      } else if (goal === 'gain') {
+        proteinFactor = leanMass ? 2.0 : 1.8;
+        fats = (targetCals * 0.275) / 9;
+      } else if (goal === 'performance') {
+        proteinFactor = leanMass ? 2.2 : 1.8;
+        fats = (targetCals * 0.25) / 9;
+      } else if (goal === 'metabolic') {
+        proteinFactor = leanMass ? 2.0 : 1.8;
+        fats = (targetCals * 0.30) / 9;
       } else {
-        bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+        proteinFactor = leanMass ? 2.2 : 1.8;
+        fats = (targetCals * 0.275) / 9;
       }
 
-      // TDEE
-      const tdee = Math.round(bmr * activity);
+      const protein = Math.round(referenceMass * proteinFactor);
+      fats = Math.round(fats);
+      const carbs = Math.max(0, Math.round((targetCals - protein * 4 - fats * 9) / 4));
+      const proteinPct = Math.min(100, Math.round(protein * 4 / targetCals * 100));
+      const carbsPct = Math.min(100, Math.round(carbs * 4 / targetCals * 100));
+      const fatsPct = Math.min(100, Math.round(fats * 9 / targetCals * 100));
 
-      // Target calories
-      let targetCals = tdee;
-      let goalLabel = 'Mantenimiento';
-      if (goal === 'lose') { targetCals -= 500; goalLabel = 'Pérdida de grasa'; }
-      else if (goal === 'gain') { targetCals += 300; goalLabel = 'Ganancia muscular'; }
-
-      // Macros
-      const protein = Math.round((targetCals * 0.3) / 4);
-      const carbs = Math.round((targetCals * 0.4) / 4);
-      const fats = Math.round((targetCals * 0.3) / 9);
-
-      // FFMI (Kouri normalized) - only if body fat provided
-      let ffmi = null;
+      // FFMI se muestra solo con % graso y sin inferencias sobre farmacología.
       let ffmiNorm = null;
       let ffmiCategory = '';
       let ffmiColor = '';
       let ffmiActiveSeg = 0;
       const ffmiSection = document.getElementById('ffmiSection');
 
-      if (bodyFat !== null && bodyFat >= 3 && bodyFat <= 60) {
-        const leanMass = weight * (1 - bodyFat / 100);
-        ffmi = leanMass / (heightM * heightM);
+      if (leanMass !== null) {
+        const ffmi = leanMass / (heightM * heightM);
         ffmiNorm = ffmi + 6.1 * (1.8 - heightM);
-
-        if (gender === 'male') {
-          if (ffmiNorm < 18) { ffmiCategory = 'Principiante'; ffmiColor = '#3b82f6'; ffmiActiveSeg = 1; }
-          else if (ffmiNorm < 20) { ffmiCategory = 'Promedio'; ffmiColor = '#22c55e'; ffmiActiveSeg = 2; }
-          else if (ffmiNorm < 22) { ffmiCategory = 'Avanzado'; ffmiColor = '#eab308'; ffmiActiveSeg = 3; }
-          else if (ffmiNorm < 25) { ffmiCategory = 'Élite natural'; ffmiColor = '#f97316'; ffmiActiveSeg = 4; }
-          else { ffmiCategory = 'Suprafisiológico'; ffmiColor = '#ef4444'; ffmiActiveSeg = 5; }
-        } else {
-          if (ffmiNorm < 14) { ffmiCategory = 'Principiante'; ffmiColor = '#3b82f6'; ffmiActiveSeg = 1; }
-          else if (ffmiNorm < 16) { ffmiCategory = 'Promedio'; ffmiColor = '#22c55e'; ffmiActiveSeg = 2; }
-          else if (ffmiNorm < 18) { ffmiCategory = 'Avanzada'; ffmiColor = '#eab308'; ffmiActiveSeg = 3; }
-          else if (ffmiNorm < 21) { ffmiCategory = 'Élite natural'; ffmiColor = '#f97316'; ffmiActiveSeg = 4; }
-          else { ffmiCategory = 'Suprafisiológico'; ffmiColor = '#ef4444'; ffmiActiveSeg = 5; }
-        }
+        const thresholds = gender === 'male' ? [18, 20, 22, 25] : [14, 16, 18, 21];
+        const labels = ['Bajo', 'Medio', 'Alto', 'Muy alto', 'Extremo'];
+        const colors = ['#3b82f6', '#22c55e', '#eab308', '#f97316', '#ef4444'];
+        ffmiActiveSeg = thresholds.findIndex(limit => ffmiNorm < limit) + 1;
+        if (ffmiActiveSeg === 0) ffmiActiveSeg = 5;
+        ffmiCategory = labels[ffmiActiveSeg - 1];
+        ffmiColor = colors[ffmiActiveSeg - 1];
 
         document.getElementById('ffmiValue').textContent = ffmiNorm.toFixed(1);
         document.getElementById('ffmiBadge').textContent = ffmiCategory;
         document.getElementById('ffmiBadge').style.borderColor = ffmiColor;
         document.getElementById('ffmiBadge').style.color = ffmiColor;
-
         for (let i = 1; i <= 5; i++) {
           document.getElementById('ffmiSeg' + i).style.opacity = i === ffmiActiveSeg ? '1' : '0.3';
         }
-
         ffmiSection.style.display = 'block';
       } else {
         ffmiSection.style.display = 'none';
       }
 
-      // ==================== PLAN RECOMMENDATION ====================
       const planRec = document.getElementById('planRecommendation');
       let recPlan = '';
       let recReason = '';
       let recPrice = '';
-      let recWaText = '';
 
-      if (hasPatologia || needsSupervision || (age >= 55 && (bmi >= 30 || hasPatologia))) {
+      if (hasPatologia || needsSupervision) {
         recPlan = 'Restore';
-        recPrice = '$75/mes';
-        recReason = 'Tu perfil indica que necesitas supervisión médica integral. El plan Restore incluye consultas médicas, evaluación de riesgos metabólicos y coordinación con especialistas para un enfoque seguro y clínicamente fundamentado.';
-        recWaText = 'RESTORE';
-      } else if (wantsCompetir || (ffmiNorm !== null && ((gender === 'male' && ffmiNorm >= 22) || (gender === 'female' && ffmiNorm >= 18))) || (goal === 'gain' && hasExperiencia && activity >= 1.725)) {
+        recPrice = '$100/mes';
+        recReason = 'Por la necesidad de contexto médico, Restore es la ruta prudente: seguimiento médico, nutrición adaptada y dos sesiones 1 a 1 por semana. La admisión confirma si el alcance es adecuado para tu caso.';
+      } else if (wantsCompetir || (hasExperiencia && ['gain', 'performance'].includes(goal)) || sessions >= 5) {
         recPlan = 'Forged';
-        recPrice = '$60/mes';
-        recReason = 'Tu perfil sugiere un nivel avanzado con objetivos de alto rendimiento. El plan Forged ofrece entrenamiento avanzado, nutrición periodizada por fases, ajustes en tiempo real y preparación para competición.';
-        recWaText = 'FORGED';
+        recPrice = '$75/mes';
+        recReason = 'Tu frecuencia u objetivo requiere una progresión más vigilada. Forged integra periodización, control semanal y una sesión presencial 1 a 1 por semana.';
       } else {
         recPlan = 'Balance';
-        recPrice = '$45/mes';
-        recReason = 'El plan Balance es ideal para iniciar tu transformación con bases sólidas. Incluye entrenamiento personalizado, nutrición estructurada y seguimiento quincenal para lograr una recomposición corporal consistente.';
-        recWaText = 'BALANCE';
+        recPrice = '$60/mes';
+        recReason = 'Balance ofrece la estructura completa para avanzar con autonomía: nutrición, entrenamiento interactivo, app y control quincenal, sin sesiones presenciales 1 a 1.';
       }
 
       document.getElementById('recPlanName').textContent = recPlan;
       document.getElementById('recPlanPrice').textContent = recPrice;
       document.getElementById('recPlanReason').textContent = recReason;
       document.getElementById('recPlanCtaText').textContent = 'Aplicar a ' + recPlan;
-      document.getElementById('recPlanCta').href = 'https://wa.me/593984490998?text=Hola,%20hice%20el%20diagnostico%20inicial%20y%20me%20recomendo%20el%20plan%20' + recWaText + '.%20Quiero%20aplicar.';
+      document.getElementById('recPlanCta').href = 'https://wa.me/593984490998?text=Hola,%20hice%20la%20estimacion%20inicial%20y%20quiero%20aplicar%20al%20plan%20' + recPlan.toUpperCase() + '.';
       planRec.style.display = 'block';
 
-      // Update base UI
       calcResults.classList.remove('results-hidden');
       calcResults.classList.add('results-visible');
-
       document.getElementById('bmiValue').textContent = bmi.toFixed(1);
       document.getElementById('bmiBadge').textContent = bmiCategory;
       document.getElementById('bmiBadge').style.borderColor = bmiColor;
       document.getElementById('bmiBadge').style.color = bmiColor;
       document.getElementById('bmiBar').style.width = bmiPercent + '%';
+      document.getElementById('bmrValue').textContent = Math.round(bmr).toLocaleString('es-EC');
+      document.getElementById('tdeeValue').textContent = tdee.toLocaleString('es-EC');
+      document.getElementById('trainingValue').textContent = Math.round(trainingDaily).toLocaleString('es-EC');
+      document.getElementById('goalLabel').textContent = goalConfig.label;
+      document.getElementById('targetValue').textContent = targetCals.toLocaleString('es-EC');
+      document.getElementById('proteinVal').textContent = protein + ' g';
+      document.getElementById('carbsVal').textContent = carbs + ' g';
+      document.getElementById('fatsVal').textContent = fats + ' g';
+      document.getElementById('proteinBar').style.width = proteinPct + '%';
+      document.getElementById('carbsBar').style.width = carbsPct + '%';
+      document.getElementById('fatsBar').style.width = fatsPct + '%';
 
-      document.getElementById('bmrValue').textContent = Math.round(bmr).toLocaleString();
-      document.getElementById('tdeeValue').textContent = tdee.toLocaleString();
-
-      document.getElementById('goalLabel').textContent = goalLabel;
-      document.getElementById('targetValue').textContent = targetCals.toLocaleString();
-
-      document.getElementById('proteinVal').textContent = protein + 'g';
-      document.getElementById('carbsVal').textContent = carbs + 'g';
-      document.getElementById('fatsVal').textContent = fats + 'g';
-
-      document.getElementById('proteinBar').style.width = '30%';
-      document.getElementById('carbsBar').style.width = '40%';
-      document.getElementById('fatsBar').style.width = '30%';
-
-      // Scroll to results on mobile
       if (window.innerWidth < 1024) {
         calcResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
@@ -2417,65 +2560,59 @@
       setTimeout(type, 1200);
     })();
 
-    // ==================== CUPOS COUNTER ====================
-    (function() {
-      const TOTAL = 15;
-      const TAKEN = 9;
-      const AVAILABLE = TOTAL - TAKEN;
-
-      // Build slot grid
+    // ==================== CAPACIDAD AGREGADA ====================
+    (async function syncCapacity() {
+      const boxEl = document.getElementById('cuposBox');
+      const numEl = document.getElementById('cuposNum');
       const slotsEl = document.getElementById('cuposSlots');
-      if (slotsEl) {
-        for (let i = 0; i < TOTAL; i++) {
+      const statEl = document.getElementById('capacityStat');
+      if (!boxEl || !numEl || !slotsEl) return;
+
+      try {
+        const response = await fetch('/api/capacity', { headers: { Accept: 'application/json' } });
+        if (!response.ok) throw new Error('capacity unavailable');
+        const data = await response.json();
+        const capacity = Number(data.capacity);
+        const active = Number(data.active);
+        const available = Number(data.available);
+        if (![capacity, active, available].every(Number.isInteger) || capacity < 1 || active < 0 || available < 0) {
+          throw new Error('invalid capacity payload');
+        }
+
+        boxEl.classList.remove('is-fallback');
+        document.getElementById('capacityStatus').textContent = 'Sincronizado con pacientes activos';
+        document.getElementById('capacityTitle').innerHTML = 'de ' + capacity + ' cupos<br>de acompañamiento.';
+        document.getElementById('capacityActive').lastChild.textContent = ' ' + active + ' pacientes activos';
+        document.getElementById('capacityRemaining').textContent = available === 1 ? 'Queda 1 cupo' : 'Quedan ' + available;
+        document.getElementById('capacityTotal').textContent = capacity + ' cupos';
+        document.querySelector('.cupos-bar-fill').style.setProperty('--bar-w', Math.min(100, active / capacity * 100) + '%');
+        if (statEl) statEl.textContent = capacity;
+
+        slotsEl.replaceChildren();
+        for (let i = 0; i < capacity; i++) {
           const dot = document.createElement('div');
-          dot.className = 'cupos-slot ' + (i < TAKEN ? 'taken' : 'available');
-          if (i >= TAKEN) {
-            dot.title = 'Cupo disponible';
-          }
+          dot.className = 'cupos-slot ' + (i < Math.min(active, capacity) ? 'taken' : 'available');
+          dot.title = i < active ? 'Cupo ocupado' : 'Cupo disponible';
           slotsEl.appendChild(dot);
         }
-      }
 
-      // Animate counter from 15 down to AVAILABLE when section enters view
-      const numEl = document.getElementById('cuposNum');
-      const boxEl = document.getElementById('cuposBox');
-      if (!numEl || !boxEl) return;
-
-      numEl.textContent = TOTAL;
-      let animated = false;
-
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !animated) {
-            animated = true;
-            let current = TOTAL;
-            const duration = 900; // ms
-            const steps = TOTAL - AVAILABLE;
-            const interval = duration / steps;
-
-            numEl.textContent = current;
-
-            const countdown = setInterval(() => {
-              current--;
-              numEl.textContent = current;
-
-              // Flash gold on each decrement
-              numEl.style.transition = 'color 0.1s ease';
-              numEl.style.color = '#F0DC8A';
-              setTimeout(() => { numEl.style.color = ''; }, 120);
-
-              if (current <= AVAILABLE) {
-                clearInterval(countdown);
-                // Add urgency glow when done
-                numEl.style.transition = 'all 0.4s ease';
-                boxEl.style.borderColor = 'rgba(212,175,55,0.6)';
-              }
-            }, interval);
+        let current = capacity;
+        numEl.textContent = current;
+        const steps = Math.max(1, capacity - available);
+        const interval = Math.max(35, 700 / steps);
+        const countdown = setInterval(() => {
+          current--;
+          numEl.textContent = current;
+          if (current <= available) {
+            clearInterval(countdown);
+            numEl.textContent = available;
           }
-        });
-      }, { threshold: 0.4 });
-
-      obs.observe(boxEl);
+        }, interval);
+      } catch (error) {
+        // Nunca inventar disponibilidad si el agregado seguro no responde.
+        boxEl.classList.add('is-fallback');
+        if (statEl) statEl.textContent = 'Limitada';
+      }
     })();
 
     
