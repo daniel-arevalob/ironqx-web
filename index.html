@@ -259,6 +259,33 @@
     .stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; }
     @media (min-width: 640px) { .stat-label { font-size: 11px; letter-spacing: 0.18em; } }
 
+    /* Autoridad compacta */
+    .authority-compact { background: linear-gradient(180deg, var(--bg2), var(--bg)); padding: 44px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    @media (min-width: 768px) { .authority-compact { padding: 56px 0; } }
+    .authority-compact-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    @media (min-width: 640px) { .authority-compact-inner { padding: 0 24px; } }
+    .authority-compact-card { display: grid; gap: 24px; padding: 22px; border: 1px solid rgba(212,175,55,0.20); border-radius: 16px; background: radial-gradient(circle at 0% 0%, rgba(212,175,55,0.09), transparent 34%), rgba(255,255,255,0.018); }
+    @media (min-width: 900px) { .authority-compact-card { grid-template-columns: 0.82fr 1.18fr; align-items: center; gap: 34px; padding: 28px; } }
+    .authority-identity { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 16px; align-items: center; }
+    @media (min-width: 640px) { .authority-identity { grid-template-columns: 92px minmax(0, 1fr); gap: 20px; } }
+    .authority-portrait { width: 76px; height: 92px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(212,175,55,0.28); background: #111; }
+    @media (min-width: 640px) { .authority-portrait { width: 92px; height: 112px; } }
+    .authority-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
+    .authority-kicker { color: var(--gold); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 5px; }
+    .authority-name { color: var(--text); font-size: 1.55rem; line-height: 1.1; margin-bottom: 6px; }
+    @media (min-width: 640px) { .authority-name { font-size: 1.8rem; } }
+    .authority-role { color: var(--silver); font-size: 12px; line-height: 1.5; }
+    .authority-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; color: var(--gold-lt); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; }
+    .authority-link:hover { color: var(--gold); }
+    .authority-proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    @media (min-width: 640px) { .authority-proof-grid { gap: 12px; } }
+    .authority-proof { min-width: 0; padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.065); background: rgba(0,0,0,0.22); }
+    .authority-proof strong { display: block; color: var(--gold-lt); font-family: 'Barlow Condensed', sans-serif; font-size: 0.98rem; line-height: 1.25; margin-bottom: 4px; }
+    .authority-proof span { display: block; color: var(--muted); font-size: 10px; line-height: 1.42; }
+    @media (min-width: 640px) { .authority-proof { padding: 16px; } .authority-proof strong { font-size: 1.08rem; } .authority-proof span { font-size: 11px; } }
+    .authority-field-note { grid-column: 1 / -1; display: flex; align-items: center; gap: 9px; padding: 12px 14px; border-radius: 9px; background: rgba(212,175,55,0.055); color: var(--silver); font-size: 11px; line-height: 1.5; }
+    .authority-field-note::before { content: ''; width: 7px; height: 7px; flex: 0 0 auto; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(212,175,55,0.10); }
+
     /* Gallery */
     .gallery-strip { display: grid; grid-template-columns: 1fr; min-height: 250px; }
     @media (min-width: 640px) { .gallery-strip { min-height: 300px; } }
@@ -955,7 +982,7 @@
       <div class="nav-links" id="navLinks">
         <button class="nav-link" data-section="consulta">Consulta</button>
         <button class="nav-link" data-section="planes">Protocolos</button>
-        <button class="nav-link" data-section="filosofia">Autoridad</button>
+        <button class="nav-link" data-section="autoridad">Autoridad</button>
         <button class="nav-link" data-section="metodologia">Método</button>
         <button class="nav-link" data-section="tecnologia">Tecnología</button>
         <button class="nav-link" data-section="ia-bot">Assistant</button>
@@ -1003,7 +1030,7 @@
           </span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
-        <button class="mobile-link touch-scale" data-section="filosofia">
+        <button class="mobile-link touch-scale" data-section="autoridad">
           <span class="mobile-link-index">03</span>
           <span>
             <span class="mobile-link-title">Autoridad</span>
@@ -1146,6 +1173,45 @@
       </div>
     </div>
   </div>
+
+  <!-- Autoridad compacta -->
+  <section id="autoridad" class="authority-compact">
+    <div class="authority-compact-inner">
+      <div class="authority-compact-card reveal">
+        <div class="authority-identity">
+          <div class="authority-portrait">
+            <img src="images/hero-main.jpeg" alt="Dr. Daniel Arévalo" loading="lazy" width="896" height="1592" />
+          </div>
+          <div>
+            <div class="authority-kicker">Quién está detrás</div>
+            <h2 class="authority-name">Dr. Daniel Arévalo</h2>
+            <p class="authority-role">Médico, atleta y creador del método IRONQx. La formación clínica y la experiencia de campo conviven en cada decisión.</p>
+            <a class="authority-link" href="#filosofia">Conoce mi trayectoria <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="authority-proof-grid" aria-label="Credenciales profesionales">
+          <div class="authority-proof">
+            <strong>Médico</strong>
+            <span>Universidad de Cuenca</span>
+          </div>
+          <div class="authority-proof">
+            <strong>Máster</strong>
+            <span>Nutrición Clínica y Deportiva</span>
+          </div>
+          <div class="authority-proof">
+            <strong>Biomecánica</strong>
+            <span>Especialización por la IFBB</span>
+          </div>
+          <div class="authority-proof">
+            <strong>Mr. Cuenca</strong>
+            <span>Campeón · Top 2 Mr. Ecuador</span>
+          </div>
+          <div class="authority-field-note">Más de 10 años entre fitness competitivo, consulta y aplicación práctica en composición corporal y rendimiento.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Calculadora -->
   <section id="calculadora" class="section calculadora">
@@ -1709,7 +1775,7 @@
         <div class="reveal">
           <div class="section-label-left">
             <div class="section-label-line" style="width:28px"></div>
-            <span class="section-label-text">Quién está detrás</span>
+            <span class="section-label-text">Trayectoria y criterio</span>
           </div>
 
           <h2>Médico que entiende <em>músculo, metabolismo y rendimiento.</em></h2>
@@ -2115,7 +2181,7 @@
               <li><a href="#consulta">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                 Consulta</a></li>
-              <li><a href="#filosofia">
+              <li><a href="#autoridad">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
                 Autoridad</a></li>
               <li><a href="#calculadora">
@@ -2556,9 +2622,10 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
+          const navId = id === 'filosofia' ? 'autoridad' : id;
           navLinkElements.forEach(link => {
             link.classList.remove('active');
-            if (link.dataset.section === id) {
+            if (link.dataset.section === navId) {
               link.classList.add('active');
             }
           });
