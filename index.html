@@ -459,13 +459,17 @@
     /* Planes */
     .plans-container { position: relative; overflow: clip; }
     @media (min-width: 1024px) { .plans-container { overflow: visible; } }
-    .plans-scroll { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 8px 20px 24px; margin: 0 -20px; -webkit-overflow-scrolling: touch; }
+    .plans-scroll { display: flex; gap: 16px; overflow-x: auto; overflow-y: visible; scroll-snap-type: x proximity; scroll-padding-inline: 20px; scroll-behavior: smooth; overscroll-behavior-x: contain; overscroll-behavior-y: auto; touch-action: pan-x pan-y; padding: 12px 20px 28px; margin: 0 -20px; -webkit-overflow-scrolling: touch; }
     @media (min-width: 640px) { .plans-scroll { gap: 20px; padding: 8px 24px 24px; margin: 0 -24px; } }
     @media (min-width: 1024px) { .plans-scroll { display: grid; grid-template-columns: repeat(3, 1fr); overflow: visible; margin: 0; padding: 0; padding-bottom: 0; } }
-    .plan-card { background: var(--bg2); border: 1px solid var(--border); padding: 24px; display: flex; flex-direction: column; position: relative; scroll-snap-align: center; min-width: 85vw; max-width: 340px; flex-shrink: 0; border-radius: 12px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .plan-card { background: var(--bg2); border: 1px solid var(--border); padding: 24px; display: flex; flex-direction: column; position: relative; scroll-snap-align: center; min-width: 85vw; max-width: 340px; flex-shrink: 0; border-radius: 12px; transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease; will-change: transform; }
+    @media (max-width: 1023px) {
+      .plan-card.reveal.visible { opacity: 0.74; transform: scale(0.975); }
+      .plan-card.reveal.visible.is-centered { opacity: 1; transform: translateY(-3px) scale(1); border-color: rgba(212,175,55,0.38); box-shadow: 0 16px 38px rgba(0,0,0,0.32), 0 0 22px rgba(212,175,55,0.07); }
+    }
     @media (min-width: 480px) { .plan-card { min-width: 320px; padding: 28px; } }
     @media (min-width: 640px) { .plan-card { min-width: 340px; padding: 32px; } }
-    @media (min-width: 1024px) { .plan-card { min-width: 0; max-width: none; } }
+    @media (min-width: 1024px) { .plan-card { min-width: 0; max-width: none; opacity: 1; transform: none; } }
     .plan-card.featured { border-color: var(--gold); z-index: 10; box-shadow: 0 0 30px rgba(212,175,55,0.1); }
     @media (min-width: 1024px) { .plan-card.featured { transform: scale(1.03); box-shadow: 0 0 40px rgba(212,175,55,0.15); } }
     .plan-badge { position: absolute; top: -1px; right: 24px; background: var(--gold); color: black; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 14px; border-radius: 0 0 4px 4px; }
@@ -1030,7 +1034,7 @@
       <div class="mobile-quick-links">
         <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-          App
+          IRONQx App
         </a>
         <a href="https://www.instagram.com/iron.qx/" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37a4 4 0 1 1-4.63-4.63A4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg>
@@ -1471,7 +1475,7 @@
 
       <div class="plans-container">
         <div class="plans-scroll scrollbar-hide" id="plansScroll">
-          <div class="reveal plan-card card-hover touch-scale" data-plan="0" style="transition-delay:0s">
+          <div class="reveal plan-card" data-plan="0" style="transition-delay:0s">
             <div class="plan-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 3v18"/>
@@ -1496,7 +1500,7 @@
             <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20al%20plan%20BALANCE%20de%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-outline touch-scale">Aplicar a Balance</a>
           </div>
 
-          <div class="reveal plan-card featured touch-scale" data-plan="1" style="transition-delay:0.1s">
+          <div class="reveal plan-card featured" data-plan="1" style="transition-delay:0.1s">
             <div class="plan-badge">Más Elegido</div>
             <div class="plan-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -1523,7 +1527,7 @@
             <a href="https://wa.me/593984490998?text=Hola,%20quiero%20aplicar%20al%20plan%20FORGED%20de%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-filled touch-scale">Aplicar a Forged</a>
           </div>
 
-          <div class="reveal plan-card card-hover touch-scale" data-plan="2" style="transition-delay:0.2s">
+          <div class="reveal plan-card" data-plan="2" style="transition-delay:0.2s">
             <div class="plan-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M11 2v2"/>
@@ -1667,7 +1671,7 @@
             <li><span class="cred-bullet">&#10022;</span> Especialista en Biomecánica del Ejercicio por la IFBB</li>
             <li><span class="cred-bullet">&#10022;</span> Campeón Mr. Cuenca / Top 2 Mr. Ecuador</li>
             <li><span class="cred-bullet">&#10022;</span> 10+ años experiencia en fitness competitivo</li>
-            <li><span class="cred-bullet">&#10022;</span> Desarrollador de la plataforma app.ironqx.fit</li>
+            <li><span class="cred-bullet">&#10022;</span> Creador y desarrollador de IRONQx App</li>
           </ul>
         </div>
       </div>
@@ -1732,7 +1736,7 @@
           <h2>Un sistema de seguimiento, <em>no una hoja de cálculo.</em></h2>
 
           <p class="tech-desc">
-            <strong>app.ironqx.fit</strong> centraliza tu protocolo: evolución corporal,
+            <strong>IRONQx App</strong> centraliza tu protocolo: evolución corporal,
             adherencia, ajustes y decisiones de seguimiento en un solo lugar.
             Es la capa técnica que da continuidad al criterio profesional.
           </p>
@@ -1780,10 +1784,10 @@
               <img src="images/app-logo.webp" alt="IRONQx App" loading="lazy" width="862" height="862" />
             </div>
             <h3 class="app-title">
-              <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">app.ironqx.fit</a>
+              <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">IRONQx App</a>
             </h3>
             <p class="app-subtitle">Sistema clínico de seguimiento</p>
-            <figure class="app-mockup-figure" aria-label="Vista previa de la app IronQx">
+            <figure class="app-mockup-figure" aria-label="Vista previa de IRONQx App">
               <img class="app-mockup-img" src="images/mockup-app.webp" alt="Pantalla de inicio de IRONQx App con estado del plan, membresía activa y progreso del paciente" loading="lazy" width="752" height="1502" />
             </figure>
             <!-- Platform Access Badge -->
@@ -1794,11 +1798,11 @@
                 <div class="app-access-divider-line-r"></div>
               </div>
               <div class="app-access-btn-wrap">
-              <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer" class="app-access-btn touch-scale" aria-label="Acceder a app.ironqx.fit">
+              <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer" class="app-access-btn touch-scale" aria-label="Abrir IRONQx App">
                 <div class="app-access-icon">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 </div>
-                <div class="app-access-name">Accede a la plataforma</div>
+                <div class="app-access-name">Abrir IRONQx App</div>
               </a>
               </div>
               <p class="app-access-note">Acceso exclusivo <span>&mdash;</span> Pacientes activos</p>
@@ -2074,7 +2078,7 @@
             <ul class="footer-links">
               <li><a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                App Iron QX</a></li>
+                IRONQx App</a></li>
               <li><a href="https://www.instagram.com/iron.qx/" target="_blank" rel="noopener noreferrer">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37a4 4 0 1 1-4.63-4.63A4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 @iron.qx</a></li>
@@ -2418,29 +2422,53 @@
     const scrollDots = document.querySelectorAll('.scroll-dot');
 
     if (plansScroll) {
-      plansScroll.addEventListener('scroll', () => {
-        const scrollLeft = plansScroll.scrollLeft;
-        const cardWidth = plansScroll.querySelector('.plan-card').offsetWidth + 16;
-        const activeIndex = Math.round(scrollLeft / cardWidth);
+      const planCards = Array.from(plansScroll.querySelectorAll('.plan-card'));
+      let plansFrame = null;
 
-        scrollDots.forEach((dot, index) => {
-          if (index === activeIndex) {
-            dot.classList.add('active');
-            dot.style.background = 'var(--gold)';
-          } else {
-            dot.classList.remove('active');
-            dot.style.background = 'rgba(212,175,55,0.3)';
+      function updatePlanFocus() {
+        plansFrame = null;
+        const viewport = plansScroll.getBoundingClientRect();
+        const center = viewport.left + viewport.width / 2;
+        let activeIndex = 0;
+        let closestDistance = Infinity;
+
+        planCards.forEach((card, index) => {
+          const rect = card.getBoundingClientRect();
+          const distance = Math.abs((rect.left + rect.width / 2) - center);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            activeIndex = index;
           }
         });
-      }, { passive: true });
 
-      // Click on dots
+        planCards.forEach((card, index) => card.classList.toggle('is-centered', index === activeIndex));
+        scrollDots.forEach((dot, index) => {
+          const isActive = index === activeIndex;
+          dot.classList.toggle('active', isActive);
+          dot.style.background = isActive ? 'var(--gold)' : 'rgba(212,175,55,0.3)';
+        });
+      }
+
+      function requestPlanFocusUpdate() {
+        if (plansFrame !== null) return;
+        plansFrame = requestAnimationFrame(updatePlanFocus);
+      }
+
+      plansScroll.addEventListener('scroll', requestPlanFocusUpdate, { passive: true });
+      window.addEventListener('resize', requestPlanFocusUpdate, { passive: true });
+
       scrollDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-          const cardWidth = plansScroll.querySelector('.plan-card').offsetWidth + 16;
-          plansScroll.scrollTo({ left: cardWidth * index, behavior: 'smooth' });
+          const card = planCards[index];
+          if (!card) return;
+          const viewport = plansScroll.getBoundingClientRect();
+          const rect = card.getBoundingClientRect();
+          const left = plansScroll.scrollLeft + (rect.left - viewport.left) - (viewport.width - rect.width) / 2;
+          plansScroll.scrollTo({ left, behavior: 'smooth' });
         });
       });
+
+      requestPlanFocusUpdate();
     }
 
     // ==================== BACK TO TOP ====================
@@ -2472,51 +2500,6 @@
     }, { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' });
 
     sections.forEach(section => sectionObserver.observe(section));
-
-    // ==================== TOUCH GESTURES FOR PLANES ====================
-    let plansTouchStartX = 0;
-    let plansTouchEndX = 0;
-    let plansTouchStartY = 0;
-    let plansTouchEndY = 0;
-    let plansSwipeAxis = null; // 'h' horizontal, 'v' vertical, null undecided
-
-    if (plansScroll) {
-      plansScroll.addEventListener('touchstart', (e) => {
-        plansTouchStartX = e.changedTouches[0].screenX;
-        plansTouchStartY = e.changedTouches[0].screenY;
-        plansTouchEndX = plansTouchStartX;
-        plansTouchEndY = plansTouchStartY;
-        plansSwipeAxis = null;
-      }, { passive: true });
-
-      plansScroll.addEventListener('touchmove', (e) => {
-        const dx = Math.abs(e.changedTouches[0].screenX - plansTouchStartX);
-        const dy = Math.abs(e.changedTouches[0].screenY - plansTouchStartY);
-        if (plansSwipeAxis === null && (dx > 8 || dy > 8)) {
-          plansSwipeAxis = dx >= dy ? 'h' : 'v';
-        }
-        if (plansSwipeAxis === 'h') {
-          e.preventDefault(); // block page scroll during horizontal swipe
-        }
-        plansTouchEndX = e.changedTouches[0].screenX;
-        plansTouchEndY = e.changedTouches[0].screenY;
-      }, { passive: false });
-
-      plansScroll.addEventListener('touchend', () => {
-        if (plansSwipeAxis === 'h') handlePlansSwipe();
-        plansSwipeAxis = null;
-      }, { passive: true });
-    }
-
-    function handlePlansSwipe() {
-      const swipeThreshold = 40;
-      const diffX = plansTouchStartX - plansTouchEndX;
-      const cardWidth = plansScroll.querySelector('.plan-card').offsetWidth + 16;
-      const currentScroll = plansScroll.scrollLeft;
-      if (Math.abs(diffX) > swipeThreshold) {
-        plansScroll.scrollTo({ left: currentScroll + (diffX > 0 ? cardWidth : -cardWidth), behavior: 'smooth' });
-      }
-    }
 
     // ==================== HERO BADGE TYPEWRITER ====================
     (function() {
