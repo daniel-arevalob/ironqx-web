@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
   <title>IRONQx | Medicina, nutrición y entrenamiento personalizado</title>
-  <meta name="description" content="Protocolos personalizados de nutrición, entrenamiento y seguimiento médico-deportivo en Cuenca, Ecuador. Balance, Forged y Restore por el Dr. Daniel Arévalo." />
+  <meta name="description" content="Nutrición calculada al detalle, entrenamiento personalizado y seguimiento médico-deportivo en Cuenca, Ecuador. Protocolos IRONQx por el Dr. Daniel Arévalo." />
   <meta name="theme-color" content="#050505" />
   <link rel="canonical" href="https://ironqx.fit/" />
   <link rel="icon" type="image/webp" href="https://ironqx.fit/images/app-logo.webp" />
@@ -341,6 +341,29 @@
     @media (min-width: 640px) { .method-title { font-size: 1.125rem; letter-spacing: 0.1em; } }
     .method-desc { color: var(--muted); font-size: 13px; line-height: 1.7; }
     @media (min-width: 640px) { .method-desc { font-size: 14px; } }
+
+    /* Nutrition precision showcase */
+    .nutrition-showcase { display: grid; gap: 24px; margin-bottom: 28px; padding: 24px; border: 1px solid rgba(212,175,55,0.24); border-radius: 16px; background: radial-gradient(circle at 8% 0%, rgba(212,175,55,0.10), transparent 34%), linear-gradient(145deg, #111, #090909); position: relative; overflow: hidden; }
+    .nutrition-showcase::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(to bottom, transparent, var(--gold), transparent); }
+    @media (min-width: 768px) { .nutrition-showcase { grid-template-columns: 0.92fr 1.08fr; gap: 32px; padding: 32px; margin-bottom: 32px; } }
+    .nutrition-eyebrow { color: var(--gold); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.22em; margin-bottom: 12px; }
+    .nutrition-copy h3 { color: var(--text); font-size: 1.65rem; line-height: 1.18; margin-bottom: 14px; }
+    @media (min-width: 640px) { .nutrition-copy h3 { font-size: 2rem; } }
+    .nutrition-copy > p { color: var(--silver); font-size: 14px; line-height: 1.72; }
+    .nutrition-copy > p strong { color: var(--gold-lt); }
+    .nutrition-macro-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 20px 0 12px; }
+    @media (min-width: 480px) { .nutrition-macro-strip { grid-template-columns: repeat(4, 1fr); } }
+    .nutrition-macro-chip { min-width: 0; padding: 10px 8px; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; background: rgba(255,255,255,0.035); text-align: center; }
+    .nutrition-macro-chip span { display: block; color: #777; font-size: 8px; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px; }
+    .nutrition-macro-chip strong { display: block; color: var(--gold-lt); font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; letter-spacing: 0.04em; }
+    .nutrition-reconcile { color: #777 !important; font-size: 11px !important; line-height: 1.55 !important; }
+    .nutrition-detail-grid { display: grid; gap: 10px; }
+    @media (min-width: 520px) { .nutrition-detail-grid { grid-template-columns: 1fr 1fr; } }
+    .nutrition-detail { min-width: 0; padding: 16px; border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; background: rgba(0,0,0,0.20); }
+    .nutrition-detail-num { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; margin-bottom: 10px; border-radius: 50%; background: rgba(212,175,55,0.12); color: var(--gold); font-size: 10px; font-weight: 700; }
+    .nutrition-detail h4 { color: var(--silver); font-family: 'Barlow', sans-serif; font-size: 13px; margin-bottom: 6px; }
+    .nutrition-detail p { color: var(--muted); font-size: 12px; line-height: 1.58; }
+    .nutrition-outcome { grid-column: 1 / -1; padding: 13px 16px; border-radius: 9px; border: 1px solid rgba(212,175,55,0.22); color: var(--gold-lt); background: rgba(212,175,55,0.055); font-size: 12px; line-height: 1.55; text-align: center; }
 
     /* Calculadora */
     .calculadora { background: var(--bg2); position: relative; }
@@ -1066,7 +1089,7 @@
           </p>
 
           <ul class="hero-bullets">
-            <li><span><strong>Nutrición utilizable:</strong> menús opcionales, alimentos reales, equivalencias y periodización cuando corresponde.</span></li>
+            <li><span><strong>Macros al detalle:</strong> cada alimento, cada comida y el total diario reconciliados; hasta la ensalada tiene un presupuesto.</span></li>
             <li><span><strong>Entrenamiento medible:</strong> cargas, repeticiones, RIR, descansos y progresión dentro de tu plan.</span></li>
             <li><span><strong>Decisiones con contexto:</strong> composición, rendimiento, síntomas, adherencia y recuperación.</span></li>
           </ul>
@@ -1585,18 +1608,62 @@
       <div class="section-header reveal">
         <div class="section-label">
           <div class="section-label-line"></div>
-          <span class="section-label-text">Qué recibes</span>
+          <span class="section-label-text">Precisión que se puede vivir</span>
           <div class="section-label-line"></div>
         </div>
-        <h2>Un plan que se puede ejecutar, <em>registrar y ajustar.</em></h2>
-        <p class="section-desc">Cada módulo responde a una decisión del caso. No se agregan alimentos, ejercicios o suplementos para llenar una plantilla.</p>
+        <h2>Tu alimentación no sale <em>de tres preguntas.</em></h2>
+        <p class="section-desc">Antes de prescribir entendemos tus preferencias, horarios, entrenamiento, digestión, productos disponibles y la forma en que realmente comes.</p>
       </div>
+
+      <div class="nutrition-showcase reveal">
+        <div class="nutrition-copy">
+          <div class="nutrition-eyebrow">Nutrición IRONQx</div>
+          <h3>Calculamos el plan completo, no solo los alimentos obvios.</h3>
+          <p>
+            Cuantificamos cada componente que puede mover el resultado: aceites, aderezos, frutas,
+            bebidas, snacks y <strong>hasta la ensalada</strong> mediante porciones o presupuesto vegetal.
+            Así las calorías y los macros del menú cierran de verdad.
+          </p>
+          <div class="nutrition-macro-strip" aria-label="Detalle nutricional por alimento">
+            <div class="nutrition-macro-chip"><span>Alimento</span><strong>Real</strong></div>
+            <div class="nutrition-macro-chip"><span>Cantidad</span><strong>Exacta</strong></div>
+            <div class="nutrition-macro-chip"><span>Energía</span><strong>kcal</strong></div>
+            <div class="nutrition-macro-chip"><span>Macros</span><strong>P · C · G</strong></div>
+          </div>
+          <p class="nutrition-reconcile">Cada comida se suma y el total diario se vuelve a comprobar. La precisión está en el diseño para que tú no tengas que improvisar.</p>
+        </div>
+
+        <div class="nutrition-detail-grid">
+          <article class="nutrition-detail">
+            <span class="nutrition-detail-num">01</span>
+            <h4>La ensalada también cuenta</h4>
+            <p>No desaparece del cálculo. Definimos una porción visual o presupuesto según sus vegetales y densidad calórica, sin obligarte a pesar cada hoja.</p>
+          </article>
+          <article class="nutrition-detail">
+            <span class="nutrition-detail-num">02</span>
+            <h4>Tus alimentos tienen espacio</h4>
+            <p>Integramos lo que te gusta, marcas y etiquetas reales. Comer algo que disfrutas deja de sentirse como “salirse” o tener que compensar por culpa.</p>
+          </article>
+          <article class="nutrition-detail">
+            <span class="nutrition-detail-num">03</span>
+            <h4>Tu horario manda</h4>
+            <p>Las comidas se ordenan alrededor de trabajo, entrenamiento, apetito, tolerancia digestiva y tiempo disponible; no alrededor de un horario genérico.</p>
+          </article>
+          <article class="nutrition-detail">
+            <span class="nutrition-detail-num">04</span>
+            <h4>Primero preguntamos de verdad</h4>
+            <p>El formulario recoge decenas de variables: preferencias, rechazos, alergias, hábitos, suplementos, productos, horarios y contexto clínico.</p>
+          </article>
+          <div class="nutrition-outcome">El resultado: sabes qué comer, cuánto, cuándo y qué alternativa elegir sin perder el objetivo del día.</div>
+        </div>
+      </div>
+
       <div class="method-grid">
         <div class="reveal method-card card-hover touch-scale">
           <div class="method-card-bar"></div>
           <div class="method-num">N</div>
-          <div class="method-title">Nutrición aplicable</div>
-          <p class="method-desc">Menús opcionales coherentes, gramajes, macros, preparaciones, equivalencias y productos que realmente utilizas. Refeed o ciclado solo cuando está indicado.</p>
+          <div class="method-title">Menús que sí cierran</div>
+          <p class="method-desc">Opciones coherentes entre sí, con preparaciones, equivalencias y productos que realmente utilizas. Refeed o ciclado solo cuando está indicado.</p>
         </div>
         <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.1s">
           <div class="method-card-bar"></div>
