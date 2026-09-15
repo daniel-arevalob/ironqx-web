@@ -398,6 +398,31 @@
     .calc-grid { display: grid; gap: 24px; }
     @media (min-width: 1024px) { .calc-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
     .calc-card { background: var(--bg2); border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; overflow: hidden; }
+    .calculadora .section-header { margin-bottom: 28px; }
+    @media (min-width: 640px) { .calculadora .section-header { margin-bottom: 34px; } }
+    .calc-disclosure { border: 1px solid rgba(212,175,55,0.22); border-radius: 14px; background: rgba(255,255,255,0.018); overflow: hidden; transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; }
+    .calc-disclosure[open] { border-color: rgba(212,175,55,0.38); background: rgba(255,255,255,0.026); box-shadow: 0 20px 50px rgba(0,0,0,0.22); }
+    .calc-disclosure-summary { display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; align-items: center; gap: 13px; padding: 16px; cursor: pointer; list-style: none; user-select: none; }
+    .calc-disclosure-summary::-webkit-details-marker { display: none; }
+    @media (min-width: 640px) { .calc-disclosure-summary { grid-template-columns: 48px minmax(0, 1fr) auto; gap: 16px; padding: 20px 22px; } }
+    .calc-disclosure-summary:focus-visible { outline: 2px solid var(--gold); outline-offset: -3px; border-radius: 13px; }
+    .calc-disclosure-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 10px; color: var(--gold); background: rgba(212,175,55,0.10); border: 1px solid rgba(212,175,55,0.16); }
+    @media (min-width: 640px) { .calc-disclosure-icon { width: 48px; height: 48px; } }
+    .calc-disclosure-copy { min-width: 0; }
+    .calc-disclosure-copy strong { display: block; color: var(--text); font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 600; line-height: 1.25; }
+    .calc-disclosure-copy span { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; line-height: 1.45; }
+    @media (min-width: 640px) { .calc-disclosure-copy strong { font-size: 16px; } .calc-disclosure-copy span { font-size: 12px; } }
+    .calc-toggle-action { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 0 11px; border-radius: 8px; color: var(--gold-lt); background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.18); font-size: 11px; font-weight: 600; white-space: nowrap; }
+    @media (min-width: 640px) { .calc-toggle-action { min-height: 40px; padding: 0 14px; font-size: 12px; } }
+    .calc-toggle-action svg { transition: transform 0.3s ease; }
+    .calc-toggle-open { display: none; }
+    .calc-disclosure[open] .calc-toggle-closed { display: none; }
+    .calc-disclosure[open] .calc-toggle-open { display: inline; }
+    .calc-disclosure[open] .calc-toggle-action svg { transform: rotate(180deg); }
+    .calc-disclosure-body { padding: 18px; border-top: 1px solid rgba(255,255,255,0.06); animation: calcReveal 0.35s ease both; }
+    @media (min-width: 640px) { .calc-disclosure-body { padding: 24px; } }
+    @keyframes calcReveal { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { .calc-disclosure-body { animation: none; } }
     .calc-card-header { padding: 20px 20px 0; }
     @media (min-width: 640px) { .calc-card-header { padding: 24px 24px 0; } }
     .calc-card-title { font-size: 1.125rem; font-weight: 600; display: flex; align-items: center; gap: 8px; font-family: 'Barlow', sans-serif; }
@@ -1230,8 +1255,23 @@
         </p>
       </div>
 
-      <div class="reveal">
-        <div class="calc-grid">
+      <details class="calc-disclosure reveal" id="calcDisclosure">
+        <summary class="calc-disclosure-summary">
+          <span class="calc-disclosure-icon" aria-hidden="true">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+          </span>
+          <span class="calc-disclosure-copy">
+            <strong>Calculadora científica de punto de partida</strong>
+            <span>Opcional · ábrela solo si quieres estimar calorías y macronutrientes.</span>
+          </span>
+          <span class="calc-toggle-action" aria-hidden="true">
+            <span class="calc-toggle-closed">Abrir</span>
+            <span class="calc-toggle-open">Cerrar</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="calc-disclosure-body">
+          <div class="calc-grid">
           <div class="calc-card">
             <div class="calc-card-header">
               <div class="calc-card-title">
@@ -1541,8 +1581,9 @@
               <p class="consulta-use-desc">Orientación cuando hay patologías, riesgos o decisiones que requieren prudencia.</p>
             </div>
           </div>
+          </div>
         </div>
-      </div>
+      </details>
     </div>
   </section>
 
