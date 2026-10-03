@@ -6,7 +6,7 @@
   const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
   const icon=name=>window.lucide.createElement(window.lucide.icons[name],{'aria-hidden':'true','stroke-width':1.8});
   const host=el('div');host.id='ironqx-assistant';document.body.append(host);const root=host.attachShadow({mode:'open'});
-  const css=document.createElement('link');css.rel='stylesheet';css.href='/assistant.css?v=2026100303';root.append(css);
+  const css=document.createElement('link');css.rel='stylesheet';css.href='/assistant.css?v=2026100304';root.append(css);
   const fab=el('button','fab');fab.type='button';fab.title='Conversar con IronQx Assistant';fab.setAttribute('aria-label',fab.title);fab.setAttribute('aria-expanded','false');fab.setAttribute('aria-controls','iqx-commercial-chat');fab.append(icon('MessageCircle'));root.append(fab);
   const panel=el('section','panel');panel.id='iqx-commercial-chat';panel.hidden=true;panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');panel.setAttribute('aria-label','IronQx Assistant');root.append(panel);
   const header=el('header','header'),logo=el('img','logo');logo.src='/images/app-logo.webp';logo.alt='IronQx';header.append(logo);
@@ -31,6 +31,7 @@
   let turnstileLoading;
   function loadTurnstile(){if(window.turnstile)return Promise.resolve();if(!turnstileLoading)turnstileLoading=new Promise((resolve,reject)=>{const script=document.createElement('script');let timer;const fail=reason=>{clearTimeout(timer);turnstileLoading=null;script.remove();console.warn('[commercial challenge script]',reason);reject(Object.assign(new Error('challenge_unavailable'),{code:'challenge_unavailable'}));};script.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';script.onload=()=>{clearTimeout(timer);window.turnstile?resolve():fail('not_ready');};script.onerror=()=>fail('load_failed');timer=setTimeout(()=>fail('timeout'),15000);document.head.append(script);});return turnstileLoading;}
   async function challenge(action){
+    host.dataset.verification='loading';
     await loadTurnstile();
     // Turnstile necesita un contenedor en el DOM del documento; el slot conserva
     // su posicion en el chat sin encerrar su renderizador en nuestro Shadow DOM.
@@ -40,9 +41,9 @@
     return new Promise((resolve,reject)=>{
       let id,timer,settled=false;
       const finish=(value,error)=>{if(settled)return;settled=true;clearTimeout(timer);if(id!==undefined){try{window.turnstile.remove(id);}catch{}widgets=widgets.filter(x=>x!==id);}container.remove();shell.remove();error?reject(Object.assign(new Error(error),{code:error})):resolve(value);};
-      timer=setTimeout(()=>finish(null,'challenge_unavailable'),45000);
-      try{id=window.turnstile.render(container,{sitekey:config.siteKey,action,theme:'dark',size:'flexible',callback:token=>finish(token),'error-callback':code=>{console.warn('[commercial challenge]',String(code));finish(null,'challenge_unavailable');return true;},'expired-callback':()=>finish(null,'challenge_required')});widgets.push(id);}
-      catch(error){console.warn('[commercial challenge render]',Number.isInteger(error?.code)?error.code:String(error?.name||'render_failed'));finish(null,'challenge_unavailable');}
+      timer=setTimeout(()=>{host.dataset.verification='timeout';finish(null,'challenge_unavailable');},45000);
+      try{id=window.turnstile.render(container,{sitekey:config.siteKey,action,theme:'dark',size:'flexible',callback:token=>{host.dataset.verification='complete';finish(token);},'error-callback':code=>{const technical=/^\d+$/.test(String(code))?String(code):'error';host.dataset.verification='sdk-'+technical;console.warn('[commercial challenge]',technical);finish(null,'challenge_unavailable');return true;},'expired-callback':()=>{host.dataset.verification='expired';finish(null,'challenge_required');}});widgets.push(id);}
+      catch(error){const technical=Number.isInteger(error?.code)?error.code:'render_failed';host.dataset.verification='render-'+technical;console.warn('[commercial challenge render]',technical);finish(null,'challenge_unavailable');}
     });
   }
   async function init(){timeline.append(el('div','stamp','Tu siguiente paso'));message('Hola, soy el asistente de admision de IronQx. ¿Buscas una consulta puntual o un acompanamiento mensual?');try{config=await fetchJson(API+'?action=config');}catch{offline=true;}
