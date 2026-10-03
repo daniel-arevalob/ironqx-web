@@ -33,3 +33,8 @@ test('botones de herramientas usan Lucide local, sin CDN ni bundle completo',()=
 test('el CTA comercial abre el chat real, no el antiguo bot de WhatsApp',()=>{
   assert.match(html,/<button type="button" data-open-assistant/);assert.doesNotMatch(html,/class="floating-wa wa-halo"/);assert.match(html,/\/assistant.js\?v=/);
 });
+test('Turnstile vive en el documento, ocupa espacio y se limpia una sola vez',()=>{
+  assert.match(js,/container\.slot=slot\.name/);assert.match(js,/host\.append\(container\)/);assert.match(js,/container\.style\.minHeight='65px'/);
+  assert.match(js,/if\(settled\)return;settled=true/);assert.match(js,/container\.remove\(\);shell\.remove\(\)/);
+  assert.match(js,/setTimeout\(\(\)=>fail\('timeout'\),15000\)/);
+});
