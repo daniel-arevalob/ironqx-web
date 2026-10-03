@@ -27,6 +27,25 @@ test('solicitud requiere consentimiento, precio revisado y servicio valido',()=>
 test('el panel supera navbar y ruido, usa visualViewport y conserva navegacion accesible',()=>{
   assert.match(css,/z-index:10020/);assert.match(css,/--chat-vh/);assert.match(js,/window\.visualViewport/);assert.match(js,/n\.inert=true/);assert.match(js,/e\.key==='Escape'/);assert.match(js,/e\.key==='Tab'/);
 });
+
+test('la portada queda detras de una capa fija sin bloquear la web al cerrar',()=>{
+  assert.match(css,/:host\s*\{[^}]*position: fixed;[^}]*inset: 0;[^}]*pointer-events: none;[^}]*isolation: isolate;/s);
+  assert.match(css,/\.backdrop[^}]*background: #000b/);
+  assert.match(css,/\.backdrop, \.fab, \.panel \{ pointer-events: auto;/);
+  assert.match(js,/backdrop\.hidden=!value/);
+  assert.match(js,/if\(value===!panel\.hidden\)return/);
+  assert.match(js,/backdrop\.onclick=\(\)=>setOpen\(false\)/);
+});
+
+test('experiencia y modalidad usan selectores y conservan respuestas anteriores',()=>{
+  assert.match(js,/field\('experience',SELECTS\.experience\.label,'select'\)/);
+  assert.match(js,/field\('modality',SELECTS\.modality\.label,'select'\)/);
+  assert.match(js,/if\(current&&spec&&!items\.some/);
+  assert.match(js,/items\.unshift\(\{value:current,label:current\}\)/);
+  assert.match(js,/questionOptions\(r\.question\)/);
+  assert.match(js,/questionOptions\(h\.history\.at\(-1\)\?\.question\)/);
+  assert.match(js,/select\.onchange=.*deliver\(select\.value\)/);
+});
 test('botones de herramientas usan Lucide local, sin CDN ni bundle completo',()=>{
   assert.match(js,/window\.lucide\.createElement/);assert.match(html,/\/vendor\/lucide.min.js\?v=/);assert.ok(fs.statSync(new URL('../vendor/lucide.min.js',import.meta.url)).size<10000);
 });
