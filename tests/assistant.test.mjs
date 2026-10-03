@@ -38,3 +38,30 @@ test('Turnstile vive en el documento, ocupa espacio y se limpia una sola vez',()
   assert.match(js,/if\(settled\)return;settled=true/);assert.match(js,/container\.remove\(\);shell\.remove\(\)/);
   assert.match(js,/setTimeout\(\(\)=>fail\('timeout'\),15000\)/);
 });
+
+test('solicitud y conversacion tienen vistas distintas, con una salida que conserva datos',()=>{
+  assert.match(js,/timeline\.hidden=true;composer\.hidden=true;requestView\.hidden=false/);
+  assert.match(js,/requestView\.replaceChildren\(form\);requestView\.scrollTop=0/);
+  assert.match(js,/p=values\(\);returnToChat\(\)/);
+  assert.match(js,/requestView\.hidden=true;timeline\.hidden=false;composer\.hidden=false/);
+  assert.match(js,/const activeSurface=\(\)=>form\|\|timeline/);
+  assert.match(js,/activeSurface\(\)\.append\(shell\)/);
+});
+
+test('consentimiento tiene acciones separadas y no acumula servicios ni preguntas duplicadas',()=>{
+  assert.match(js,/actions\.append\(yes,no\);box\.append\(actions\)/);
+  assert.match(css,/\.consent-actions[^}]*gap: 10px/);
+  assert.match(js,/clearOptions\(\);if\(!retry\)message/);
+  assert.match(js,/answer\(r\.reply,r\.question\)/);
+  assert.match(js,/if\(r\.recommended&&!r\.question\)/);
+});
+
+test('la fuente del chat es local y los recursos comparten un sello',()=>{
+  assert.match(html,/@font-face[^}]*manrope-latin\.woff2/s);
+  assert.match(css,/font-family: 'Manrope'/);
+  assert.doesNotMatch(css,/Barlow|fonts\.googleapis/);
+  assert.ok(fs.statSync(new URL('../vendor/manrope-latin.woff2',import.meta.url)).size<50000);
+  const stamp=js.match(/assistant\.css\?v=(\d+)/)[1];
+  assert.ok(html.includes('/assistant.js?v='+stamp));
+  assert.ok(html.includes('/vendor/lucide.min.js?v='+stamp));
+});
