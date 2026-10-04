@@ -84,3 +84,12 @@ test('la fuente del chat es local y los recursos comparten un sello',()=>{
   assert.ok(html.includes('/assistant.js?v='+stamp));
   assert.ok(html.includes('/vendor/lucide.min.js?v='+stamp));
 });
+
+test('la edad guiada acepta "20 años" y solo deriva al representante por debajo de 18', () => {
+  assert.ok(js.includes('age=nums.length===1?Number(nums[0]):NaN;'), 'un solo número en el texto, con o sin "años"');
+  assert.match(js, /if\(age<18\)\{message\('Como eres menor de edad/);
+  assert.doesNotMatch(js, /age<21|age<=18|age<20/);
+});
+test('los textos visibles llevan sus tildes', () => {
+  for (const mal of ['Contactalo', 'contratacion automatica', 'limite de', 'verificacion', 'no esta disponible', 'Dias y horarios', 'Tambien puedes', 'recibir orientacion', 'numero de WhatsApp']) assert.ok(!js.includes(mal), mal);
+});
