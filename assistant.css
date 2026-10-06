@@ -119,3 +119,14 @@ a { color: var(--gold); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
 }
+.ficha-progress { display: flex; flex-direction: column; gap: 8px; width: 100%; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .02em; }
+.ficha-progress .bar { display: block; height: 4px; border-radius: 4px; background: #2a2c30; overflow: hidden; }
+.ficha-progress .bar i { display: block; height: 100%; border-radius: 4px; background: linear-gradient(90deg, #a18b55, var(--gold)); transition: width .4s ease; }
+.ficha-cta { width: 100%; }
+.ficha-cta .primary { width: 100%; }
+.ficha-hint { color: var(--gold); font-size: 13px; }
+.ficha-review { display: flex; flex-direction: column; gap: 12px; }
+.ficha-review dl { display: grid; grid-template-columns: minmax(0, 40%) minmax(0, 1fr); gap: 10px 14px; margin: 0; }
+.ficha-review dt { color: var(--muted); font-size: 12px; line-height: 1.5; }
+.ficha-review dd { margin: 0; color: #f5f5f3; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+@media (max-width: 380px) { .ficha-review dl { grid-template-columns: minmax(0, 1fr); gap: 2px; } .ficha-review dd { margin-bottom: 8px; } }

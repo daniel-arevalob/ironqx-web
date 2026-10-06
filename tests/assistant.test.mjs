@@ -43,7 +43,7 @@ test('experiencia y modalidad usan selectores y conservan respuestas anteriores'
   assert.match(js,/if\(current&&spec&&!items\.some/);
   assert.match(js,/items\.unshift\(\{value:current,label:current\}\)/);
   assert.match(js,/questionOptions\(r\.question\)/);
-  assert.match(js,/questionOptions\(h\.history\.at\(-1\)\?\.question\)/);
+  assert.match(js,/after\(h\.history\.at\(-1\)\)/);
   assert.match(js,/select\.onchange=.*deliver\(select\.value\)/);
 });
 test('botones de herramientas usan Lucide local, sin CDN ni bundle completo',()=>{
@@ -71,7 +71,7 @@ test('consentimiento tiene acciones separadas y no acumula servicios ni pregunta
   assert.match(js,/actions\.append\(yes,no\);box\.append\(actions\)/);
   assert.match(css,/\.consent-actions[^}]*gap: 10px/);
   assert.match(js,/clearOptions\(\);if\(!retry\)message/);
-  assert.match(js,/answer\(r\.reply,r\.question\)/);
+  assert.match(js,/answer\(r\.reply,r\.question\);after\(r\)/);
   assert.match(js,/if\(r\.recommended&&!r\.question\)/);
 });
 
@@ -92,4 +92,12 @@ test('la edad guiada acepta "20 años" y solo deriva al representante por debajo
 });
 test('los textos visibles llevan sus tildes', () => {
   for (const mal of ['Contactalo', 'contratacion automatica', 'limite de', 'verificacion', 'no esta disponible', 'Dias y horarios', 'Tambien puedes', 'recibir orientacion', 'numero de WhatsApp']) assert.ok(!js.includes(mal), mal);
+});
+
+test('la ficha avanza con una barra, termina en un boton de revision y se lee sin HTML del modelo',()=>{
+  assert.match(js,/function progressBar\(r\)/);assert.match(js,/Revisar mi ficha y enviarla a Daniel/);
+  assert.match(js,/if\(r\.complete\)\{if\(p\.service\)readyCta\(\)/);
+  assert.match(js,/el\('dt',null,label\),el\('dd',null,v\)/);
+  assert.match(js,/incluidos los datos de salud/);
+  assert.match(css,/\.ficha-progress \.bar i/);
 });

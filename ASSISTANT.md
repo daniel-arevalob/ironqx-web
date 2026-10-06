@@ -14,22 +14,39 @@ En Cloudflare Turnstile crear un widget Managed para `ironqx.fit` y
 - `COMMERCIAL_TURNSTILE_SITE_KEY`: clave publica del widget.
 - `COMMERCIAL_TURNSTILE_SECRET`: secreto del widget, como Secret.
 - `ANTHROPIC_API_KEY` y `RESEND_API_KEY`: ya usados por la app.
-- `COMMERCIAL_MONTHLY_LIMIT_USD`: opcional; valor inicial 2 USD, maximo 2 USD.
-  Un valor menor reduce el limite; nunca aumenta el presupuesto de pacientes.
+- `COMMERCIAL_MONTHLY_LIMIT_USD`: opcional; 10 USD por defecto, 50 como techo.
+  Es un presupuesto aparte: nunca toca el de IronQx AI de pacientes.
+- `COMMERCIAL_MODEL`: opcional; `haiku` usa Claude Haiku 4.5. Por defecto
+  Claude Sonnet 5.5, con respaldo automatico a Haiku si Anthropic rechaza la
+  peticion (queda `sonnet_rejected` en los logs, sin contenido).
 
 Tras guardar secretos, redesplegar **ironqx-app** para enlazarlos. El backend
 devuelve `ready: false` si falta configuracion: el widget ofrece entonces
 solicitud guiada y WhatsApp, sin llamadas de IA ni correos no protegidos.
 
+## Ficha de ingreso
+
+El asistente entrevista al visitante y arma una ficha clinica por secciones
+(datos, motivo, salud, medidas, habitos, preferencias). El servidor decide el
+siguiente dato esencial y se lo indica al modelo; cada campo tiene tope de
+longitud. Al completarla, el visitante la revisa y la envia: Daniel recibe un
+correo HTML maquetado con "Puntos a revisar" (reglas fijas, no del modelo) y un
+resumen marcado como IA. El correo usa la ficha guardada en el servidor; el
+navegador solo corrige contacto, servicio y datos basicos. Pedir dosis o
+diagnosticos se deriva a Daniel sin cortar la entrevista; contar la medicacion
+propia es parte de la ficha.
+
 ## Reglas
 
 - 4 sesiones por IP y 100 globales cada 24 horas.
 - Sesion opaca de 24 horas, token almacenado solo en sessionStorage.
-- 24 intentos por sesion, 40 por IP cada 24 horas y 4 segundos entre intentos.
+- 40 intentos por sesion, 80 por IP cada 24 horas y 4 segundos entre intentos:
+  una ficha completa lleva unos 15 a 20 turnos.
 - Reserva monetaria atomica antes de cada llamada; un timeout conserva la
   reserva. Request IDs deduplican reintentos y sobreviven a recargar el chat.
 - 2 solicitudes de correo por IP y 30 globales cada 24 horas; una por sesion.
-- Correos solo a `ironqx.coach@gmail.com`, con precio oficial y consentimiento.
+- Correos solo a `ironqx.coach@gmail.com`, con precio oficial y consentimiento
+  explicito para compartir los datos de salud.
   Resend usa Idempotency-Key; reintentos inciertos conservan el mismo id y
   dejan de reenviarse antes de expirar su ventana de 24 horas.
 - WhatsApp abre `+593 96 3252 197` con el resumen; el visitante pulsa enviar.
