@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
   <title>IRONQx | Medicina, nutrición y entrenamiento personalizado</title>
-  <meta name="description" content="Nutrición calculada al detalle, entrenamiento personalizado y seguimiento médico-deportivo en Cuenca, Ecuador. Protocolos IRONQx por el Dr. Daniel Arévalo." />
+  <meta name="description" content="Nutrición y entrenamiento con el Dr. Daniel Arévalo en Cuenca y online. Tu protocolo y seguimiento en IRONQx App, con apoyo de IronQx AI y VISION al habilitarlos." />
   <meta name="theme-color" content="#050505" />
   <link rel="canonical" href="https://ironqx.fit/" />
   <link rel="icon" type="image/webp" href="https://ironqx.fit/images/app-logo.webp" />
@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="IRONQx | Medicina, nutrición y entrenamiento personalizado" />
-  <meta property="og:description" content="Un protocolo construido alrededor de tus datos, tu respuesta y tu objetivo: nutrición, entrenamiento y seguimiento en un solo sistema." />
+  <meta property="og:description" content="Tu nutrición, entrenamiento, progreso y contacto con Daniel en IRONQx App. IronQx AI te ayuda a entender tu plan; VISION estima alimentos y lee etiquetas." />
   <meta property="og:image" content="https://ironqx.fit/images/hero-main.jpeg" />
   <meta property="og:url" content="https://ironqx.fit/" />
   <meta property="og:locale" content="es_EC" />
@@ -20,7 +20,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="IRONQx | Medicina, nutrición y entrenamiento personalizado" />
-  <meta name="twitter:description" content="Protocolos personalizados con criterio médico, nutrición aplicada, entrenamiento periodizado y seguimiento real." />
+  <meta name="twitter:description" content="Criterio médico y seguimiento conectado: nutrición, entrenamiento e IRONQx App, con IronQx AI y VISION como apoyo cuando Daniel los habilita." />
   <meta name="twitter:image" content="https://ironqx.fit/images/hero-main.jpeg" />
 
   <!-- Structured Data -->
@@ -623,6 +623,19 @@
     .ia-info-box p { font-size: 13px; color: var(--muted); line-height: 1.7; }
     @media (min-width: 640px) { .ia-info-box p { font-size: 14px; } }
     .ia-info-box strong { color: var(--silver); }
+    .ia-admission { display: grid; gap: 20px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--border); }
+    .ia-admission h3 { font-size: 1.35rem; margin-bottom: 8px; }
+    .ia-admission p { color: var(--silver); font-size: 14px; line-height: 1.7; max-width: 680px; }
+    .ia-admission .btn-green { background: var(--gold); color: #111; align-self: center; }
+    .ia-admission .btn-green:hover { box-shadow: 0 8px 24px rgba(212,175,55,0.18); }
+    .ia-admission-note { margin-top: 8px; }
+    .ia-admission-note strong { color: white; }
+    .chat-example-note { padding: 12px 16px; border-top: 1px solid var(--border); color: var(--silver); font-size: 12px; line-height: 1.6; }
+    #tecnologia .tech-grid > *, #ia-bot .ia-bot-grid > * { min-width: 0; }
+    #tecnologia .tech-feat-desc, #tecnologia .app-access-note,
+    #ia-bot .ia-feat-desc, #ia-bot .ia-info-box p, #ia-bot .chat-time,
+    #ia-bot .chat-input { color: #aaa; }
+    @media (min-width: 1024px) { .ia-admission { grid-template-columns: minmax(0,1fr) auto; gap: 32px; } }
 
     .chat-mockup { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5); max-width: 100%; }
     .chat-header { background: #1a1a1a; padding: 14px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border); }
@@ -1017,7 +1030,7 @@
         <button class="nav-link" data-section="autoridad">Autoridad</button>
         <button class="nav-link" data-section="metodologia">Método</button>
         <button class="nav-link" data-section="tecnologia">Tecnología</button>
-        <button class="nav-link" data-section="ia-bot">Assistant</button>
+        <button class="nav-link" data-section="ia-bot">IronQx AI</button>
         <button class="nav-link" data-section="contacto">Contacto</button>
       </div>
 
@@ -1089,8 +1102,8 @@
         <button class="mobile-link touch-scale" data-section="ia-bot">
           <span class="mobile-link-index">06</span>
           <span>
-            <span class="mobile-link-title">Assistant</span>
-            <span class="mobile-link-desc">Soporte contextual 24/7</span>
+            <span class="mobile-link-title">IronQx AI</span>
+            <span class="mobile-link-desc">Tu plan, alternativas y VISION</span>
           </span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
@@ -1199,8 +1212,8 @@
           <div class="stat-label">Protocolo individual</div>
         </div>
         <div class="reveal stagger-3">
-          <div class="stat-number" data-no-count="true">24/7</div>
-          <div class="stat-label">IronQx Assistant activo</div>
+          <div class="stat-number" data-no-count="true">App + IA</div>
+          <div class="stat-label">Seguimiento conectado</div>
         </div>
       </div>
     </div>
@@ -1632,7 +1645,7 @@
               <li><span>&mdash;</span> Sin sesiones presenciales 1 a 1</li>
               <li><span>&mdash;</span> Controles quincenales de progreso</li>
               <li><span>&mdash;</span> App IRONQx: progreso, adherencia y plan centralizado</li>
-              <li><span>&mdash;</span> IRONQx Assistant como apoyo sobre tu protocolo</li>
+              <li><span>&mdash;</span> IronQx AI como apoyo, cuando Daniel lo habilita</li>
             </ul>
             <a href="https://wa.me/593963252197?text=Hola,%20quiero%20aplicar%20al%20plan%20BALANCE%20de%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-outline touch-scale">Aplicar a Balance</a>
           </div>
@@ -1657,7 +1670,7 @@
               <li><span>&mdash;</span> Nutrición por fases, ciclado o refeed cuando está indicado</li>
               <li><span>&mdash;</span> 1 sesión presencial 1 a 1 por semana</li>
               <li><span>&mdash;</span> Controles semanales de progreso</li>
-              <li><span>&mdash;</span> Acceso prioritario a app + IRONQx Assistant</li>
+              <li><span>&mdash;</span> App y apoyo de IronQx AI, habilitado por Daniel</li>
               <li><span>&mdash;</span> Ajustes según seguimiento y respuesta</li>
               <li><span>&mdash;</span> Preparación para competición</li>
             </ul>
@@ -1911,15 +1924,15 @@
         <div class="reveal">
           <div class="section-label-left">
             <div class="section-label-line" style="width:28px"></div>
-            <span class="section-label-text">Tecnología Propietaria</span>
+            <span class="section-label-text">IRONQx App</span>
           </div>
 
-          <h2>Un sistema de seguimiento, <em>no una hoja de cálculo.</em></h2>
+          <h2>Tu protocolo y tu progreso.<br><em>En el mismo lugar.</em></h2>
 
           <p class="tech-desc">
-            <strong>IRONQx App</strong> centraliza tu protocolo: evolución corporal,
-            adherencia, ajustes y decisiones de seguimiento en un solo lugar.
-            Es la capa técnica que da continuidad al criterio profesional.
+            <strong>IRONQx App</strong> reúne tu alimentación, entrenamiento, registros y conversación
+            con Daniel. Consulta lo que te toca, registra cómo vas y recibe los ajustes de tu protocolo
+            sin buscar archivos o mensajes dispersos.
           </p>
 
           <div class="tech-quote">
@@ -1930,29 +1943,29 @@
             <div class="tech-feat touch-scale">
               <div class="tech-feat-dot"></div>
               <div>
-                <div class="tech-feat-title">Evolución de Composición</div>
-                <p class="tech-feat-desc">Visualización de evolución de masa muscular, grasa y métricas biométricas semana a semana.</p>
+                <div class="tech-feat-title">Alimentación y entrenamiento a mano</div>
+                <p class="tech-feat-desc">Consulta tus menús, porciones y horarios. En rutinas compatibles, registra cargas, repeticiones, RIR y descansos mientras entrenas.</p>
               </div>
             </div>
             <div class="tech-feat touch-scale">
               <div class="tech-feat-dot"></div>
               <div>
-                <div class="tech-feat-title">Ajustes por Respuesta Real</div>
-                <p class="tech-feat-desc">Modificaciones de nutrición y entrenamiento según evolución, adherencia, síntomas, recuperación y desempeño.</p>
+                <div class="tech-feat-title">Progreso más allá de la báscula</div>
+                <p class="tech-feat-desc">Peso, medidas, fotos y composición corporal cuando hay mediciones disponibles. Daniel revisa el conjunto: un cambio de peso aislado no cuenta toda la historia.</p>
               </div>
             </div>
             <div class="tech-feat touch-scale">
               <div class="tech-feat-dot"></div>
               <div>
-                <div class="tech-feat-title">Resumen de evolución</div>
-                <p class="tech-feat-desc">Historial y reportes descargables para entender el proceso y comunicarlo cuando sea necesario.</p>
+                <div class="tech-feat-title">Reportes que dan contexto</div>
+                <p class="tech-feat-desc">Comparte adherencia, hambre, energía, descanso y cómo te sientes. Si Daniel activa las fotos de comidas, también puedes mostrarlas y recibir sus comentarios.</p>
               </div>
             </div>
             <div class="tech-feat touch-scale">
               <div class="tech-feat-dot"></div>
               <div>
-                <div class="tech-feat-title">Contexto para el Assistant</div>
-                <p class="tech-feat-desc">El asistente orienta sobre el protocolo vigente y deriva al seguimiento humano cuando la decisión lo requiere.</p>
+                <div class="tech-feat-title">Un chat directo con Daniel</div>
+                <p class="tech-feat-desc">Tus dudas y sus respuestas quedan en la conversación. Con las notificaciones activadas, recibes avisos de mensajes, actualizaciones y seguimiento.</p>
               </div>
             </div>
           </div>
@@ -1967,7 +1980,7 @@
             <h3 class="app-title">
               <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">IRONQx App</a>
             </h3>
-            <p class="app-subtitle">Sistema clínico de seguimiento</p>
+            <p class="app-subtitle">Tu plan. Tu seguimiento. Daniel contigo.</p>
             <figure class="app-mockup-figure" aria-label="Vista previa de IRONQx App">
               <img class="app-mockup-img" src="images/mockup-app.webp" alt="Pantalla de inicio de IRONQx App con estado del plan, membresía activa y progreso del paciente" loading="lazy" width="752" height="1502" />
             </figure>
@@ -1986,7 +1999,7 @@
                 <div class="app-access-name">Abrir IRONQx App</div>
               </a>
               </div>
-              <p class="app-access-note">Acceso exclusivo <span>&mdash;</span> Pacientes activos</p>
+              <p class="app-access-note">Para pacientes con acceso activo.<br>Ábrela en el navegador o añádela a tu pantalla de inicio.</p>
             </div>
 
           </div>
@@ -2003,15 +2016,15 @@
         <div class="reveal">
           <div class="section-label-left">
             <div class="section-label-line" style="width:28px"></div>
-            <span class="section-label-text">IronQx Assistant</span>
+            <span class="section-label-text">IronQx AI + VISION</span>
           </div>
 
-          <h2>Soporte inteligente.<br><em>Dentro del método.</em></h2>
+          <h2>Entiende tu plan.<br><em>Resuelve lo cotidiano.</em></h2>
 
           <p class="ia-bot-desc">
-            IronQx Assistant es un asistente de inteligencia artificial configurado con toda la metodología,
-            filosofía y precisión clínica de IronQx. No es un chatbot genérico: fue construido desde adentro
-            para orientar dudas de nutrición, entrenamiento y seguimiento sin reemplazar el criterio médico.
+            <strong>IronQx AI</strong> es el asistente dentro de tu app. Consulta el plan asignado y el contexto
+            disponible para ayudarte con comidas, horarios y ejercicios. Su conversación está separada
+            del chat con Daniel: la IA orienta; las decisiones clínicas y los cambios de prescripción siguen con él.
           </p>
 
           <div style="margin-bottom:28px">
@@ -2020,8 +2033,8 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M12 18v-5"/></svg>
               </div>
               <div>
-                <div class="ia-feat-title">Orientación sobre tu nutrición</div>
-                <p class="ia-feat-desc">Resuelve dudas sobre macros, equivalencias, timing de comidas y adaptaciones según tu protocolo actual.</p>
+                <div class="ia-feat-title">Alternativas con cantidades claras</div>
+                <p class="ia-feat-desc">Compara alimentos del catálogo nutricional que usamos para tu plan por energía, indicando porción, crudo o cocido y diferencias de macros. Propone alternativas en el chat; no reescribe tu plan.</p>
               </div>
             </div>
             <div class="ia-feat-card touch-scale">
@@ -2029,8 +2042,8 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="m21.5 21.5-1.4-1.4"/><path d="M3.9 3.9 2.5 2.5"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/></svg>
               </div>
               <div>
-                <div class="ia-feat-title">Guía de entrenamiento 24/7</div>
-                <p class="ia-feat-desc">Aclara ejecución, progresiones, volumen y registro de carga dentro de la prescripción vigente.</p>
+                <div class="ia-feat-title">Tu rutina, mejor entendida</div>
+                <p class="ia-feat-desc">Aclara series, repeticiones, RIR, descansos y términos de tu rutina. Las dudas sobre dolor, lesiones o cambios importantes se revisan con Daniel.</p>
               </div>
             </div>
             <div class="ia-feat-card touch-scale">
@@ -2038,8 +2051,8 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
               </div>
               <div>
-                <div class="ia-feat-title">Seguimiento de pacientes activos</div>
-                <p class="ia-feat-desc">Los pacientes en protocolo pueden consultar y reportar en cualquier momento del día.</p>
+                <div class="ia-feat-title">IRONQX VISION: del plato a la estimación</div>
+                <p class="ia-feat-desc">Identifica alimentos en una foto o lee una etiqueta nutricional. Revisa y corrige las porciones para estimar calorías y macros: una imagen no sustituye una báscula ni garantiza cantidades exactas.</p>
               </div>
             </div>
             <div class="ia-feat-card touch-scale">
@@ -2047,21 +2060,18 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </div>
               <div>
-                <div class="ia-feat-title">Consulta o admisión guiada</div>
-                <p class="ia-feat-desc">Resuelve dudas sobre consulta médica, protocolos y el camino más adecuado antes de comprometerte.</p>
+                <div class="ia-feat-title">Contexto, no respuestas de memoria</div>
+                <p class="ia-feat-desc">Usa los documentos vigentes y las restricciones y horarios disponibles. Si falta información, lo aclara; también puede explicar una duda general sin presentarla como una nueva prescripción.</p>
               </div>
             </div>
           </div>
 
-          <button type="button" data-open-assistant class="btn-green btn-lift touch-scale">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-            Consultar al Assistant
-          </button>
-
           <div class="ia-info-box">
             <p>
-              <strong>Disponible como apoyo 24/7.</strong> Resuelve dudas frecuentes,
-              orienta sobre los servicios y prepara tu solicitud. Tú revisas el resumen antes de compartirlo con Daniel.
+              <strong>Daniel habilita el acceso de forma individual.</strong> Antes de usarlo aceptas
+              el tratamiento de texto e imágenes por proveedores de IA. El uso tiene límites de créditos
+              visibles en la app; no es un servicio ilimitado ni atención de urgencias.
+              Si tienes activo el modo sin cifras, no expone tus datos corporales numéricos.
             </p>
           </div>
         </div>
@@ -2073,34 +2083,47 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
               </div>
               <div>
-                <div class="chat-name">IronQx Assistant</div>
-                <div class="chat-status">Orientación para comenzar</div>
+                <div class="chat-name">IronQx AI</div>
+                <div class="chat-status">Ejemplo de apoyo dentro de la app</div>
               </div>
             </div>
             <div class="chat-body">
               <div class="chat-msg chat-msg-bot">
-                <p>Hola &#128075; Soy <strong>IronQx Assistant</strong>. Puedo ayudarte con consulta médica,
-                nutrición, entrenamiento o tus dudas sobre los protocolos. &iquest;En qué te ayudo?</p>
+                <p>Hola. Soy <strong>IronQx AI</strong>. Puedo ayudarte a entender tu plan,
+                comparar alternativas de alimentos o aclarar tu entrenamiento. &iquest;Qué necesitas hoy?</p>
                 <span class="chat-time">9:01 am &#10003;&#10003;</span>
               </div>
               <div class="chat-msg chat-msg-user">
-                <p>&iquest;Puedo agendar una consulta sin contratar un plan mensual?</p>
+                <p>&iquest;Qué significa RIR 2 en mi rutina?</p>
                 <span class="chat-time">9:02 am &#10003;&#10003;</span>
               </div>
               <div class="chat-msg chat-msg-bot">
-                <p>Sí. La <strong>consulta médica con InBody cuesta $30</strong> y no exige contratar un protocolo.
-                Podemos preparar tu solicitud; Daniel confirmará la disponibilidad.</p>
+                <p>Significa terminar la serie cuando calculas que podrías hacer unas
+                <strong>2 repeticiones más con buena técnica</strong>. Mantén las repeticiones y
+                el descanso que tienes indicados; no necesitas llegar al fallo.</p>
                 <span class="chat-time">9:02 am &#10003;&#10003;</span>
               </div>
             </div>
             <div class="chat-input-bar">
-              <div class="chat-input">Escribe tu pregunta...</div>
+              <div class="chat-input">Pregúntale a IronQx AI...</div>
               <div class="chat-send touch-scale">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </div>
             </div>
           </div>
+          <p class="chat-example-note">Ejemplo ilustrativo. VISION ofrece estimaciones revisables; la IA no diagnostica ni modifica tu protocolo automáticamente.</p>
         </div>
+      </div>
+      <div class="ia-admission">
+        <div>
+          <h3>¿Todavía no eres paciente?</h3>
+          <p>El <strong>asistente de admisión de esta web</strong> es otro chat: te explica las consultas
+          y protocolos, recoge tu objetivo y disponibilidad y prepara una ficha para Daniel.
+          No accede a planes ni conversaciones de pacientes.</p>
+          <p class="ia-admission-note">Revisas y autorizas el envío de tu ficha por correo; también puedes abrir WhatsApp con un resumen.
+          <strong>Daniel confirma la disponibilidad y la cita.</strong></p>
+        </div>
+        <button type="button" data-open-assistant class="btn-green btn-lift touch-scale">Elegir consulta o protocolo</button>
       </div>
     </div>
   </section>
