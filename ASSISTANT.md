@@ -36,6 +36,20 @@ navegador solo corrige contacto, servicio y datos basicos. Pedir dosis o
 diagnosticos se deriva a Daniel sin cortar la entrevista; contar la medicacion
 propia es parte de la ficha.
 
+Los nombres de pila reconocidos proponen un sexo orientativo mediante una lista
+conservadora del servidor, no mediante terminaciones o una suposicion del modelo.
+Nombres ambiguos o desconocidos requieren pregunta. `sexSource=name` identifica
+la inferencia en la ficha y el correo; una respuesta explicita prevalece y puede
+corregirse en el formulario final. Cambiar el nombre recalcula solo inferencias,
+nunca una respuesta explicita. No se usa la inferencia para prescribir o diagnosticar.
+
+Edad y medidas con unidades se verifican en el servidor: un peso meta, la edad
+de un familiar o minutos de entrenamiento no sustituyen datos personales.
+Las negativas breves responden al campo preguntado sin insistir. Las correcciones
+de la revision sobreviven a nuevos turnos; una correccion posterior en el chat
+prevalece. Un fallo temporal no elimina la sesion; cuando expira se limpian los
+identificadores pendientes, conservando el borrador.
+
 ## Reglas
 
 - 4 sesiones por IP y 100 globales cada 24 horas.

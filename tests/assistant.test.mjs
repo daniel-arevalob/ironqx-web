@@ -42,7 +42,7 @@ test('cambiar a consulta quita el complemento, y el envio previo no pierde la se
 
 test('las correcciones del formulario mantienen los antecedentes de la entrevista al volver al chat',()=>{
   const handler=js.match(/back\.onclick=\(\)=>\{[^\n]*?returnToChat\(\);\}/)[0];
-  const context={back:{},p:{name:'Ana',conditions:'Dato de prueba',allergies:'Dato de prueba'},values:()=>({name:'Ana Maria',service:'balance',ai:true}),returnToChat(){}};
+  const context={back:{},p:{name:'Ana',conditions:'Dato de prueba',allergies:'Dato de prueba'},values:()=>({name:'Ana Maria',service:'balance',ai:true}),stageReview(){},returnToChat(){}};
   vm.runInNewContext(handler+';',context);context.back.onclick();
   assert.equal(context.p.conditions,'Dato de prueba');assert.equal(context.p.allergies,'Dato de prueba');assert.equal(context.p.name,'Ana Maria');assert.equal(context.p.ai,true);
 });
@@ -96,7 +96,7 @@ test('Turnstile vive en el documento, ocupa espacio y se limpia una sola vez',()
 test('solicitud y conversacion tienen vistas distintas, con una salida que conserva datos',()=>{
   assert.match(js,/timeline\.hidden=true;composer\.hidden=true;requestView\.hidden=false/);
   assert.match(js,/requestView\.replaceChildren\(form\);requestView\.scrollTop=0/);
-  assert.match(js,/p=\{\.\.\.p,\.\.\.values\(\)\};returnToChat\(\)/);
+  assert.match(js,/p=\{\.\.\.p,\.\.\.values\(\)\};stageReview\(\);returnToChat\(\)/);
   assert.match(js,/requestView\.hidden=true;timeline\.hidden=false;composer\.hidden=false/);
   assert.match(js,/const activeSurface=\(\)=>form\|\|timeline/);
   assert.match(js,/activeSurface\(\)\.append\(shell\)/);
@@ -136,3 +136,26 @@ test('la ficha avanza con una barra, termina en un boton de revision y se lee si
   assert.match(js,/incluidos los datos de salud/);
   assert.match(css,/\.ficha-progress \.bar i/);
 });
+
+test('las correcciones sobreviven a otro turno y una correccion explicita del chat prevalece',()=>{
+  const context={REVIEW_FIELDS:['name','sex','contact'],p:{name:'Carlos',sex:'masculino'},serverProfile:{name:'Carlos',sex:'masculino'},reviewEdits:{},storage:{set(){}}};
+  const helpers=js.match(/function stageReview\(\)\{[^\n]+/)[0]+';'+js.match(/function acceptProfile\(next\)\{[^\n]+/)[0];
+  vm.runInNewContext(helpers,context);
+  context.p.name='Carlos Arévalo';context.p.sex='femenino';context.stageReview();
+  context.acceptProfile({name:'Carlos',sex:'masculino',age:30});
+  assert.equal(context.p.name,'Carlos Arévalo');assert.equal(context.p.sex,'femenino');assert.equal(context.p.sexSource,'explicit');
+  context.acceptProfile({name:'María',sex:'femenino',age:30});
+  assert.equal(context.p.name,'María');assert.equal(Object.keys(context.reviewEdits).length,0);
+});
+test('una sesion expirada limpia ids de reintento, no el borrador',()=>{
+  const removed=[],context={auth:{},reviewEdits:{name:'Carlos'},serverProfile:{},storage:{remove(k){removed.push(k);}}};
+  vm.runInNewContext(js.match(/function clearSession\(\)\{[^\n]+/)[0],context);context.clearSession();
+  assert.equal(context.auth,null);assert.deepEqual(removed,['session','pending','lead','review']);assert.ok(!removed.includes('draft'));
+  assert.match(js,/if\(e\.code==='session_expired'\)clearSession\(\);else\{/);
+  assert.match(js,/\['session_expired','provider_unavailable','provider_invalid','previous_failed'\]/);
+});
+test('selectores siguen el campo que pregunta el servidor y no reaparecen en un seguimiento',()=>{
+  assert.match(js,/else if\(!r\.followup\)questionOptions\(r\.reply,r\.asked\)/);
+  assert.match(js,/asked\?\.\[0\]/);assert.match(js,/field\('sex',p\.sexSource==='name'/);
+});
+test('el timeout de envio permite terminar el proveedor de respaldo',()=>assert.match(js,/options\.method==='POST'\?100000:15000/));
