@@ -39,3 +39,33 @@ test('los metadatos describen la app y la IA sin cambiar contacto ni precios', (
   assert.ok(html.includes('"telephone": "+593963252197"'));
   for (const price of ['60', '75', '100']) assert.ok(html.includes('"price":"'+price+'"'));
 });
+
+test('los complementos son dos tarjetas hermanas, opcionales y con sus precios independientes', () => {
+  const cards=[...html.matchAll(/<article class="addon-card ([^"]+)"[^>]*>([\s\S]*?)<\/article>/g)];
+  assert.equal(cards.length,2);
+  for(const [index,price,name] of [[0,'10','AI + VISION'],[1,'15','Forged']]){
+    const card=cards[index][2];assert.ok(card.includes(name));assert.ok(card.includes('Opcional'));assert.ok(card.includes('<strong>+$'+price+'</strong>'));
+    assert.ok(card.includes('/mes adicional'));assert.ok(card.includes('class="addon-footer"'));assert.ok(card.includes('class="addon-cta"'));
+  }
+  assert.ok(html.includes('estos servicios se contratan por separado'));
+  assert.doesNotMatch(html,/\.ai-addon-offer\s*\{|class="reveal forged-x/);
+});
+
+test('las portadas reservan dimensiones y se sirven como WebP ligero sin animacion', () => {
+  for(const name of ['ai-vision-cover-v1.webp','forged-x-cover-v1.webp']){
+    const bytes=fs.readFileSync(new URL('../images/'+name,import.meta.url));
+    assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP');assert.ok(bytes.length<100000);
+    assert.ok(html.includes('src="/images/'+name+'" width="960" height="640" loading="lazy" decoding="async"'));
+  }
+  assert.match(html,/\.addon-cover\s*\{[^}]*aspect-ratio: 2 \/ 1/);
+  assert.match(html,/\.addons-grid\s*\{[^}]*minmax\(0,1fr\)/);
+  assert.match(html,/@media \(max-width: 1023px\) \{ \.addon-footer \{ padding-right: 48px;/);
+});
+
+test('los CTAs llevan a la IA existente y al WhatsApp personal, sin contratar automaticamente', () => {
+  const cards=[...html.matchAll(/<article class="addon-card ([^"]+)"[^>]*>([\s\S]*?)<\/article>/g)];
+  assert.match(cards[0][2],/class="addon-cta" href="#ia-bot"/);
+  assert.match(cards[1][2],/class="addon-cta" href="https:\/\/wa.me\/593963252197\?/);
+  assert.ok(cards[1][2].includes('target="_blank" rel="noopener noreferrer"'));
+  assert.ok(cards[1][2].includes('No normaliza el uso ni sustituye la atención especializada'));
+});
