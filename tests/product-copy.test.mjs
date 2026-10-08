@@ -35,13 +35,13 @@ test('Daniel habla en primera persona sin sugerir un equipo de atencion', () => 
   const editorial=['autoridad','calculadora','consulta','planes','entrega','filosofia','metodologia','tecnologia','ia-bot','contacto'].map(section).join('\n');
   assert.doesNotMatch(editorial,/\b(?:Separamos|entendemos|Calculamos|Cuantificamos|Definimos|Integramos|preguntamos|nosotros|nuestro equipo)\b/i);
   assert.doesNotMatch(editorial,/Daniel (?:revisa|activa|habilita|coordina|confirma)|chat con Daniel|contacto con Daniel|sus respuestas|sus comentarios/);
-  for(const [id,text] of [['autoridad','Diseño y reviso tu protocolo'],['consulta','En consulta reviso tu caso'],['entrega','Calculo el plan completo'],['metodologia','Ajusto tu protocolo'],['tecnologia','Tus dudas y mis respuestas'],['ia-bot','Confirmo personalmente']]) assert.ok(section(id).includes(text),id);
+  for(const [id,text] of [['autoridad','Diseño y reviso tu protocolo'],['consulta','En consulta reviso tu caso'],['entrega','Calculo cada ingrediente'],['metodologia','Ajusto tu protocolo'],['tecnologia','Tus dudas y mis respuestas'],['ia-bot','Confirmo personalmente']]) assert.ok(section(id).includes(text),id);
   assert.ok(html.includes('primero reviso tu caso.'));
   assert.ok(html.includes('que adapto a tu salud y a tus objetivos.'));
 });
 
 test('las herramientas conservan su identidad y no se presentan como el medico', () => {
-  assert.ok(section('autoridad').includes('sin reemplazar mi atención'));
+  assert.ok(section('autoridad').includes('Diseño y reviso tu protocolo personalmente'));
   assert.ok(ai.includes('el contacto conmigo sigue aparte'));
   assert.ok(ai.includes('Soy <strong>IronQx AI</strong>'));
   assert.ok(ai.includes('no cambia tu prescripción ni sustituye una valoración médica'));
@@ -104,12 +104,42 @@ test('la portada conserva su foto original y los retratos nuevos viven en presen
 });
 
 test('el seguimiento no depende de la disponibilidad ni de un fallo de API', () => {
-  assert.ok(html.includes('Atención personalizada'));
-  assert.ok(html.includes('>Individual</div>'));
   assert.ok(html.includes('Seguimiento personalizado.<br>Disponibilidad según agenda.'));
   assert.ok(html.includes('Consulta disponibilidad'));
   assert.ok(html.includes("fetch('/api/capacity'"));
   assert.doesNotMatch(html,/\bcapacityStat\b|Limitada|Disponibilidad limitada|Capacidad de acompañamiento|Contigo|Seguimiento con Daniel/);
+});
+
+test('la franja muestra 100 transformaciones y modalidades sin cifras animadas ni atributos repetidos', () => {
+  const stats=html.split('id="statsBar"')[1].split('<!-- Autoridad compacta -->')[0];
+  assert.match(stats, /class="stat-number">100\+<\/strong>/);
+  for(const text of ['Transformaciones acompañadas','Cuenca','Consulta presencial','Online','Protocolos a distancia']) assert.ok(stats.includes(text),text);
+  assert.equal((stats.match(/class="stat-number"/g)||[]).length,3);
+  assert.doesNotMatch(stats,/Individual|A medida|App \+ IA|data-count|\b0\+/);
+  assert.doesNotMatch(html,/statsObserver|data-count="50"|authority-compact-card/);
+});
+
+test('la formacion y la trayectoria tienen contenidos distintos sin credenciales duplicadas', () => {
+  const authority=section('autoridad'), trajectory=section('filosofia');
+  for(const name of ['Universidad de Cuenca','Universidad Autónoma de Chile','Especialización por la IFBB']) {
+    assert.ok(authority.includes(name)); assert.ok(!trajectory.includes(name));
+  }
+  assert.equal((authority.match(/class="authority-proof"/g)||[]).length,3);
+  assert.doesNotMatch(authority,/App|IA|Mr\. Cuenca|authority-field-note/);
+  for(const text of ['más de 10 años','Campeón Mr. Cuenca / Top 2 Mr. Ecuador','Creador y desarrollador de IRONQx App']) assert.ok(trajectory.includes(text),text);
+});
+
+test('nutricion aporta detalles practicos y la metodologia es una secuencia no interactiva', () => {
+  const nutrition=section('entrega'), method=section('metodologia');
+  assert.equal((nutrition.match(/class="nutrition-detail"/g)||[]).length,4);
+  for(const text of ['Crudo o cocido, explícito','Productos que sí utilizas','Comidas alrededor de tu día','La ensalada también cuenta','estimaciones nutricionales']) assert.ok(nutrition.includes(text),text);
+  assert.doesNotMatch(nutrition,/method-grid|nutrition-outcome|card-hover|touch-scale/);
+  assert.match(method,/<ol class="method-grid reveal"/);
+  assert.equal((method.match(/class="method-step"/g)||[]).length,4);
+  assert.doesNotMatch(method,/card-hover|touch-scale|method-card-bar/);
+  assert.match(html,/\.nutrition-showcase \{[^}]*display: grid[^}]*letter-spacing: 0/);
+  const showcaseStyle=html.match(/\.nutrition-showcase \{([^}]+)\}/)[1];
+  assert.doesNotMatch(showcaseStyle,/background|border|padding/);
 });
 
 test('el carrusel conserva ambos servicios y controles separados de los planes', () => {

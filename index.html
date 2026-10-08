@@ -255,43 +255,46 @@
     @keyframes blink-cursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
     /* Stats Bar */
-    .stats-bar { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 40px 0; }
+    .stats-bar { background: #0c0d0e; border-block: 1px solid rgba(255,255,255,0.09); }
     .stats-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; text-align: center; }
-    @media (min-width: 640px) { .stats-grid { gap: 32px; } }
-    @media (min-width: 1024px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
-    .stat-number { font-size: 2rem; font-family: 'Cormorant Garamond', serif; color: var(--gold); margin-bottom: 6px; }
-    @media (min-width: 640px) { .stat-number { font-size: 2.5rem; } }
-    @media (min-width: 1024px) { .stat-number { font-size: 3rem; } }
-    .stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; }
-    @media (min-width: 640px) { .stat-label { font-size: 11px; letter-spacing: 0.18em; } }
+    .stats-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); font-family: 'Manrope', sans-serif; letter-spacing: 0; }
+    .stat-item { min-width: 0; padding: 22px 0; }
+    .stat-item:last-child { padding-left: 22px; border-left: 1px solid rgba(255,255,255,0.09); }
+    .stat-item--result { grid-column: 1 / -1; display: flex; align-items: center; gap: 20px; border-bottom: 1px solid rgba(255,255,255,0.09); }
+    .stat-number { display: block; color: #f1f2f3; font-size: 22px; font-weight: 600; line-height: 1.25; }
+    .stat-item--result .stat-number { color: var(--gold-lt); font-size: 48px; font-weight: 500; font-variant-numeric: tabular-nums; }
+    .stat-label { display: block; color: #b3b6bb; font-size: 12px; line-height: 1.5; margin-top: 6px; }
+    .stat-item--result .stat-label { max-width: 160px; margin: 0; color: #e1e2e5; font-size: 14px; }
+    @media (min-width: 768px) {
+      .stats-grid { grid-template-columns: 1.2fr 1fr 1fr; }
+      .stat-item { padding: 30px 0; }
+      .stat-item + .stat-item { padding-left: 32px; border-left: 1px solid rgba(255,255,255,0.09); }
+      .stat-item--result { grid-column: auto; border-bottom: 0; }
+    }
 
     /* Autoridad compacta */
-    .authority-compact { background: linear-gradient(180deg, var(--bg2), var(--bg)); padding: 44px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
-    @media (min-width: 768px) { .authority-compact { padding: 56px 0; } }
+    .authority-compact { background: var(--bg); padding: 48px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    @media (min-width: 768px) { .authority-compact { padding: 64px 0; } }
     .authority-compact-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     @media (min-width: 640px) { .authority-compact-inner { padding: 0 24px; } }
-    .authority-compact-card { display: grid; gap: 24px; padding: 22px; border: 1px solid rgba(212,175,55,0.20); border-radius: 16px; background: radial-gradient(circle at 0% 0%, rgba(212,175,55,0.09), transparent 34%), rgba(255,255,255,0.018); }
-    @media (min-width: 900px) { .authority-compact-card { grid-template-columns: 0.82fr 1.18fr; align-items: center; gap: 34px; padding: 28px; } }
-    .authority-identity { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 16px; align-items: center; }
-    @media (min-width: 640px) { .authority-identity { grid-template-columns: 92px minmax(0, 1fr); gap: 20px; } }
-    .authority-portrait { width: 76px; height: 92px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(212,175,55,0.28); background: #111; }
-    @media (min-width: 640px) { .authority-portrait { width: 92px; height: 112px; } }
+    .authority-layout { display: grid; gap: 30px; letter-spacing: 0; }
+    @media (min-width: 900px) { .authority-layout { grid-template-columns: 1fr 1fr; align-items: start; gap: 64px; } }
+    .authority-identity { display: grid; grid-template-columns: 88px minmax(0,1fr); gap: 18px; align-items: start; }
+    .authority-portrait { width: 88px; aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; border: 1px solid rgba(212,175,55,0.24); background: #111; }
+    @media (min-width: 640px) { .authority-identity { grid-template-columns: 116px minmax(0,1fr); gap: 24px; } .authority-portrait { width: 116px; } }
+    @media (max-width: 359px) { .authority-identity { grid-template-columns: 72px minmax(0,1fr); gap: 14px; } .authority-portrait { width: 72px; } }
     .authority-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
-    .authority-kicker { color: var(--gold); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 5px; }
-    .authority-name { color: var(--text); font-size: 1.55rem; line-height: 1.1; margin-bottom: 6px; }
-    @media (min-width: 640px) { .authority-name { font-size: 1.8rem; } }
-    .authority-role { color: var(--silver); font-size: 12px; line-height: 1.5; }
-    .authority-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; color: var(--gold-lt); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; }
+    .authority-kicker { color: var(--gold-lt); font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 600; margin-bottom: 8px; }
+    .authority-name { color: var(--text); font-size: 26px; line-height: 1.15; margin-bottom: 12px; }
+    @media (min-width: 640px) { .authority-name { font-size: 32px; } }
+    .authority-role { color: #bfc2c6; font-family: 'Manrope', sans-serif; font-size: 13px; line-height: 1.7; }
+    .authority-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 8px; color: var(--gold-lt); font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 600; }
     .authority-link:hover { color: var(--gold); }
-    .authority-proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
-    @media (min-width: 640px) { .authority-proof-grid { gap: 12px; } }
-    .authority-proof { min-width: 0; padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.065); background: rgba(0,0,0,0.22); }
-    .authority-proof strong { display: block; color: var(--gold-lt); font-family: 'Barlow Condensed', sans-serif; font-size: 0.98rem; line-height: 1.25; margin-bottom: 4px; }
-    .authority-proof span { display: block; color: var(--muted); font-size: 10px; line-height: 1.42; }
-    @media (min-width: 640px) { .authority-proof { padding: 16px; } .authority-proof strong { font-size: 1.08rem; } .authority-proof span { font-size: 11px; } }
-    .authority-field-note { grid-column: 1 / -1; display: flex; align-items: center; gap: 9px; padding: 12px 14px; border-radius: 9px; background: rgba(212,175,55,0.055); color: var(--silver); font-size: 11px; line-height: 1.5; }
-    .authority-field-note::before { content: ''; width: 7px; height: 7px; flex: 0 0 auto; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(212,175,55,0.10); }
+    .authority-proof-grid { display: grid; border-top: 1px solid rgba(255,255,255,0.12); }
+    .authority-proof { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: start; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.12); font-family: 'Manrope', sans-serif; }
+    .authority-proof strong { color: #e8e9eb; font-size: 13px; font-weight: 600; line-height: 1.5; }
+    .authority-proof span { color: #b3b6bb; font-size: 12px; line-height: 1.6; }
+    .authority-link:focus-visible { outline: 2px solid var(--gold-lt); outline-offset: 4px; border-radius: 4px; }
 
     /* Gallery */
     .gallery-strip { display: grid; grid-template-columns: 1fr; min-height: 250px; }
@@ -358,46 +361,36 @@
     .cred-list li { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--silver); margin-bottom: 10px; }
     @media (min-width: 640px) { .cred-list li { font-size: 14px; margin-bottom: 12px; gap: 12px; } }
     .cred-bullet { color: var(--gold); font-size: 11px; }
+    #filosofia .bio-text p { color: #b3b6bb; }
+    #entrega .section-desc, #metodologia .section-desc { color: #b3b6bb; font-family: 'Manrope', sans-serif; font-size: 14px; letter-spacing: 0; }
 
     /* Metodologia */
-    .method-grid { display: grid; gap: 16px; }
-    @media (min-width: 640px) { .method-grid { gap: 20px; } }
-    @media (min-width: 768px) { .method-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
-    .method-card { background: #0f0f0f; border: 1px solid var(--border); padding: 24px; position: relative; overflow: hidden; border-radius: 8px; }
-    @media (min-width: 640px) { .method-card { padding: 28px; } }
-    @media (min-width: 1024px) { .method-card { padding: 32px; } }
-    .method-card-bar { position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--gold); transition: height 0.5s ease; }
-    .method-card:hover .method-card-bar { height: 100%; }
-    .method-num { font-size: 3rem; font-family: 'Cormorant Garamond', serif; color: rgba(212,175,55,0.1); margin-bottom: 12px; line-height: 1; }
-    @media (min-width: 640px) { .method-num { font-size: 3.5rem; } }
-    @media (min-width: 1024px) { .method-num { font-size: 3.75rem; } }
-    .method-title { font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-lt); margin-bottom: 10px; font-family: 'Barlow', sans-serif; }
-    @media (min-width: 640px) { .method-title { font-size: 1.125rem; letter-spacing: 0.1em; } }
-    .method-desc { color: var(--muted); font-size: 13px; line-height: 1.7; }
-    @media (min-width: 640px) { .method-desc { font-size: 14px; } }
+    .method-grid { display: grid; list-style: none; border-top: 1px solid rgba(255,255,255,0.12); letter-spacing: 0; }
+    .method-step { display: grid; grid-template-columns: 36px minmax(0,1fr); gap: 16px; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .method-num { color: var(--gold-lt); font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; padding-top: 5px; }
+    .method-title { font-size: 24px; line-height: 1.2; color: #f0f1f3; margin-bottom: 10px; }
+    .method-desc { color: #b3b6bb; font-family: 'Manrope', sans-serif; font-size: 13px; line-height: 1.7; }
+    @media (min-width: 768px) { .method-grid { grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 32px; } }
+    @media (min-width: 1024px) { .method-grid { grid-template-columns: repeat(4,minmax(0,1fr)); column-gap: 0; } .method-step { display: block; padding: 28px 24px; border-left: 1px solid rgba(255,255,255,0.12); } .method-step:first-child { padding-left: 0; border-left: 0; } .method-num { display: block; margin-bottom: 24px; padding: 0; } }
 
     /* Nutrition precision showcase */
-    .nutrition-showcase { display: grid; gap: 24px; margin-bottom: 28px; padding: 24px; border: 1px solid rgba(212,175,55,0.24); border-radius: 16px; background: radial-gradient(circle at 8% 0%, rgba(212,175,55,0.10), transparent 34%), linear-gradient(145deg, #111, #090909); position: relative; overflow: hidden; }
-    .nutrition-showcase::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(to bottom, transparent, var(--gold), transparent); }
-    @media (min-width: 768px) { .nutrition-showcase { grid-template-columns: 0.92fr 1.08fr; gap: 32px; padding: 32px; margin-bottom: 32px; } }
-    .nutrition-eyebrow { color: var(--gold); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.22em; margin-bottom: 12px; }
-    .nutrition-copy h3 { color: var(--text); font-size: 1.65rem; line-height: 1.18; margin-bottom: 14px; }
-    @media (min-width: 640px) { .nutrition-copy h3 { font-size: 2rem; } }
-    .nutrition-copy > p { color: var(--silver); font-size: 14px; line-height: 1.72; }
+    .nutrition-showcase { display: grid; gap: 32px; letter-spacing: 0; }
+    @media (min-width: 900px) { .nutrition-showcase { grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: start; } }
+    .nutrition-eyebrow { color: var(--gold-lt); font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 600; margin-bottom: 14px; }
+    .nutrition-copy h3 { color: var(--text); font-size: 28px; line-height: 1.2; margin-bottom: 18px; }
+    .nutrition-copy > p { color: #bfc2c6; font-family: 'Manrope', sans-serif; font-size: 14px; line-height: 1.75; }
     .nutrition-copy > p strong { color: var(--gold-lt); }
-    .nutrition-macro-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 20px 0 12px; }
-    @media (min-width: 480px) { .nutrition-macro-strip { grid-template-columns: repeat(4, 1fr); } }
-    .nutrition-macro-chip { min-width: 0; padding: 10px 8px; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; background: rgba(255,255,255,0.035); text-align: center; }
-    .nutrition-macro-chip span { display: block; color: #777; font-size: 8px; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 3px; }
-    .nutrition-macro-chip strong { display: block; color: var(--gold-lt); font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; letter-spacing: 0.04em; }
-    .nutrition-reconcile { color: #777 !important; font-size: 11px !important; line-height: 1.55 !important; }
-    .nutrition-detail-grid { display: grid; gap: 10px; }
-    @media (min-width: 520px) { .nutrition-detail-grid { grid-template-columns: 1fr 1fr; } }
-    .nutrition-detail { min-width: 0; padding: 16px; border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; background: rgba(0,0,0,0.20); }
-    .nutrition-detail-num { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; margin-bottom: 10px; border-radius: 50%; background: rgba(212,175,55,0.12); color: var(--gold); font-size: 10px; font-weight: 700; }
-    .nutrition-detail h4 { color: var(--silver); font-family: 'Barlow', sans-serif; font-size: 13px; margin-bottom: 6px; }
-    .nutrition-detail p { color: var(--muted); font-size: 12px; line-height: 1.58; }
-    .nutrition-outcome { grid-column: 1 / -1; padding: 13px 16px; border-radius: 9px; border: 1px solid rgba(212,175,55,0.22); color: var(--gold-lt); background: rgba(212,175,55,0.055); font-size: 12px; line-height: 1.55; text-align: center; }
+    .nutrition-macro-strip { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8px; margin: 24px 0; padding-block: 16px; border-block: 1px solid rgba(255,255,255,0.12); }
+    .nutrition-macro-chip { min-width: 0; font-family: 'Manrope', sans-serif; }
+    .nutrition-macro-chip span { display: block; color: #b3b6bb; font-size: 10px; margin-bottom: 6px; }
+    .nutrition-macro-chip strong { display: block; color: var(--gold-lt); font-size: 13px; font-weight: 600; }
+    .nutrition-copy > .nutrition-reconcile { color: #b3b6bb; font-size: 12px; line-height: 1.65; }
+    .nutrition-detail-grid { display: grid; gap: 14px; }
+    @media (min-width: 520px) { .nutrition-detail-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+    .nutrition-detail { min-width: 0; padding: 22px; border: 1px solid rgba(255,255,255,0.10); border-radius: 8px; background: #111315; }
+    .nutrition-detail-num { display: block; margin-bottom: 18px; color: var(--gold-lt); font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 600; }
+    .nutrition-detail h4 { color: #f0f1f3; font-family: 'Manrope', sans-serif; font-size: 14px; line-height: 1.45; margin-bottom: 10px; }
+    .nutrition-detail p { color: #b3b6bb; font-family: 'Manrope', sans-serif; font-size: 12px; line-height: 1.7; }
 
     /* Calculadora */
     .calculadora { background: var(--bg2); position: relative; }
@@ -720,10 +713,6 @@
     .tech-desc { color: var(--silver); line-height: 1.75; margin-bottom: 24px; font-size: 0.95rem; }
     @media (min-width: 640px) { .tech-desc { font-size: 1rem; margin-bottom: 28px; } }
     .tech-desc strong { color: white; }
-    .tech-quote { background: rgba(212,175,55,0.05); border-left: 3px solid var(--gold); padding: 20px; margin-bottom: 28px; border-radius: 0 8px 8px 0; }
-    @media (min-width: 640px) { .tech-quote { padding: 24px; margin-bottom: 32px; } }
-    .tech-quote p { font-size: 1rem; font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--silver); line-height: 1.6; }
-    @media (min-width: 640px) { .tech-quote p { font-size: 1.125rem; } }
     .tech-feat { display: flex; align-items: flex-start; gap: 12px; padding: 10px; margin: 0 -10px; border-radius: 8px; margin-bottom: 14px; transition: all 0.3s ease; }
     @media (min-width: 640px) { .tech-feat { padding: 12px; margin: 0 -12px; margin-bottom: 16px; } }
     .tech-feat:hover { background: rgba(212,175,55,0.03); }
@@ -1226,24 +1215,20 @@
   </section>
 
   <!-- Stats Bar -->
-  <div class="stats-bar" id="statsBar">
+  <div class="stats-bar" id="statsBar" role="region" aria-label="Experiencia y modalidades de atención">
     <div class="stats-inner">
       <div class="stats-grid">
-        <div class="reveal">
-          <div class="stat-number" data-count="50" data-suffix="+">0+</div>
-          <div class="stat-label">Transformaciones</div>
+        <div class="stat-item stat-item--result">
+          <strong class="stat-number">100+</strong>
+          <span class="stat-label">Transformaciones acompañadas</span>
         </div>
-        <div class="reveal stagger-1">
-          <div class="stat-number" data-no-count="true">Individual</div>
-          <div class="stat-label">Atención personalizada</div>
+        <div class="stat-item">
+          <strong class="stat-number">Cuenca</strong>
+          <span class="stat-label">Consulta presencial</span>
         </div>
-        <div class="reveal stagger-2">
-          <div class="stat-number" data-no-count="true">A medida</div>
-          <div class="stat-label">Protocolo individual</div>
-        </div>
-        <div class="reveal stagger-3">
-          <div class="stat-number" data-no-count="true">App + IA</div>
-          <div class="stat-label">Seguimiento conectado</div>
+        <div class="stat-item">
+          <strong class="stat-number">Online</strong>
+          <span class="stat-label">Protocolos a distancia</span>
         </div>
       </div>
     </div>
@@ -1252,7 +1237,7 @@
   <!-- Autoridad compacta -->
   <section id="autoridad" class="authority-compact">
     <div class="authority-compact-inner">
-      <div class="authority-compact-card reveal">
+      <div class="authority-layout reveal">
         <div class="authority-identity">
           <div class="authority-portrait">
             <img src="images/daniel-clinical-standing-v1.webp" alt="Retrato del Dr. Daniel Arévalo" loading="lazy" decoding="async" width="1024" height="1280" />
@@ -1260,7 +1245,7 @@
           <div>
             <div class="authority-kicker">Quién soy</div>
             <h2 class="authority-name">Dr. Daniel Arévalo</h2>
-            <p class="authority-role">Soy médico, atleta y creador de IRONQx. Diseño y reviso tu protocolo; la app y la IA te ayudan a seguirlo, sin reemplazar mi atención.</p>
+            <p class="authority-role">Soy médico y atleta. Diseño y reviso tu protocolo personalmente.</p>
             <a class="authority-link" href="#filosofia">Conoce mi trayectoria <span aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -1271,18 +1256,13 @@
             <span>Universidad de Cuenca</span>
           </div>
           <div class="authority-proof">
-            <strong>Máster</strong>
-            <span>Nutrición Clínica y Deportiva</span>
+            <strong>Máster en Nutrición Clínica y Deportiva</strong>
+            <span>Universidad Autónoma de Chile</span>
           </div>
           <div class="authority-proof">
-            <strong>Biomecánica</strong>
+            <strong>Biomecánica del Ejercicio</strong>
             <span>Especialización por la IFBB</span>
           </div>
-          <div class="authority-proof">
-            <strong>Mr. Cuenca</strong>
-            <span>Campeón · Top 2 Mr. Ecuador</span>
-          </div>
-          <div class="authority-field-note">Más de 10 años entre fitness competitivo, consulta y aplicación práctica en composición corporal y rendimiento.</div>
         </div>
       </div>
     </div>
@@ -1809,77 +1789,48 @@
           <span class="section-label-text">Precisión que se puede vivir</span>
           <div class="section-label-line"></div>
         </div>
-        <h2>Tu alimentación no sale <em>de tres preguntas.</em></h2>
-        <p class="section-desc">Antes de prescribir, reviso tus preferencias, horarios, entrenamiento, digestión, productos disponibles y la forma en que realmente comes.</p>
+        <h2>Un menú para tu vida real.<br><em>No una lista por descifrar.</em></h2>
+        <p class="section-desc">Tu evaluación inicial recoge hábitos, alergias, preferencias y entrenamiento. Con esa información construyo tu alimentación.</p>
       </div>
 
       <div class="nutrition-showcase reveal">
         <div class="nutrition-copy">
           <div class="nutrition-eyebrow">Nutrición IRONQx</div>
-          <h3>Calculo el plan completo, no solo los alimentos obvios.</h3>
+          <h3>Calculo cada ingrediente.</h3>
           <p>
-            Cuantifico cada componente que puede mover el resultado: aceites, aderezos, frutas,
-            bebidas, snacks y <strong>hasta la ensalada</strong> mediante porciones o presupuesto vegetal.
-            Así las calorías y los macros del menú cierran de verdad.
+            Cuantifico alimentos, aceites, aderezos, bebidas y snacks.
+            Cada comida tiene porciones definidas y un aporte nutricional que concilio con el total diario.
           </p>
           <div class="nutrition-macro-strip" aria-label="Detalle nutricional por alimento">
-            <div class="nutrition-macro-chip"><span>Alimento</span><strong>Real</strong></div>
-            <div class="nutrition-macro-chip"><span>Cantidad</span><strong>Exacta</strong></div>
+            <div class="nutrition-macro-chip"><span>Alimento</span><strong>Producto</strong></div>
+            <div class="nutrition-macro-chip"><span>Porción</span><strong>g / unidad</strong></div>
             <div class="nutrition-macro-chip"><span>Energía</span><strong>kcal</strong></div>
             <div class="nutrition-macro-chip"><span>Macros</span><strong>P · C · G</strong></div>
           </div>
-          <p class="nutrition-reconcile">Sumo cada comida y compruebo el total diario. La precisión está en el diseño para que tú no tengas que improvisar.</p>
+          <p class="nutrition-reconcile">Las cifras son estimaciones nutricionales, no mediciones exactas de lo que absorbe tu cuerpo.</p>
         </div>
 
         <div class="nutrition-detail-grid">
           <article class="nutrition-detail">
-            <span class="nutrition-detail-num">01</span>
+            <span class="nutrition-detail-num" aria-hidden="true">01 / PESADO</span>
+            <h4>Crudo o cocido, explícito</h4>
+            <p>Indico en qué estado pesar cada alimento y cuándo usar unidades. No tienes que adivinar qué significa la cantidad del menú.</p>
+          </article>
+          <article class="nutrition-detail">
+            <span class="nutrition-detail-num" aria-hidden="true">02 / COMPRA</span>
+            <h4>Productos que sí utilizas</h4>
+            <p>Integro tus alimentos y marcas habituales. Las etiquetas disponibles ayudan a calcular porciones sin depender solo de referencias genéricas.</p>
+          </article>
+          <article class="nutrition-detail">
+            <span class="nutrition-detail-num" aria-hidden="true">03 / HORARIOS</span>
+            <h4>Comidas alrededor de tu día</h4>
+            <p>Ordeno las comidas según trabajo, gimnasio y tiempo para cocinar, teniendo en cuenta apetito y tolerancia digestiva.</p>
+          </article>
+          <article class="nutrition-detail">
+            <span class="nutrition-detail-num" aria-hidden="true">04 / VEGETALES</span>
             <h4>La ensalada también cuenta</h4>
-            <p>No desaparece del cálculo. Defino una porción visual o presupuesto según sus vegetales y densidad calórica, sin obligarte a pesar cada hoja.</p>
+            <p>Defino una porción visual o un presupuesto vegetal según sus ingredientes. El aderezo se contempla aparte, sin obligarte a pesar cada hoja.</p>
           </article>
-          <article class="nutrition-detail">
-            <span class="nutrition-detail-num">02</span>
-            <h4>Tus alimentos tienen espacio</h4>
-            <p>Integro lo que te gusta, marcas y etiquetas reales. Comer algo que disfrutas deja de sentirse como “salirse” o tener que compensar por culpa.</p>
-          </article>
-          <article class="nutrition-detail">
-            <span class="nutrition-detail-num">03</span>
-            <h4>Tu horario manda</h4>
-            <p>Ordeno tus comidas alrededor de trabajo, entrenamiento, apetito, tolerancia digestiva y tiempo disponible; no alrededor de un horario genérico.</p>
-          </article>
-          <article class="nutrition-detail">
-            <span class="nutrition-detail-num">04</span>
-            <h4>Primero conozco tu contexto</h4>
-            <p>El formulario recoge decenas de variables: preferencias, rechazos, alergias, hábitos, suplementos, productos, horarios y contexto clínico.</p>
-          </article>
-          <div class="nutrition-outcome">El resultado: sabes qué comer, cuánto, cuándo y qué alternativa elegir sin perder el objetivo del día.</div>
-        </div>
-      </div>
-
-      <div class="method-grid">
-        <div class="reveal method-card card-hover touch-scale">
-          <div class="method-card-bar"></div>
-          <div class="method-num">N</div>
-          <div class="method-title">Nutrición con criterio y trazabilidad</div>
-          <p class="method-desc">Opciones coherentes entre sí, con preparaciones, equivalencias y productos que realmente utilizas. Refeed o ciclado solo cuando está indicado.</p>
-        </div>
-        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.1s">
-          <div class="method-card-bar"></div>
-          <div class="method-num">E</div>
-          <div class="method-title">Entrenamiento interactivo</div>
-          <p class="method-desc">Orden biomecánico, series útiles, progresión y técnica. Registra carga, repeticiones, RIR y descanso para que la siguiente decisión parta de evidencia.</p>
-        </div>
-        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.2s">
-          <div class="method-card-bar"></div>
-          <div class="method-num">S</div>
-          <div class="method-title">Seguimiento real</div>
-          <p class="method-desc">Peso, composición, fotos, adherencia, hambre, energía, sueño, digestión y rendimiento se leen juntos. Una cifra aislada no dirige el proceso.</p>
-        </div>
-        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.3s">
-          <div class="method-card-bar"></div>
-          <div class="method-num">+</div>
-          <div class="method-title">Cardio y suplementación</div>
-          <p class="method-desc">Dosis, intensidad y timing se prescriben cuando aportan al objetivo. Se prioriza tolerancia, seguridad, recuperación y adherencia.</p>
         </div>
       </div>
     </div>
@@ -1910,32 +1861,21 @@
             <span class="section-label-text">Trayectoria y criterio</span>
           </div>
 
-          <h2>Mi enfoque integra <em>medicina, nutrición y rendimiento.</em></h2>
+          <h2>De la competición <em>a la consulta.</em></h2>
 
           <div class="bio-text">
             <p>
-              Soy el Dr. Daniel Arévalo. Médico graduado de la Universidad de Cuenca,
-              máster en Nutrición Clínica y Deportiva, especialista en Biomecánica del Ejercicio.
-              Campeón Mr. Cuenca y Top 2 Mr. Ecuador.
+              Llevo más de 10 años en fitness competitivo. Entrenar y competir me ha enseñado
+              lo que implica sostener un proceso: preparar comidas, gestionar la fatiga y ser constante.
             </p>
             <p>
-              Mi trabajo nace de la medicina y evoluciona hacia la nutrición, el entrenamiento y el rendimiento.
-              IRONQx reúne esa formación con mi experiencia de campo como atleta y entrenador. Leo el cuerpo desde
-              su fisiología, sus exámenes, sus síntomas, sus antecedentes y su contexto real.
-            </p>
-            <p>
-              Cuando diseño un protocolo o atiendo una consulta, no vendo motivación. Aplico criterio médico
-              para tomar mejores decisiones sobre salud, composición corporal y rendimiento.
+              En consulta combino esa experiencia con mi formación médica. Reviso antecedentes,
+              síntomas y exámenes cuando corresponde; el objetivo deportivo nunca desplaza tu salud.
             </p>
           </div>
 
           <ul class="cred-list">
-            <li><span class="cred-bullet">&#10022;</span> Médico - Universidad de Cuenca</li>
-            <li><span class="cred-bullet">&#10022;</span> Máster en Nutrición Clínica y Deportiva por la Universidad Autónoma de Chile</li>
-            <li><span class="cred-bullet">&#10022;</span> Fisiología, enfermedades metabólicas, farmacología e imagenología aplicada</li>
-            <li><span class="cred-bullet">&#10022;</span> Especialista en Biomecánica del Ejercicio por la IFBB</li>
             <li><span class="cred-bullet">&#10022;</span> Campeón Mr. Cuenca / Top 2 Mr. Ecuador</li>
-            <li><span class="cred-bullet">&#10022;</span> 10+ años experiencia en fitness competitivo</li>
             <li><span class="cred-bullet">&#10022;</span> Creador y desarrollador de IRONQx App</li>
           </ul>
         </div>
@@ -1952,39 +1892,32 @@
           <span class="section-label-text">Metodología</span>
           <div class="section-label-line"></div>
         </div>
-        <h2>Un método de cuatro pasos. <em>Medir, decidir, ajustar.</em></h2>
-        <p class="section-desc">
-          El protocolo no empieza con una dieta. Empieza con evaluación, estructura,
-          seguimiento y ajustes según respuesta real.
-        </p>
+        <h2>Así empieza tu proceso.<br><em>Así continúa.</em></h2>
+        <p class="section-desc">Qué reviso, qué recibes y cómo decido el siguiente ajuste.</p>
       </div>
 
-      <div class="method-grid">
-        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0s">
-          <div class="method-card-bar"></div>
-          <div class="method-num">01</div>
-          <div class="method-title">Evaluación</div>
-          <p class="method-desc">Reviso tu composición, historial, objetivo, riesgo metabólico y experiencia. Antes de intervenir, necesito entender tu punto de partida.</p>
-        </div>
-        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.1s">
-          <div class="method-card-bar"></div>
-          <div class="method-num">02</div>
-          <div class="method-title">Protocolo</div>
-          <p class="method-desc">Integro nutrición, entrenamiento y suplementación en una estructura medible, con macros, cargas y objetivos definidos por fase.</p>
-        </div>
-        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.2s">
-          <div class="method-card-bar"></div>
-          <div class="method-num">03</div>
-          <div class="method-title">Seguimiento</div>
-          <p class="method-desc">Uso tus métricas y reportes de la app para revisar tu evolución junto con hambre, energía, sueño, digestión, adherencia y rendimiento.</p>
-        </div>
-        <div class="reveal method-card card-hover touch-scale" style="transition-delay:0.3s">
-          <div class="method-card-bar"></div>
-          <div class="method-num">04</div>
-          <div class="method-title">Ajuste Clínico</div>
-          <p class="method-desc">Ajusto tu protocolo según adherencia, síntomas, composición corporal y seguridad clínica, no por una cifra aislada.</p>
-        </div>
-      </div>
+      <ol class="method-grid reveal" aria-label="Proceso de acompañamiento">
+        <li class="method-step">
+          <span class="method-num" aria-hidden="true">01</span>
+          <div><h3 class="method-title">Evaluación</h3>
+          <p class="method-desc">Reviso tu historial, mediciones y objetivo para establecer un punto de partida y prioridades.</p></div>
+        </li>
+        <li class="method-step">
+          <span class="method-num" aria-hidden="true">02</span>
+          <div><h3 class="method-title">Tu protocolo</h3>
+          <p class="method-desc">Recibes alimentación y entrenamiento por fase, con cardio y suplementación cuando corresponden.</p></div>
+        </li>
+        <li class="method-step">
+          <span class="method-num" aria-hidden="true">03</span>
+          <div><h3 class="method-title">Revisión</h3>
+          <p class="method-desc">Tus reportes y registros me permiten detectar dificultades y valorar si el plan se sostiene en tu día a día.</p></div>
+        </li>
+        <li class="method-step">
+          <span class="method-num" aria-hidden="true">04</span>
+          <div><h3 class="method-title">Ajuste</h3>
+          <p class="method-desc">Ajusto tu protocolo según la respuesta y te explico qué cambia. Una cifra aislada no dirige el proceso.</p></div>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -2004,10 +1937,6 @@
             <strong>IRONQx App</strong> reúne tu alimentación, entrenamiento, progreso y chat conmigo.
             Consulta lo que te toca, registra cómo vas y recibe los ajustes de tu protocolo. Incluida en tu plan mensual.
           </p>
-
-          <div class="tech-quote">
-            <p>"La construí para que cada decisión del protocolo tenga trazabilidad, contexto y seguimiento real."</p>
-          </div>
 
           <div>
             <div class="tech-feat touch-scale">
@@ -2480,41 +2409,6 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
     revealElements.forEach(el => revealObserver.observe(el));
-
-    // ==================== STATS COUNTER ====================
-    const statNumbers = document.querySelectorAll('.stat-number');
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          if (el.dataset.noCount === 'true') return;
-
-          const count = parseInt(el.dataset.count);
-          const suffix = el.dataset.suffix || '';
-          const duration = 1500;
-          const start = performance.now();
-
-          function update(currentTime) {
-            const elapsed = currentTime - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const easeOut = 1 - Math.pow(1 - progress, 3);
-            const current = Math.floor(easeOut * count);
-            el.textContent = current + suffix;
-
-            if (progress < 1) {
-              requestAnimationFrame(update);
-            } else {
-              el.textContent = count + suffix;
-            }
-          }
-
-          requestAnimationFrame(update);
-          statsObserver.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    statNumbers.forEach(stat => statsObserver.observe(stat));
 
     // ==================== CALCULATOR ====================
     const calcBtn = document.getElementById('calcBtn');
