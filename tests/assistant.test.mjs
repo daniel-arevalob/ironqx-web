@@ -12,6 +12,41 @@ test('el fallback conserva precios y periodos oficiales',()=>{
   const catalog=vm.runInNewContext('('+js.match(/const FALLBACK=(\[.*?\]);/s)[1]+')');
   assert.equal(JSON.stringify(catalog.map(s=>[s.id,s.price,s.period])),JSON.stringify([['balance',60,'mes'],['forged',75,'mes'],['restore',100,'mes'],['consulta',30,'consulta']]));
 });
+
+test('el complemento opcional suma 10 solo a protocolos mensuales',()=>{
+  const services=vm.runInNewContext('('+js.match(/const FALLBACK=(\[.*?\]);/s)[1]+')');
+  const addon=vm.runInNewContext('('+js.match(/const AI_ADDON=(\{.*?\});/s)[1]+')');
+  const quote=vm.runInNewContext('('+js.match(/function quote\(profile\)\{[^\n]+/)[0]+')',{config:{services,aiAddon:addon},AI_ADDON:addon});
+  assert.equal(addon.price,10);
+  for(const [service,total] of [['balance',70],['forged',85],['restore',110],['consulta',30]])assert.equal(quote({service,ai:true}).total,total);
+  assert.equal(quote({service:'balance',ai:false}).total,60);
+  assert.equal(quote({service:'balance',ai:'true'}).total,60);
+  assert.equal(quote({service:'inventado',ai:true}),null);
+  assert.match(js,/ai\.checked=p\.ai===true/);
+  assert.match(js,/ai\.onchange=\(\)=>\{price\.checked=false;updateQuote\(\);\}/);
+  assert.match(js,/if\(!monthly\)ai\.checked=false/);
+  assert.match(js,/Complemento solicitado: IronQx AI \+ VISION/);
+});
+test('cambiar a consulta quita el complemento, y el envio previo no pierde la seleccion de WhatsApp',()=>{
+  const services=vm.runInNewContext('('+js.match(/const FALLBACK=(\[.*?\]);/s)[1]+')');
+  const addon={price:10},ai={checked:true,disabled:false},controls={service:{value:'balance'},ai},addonLabel={},total={};
+  const context={config:{services,aiAddon:addon},AI_ADDON:addon,controls,ai,addonLabel,total};
+  const quote=js.match(/function quote\(profile\)\{[^\n]+/)[0];
+  const update=vm.runInNewContext(quote+';('+js.match(/function updateQuote\(\)\{[^\n]+/)[0]+')',context);
+  const values=vm.runInNewContext('('+js.match(/function values\(\)\{[^\n]+/)[0]+')',context);
+  update();assert.match(total.textContent,/Total: \$70\/mes/);assert.equal(addonLabel.hidden,false);
+  ai.disabled=true;assert.equal(values().ai,true);
+  controls.service.value='consulta';update();assert.equal(ai.checked,false);assert.equal(addonLabel.hidden,true);assert.equal(values().ai,false);assert.match(total.textContent,/Total: \$30\/consulta/);
+  controls.service.value='forged';update();assert.equal(ai.checked,false);assert.match(total.textContent,/Total: \$75\/mes/);
+});
+
+test('las correcciones del formulario mantienen los antecedentes de la entrevista al volver al chat',()=>{
+  const handler=js.match(/back\.onclick=\(\)=>\{[^\n]*?returnToChat\(\);\}/)[0];
+  const context={back:{},p:{name:'Ana',conditions:'Dato de prueba',allergies:'Dato de prueba'},values:()=>({name:'Ana Maria',service:'balance',ai:true}),returnToChat(){}};
+  vm.runInNewContext(handler+';',context);context.back.onclick();
+  assert.equal(context.p.conditions,'Dato de prueba');assert.equal(context.p.allergies,'Dato de prueba');assert.equal(context.p.name,'Ana Maria');assert.equal(context.p.ai,true);
+});
+
 test('los mensajes son texto, sin renderizar HTML o Markdown del proveedor',()=>{
   assert.doesNotMatch(js,/innerHTML|insertAdjacentHTML|eval\(/);assert.match(js,/n\.textContent=text/);assert.match(js,/attachShadow/);
 });
@@ -61,7 +96,7 @@ test('Turnstile vive en el documento, ocupa espacio y se limpia una sola vez',()
 test('solicitud y conversacion tienen vistas distintas, con una salida que conserva datos',()=>{
   assert.match(js,/timeline\.hidden=true;composer\.hidden=true;requestView\.hidden=false/);
   assert.match(js,/requestView\.replaceChildren\(form\);requestView\.scrollTop=0/);
-  assert.match(js,/p=values\(\);returnToChat\(\)/);
+  assert.match(js,/p=\{\.\.\.p,\.\.\.values\(\)\};returnToChat\(\)/);
   assert.match(js,/requestView\.hidden=true;timeline\.hidden=false;composer\.hidden=false/);
   assert.match(js,/const activeSurface=\(\)=>form\|\|timeline/);
   assert.match(js,/activeSurface\(\)\.append\(shell\)/);

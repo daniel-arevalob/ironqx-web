@@ -630,6 +630,15 @@
     .ia-admission .btn-green:hover { box-shadow: 0 8px 24px rgba(212,175,55,0.18); }
     .ia-admission-note { margin-top: 8px; }
     .ia-admission-note strong { color: white; }
+    .ai-addon-offer { display: grid; gap: 16px; padding: 24px 0; margin-top: 24px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .ai-addon-offer h3 { font-size: 1.5rem; margin-bottom: 6px; }
+    .ai-addon-offer p { color: var(--silver); font-size: 14px; line-height: 1.7; max-width: 720px; }
+    .ai-addon-offer a { color: var(--gold-lt); text-decoration: underline; text-underline-offset: 4px; }
+    .ai-addon-price { color: var(--gold-lt); font-size: 1.75rem; font-weight: 600; white-space: nowrap; }
+    .ai-addon-price small { font-size: 14px; color: var(--silver); font-weight: 400; }
+    .ai-price-line { color: var(--gold-lt); font-size: 15px; margin: -12px 0 20px; }
+    #ia-bot .ai-trial { color: var(--gold-lt); text-decoration: underline; text-underline-offset: 4px; }
+    @media (min-width: 768px) { .ai-addon-offer { grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 28px; } }
     .chat-example-note { padding: 12px 16px; border-top: 1px solid var(--border); color: var(--silver); font-size: 12px; line-height: 1.6; }
     #tecnologia .tech-grid > *, #ia-bot .ia-bot-grid > * { min-width: 0; }
     #tecnologia .tech-feat-desc, #tecnologia .app-access-note,
@@ -1620,6 +1629,7 @@
         <p class="section-desc">
           Los tres protocolos integran nutrición, entrenamiento interactivo, seguimiento y acceso a la app.
           Lo que cambia es la frecuencia de atención 1 a 1 y el nivel de complejidad clínica o deportiva.
+          IronQx AI + VISION es opcional: +$10 al mes.
         </p>
       </div>
 
@@ -1645,7 +1655,7 @@
               <li><span>&mdash;</span> Sin sesiones presenciales 1 a 1</li>
               <li><span>&mdash;</span> Controles quincenales de progreso</li>
               <li><span>&mdash;</span> App IRONQx: progreso, adherencia y plan centralizado</li>
-              <li><span>&mdash;</span> IronQx AI como apoyo, cuando Daniel lo habilita</li>
+              <li><span>&mdash;</span> Opcional: IronQx AI + VISION por +$10/mes</li>
             </ul>
             <a href="https://wa.me/593963252197?text=Hola,%20quiero%20aplicar%20al%20plan%20BALANCE%20de%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-outline touch-scale">Aplicar a Balance</a>
           </div>
@@ -1670,7 +1680,7 @@
               <li><span>&mdash;</span> Nutrición por fases, ciclado o refeed cuando está indicado</li>
               <li><span>&mdash;</span> 1 sesión presencial 1 a 1 por semana</li>
               <li><span>&mdash;</span> Controles semanales de progreso</li>
-              <li><span>&mdash;</span> App y apoyo de IronQx AI, habilitado por Daniel</li>
+              <li><span>&mdash;</span> App incluida; AI + VISION opcional por +$10/mes</li>
               <li><span>&mdash;</span> Ajustes según seguimiento y respuesta</li>
               <li><span>&mdash;</span> Preparación para competición</li>
             </ul>
@@ -1698,6 +1708,7 @@
               <li><span>&mdash;</span> Evaluación de riesgos metabólicos</li>
               <li><span>&mdash;</span> Coordinación con especialistas</li>
               <li><span>&mdash;</span> App, entrenamiento y seguimiento integral</li>
+              <li><span>&mdash;</span> Opcional: IronQx AI + VISION por +$10/mes</li>
             </ul>
             <a href="https://wa.me/593963252197?text=Hola,%20quiero%20aplicar%20al%20plan%20RESTORE%20de%20Iron%20QX" target="_blank" rel="noopener noreferrer" class="plan-cta plan-cta-outline touch-scale">Aplicar a Restore</a>
           </div>
@@ -1708,6 +1719,17 @@
           <div class="scroll-dot" data-index="1" style="background:rgba(212,175,55,0.3)"></div>
           <div class="scroll-dot" data-index="2" style="background:rgba(212,175,55,0.3)"></div>
         </div>
+      </div>
+
+      <div class="ai-addon-offer">
+        <div>
+          <h3>IronQx AI + VISION</h3>
+          <p>Entiende tu plan, calcula alternativas y estima tus comidas por foto.
+          La app, los reportes y el chat con Daniel siguen incluidos sin este complemento.</p>
+          <p>Con IA: Balance $70 · Forged $85 · Restore $110 al mes.
+          <a href="#ia-bot">Ver qué incluye</a></p>
+        </div>
+        <div class="ai-addon-price">+$10 <small>/mes · opcional</small></div>
       </div>
 
       <div class="reveal forged-x touch-scale">
@@ -1930,9 +1952,8 @@
           <h2>Tu protocolo y tu progreso.<br><em>En el mismo lugar.</em></h2>
 
           <p class="tech-desc">
-            <strong>IRONQx App</strong> reúne tu alimentación, entrenamiento, registros y conversación
-            con Daniel. Consulta lo que te toca, registra cómo vas y recibe los ajustes de tu protocolo
-            sin buscar archivos o mensajes dispersos.
+            <strong>IRONQx App</strong> reúne tu alimentación, entrenamiento, progreso y chat con Daniel.
+            Consulta lo que te toca, registra cómo vas y recibe los ajustes de tu protocolo. Incluida en tu plan mensual.
           </p>
 
           <div class="tech-quote">
@@ -1944,21 +1965,21 @@
               <div class="tech-feat-dot"></div>
               <div>
                 <div class="tech-feat-title">Alimentación y entrenamiento a mano</div>
-                <p class="tech-feat-desc">Consulta tus menús, porciones y horarios. En rutinas compatibles, registra cargas, repeticiones, RIR y descansos mientras entrenas.</p>
+                <p class="tech-feat-desc">Menús, porciones y horarios a mano. En rutinas compatibles, registra cargas, repeticiones y RIR (las repeticiones que te quedan) y consulta tus descansos.</p>
               </div>
             </div>
             <div class="tech-feat touch-scale">
               <div class="tech-feat-dot"></div>
               <div>
                 <div class="tech-feat-title">Progreso más allá de la báscula</div>
-                <p class="tech-feat-desc">Peso, medidas, fotos y composición corporal cuando hay mediciones disponibles. Daniel revisa el conjunto: un cambio de peso aislado no cuenta toda la historia.</p>
+                <p class="tech-feat-desc">Peso, medidas, fotos y composición corporal cuando hay mediciones disponibles. Daniel revisa el conjunto, no solo lo que marca la báscula.</p>
               </div>
             </div>
             <div class="tech-feat touch-scale">
               <div class="tech-feat-dot"></div>
               <div>
                 <div class="tech-feat-title">Reportes que dan contexto</div>
-                <p class="tech-feat-desc">Comparte adherencia, hambre, energía, descanso y cómo te sientes. Si Daniel activa las fotos de comidas, también puedes mostrarlas y recibir sus comentarios.</p>
+                <p class="tech-feat-desc">Reporta cómo sigues el plan, tu hambre, energía y descanso. Si Daniel activa las fotos de comidas, puedes compartirlas y recibir sus comentarios.</p>
               </div>
             </div>
             <div class="tech-feat touch-scale">
@@ -2020,11 +2041,12 @@
           </div>
 
           <h2>Entiende tu plan.<br><em>Resuelve lo cotidiano.</em></h2>
+          <p class="ai-price-line">IronQx AI + VISION · +$10/mes · opcional</p>
 
           <p class="ia-bot-desc">
-            <strong>IronQx AI</strong> es el asistente dentro de tu app. Consulta el plan asignado y el contexto
-            disponible para ayudarte con comidas, horarios y ejercicios. Su conversación está separada
-            del chat con Daniel: la IA orienta; las decisiones clínicas y los cambios de prescripción siguen con él.
+            <strong>IronQx AI</strong> usa tu plan vigente para responder dudas de comidas, horarios y ejercicios.
+            Tiene su propio chat: el contacto con Daniel sigue aparte. La IA te ayuda a aplicar el plan;
+            no cambia tu prescripción ni sustituye una valoración médica.
           </p>
 
           <div style="margin-bottom:28px">
@@ -2034,7 +2056,7 @@
               </div>
               <div>
                 <div class="ia-feat-title">Alternativas con cantidades claras</div>
-                <p class="ia-feat-desc">Compara alimentos del catálogo nutricional que usamos para tu plan por energía, indicando porción, crudo o cocido y diferencias de macros. Propone alternativas en el chat; no reescribe tu plan.</p>
+                <p class="ia-feat-desc">¿No tienes un alimento? Calcula una porción alternativa por calorías con el catálogo de tu plan. Indica crudo o cocido y diferencias de proteína, carbohidratos y grasas; no reescribe tu plan.</p>
               </div>
             </div>
             <div class="ia-feat-card touch-scale">
@@ -2043,7 +2065,7 @@
               </div>
               <div>
                 <div class="ia-feat-title">Tu rutina, mejor entendida</div>
-                <p class="ia-feat-desc">Aclara series, repeticiones, RIR, descansos y términos de tu rutina. Las dudas sobre dolor, lesiones o cambios importantes se revisan con Daniel.</p>
+                <p class="ia-feat-desc">Explica series, repeticiones, RIR y descansos según tu rutina. Dolor, lesiones y cambios importantes se revisan con Daniel.</p>
               </div>
             </div>
             <div class="ia-feat-card touch-scale">
@@ -2052,7 +2074,7 @@
               </div>
               <div>
                 <div class="ia-feat-title">IRONQX VISION: del plato a la estimación</div>
-                <p class="ia-feat-desc">Identifica alimentos en una foto o lee una etiqueta nutricional. Revisa y corrige las porciones para estimar calorías y macros: una imagen no sustituye una báscula ni garantiza cantidades exactas.</p>
+                <p class="ia-feat-desc">Fotografía un plato o una etiqueta nutricional. Identifica alimentos y estima calorías y macros; puedes corregir porciones. Una foto no sustituye una báscula ni garantiza cantidades exactas.</p>
               </div>
             </div>
             <div class="ia-feat-card touch-scale">
@@ -2061,19 +2083,20 @@
               </div>
               <div>
                 <div class="ia-feat-title">Contexto, no respuestas de memoria</div>
-                <p class="ia-feat-desc">Usa los documentos vigentes y las restricciones y horarios disponibles. Si falta información, lo aclara; también puede explicar una duda general sin presentarla como una nueva prescripción.</p>
+                <p class="ia-feat-desc">Consulta los documentos vigentes y las restricciones y horarios registrados. Si falta un dato, te lo pide. También responde dudas generales, distinguiéndolas de tu prescripción.</p>
               </div>
             </div>
           </div>
 
           <div class="ia-info-box">
             <p>
-              <strong>Daniel habilita el acceso de forma individual.</strong> Antes de usarlo aceptas
-              el tratamiento de texto e imágenes por proveedores de IA. El uso tiene límites de créditos
-              visibles en la app; no es un servicio ilimitado ni atención de urgencias.
-              Si tienes activo el modo sin cifras, no expone tus datos corporales numéricos.
+              <strong>50 créditos por semana, hasta 10 en una ventana móvil de 5 horas.</strong>
+              Un mensaje usa 1; una lectura VISION, 2. El saldo y la recuperación se ven en la app.
+              Daniel habilita el acceso de forma individual. Aceptas el tratamiento de texto e imágenes por proveedores de IA;
+              en modo sin cifras no expone tus datos corporales numéricos. No atiende urgencias.
             </p>
           </div>
+          <p class="chat-example-note"><a class="ai-trial" href="https://wa.me/593963252197?text=Hola%20Daniel%2C%20quiero%20probar%20IronQx%20AI%20%2B%20VISION%20durante%207%20d%C3%ADas.%20He%20visto%20que%20el%20complemento%20cuesta%20%2410%20al%20mes.%20%C2%BFC%C3%B3mo%20coordinamos%20la%20activaci%C3%B3n%3F" target="_blank" rel="noopener noreferrer">Solicitar 7 días de prueba con Daniel</a><br>Daniel coordina la activación. Sin cobro automático.</p>
         </div>
 
         <div class="reveal">
@@ -2117,9 +2140,8 @@
       <div class="ia-admission">
         <div>
           <h3>¿Todavía no eres paciente?</h3>
-          <p>El <strong>asistente de admisión de esta web</strong> es otro chat: te explica las consultas
-          y protocolos, recoge tu objetivo y disponibilidad y prepara una ficha para Daniel.
-          No accede a planes ni conversaciones de pacientes.</p>
+          <p>El <strong>asistente de admisión de esta web es gratuito</strong>: explica servicios y precios
+          y prepara tu ficha para Daniel. No es la IA de pacientes ni accede a sus planes o conversaciones.</p>
           <p class="ia-admission-note">Revisas y autorizas el envío de tu ficha por correo; también puedes abrir WhatsApp con un resumen.
           <strong>Daniel confirma la disponibilidad y la cita.</strong></p>
         </div>
@@ -2302,8 +2324,8 @@
   </footer>
 
   <!-- Floating Elements -->
-  <script defer src="/vendor/lucide.min.js?v=2026100601"></script>
-  <script defer src="/assistant.js?v=2026100601"></script>
+  <script defer src="/vendor/lucide.min.js?v=202610072000"></script>
+  <script defer src="/assistant.js?v=202610072000"></script>
 
   <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>

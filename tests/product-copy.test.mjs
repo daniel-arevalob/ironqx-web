@@ -13,20 +13,20 @@ test('la app explica plan, registros, reportes y contacto humano sin garantizar 
 });
 
 test('la IA y la admision son servicios separados con un CTA publico explicito', () => {
-  assert.ok(ai.includes('Su conversación está separada'));
-  assert.ok(ai.includes('asistente de admisión de esta web'));
-  assert.ok(ai.includes('No accede a planes ni conversaciones de pacientes'));
+  assert.ok(ai.includes('el contacto con Daniel sigue aparte'));
+  assert.ok(ai.includes('asistente de admisión de esta web es gratuito'));
+  assert.ok(ai.includes('ni accede a sus planes o conversaciones'));
   assert.match(ai, /data-open-assistant[^>]*>Elegir consulta o protocolo<\/button>/);
 });
 
 test('las capacidades visuales y equivalencias no prometen exactitud ni edicion del plan', () => {
-  for (const text of ['catálogo nutricional que usamos para tu plan por energía', 'no reescribe tu plan',
-    'lee una etiqueta nutricional', 'no sustituye una báscula', 'no diagnostica']) assert.ok(ai.includes(text), text);
+  for (const text of ['porción alternativa por calorías', 'no reescribe tu plan',
+    'etiqueta nutricional', 'no sustituye una báscula', 'no diagnostica']) assert.ok(ai.includes(text), text);
 });
 
 test('acceso individual, consentimiento y creditos reemplazan promesas ilimitadas', () => {
   for (const text of ['habilita el acceso de forma individual', 'proveedores de IA',
-    'límites de créditos', 'modo sin cifras']) assert.ok(ai.includes(text), text);
+    '50 créditos por semana', 'modo sin cifras']) assert.ok(ai.includes(text), text);
   assert.doesNotMatch(html, /24\/7|precisión clínica de IronQx|Acceso prioritario a app/);
 });
 

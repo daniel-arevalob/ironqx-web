@@ -16,9 +16,9 @@ En Cloudflare Turnstile crear un widget Managed para `ironqx.fit` y
 - `ANTHROPIC_API_KEY` y `RESEND_API_KEY`: ya usados por la app.
 - `COMMERCIAL_MONTHLY_LIMIT_USD`: opcional; 10 USD por defecto, 50 como techo.
   Es un presupuesto aparte: nunca toca el de IronQx AI de pacientes.
-- `COMMERCIAL_MODEL`: opcional; `haiku` usa Claude Haiku 4.5. Por defecto
-  Claude Sonnet 5.5, con respaldo automatico a Haiku si Anthropic rechaza la
-  peticion (queda `sonnet_rejected` en los logs, sin contenido).
+- `COMMERCIAL_MODEL`: opcional; por defecto Claude Haiku 5.5, con respaldo a
+  Sonnet 5.5 si Haiku rechaza la peticion o devuelve una respuesta invalida.
+  `sonnet` usa Sonnet 5.5 directamente. Las dos llamadas cuentan en el consumo.
 
 Tras guardar secretos, redesplegar **ironqx-app** para enlazarlos. El backend
 devuelve `ready: false` si falta configuracion: el widget ofrece entonces
@@ -58,6 +58,14 @@ propia es parte de la ficha.
 
 Fuente oficial: `functions/api/_commercial-data.js` en **IronQx App**.
 El fallback de `assistant.js` debe conservar sus nombres, precios y periodos.
+`AI_ADDON` define IronQx AI + VISION como complemento opcional de 10 USD/mes
+para los protocolos mensuales. La solicitud lo deja desmarcado y lo elimina al
+elegir consulta puntual. Cambiar servicio o complemento exige aceptar otra vez
+el importe. El servidor calcula el total, no acepta precios del navegador y
+no permite que el modelo seleccione el complemento por el visitante.
+Correo y WhatsApp incluyen la seleccion y el total. No activan permisos de
+pacientes ni procesan pagos: Daniel coordina la contratacion y la prueba de
+7 dias, sin cobro automatico. No hay caducidad automatica de esa prueba.
 La version de los tres assets del widget debe subirse al modificar el cliente.
 La web se despliega por push a `main`; la app por push a `master`.
 
