@@ -13,7 +13,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="IRONQx | Medicina, nutrición y entrenamiento personalizado" />
   <meta property="og:description" content="Tu nutrición, entrenamiento, progreso y contacto con Daniel en IRONQx App. IronQx AI te ayuda a entender tu plan; VISION estima alimentos y lee etiquetas." />
-  <meta property="og:image" content="https://ironqx.fit/images/hero-main.jpeg" />
+  <meta property="og:image" content="https://ironqx.fit/images/daniel-clinical-standing-v1.webp" />
   <meta property="og:url" content="https://ironqx.fit/" />
   <meta property="og:locale" content="es_EC" />
 
@@ -21,7 +21,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="IRONQx | Medicina, nutrición y entrenamiento personalizado" />
   <meta name="twitter:description" content="Criterio médico y seguimiento conectado: nutrición, entrenamiento e IRONQx App, con IronQx AI y VISION como apoyo cuando Daniel los habilita." />
-  <meta name="twitter:image" content="https://ironqx.fit/images/hero-main.jpeg" />
+  <meta name="twitter:image" content="https://ironqx.fit/images/daniel-clinical-standing-v1.webp" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -31,7 +31,7 @@
     "name": "IronQX",
     "description": "Protocolos personalizados de nutrición, entrenamiento, composición corporal y seguimiento médico-deportivo.",
     "url": "https://ironqx.fit/",
-    "image": "https://ironqx.fit/images/hero-main.jpeg",
+    "image": "https://ironqx.fit/images/daniel-clinical-standing-v1.webp",
     "telephone": "+593963252197",
     "priceRange": "$60-$100",
     "areaServed": "Ecuador",
@@ -233,7 +233,7 @@
     .hero-stat-num { font-size: 1.75rem; font-family: 'Cormorant Garamond', serif; color: var(--gold); }
     .hero-stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
 
-    .hero-visual { position: relative; order: 1; width: 100%; aspect-ratio: 9/16; }
+    .hero-visual { position: relative; order: 1; width: 100%; aspect-ratio: 4/5; }
     @media (min-width: 1024px) { .hero-visual { order: 2; aspect-ratio: auto; min-height: 100vh; max-height: none; } }
     .hero-visual-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, #111, #0a0a0a); }
     .hero-visual-fade { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 75%, var(--bg) 100%); z-index: 10; pointer-events: none; }
@@ -338,14 +338,14 @@
     @media (min-width: 1024px) { .filosofia-grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
     .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     @media (min-width: 640px) { .photo-grid { gap: 16px; } }
-    .photo-large { grid-column: span 2; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; border: 1px solid rgba(212,175,55,0.1); background: transparent; }
+    .photo-large { grid-column: span 2; aspect-ratio: 4/5; border-radius: 8px; overflow: hidden; border: 1px solid rgba(212,175,55,0.1); background: transparent; }
     .photo-small { aspect-ratio: 3/4; border-radius: 8px; overflow: hidden; border: 1px solid rgba(212,175,55,0.1); }
     .photo-large img, .photo-small img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
     @media (min-width: 768px) {
       .photo-large img { object-fit: contain; }
     }
     @media (max-width: 767px) {
-      .photo-large { aspect-ratio: 2/3; }
+      .photo-large { aspect-ratio: 4/5; }
       .photo-large img, .photo-small img { object-position: top center; }
     }
     .photo-large:hover img, .photo-small:hover img { transform: scale(1.03); }
@@ -586,7 +586,16 @@
     .addons-header { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
     .addons-header h3 { color: #f1f2f2; font-size: 1.75rem; }
     .addons-header p { color: #b9bdc2; font-size: 14px; line-height: 1.7; max-width: 650px; }
-    .addons-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 20px; }
+    .addons-grid { display: grid; grid-auto-flow: column; grid-auto-columns: calc(100% - 24px); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; padding-bottom: 4px; }
+    .addons-grid::-webkit-scrollbar { display: none; }
+    .addons-grid:focus-visible { outline: 2px solid #f0dc8a; outline-offset: 4px; }
+    .addons-grid > .addon-card { scroll-snap-align: start; }
+    .addon-navigation { display: flex; justify-content: center; align-items: center; gap: 24px; margin-top: 16px; }
+    .addon-position { color: #c5c9cd; font: 600 12px 'Manrope', sans-serif; font-variant-numeric: tabular-nums; letter-spacing: 0; min-width: 42px; text-align: center; }
+    .addon-nav { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid #51482f; border-radius: 6px; background: #101213; color: #f0dc8a; cursor: pointer; }
+    .addon-nav svg { width: 18px; height: 18px; }
+    .addon-nav:disabled { opacity: .35; cursor: default; }
+    .addon-nav:focus-visible { outline: 2px solid #f0dc8a; outline-offset: 3px; }
     .addon-card { --addon-accent: #8edbb9; --addon-border: #345046; min-width: 0; display: flex; flex-direction: column; background: #101213; border: 1px solid var(--addon-border); border-radius: 8px; overflow: hidden; font-family: 'Manrope', sans-serif; letter-spacing: 0; transition: border-color .2s ease; }
     .addon-card:hover { border-color: var(--addon-accent); }
     .addon-card--forged { --addon-accent: #f0dc8a; --addon-border: #51482f; }
@@ -609,7 +618,7 @@
     .addon-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 16px; border: 1px solid var(--addon-accent); border-radius: 6px; background: var(--addon-accent); color: #101815; font-size: 12px; line-height: 1.5; font-weight: 700; text-align: center; transition: background-color .2s ease, color .2s ease; }
     .addon-cta:hover { background: #f5f6f6; border-color: #f5f6f6; color: #101213; }
     .addon-cta:focus-visible { outline: 2px solid #f5f6f6; outline-offset: 4px; }
-    @media (min-width: 768px) { .addons-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; } }
+    @media (min-width: 768px) { .addons-grid { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; overflow: visible; scroll-snap-type: none; padding-bottom: 0; } .addon-navigation { display: none; } }
     @media (min-width: 1024px) { .addon-content { padding: 28px; } .addon-category { left: 28px; } .addon-optional { right: 28px; } }
     @media (max-width: 1023px) { .addon-footer { padding-right: 48px; } }
     @media (max-width: 380px) { .addon-content { padding: 20px; } .addon-title { font-size: 21px; } .addon-features li { grid-template-columns: 92px minmax(0,1fr); gap: 10px; } .addon-footer { align-items: stretch; } .addon-cta { width: 100%; } }
@@ -1203,7 +1212,7 @@
       <div class="hero-visual">
         <div class="hero-visual-bg"></div>
         <div class="hero-visual-fade"></div>
-        <img src="images/hero-main.jpeg" alt="Dr. Daniel Arévalo - Médico y atleta" loading="eager" fetchpriority="high" width="896" height="1592" />
+        <img src="images/daniel-clinical-standing-v1.webp" alt="Dr. Daniel Arévalo con uniforme médico y estetoscopio" loading="eager" fetchpriority="high" width="1024" height="1280" />
         <div class="hero-badge reveal stagger-2" id="heroBadge">
           <div class="hero-badge-label">Hola! Soy el Dr. Daniel Arévalo</div>
           <div class="hero-badge-typewriter" id="badgeTypewriter"><span id="badgeText"></span><span class="badge-cursor">|</span></div>
@@ -1225,8 +1234,8 @@
           <div class="stat-label">Transformaciones</div>
         </div>
         <div class="reveal stagger-1">
-          <div class="stat-number" id="capacityStat" data-no-count="true">—</div>
-          <div class="stat-label">Capacidad de acompañamiento</div>
+          <div class="stat-number" data-no-count="true">Contigo</div>
+          <div class="stat-label">Seguimiento con Daniel</div>
         </div>
         <div class="reveal stagger-2">
           <div class="stat-number" data-no-count="true">A medida</div>
@@ -1246,7 +1255,7 @@
       <div class="authority-compact-card reveal">
         <div class="authority-identity">
           <div class="authority-portrait">
-            <img src="images/hero-main.jpeg" alt="Dr. Daniel Arévalo" loading="lazy" width="896" height="1592" />
+            <img src="images/daniel-clinical-seated-v1.webp" alt="Retrato del Dr. Daniel Arévalo" loading="lazy" decoding="async" width="1024" height="1280" />
           </div>
           <div>
             <div class="authority-kicker">Quién está detrás</div>
@@ -1738,7 +1747,7 @@
           <h3 id="addons-title">Complementos opcionales</h3>
           <p>Dos formas de ampliar tu protocolo. La app, los reportes y el chat con Daniel siguen incluidos; estos servicios se contratan por separado.</p>
         </div>
-        <div class="addons-grid">
+        <div class="addons-grid" id="addonsTrack" tabindex="0" role="region" aria-label="Complementos opcionales">
           <article class="addon-card addon-card--ai" aria-labelledby="addon-ai-title">
             <div class="addon-cover">
               <img src="/images/ai-vision-cover-v1.webp" width="960" height="640" loading="lazy" decoding="async" alt="" />
@@ -1781,6 +1790,11 @@
               </div>
             </div>
           </article>
+        </div>
+        <div class="addon-navigation" aria-label="Navegación de complementos">
+          <button type="button" class="addon-nav" id="addonPrevious" aria-controls="addonsTrack" aria-label="Complemento anterior" title="Complemento anterior" disabled><span aria-hidden="true">←</span></button>
+          <span class="addon-position" id="addonPosition" aria-live="polite" aria-atomic="true">1 / 2</span>
+          <button type="button" class="addon-nav" id="addonNext" aria-controls="addonsTrack" aria-label="Siguiente complemento" title="Siguiente complemento"><span aria-hidden="true">→</span></button>
         </div>
       </div>
     </div>
@@ -1879,7 +1893,7 @@
         <div class="reveal">
           <div class="photo-grid">
             <div class="photo-large touch-scale">
-              <img src="images/about-large.webp" alt="Dr. Daniel Arévalo" loading="lazy" width="640" height="958" />
+              <img src="images/daniel-clinical-seated-v1.webp" alt="Dr. Daniel Arévalo, médico y creador de IronQx" loading="lazy" decoding="async" width="1024" height="1280" />
             </div>
             <div class="photo-small touch-scale">
               <img src="images/about-small-1.jpeg" alt="Dr. Daniel Arévalo - Entrenamiento" loading="lazy" width="800" height="1187" />
@@ -2218,7 +2232,7 @@
             </div>
             <div class="cupos-divider"></div>
             <div class="cupos-info">
-              <div class="cupos-info-title" id="capacityTitle">Acompañamiento de cupos limitados.</div>
+              <div class="cupos-info-title" id="capacityTitle">Seguimiento personalizado.<br>Disponibilidad según agenda.</div>
               <div class="cupos-social-proof" id="capacityActive">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 La disponibilidad se confirma al aplicar
@@ -2233,7 +2247,7 @@
           <div class="cupos-bar-wrap">
             <div class="cupos-bar-labels">
               <span>0 cupos</span>
-              <span id="capacityRemaining" style="color:var(--gold);font-weight:600">Disponibilidad limitada</span>
+              <span id="capacityRemaining" style="color:var(--gold);font-weight:600">Consulta disponibilidad</span>
               <span id="capacityTotal">Capacidad</span>
             </div>
             <div class="cupos-bar-track">
@@ -2730,6 +2744,68 @@
       requestPlanFocusUpdate();
     }
 
+    // ==================== COMPLEMENTOS ====================
+    const addonsTrack = document.getElementById('addonsTrack');
+    if (addonsTrack) {
+      const cards = Array.from(addonsTrack.querySelectorAll('.addon-card'));
+      const previous = document.getElementById('addonPrevious');
+      const next = document.getElementById('addonNext');
+      const position = document.getElementById('addonPosition');
+      const mobile = matchMedia('(max-width: 767px)');
+      const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+      let active = 0;
+      let frame = null;
+
+      function updateAddonPosition() {
+        frame = null;
+        const viewport = addonsTrack.getBoundingClientRect();
+        const center = viewport.left + viewport.width / 2;
+        let nearest = Infinity;
+        cards.forEach((card, index) => {
+          const rect = card.getBoundingClientRect();
+          const distance = Math.abs(rect.left + rect.width / 2 - center);
+          if (distance < nearest) { nearest = distance; active = index; }
+        });
+        if (!mobile.matches) active = 0;
+        position.textContent = (active + 1) + ' / ' + cards.length;
+        previous.disabled = active === 0;
+        next.disabled = active === cards.length - 1;
+        addonsTrack.tabIndex = mobile.matches ? 0 : -1;
+      }
+
+      function queueAddonPosition() {
+        if (frame === null) frame = requestAnimationFrame(updateAddonPosition);
+      }
+
+      function showAddon(index) {
+        if (!mobile.matches) return;
+        const card = cards[Math.max(0, Math.min(cards.length - 1, index))];
+        if (!card) return;
+        const left = addonsTrack.scrollLeft + card.getBoundingClientRect().left - addonsTrack.getBoundingClientRect().left;
+        addonsTrack.scrollTo({ left, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+      }
+
+      previous.addEventListener('click', () => showAddon(active - 1));
+      next.addEventListener('click', () => showAddon(active + 1));
+      addonsTrack.addEventListener('scroll', queueAddonPosition, { passive: true });
+      window.addEventListener('resize', queueAddonPosition, { passive: true });
+      addonsTrack.addEventListener('keydown', event => {
+        if (event.target !== addonsTrack || !mobile.matches) return;
+        const index = { ArrowLeft: active - 1, ArrowRight: active + 1, Home: 0, End: cards.length - 1 }[event.key];
+        if (index === undefined) return;
+        event.preventDefault();
+        showAddon(index);
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        if (!window.lucide) return;
+        for (const [button, icon] of [[previous, 'ArrowLeft'], [next, 'ArrowRight']]) {
+          button.replaceChildren(lucide.createElement(lucide.icons[icon], { 'aria-hidden': 'true' }));
+        }
+      });
+      queueAddonPosition();
+    }
+
     // ==================== BACK TO TOP ====================
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
@@ -2809,7 +2885,6 @@
       const boxEl = document.getElementById('cuposBox');
       const numEl = document.getElementById('cuposNum');
       const slotsEl = document.getElementById('cuposSlots');
-      const statEl = document.getElementById('capacityStat');
       if (!boxEl || !numEl || !slotsEl) return;
 
       try {
@@ -2830,7 +2905,6 @@
         document.getElementById('capacityRemaining').textContent = available === 1 ? 'Queda 1 cupo' : 'Quedan ' + available;
         document.getElementById('capacityTotal').textContent = capacity + ' cupos';
         document.querySelector('.cupos-bar-fill').style.setProperty('--bar-w', Math.min(100, active / capacity * 100) + '%');
-        if (statEl) statEl.textContent = capacity;
 
         slotsEl.replaceChildren();
         for (let i = 0; i < capacity; i++) {
@@ -2855,7 +2929,6 @@
       } catch (error) {
         // Nunca inventar disponibilidad si el agregado seguro no responde.
         boxEl.classList.add('is-fallback');
-        if (statEl) statEl.textContent = 'Limitada';
       }
     })();
 

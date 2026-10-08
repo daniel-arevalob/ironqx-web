@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import vm from 'node:vm';
 
 const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const section = id => html.match(new RegExp('<section id="'+id+'"[^>]*>([\\s\\S]*?)</section>'))?.[1] || '';
@@ -58,7 +59,7 @@ test('las portadas reservan dimensiones y se sirven como WebP ligero sin animaci
     assert.ok(html.includes('src="/images/'+name+'" width="960" height="640" loading="lazy" decoding="async"'));
   }
   assert.match(html,/\.addon-cover\s*\{[^}]*aspect-ratio: 2 \/ 1/);
-  assert.match(html,/\.addons-grid\s*\{[^}]*minmax\(0,1fr\)/);
+  assert.match(html,/\.addons-grid\s*\{[^}]*scroll-snap-type: x mandatory/);
   assert.match(html,/@media \(max-width: 1023px\) \{ \.addon-footer \{ padding-right: 48px;/);
 });
 
@@ -68,4 +69,54 @@ test('los CTAs llevan a la IA existente y al WhatsApp personal, sin contratar au
   assert.match(cards[1][2],/class="addon-cta" href="https:\/\/wa.me\/593963252197\?/);
   assert.ok(cards[1][2].includes('target="_blank" rel="noopener noreferrer"'));
   assert.ok(cards[1][2].includes('No normaliza el uso ni sustituye la atención especializada'));
+});
+
+test('los retratos reales tienen prioridad en portada y carga diferida en trayectoria', () => {
+  for (const name of ['standing','seated']) {
+    const bytes=fs.readFileSync(new URL('../images/daniel-clinical-'+name+'-v1.webp',import.meta.url));
+    assert.equal(bytes.toString('ascii',8,12),'WEBP');
+    assert.ok(bytes.length<100000);
+  }
+  assert.match(html,/standing-v1.webp" alt="[^"]+" loading="eager" fetchpriority="high" width="1024" height="1280"/);
+  assert.match(section('filosofia'),/seated-v1.webp" alt="[^"]+" loading="lazy" decoding="async" width="1024" height="1280"/);
+  assert.equal((html.match(/https:\/\/ironqx.fit\/images\/daniel-clinical-standing-v1.webp/g)||[]).length,3);
+  assert.doesNotMatch(html,/images\/(hero-main.jpeg|about-large.webp)/);
+});
+
+test('el seguimiento no depende de la disponibilidad ni de un fallo de API', () => {
+  assert.ok(html.includes('Seguimiento con Daniel'));
+  assert.ok(html.includes('Seguimiento personalizado.<br>Disponibilidad según agenda.'));
+  assert.ok(html.includes('Consulta disponibilidad'));
+  assert.ok(html.includes("fetch('/api/capacity'"));
+  assert.doesNotMatch(html,/\bcapacityStat\b|Limitada|Disponibilidad limitada|Capacidad de acompañamiento/);
+});
+
+test('el carrusel conserva ambos servicios y controles separados de los planes', () => {
+  assert.match(html,/id="addonsTrack" tabindex="0" role="region" aria-label="Complementos opcionales"/);
+  assert.match(html,/id="addonPosition" aria-live="polite" aria-atomic="true"/);
+  assert.match(html,/@media \(min-width: 768px\) \{ \.addons-grid \{[^}]*repeat\(2,minmax\(0,1fr\)\)[^}]*overflow: visible/);
+  const code=html.split('// ==================== COMPLEMENTOS ====================')[1].split('// ==================== BACK TO TOP ====================')[0];
+  assert.doesNotMatch(code,/scroll-dot|setInterval|touchmove/);
+  assert.ok(code.includes('lucide.createElement'));
+});
+
+test('navegacion acotada, teclado, movimiento reducido y regreso a escritorio', () => {
+  const code=html.split('// ==================== COMPLEMENTOS ====================')[1].split('// ==================== BACK TO TOP ====================')[0];
+  const handlers={},buttons={},mobile={matches:true},reduced={matches:false};
+  let scroll=0,scheduled;
+  const track={scrollLeft:0,tabIndex:0,querySelectorAll:()=>cards,getBoundingClientRect:()=>({left:0,width:350}),
+    addEventListener:(name,callback)=>handlers[name]=callback,
+    scrollTo:options=>{track.lastOptions=options;scroll=Math.max(0,Math.min(318,options.left));track.scrollLeft=scroll;handlers.scroll();}};
+  const cards=[0,342].map(left=>({getBoundingClientRect:()=>({left:left-scroll,width:326})}));
+  for(const id of ['addonPrevious','addonNext','addonPosition'])buttons[id]={addEventListener:(name,callback)=>handlers[id+name]=callback};
+  const document={getElementById:id=>id==='addonsTrack'?track:buttons[id],addEventListener:()=>{}};
+  vm.runInNewContext(code,{document,window:{addEventListener:(name,callback)=>handlers[name]=callback},matchMedia:q=>q.includes('reduce')?reduced:mobile,requestAnimationFrame:callback=>{scheduled=callback;return 1;}});
+  const flush=()=>{const callback=scheduled;scheduled=null;callback?.();};
+  flush();assert.equal(buttons.addonPrevious.disabled,true);assert.equal(buttons.addonNext.disabled,false);
+  handlers.addonNextclick();flush();assert.equal(buttons.addonPosition.textContent,'2 / 2');assert.equal(buttons.addonNext.disabled,true);
+  reduced.matches=true;
+  const event={target:track,key:'Home',preventDefault:()=>event.prevented=true};
+  handlers.keydown(event);flush();assert.equal(event.prevented,true);assert.equal(track.lastOptions.behavior,'auto');assert.equal(scroll,0);
+  handlers.keydown({...event,key:'End'});flush();assert.equal(scroll,318);
+  mobile.matches=false;handlers.resize();flush();assert.equal(track.tabIndex,-1);assert.equal(buttons.addonPosition.textContent,'1 / 2');
 });
