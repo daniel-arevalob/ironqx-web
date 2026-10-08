@@ -8,13 +8,13 @@ const section = id => html.match(new RegExp('<section\\b[^>]*\\bid="'+id+'"[^>]*
 const app = section('tecnologia'), ai = section('ia-bot');
 
 test('la app explica plan, registros, reportes y contacto humano sin garantizar mediciones', () => {
-  for (const text of ['Alimentación y entrenamiento a mano', 'Un chat directo con Daniel',
-    'cuando hay mediciones disponibles', 'Si Daniel activa las fotos de comidas']) assert.ok(app.includes(text), text);
+  for (const text of ['Alimentación y entrenamiento a mano', 'Un chat directo conmigo',
+    'cuando hay mediciones disponibles', 'Si activo las fotos de comidas']) assert.ok(app.includes(text), text);
   assert.doesNotMatch(app, /reportes descargables|semana a semana/);
 });
 
 test('la IA y la admision son servicios separados con un CTA publico explicito', () => {
-  assert.ok(ai.includes('el contacto con Daniel sigue aparte'));
+  assert.ok(ai.includes('el contacto conmigo sigue aparte'));
   assert.ok(ai.includes('asistente de admisión de esta web es gratuito'));
   assert.ok(ai.includes('ni accede a sus planes o conversaciones'));
   assert.match(ai, /data-open-assistant[^>]*>Elegir consulta o protocolo<\/button>/);
@@ -26,9 +26,28 @@ test('las capacidades visuales y equivalencias no prometen exactitud ni edicion 
 });
 
 test('acceso individual, consentimiento y creditos reemplazan promesas ilimitadas', () => {
-  for (const text of ['habilita el acceso de forma individual', 'proveedores de IA',
+  for (const text of ['Habilito el acceso de forma individual', 'proveedores de IA',
     '50 créditos por semana', 'modo sin cifras']) assert.ok(ai.includes(text), text);
   assert.doesNotMatch(html, /24\/7|precisión clínica de IronQx|Acceso prioritario a app/);
+});
+
+test('Daniel habla en primera persona sin sugerir un equipo de atencion', () => {
+  const editorial=['autoridad','calculadora','consulta','planes','entrega','filosofia','metodologia','tecnologia','ia-bot','contacto'].map(section).join('\n');
+  assert.doesNotMatch(editorial,/\b(?:Separamos|entendemos|Calculamos|Cuantificamos|Definimos|Integramos|preguntamos|nosotros|nuestro equipo)\b/i);
+  assert.doesNotMatch(editorial,/Daniel (?:revisa|activa|habilita|coordina|confirma)|chat con Daniel|contacto con Daniel|sus respuestas|sus comentarios/);
+  for(const [id,text] of [['autoridad','Diseño y reviso tu protocolo'],['consulta','En consulta reviso tu caso'],['entrega','Calculo el plan completo'],['metodologia','Ajusto tu protocolo'],['tecnologia','Tus dudas y mis respuestas'],['ia-bot','Confirmo personalmente']]) assert.ok(section(id).includes(text),id);
+  assert.ok(html.includes('primero reviso tu caso.'));
+  assert.ok(html.includes('que adapto a tu salud y a tus objetivos.'));
+});
+
+test('las herramientas conservan su identidad y no se presentan como el medico', () => {
+  assert.ok(section('autoridad').includes('sin reemplazar mi atención'));
+  assert.ok(ai.includes('el contacto conmigo sigue aparte'));
+  assert.ok(ai.includes('Soy <strong>IronQx AI</strong>'));
+  assert.ok(ai.includes('no cambia tu prescripción ni sustituye una valoración médica'));
+  const assistant=fs.readFileSync(new URL('../assistant.js',import.meta.url),'utf8');
+  assert.ok(assistant.includes('Hola, soy IronQx Assistant.'));
+  assert.ok(assistant.includes('Daniel confirma la modalidad y disponibilidad'));
 });
 
 test('los metadatos describen la app y la IA sin cambiar contacto ni precios', () => {
