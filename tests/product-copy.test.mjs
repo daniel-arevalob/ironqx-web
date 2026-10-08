@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 
 const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-const section = id => html.match(new RegExp('<section id="'+id+'"[^>]*>([\\s\\S]*?)</section>'))?.[1] || '';
+const section = id => html.match(new RegExp('<section\\b[^>]*\\bid="'+id+'"[^>]*>([\\s\\S]*?)</section>'))?.[1] || '';
 const app = section('tecnologia'), ai = section('ia-bot');
 
 test('la app explica plan, registros, reportes y contacto humano sin garantizar mediciones', () => {
@@ -71,24 +71,26 @@ test('los CTAs llevan a la IA existente y al WhatsApp personal, sin contratar au
   assert.ok(cards[1][2].includes('No normaliza el uso ni sustituye la atención especializada'));
 });
 
-test('los retratos reales tienen prioridad en portada y carga diferida en trayectoria', () => {
+test('la portada conserva su foto original y los retratos nuevos viven en presentacion y trayectoria', () => {
   for (const name of ['standing','seated']) {
     const bytes=fs.readFileSync(new URL('../images/daniel-clinical-'+name+'-v1.webp',import.meta.url));
     assert.equal(bytes.toString('ascii',8,12),'WEBP');
     assert.ok(bytes.length<100000);
   }
-  assert.match(html,/standing-v1.webp" alt="[^"]+" loading="eager" fetchpriority="high" width="1024" height="1280"/);
+  assert.match(section('hero'),/hero-main.jpeg" alt="[^"]+" loading="eager" fetchpriority="high" width="896" height="1592"/);
+  assert.doesNotMatch(section('hero'),/clinical-/);
+  assert.match(section('autoridad'),/standing-v1.webp" alt="[^"]+" loading="lazy" decoding="async" width="1024" height="1280"/);
   assert.match(section('filosofia'),/seated-v1.webp" alt="[^"]+" loading="lazy" decoding="async" width="1024" height="1280"/);
-  assert.equal((html.match(/https:\/\/ironqx.fit\/images\/daniel-clinical-standing-v1.webp/g)||[]).length,3);
-  assert.doesNotMatch(html,/images\/(hero-main.jpeg|about-large.webp)/);
+  assert.equal((html.match(/https:\/\/ironqx.fit\/images\/hero-main.jpeg/g)||[]).length,3);
 });
 
 test('el seguimiento no depende de la disponibilidad ni de un fallo de API', () => {
-  assert.ok(html.includes('Seguimiento con Daniel'));
+  assert.ok(html.includes('Atención personalizada'));
+  assert.ok(html.includes('>Individual</div>'));
   assert.ok(html.includes('Seguimiento personalizado.<br>Disponibilidad según agenda.'));
   assert.ok(html.includes('Consulta disponibilidad'));
   assert.ok(html.includes("fetch('/api/capacity'"));
-  assert.doesNotMatch(html,/\bcapacityStat\b|Limitada|Disponibilidad limitada|Capacidad de acompañamiento/);
+  assert.doesNotMatch(html,/\bcapacityStat\b|Limitada|Disponibilidad limitada|Capacidad de acompañamiento|Contigo|Seguimiento con Daniel/);
 });
 
 test('el carrusel conserva ambos servicios y controles separados de los planes', () => {
