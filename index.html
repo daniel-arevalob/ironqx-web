@@ -473,6 +473,24 @@
     .macro-row-header { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
     .macro-bar-track { height: 8px; background: #222; border-radius: 9999px; overflow: hidden; }
     .macro-bar-fill { height: 100%; border-radius: 9999px; transition: width 1s ease-out; }
+    .form-input[aria-invalid="true"], .form-select[aria-invalid="true"] { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.15); }
+    .form-error { display: block; margin-top: 6px; color: #f87171; font-size: 11px; line-height: 1.45; }
+    .form-error[hidden], .calc-form-error[hidden], .calc-safety-note[hidden] { display: none; }
+    .calc-form-error { margin-top: 16px; padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(239,68,68,0.35); background: rgba(239,68,68,0.08); color: #fca5a5; font-size: 12px; line-height: 1.5; }
+    .bmi-scale { position: relative; height: 8px; margin-top: 12px; }
+    .bmi-scale-track { position: absolute; inset: 0; border-radius: 9999px; opacity: 0.75; background: linear-gradient(to right, #3b82f6 0 14%, #22c55e 14% 40%, #eab308 40% 60%, #ef4444 60% 100%); }
+    .bmi-marker { position: absolute; top: 50%; left: 0; width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 3px solid var(--bg3); box-shadow: 0 0 0 1px rgba(255,255,255,0.35); transform: translate(-50%, -50%); transition: left 1s ease-out; }
+    .bmi-scale-labels { position: relative; height: 14px; margin-top: 6px; font-size: 10px; color: var(--muted); }
+    .bmi-scale-labels span { position: absolute; transform: translateX(-50%); }
+    .bmi-scale-labels span:nth-child(1) { left: 0; transform: none; }
+    .bmi-scale-labels span:nth-child(2) { left: 14%; }
+    .bmi-scale-labels span:nth-child(3) { left: 40%; }
+    .bmi-scale-labels span:nth-child(4) { left: 60%; }
+    .bmi-scale-labels span:nth-child(5) { left: auto; right: 0; transform: none; }
+    .macro-pct { color: var(--muted); font-size: 11px; }
+    .macro-note { margin-top: 4px; color: var(--muted); font-size: 11px; }
+    .calc-safety-note { margin-top: 10px; color: var(--gold-lt); font-size: 12px; line-height: 1.5; }
+    @media (prefers-reduced-motion: reduce) { .bmi-marker, .macro-bar-fill { transition: none; } }
     .calc-footer { text-align: left; font-size: 11px; line-height: 1.55; color: #777; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
 
     /* Consulta Medica */
@@ -1309,24 +1327,24 @@
                 Datos para la estimación
               </div>
             </div>
-            <div class="calc-card-body">
+            <form class="calc-card-body" id="calcForm" novalidate>
               <div class="form-row">
                 <div>
-                  <label class="form-label">Peso (kg)</label>
-                  <input type="number" class="form-input" id="calcWeight" placeholder="Ej: 70" inputmode="decimal" />
+                  <label class="form-label" for="calcWeight">Peso (kg)</label>
+                  <input type="number" class="form-input" id="calcWeight" placeholder="Ej: 70" inputmode="decimal" step="any" min="30" max="300" required />
                 </div>
                 <div>
-                  <label class="form-label">Altura (cm)</label>
-                  <input type="number" class="form-input" id="calcHeight" placeholder="Ej: 170" inputmode="decimal" />
+                  <label class="form-label" for="calcHeight">Altura (cm)</label>
+                  <input type="number" class="form-input" id="calcHeight" placeholder="Ej: 170" inputmode="decimal" step="any" min="120" max="230" required />
                 </div>
               </div>
               <div class="form-row">
                 <div>
-                  <label class="form-label">Edad</label>
-                  <input type="number" class="form-input" id="calcAge" placeholder="Ej: 30" inputmode="numeric" />
+                  <label class="form-label" for="calcAge">Edad</label>
+                  <input type="number" class="form-input" id="calcAge" placeholder="Ej: 30" inputmode="numeric" min="16" max="90" required />
                 </div>
                 <div>
-                  <label class="form-label">Género</label>
+                  <label class="form-label" for="calcGender">Sexo biológico</label>
                   <select class="form-select" id="calcGender">
                     <option value="male">Masculino</option>
                     <option value="female">Femenino</option>
@@ -1334,27 +1352,36 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="form-label">Actividad cotidiana (sin contar el entrenamiento)</label>
-                <select class="form-select" id="calcActivity">
+                <label class="form-label" for="calcActivity">Actividad cotidiana (sin contar el entrenamiento)</label>
+                <select class="form-select" id="calcActivity" aria-describedby="calcActivityHint">
                   <option value="1.25" selected>Oficina / menos de 5.000 pasos</option>
                   <option value="1.35">Poco activo / 5.000–7.500 pasos</option>
                   <option value="1.45">Activo / 7.500–10.000 pasos</option>
                   <option value="1.60">Trabajo físico / más de 10.000 pasos</option>
                 </select>
-                <span class="form-hint">Elige según tu día normal. El ejercicio se calcula aparte.</span>
+                <span class="form-hint" id="calcActivityHint">Elige según tu día normal. El ejercicio se calcula aparte.</span>
               </div>
               <div class="form-row">
                 <div>
-                  <label class="form-label">Sesiones por semana</label>
+                  <label class="form-label" for="calcSessions">Sesiones por semana</label>
                   <input type="number" class="form-input" id="calcSessions" value="4" inputmode="numeric" min="0" max="14" />
                 </div>
                 <div>
-                  <label class="form-label">Minutos por sesión</label>
+                  <label class="form-label" for="calcMinutes">Minutos por sesión</label>
                   <input type="number" class="form-input" id="calcMinutes" value="60" inputmode="numeric" min="0" max="240" />
                 </div>
               </div>
               <div class="form-group">
-                <label class="form-label">Objetivo</label>
+                <label class="form-label" for="calcIntensity">Intensidad habitual del entrenamiento</label>
+                <select class="form-select" id="calcIntensity" aria-describedby="calcIntensityHint">
+                  <option value="light">Ligera · movilidad, yoga, caminata rápida</option>
+                  <option value="moderate" selected>Moderada · pesas con descansos completos</option>
+                  <option value="vigorous">Alta · circuitos, HIIT, deportes intensos</option>
+                </select>
+                <span class="form-hint" id="calcIntensityHint">Si dudas, elige moderada: la intensidad suele sobreestimarse.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="calcGoal">Objetivo</label>
                 <select class="form-select" id="calcGoal">
                   <option value="lose">Definición / pérdida de grasa</option>
                   <option value="recomp">Recomposición corporal</option>
@@ -1365,12 +1392,13 @@
                 </select>
               </div>
               <div class="form-group">
-                <label class="form-label">% Grasa Corporal <span class="optional-badge">Opcional</span></label>
-                <input type="number" class="form-input" id="calcBodyFat" placeholder="Ej: 18" inputmode="decimal" min="3" max="60" />
+                <label class="form-label" for="calcBodyFat">% Grasa Corporal <span class="optional-badge">Opcional</span></label>
+                <input type="number" class="form-input" id="calcBodyFat" placeholder="Ej: 18" inputmode="decimal" step="any" min="3" max="60" aria-describedby="calcBodyFatHint" />
+                <span class="form-hint" id="calcBodyFatHint">Con un dato de InBody o DEXA, la proteína se calcula sobre tu masa magra.</span>
               </div>
 
               <div class="calc-method-note">
-                <strong>Cómo calcula IRONQx:</strong> metabolismo basal × actividad cotidiana + costo neto promedio del entrenamiento. El objetivo se aplica como porcentaje, no como una resta o suma fija para todos.
+                <strong>Cómo calcula IRONQx:</strong> metabolismo basal × actividad cotidiana + costo neto promedio del entrenamiento según su intensidad. El objetivo se aplica como porcentaje, no como una resta o suma fija para todos, y nunca inicia por debajo de tu metabolismo basal.
               </div>
 
               <div class="profile-section">
@@ -1412,14 +1440,16 @@
                 </div>
               </div>
 
-              <button class="calc-submit btn-lift touch-scale" id="calcBtn" style="margin-top:20px">
+              <p class="calc-form-error" id="calcFormError" role="alert" hidden></p>
+
+              <button type="submit" class="calc-submit btn-lift touch-scale" id="calcBtn" style="margin-top:20px">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
                 Calcular punto de partida
               </button>
-            </div>
+            </form>
           </div>
 
-          <div class="calc-card results-card results-hidden" id="calcResults">
+          <div class="calc-card results-card results-hidden" id="calcResults" aria-live="polite">
             <div class="calc-card-header">
               <div class="calc-card-title">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
@@ -1433,9 +1463,11 @@
                   <span class="result-badge" id="bmiBadge">-</span>
                 </div>
                 <div class="result-value gold-text" id="bmiValue">-</div>
-                <div class="result-bar-track">
-                  <div class="result-bar-fill" id="bmiBar" style="width:0%;background:linear-gradient(to right,#3b82f6,#22c55e,#ef4444)"></div>
+                <div class="bmi-scale" aria-hidden="true">
+                  <div class="bmi-scale-track"></div>
+                  <div class="bmi-marker" id="bmiMarker"></div>
                 </div>
+                <div class="bmi-scale-labels" aria-hidden="true"><span>15</span><span>18,5</span><span>25</span><span>30</span><span>40</span></div>
               </div>
 
               <div class="cals-grid">
@@ -1452,7 +1484,7 @@
                 <div class="cal-box" style="grid-column:1 / -1">
                   <div class="cal-box-label">Entrenamiento añadido al promedio diario</div>
                   <div class="cal-box-value" style="color:var(--silver)" id="trainingValue">-</div>
-                  <div class="cal-box-unit">kcal netas/día estimadas · MET 5</div>
+                  <div class="cal-box-unit" id="trainingUnit">kcal netas/día estimadas</div>
                 </div>
               </div>
 
@@ -1463,6 +1495,7 @@
                 </div>
                 <div class="target-value gold-text" id="targetValue">-</div>
                 <div class="target-unit">kcal iniciales por día</div>
+                <p class="calc-safety-note" id="calcSafetyNote" hidden>Ajusté el déficit para no iniciar por debajo de tu metabolismo basal ni de un mínimo seguro. Un déficit mayor solo se plantea con supervisión.</p>
               </div>
 
               <div>
@@ -1470,16 +1503,17 @@
                 <div class="macro-row">
                   <div class="macro-row-header">
                     <span style="color:var(--silver)">Proteínas</span>
-                    <span style="color:var(--gold)" id="proteinVal">-</span>
+                    <span><span style="color:var(--gold)" id="proteinVal">-</span> <small class="macro-pct" id="proteinPct"></small></span>
                   </div>
                   <div class="macro-bar-track">
                     <div class="macro-bar-fill" id="proteinBar" style="width:0%;background:var(--gold)"></div>
                   </div>
+                  <div class="macro-note" id="proteinPerKg"></div>
                 </div>
                 <div class="macro-row">
                   <div class="macro-row-header">
                     <span style="color:var(--silver)">Carbohidratos</span>
-                    <span style="color:var(--silver)" id="carbsVal">-</span>
+                    <span><span style="color:var(--silver)" id="carbsVal">-</span> <small class="macro-pct" id="carbsPct"></small></span>
                   </div>
                   <div class="macro-bar-track">
                     <div class="macro-bar-fill" id="carbsBar" style="width:0%;background:var(--silver)"></div>
@@ -1488,7 +1522,7 @@
                 <div class="macro-row">
                   <div class="macro-row-header">
                     <span style="color:var(--silver)">Grasas</span>
-                    <span style="color:var(--gold-dk)" id="fatsVal">-</span>
+                    <span><span style="color:var(--gold-dk)" id="fatsVal">-</span> <small class="macro-pct" id="fatsPct"></small></span>
                   </div>
                   <div class="macro-bar-track">
                     <div class="macro-bar-fill" id="fatsBar" style="width:0%;background:var(--gold-dk)"></div>
@@ -1537,7 +1571,7 @@
               </div>
 
               <div class="calc-footer">
-                Estimación orientativa basada en Mifflin–St Jeor, actividad cotidiana y costo neto del entrenamiento. No es diagnóstico ni prescripción médica. El porcentaje de grasa autoinformado y la intensidad real del ejercicio modifican la precisión; el punto de partida se valida con evolución, adherencia, hambre, energía, sueño, digestión y rendimiento.
+                Estimación orientativa basada en Mifflin–St Jeor, actividad cotidiana y costo neto del entrenamiento según el Compendium of Physical Activities. No es diagnóstico ni prescripción médica. El porcentaje de grasa autoinformado y la intensidad real del ejercicio modifican la precisión; el punto de partida se valida con evolución, adherencia, hambre, energía, sueño, digestión y rendimiento.
               </div>
             </div>
           </div>
@@ -2304,6 +2338,7 @@
   <!-- Floating Elements -->
   <script defer src="/vendor/lucide.min.js?v=202610080031"></script>
   <script defer src="/assistant.js?v=202610080031"></script>
+  <script defer src="/calculator.js?v=202610092145"></script>
 
   <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
@@ -2409,180 +2444,6 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
     revealElements.forEach(el => revealObserver.observe(el));
-
-    // ==================== CALCULATOR ====================
-    const calcBtn = document.getElementById('calcBtn');
-    const calcResults = document.getElementById('calcResults');
-
-    calcBtn.addEventListener('click', () => {
-      const weight = parseFloat(document.getElementById('calcWeight').value);
-      const height = parseFloat(document.getElementById('calcHeight').value);
-      const age = parseFloat(document.getElementById('calcAge').value);
-      const gender = document.getElementById('calcGender').value;
-      const activity = parseFloat(document.getElementById('calcActivity').value);
-      const sessions = parseInt(document.getElementById('calcSessions').value, 10);
-      const minutes = parseFloat(document.getElementById('calcMinutes').value);
-      const goal = document.getElementById('calcGoal').value;
-      const bodyFatInput = document.getElementById('calcBodyFat').value.trim();
-      const bodyFat = bodyFatInput ? parseFloat(bodyFatInput) : null;
-
-      const hasPatologia = document.getElementById('profilePatologia').checked;
-      const wantsCompetir = document.getElementById('profileCompetir').checked;
-      const needsSupervision = document.getElementById('profileSupervision').checked;
-      const hasExperiencia = document.getElementById('profileExperiencia').checked;
-
-      const invalidBase = !Number.isFinite(weight) || weight < 30 || weight > 300 ||
-        !Number.isFinite(height) || height < 120 || height > 230 ||
-        !Number.isFinite(age) || age < 16 || age > 90;
-      const invalidTraining = !Number.isFinite(sessions) || sessions < 0 || sessions > 14 ||
-        !Number.isFinite(minutes) || minutes < 0 || minutes > 240;
-      const invalidBodyFat = bodyFat !== null && (!Number.isFinite(bodyFat) || bodyFat < 3 || bodyFat > 60);
-
-      if (invalidBase || invalidTraining || invalidBodyFat) {
-        alert('Revisa los datos: peso 30–300 kg, altura 120–230 cm, edad 16–90 años, 0–14 sesiones y 0–240 minutos. El % de grasa debe estar entre 3 y 60.');
-        return;
-      }
-
-      const heightM = height / 100;
-      const bmi = weight / (heightM * heightM);
-      let bmiCategory = '';
-      let bmiColor = '';
-      let bmiPercent = 0;
-
-      if (bmi < 18.5) { bmiCategory = 'Rango bajo'; bmiColor = '#3b82f6'; bmiPercent = 25; }
-      else if (bmi < 25) { bmiCategory = 'Rango habitual'; bmiColor = '#22c55e'; bmiPercent = 50; }
-      else if (bmi < 30) { bmiCategory = 'Rango elevado'; bmiColor = '#eab308'; bmiPercent = 75; }
-      else { bmiCategory = 'Rango muy elevado'; bmiColor = '#ef4444'; bmiPercent = 100; }
-
-      // Mifflin–St Jeor. El PAL describe la vida diaria; el entrenamiento se suma aparte.
-      const bmr = gender === 'male'
-        ? (10 * weight) + (6.25 * height) - (5 * age) + 5
-        : (10 * weight) + (6.25 * height) - (5 * age) - 161;
-      const trainingPerSession = sessions === 0 ? 0 : (5 - 1) * 3.5 * weight / 200 * minutes;
-      const trainingDaily = trainingPerSession * sessions / 7;
-      const tdee = Math.round((bmr * activity) + trainingDaily);
-
-      const goalConfig = {
-        lose: { multiplier: 0.80, label: 'Definición · inicio al −20%' },
-        recomp: { multiplier: 0.875, label: 'Recomposición · inicio al −12,5%' },
-        maintain: { multiplier: 1, label: 'Mantenimiento' },
-        gain: { multiplier: 1.075, label: 'Ganancia controlada · inicio al +7,5%' },
-        performance: { multiplier: 1, label: 'Rendimiento · mantenimiento inicial' },
-        metabolic: { multiplier: 1, label: 'Salud metabólica · mantenimiento inicial' }
-      }[goal];
-      const targetCals = Math.round(tdee * goalConfig.multiplier);
-
-      const leanMass = bodyFat === null ? null : weight * (1 - bodyFat / 100);
-      const referenceMass = leanMass || (bmi >= 30 ? 25 * heightM * heightM : weight);
-      let proteinFactor = 1.8;
-      let fats = 0;
-
-      if (goal === 'lose') {
-        proteinFactor = leanMass ? 2.75 : 2.0;
-        fats = Math.max(50, 0.7 * weight);
-      } else if (goal === 'recomp') {
-        proteinFactor = leanMass ? 2.6 : 1.9;
-        fats = 0.9 * weight;
-      } else if (goal === 'gain') {
-        proteinFactor = leanMass ? 2.0 : 1.8;
-        fats = (targetCals * 0.275) / 9;
-      } else if (goal === 'performance') {
-        proteinFactor = leanMass ? 2.2 : 1.8;
-        fats = (targetCals * 0.25) / 9;
-      } else if (goal === 'metabolic') {
-        proteinFactor = leanMass ? 2.0 : 1.8;
-        fats = (targetCals * 0.30) / 9;
-      } else {
-        proteinFactor = leanMass ? 2.2 : 1.8;
-        fats = (targetCals * 0.275) / 9;
-      }
-
-      const protein = Math.round(referenceMass * proteinFactor);
-      fats = Math.round(fats);
-      const carbs = Math.max(0, Math.round((targetCals - protein * 4 - fats * 9) / 4));
-      const proteinPct = Math.min(100, Math.round(protein * 4 / targetCals * 100));
-      const carbsPct = Math.min(100, Math.round(carbs * 4 / targetCals * 100));
-      const fatsPct = Math.min(100, Math.round(fats * 9 / targetCals * 100));
-
-      // FFMI se muestra solo con % graso y sin inferencias sobre farmacología.
-      let ffmiNorm = null;
-      let ffmiCategory = '';
-      let ffmiColor = '';
-      let ffmiActiveSeg = 0;
-      const ffmiSection = document.getElementById('ffmiSection');
-
-      if (leanMass !== null) {
-        const ffmi = leanMass / (heightM * heightM);
-        ffmiNorm = ffmi + 6.1 * (1.8 - heightM);
-        const thresholds = gender === 'male' ? [18, 20, 22, 25] : [14, 16, 18, 21];
-        const labels = ['Bajo', 'Medio', 'Alto', 'Muy alto', 'Extremo'];
-        const colors = ['#3b82f6', '#22c55e', '#eab308', '#f97316', '#ef4444'];
-        ffmiActiveSeg = thresholds.findIndex(limit => ffmiNorm < limit) + 1;
-        if (ffmiActiveSeg === 0) ffmiActiveSeg = 5;
-        ffmiCategory = labels[ffmiActiveSeg - 1];
-        ffmiColor = colors[ffmiActiveSeg - 1];
-
-        document.getElementById('ffmiValue').textContent = ffmiNorm.toFixed(1);
-        document.getElementById('ffmiBadge').textContent = ffmiCategory;
-        document.getElementById('ffmiBadge').style.borderColor = ffmiColor;
-        document.getElementById('ffmiBadge').style.color = ffmiColor;
-        for (let i = 1; i <= 5; i++) {
-          document.getElementById('ffmiSeg' + i).style.opacity = i === ffmiActiveSeg ? '1' : '0.3';
-        }
-        ffmiSection.style.display = 'block';
-      } else {
-        ffmiSection.style.display = 'none';
-      }
-
-      const planRec = document.getElementById('planRecommendation');
-      let recPlan = '';
-      let recReason = '';
-      let recPrice = '';
-
-      if (hasPatologia || needsSupervision) {
-        recPlan = 'Restore';
-        recPrice = '$100/mes';
-        recReason = 'Por la necesidad de contexto médico, Restore es la ruta prudente: seguimiento médico, nutrición adaptada y dos sesiones 1 a 1 por semana. La admisión confirma si el alcance es adecuado para tu caso.';
-      } else if (wantsCompetir || (hasExperiencia && ['gain', 'performance'].includes(goal)) || sessions >= 5) {
-        recPlan = 'Forged';
-        recPrice = '$75/mes';
-        recReason = 'Tu frecuencia u objetivo requiere una progresión más vigilada. Forged integra periodización, control semanal y una sesión presencial 1 a 1 por semana.';
-      } else {
-        recPlan = 'Balance';
-        recPrice = '$60/mes';
-        recReason = 'Balance ofrece la estructura completa para avanzar con autonomía: nutrición, entrenamiento interactivo, app y control quincenal, sin sesiones presenciales 1 a 1.';
-      }
-
-      document.getElementById('recPlanName').textContent = recPlan;
-      document.getElementById('recPlanPrice').textContent = recPrice;
-      document.getElementById('recPlanReason').textContent = recReason;
-      document.getElementById('recPlanCtaText').textContent = 'Aplicar a ' + recPlan;
-      document.getElementById('recPlanCta').href = 'https://wa.me/593963252197?text=Hola,%20hice%20la%20estimacion%20inicial%20y%20quiero%20aplicar%20al%20plan%20' + recPlan.toUpperCase() + '.';
-      planRec.style.display = 'block';
-
-      calcResults.classList.remove('results-hidden');
-      calcResults.classList.add('results-visible');
-      document.getElementById('bmiValue').textContent = bmi.toFixed(1);
-      document.getElementById('bmiBadge').textContent = bmiCategory;
-      document.getElementById('bmiBadge').style.borderColor = bmiColor;
-      document.getElementById('bmiBadge').style.color = bmiColor;
-      document.getElementById('bmiBar').style.width = bmiPercent + '%';
-      document.getElementById('bmrValue').textContent = Math.round(bmr).toLocaleString('es-EC');
-      document.getElementById('tdeeValue').textContent = tdee.toLocaleString('es-EC');
-      document.getElementById('trainingValue').textContent = Math.round(trainingDaily).toLocaleString('es-EC');
-      document.getElementById('goalLabel').textContent = goalConfig.label;
-      document.getElementById('targetValue').textContent = targetCals.toLocaleString('es-EC');
-      document.getElementById('proteinVal').textContent = protein + ' g';
-      document.getElementById('carbsVal').textContent = carbs + ' g';
-      document.getElementById('fatsVal').textContent = fats + ' g';
-      document.getElementById('proteinBar').style.width = proteinPct + '%';
-      document.getElementById('carbsBar').style.width = carbsPct + '%';
-      document.getElementById('fatsBar').style.width = fatsPct + '%';
-
-      if (window.innerWidth < 1024) {
-        calcResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
 
     // ==================== PLANES SCROLL DOTS ====================
     const plansScroll = document.getElementById('plansScroll');
