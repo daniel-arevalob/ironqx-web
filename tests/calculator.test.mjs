@@ -68,3 +68,8 @@ test('la pagina carga la calculadora como formulario accesible sin alertas', () 
   }
   assert.doesNotMatch(js, /alert\(/);
 });
+
+test('el FFMI muestra los rangos de referencia segun el sexo', () => {
+  assert.deepEqual([...estimate({ ...base, bodyFat: 15 }).ffmi.ranges], ['<18', '18–20', '20–22', '22–25', '≥25']);
+  assert.deepEqual([...estimate({ ...base, sex: 'female', bodyFat: 25 }).ffmi.ranges], ['<14', '14–16', '16–18', '18–21', '≥21']);
+});

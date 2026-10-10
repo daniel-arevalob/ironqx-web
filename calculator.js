@@ -54,7 +54,10 @@
     const colors = ['#3b82f6', '#22c55e', '#eab308', '#f97316', '#ef4444'];
     let segment = thresholds.findIndex(limit => ffmiNorm < limit) + 1;
     if (segment === 0) segment = 5;
-    return { segment, label: labels[segment - 1], color: colors[segment - 1] };
+    const ranges = ['<' + thresholds[0]];
+    for (let i = 1; i < thresholds.length; i++) ranges.push(thresholds[i - 1] + '–' + thresholds[i]);
+    ranges.push('≥' + thresholds[thresholds.length - 1]);
+    return { segment, label: labels[segment - 1], color: colors[segment - 1], ranges };
   }
 
   function estimate(input) {
@@ -262,7 +265,13 @@
       ffmiBadge.textContent = result.ffmi.label;
       ffmiBadge.style.borderColor = result.ffmi.color;
       ffmiBadge.style.color = result.ffmi.color;
-      for (let i = 1; i <= 5; i++) $('ffmiSeg' + i).style.opacity = i === result.ffmi.segment ? '1' : '0.3';
+      for (let i = 1; i <= 5; i++) {
+        $('ffmiSeg' + i).style.opacity = i === result.ffmi.segment ? '1' : '0.3';
+        $('ffmiLabel' + i).classList.toggle('is-active', i === result.ffmi.segment);
+        $('ffmiRange' + i).textContent = result.ffmi.ranges[i - 1];
+      }
+      $('ffmiNote').textContent = 'Rangos de referencia para ' + (input.sex === 'male' ? 'hombres' : 'mujeres') +
+        ', con el FFMI ajustado a una talla de 1,80 m. Un valor muy alto suele indicar que conviene confirmar el % de grasa con InBody o DEXA.';
       ffmiSection.style.display = 'block';
     } else {
       ffmiSection.style.display = 'none';
