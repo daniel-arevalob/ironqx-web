@@ -1140,17 +1140,16 @@
 
     /* Barra de estado de iOS */
     .qx-status { position: absolute; z-index: 4; inset: 0 0 auto; height: 50px; display: flex; align-items: center; justify-content: space-between; padding: 4px 26px 0 34px; pointer-events: none; }
-    .qx-time { font-size: 15.5px; font-weight: 600; letter-spacing: -.01em; color: #fff; font-variant-numeric: tabular-nums; }
+    .qx-time { font-family: -apple-system, 'SF Pro Text', 'Inter', sans-serif; font-size: 15.5px; font-weight: 600; letter-spacing: -.01em; color: #fff; font-variant-numeric: tabular-nums; }
     .qx-island { position: absolute; top: 11px; left: 50%; width: 98px; height: 29px; margin-left: -49px; border-radius: 20px; background: #000;
       box-shadow: inset 0 0 0 1px rgba(255,255,255,.03); }
     .qx-island::after { content: ""; position: absolute; top: 9px; right: 18px; width: 11px; height: 11px; border-radius: 50%;
       background: radial-gradient(circle at 35% 35%, #1d2a44, #05070c 70%); box-shadow: 0 0 0 1.5px #0b0b0d; }
-    .qx-sys { display: inline-flex; align-items: center; gap: 6px; color: #fff; }
-    .qx-cell { width: 18px; height: 12px; fill: currentColor; }
-    .qx-wifi { width: 16px; height: 12px; fill: currentColor; }
-    .qx-batt { position: relative; width: 25px; height: 12px; margin-right: 3px; border-radius: 4px; border: 1.2px solid rgba(255,255,255,.4); padding: 1.5px; }
-    .qx-batt i { display: block; width: 82%; height: 100%; border-radius: 2px; background: #fff; }
-    .qx-batt::after { content: ""; position: absolute; top: 3px; right: -4px; width: 2px; height: 4.5px; border-radius: 0 2px 2px 0; background: rgba(255,255,255,.45); }
+    /* Barra de estado como la de iOS: señal de 4 barras, wifi de tres sectores y batería con su tapa */
+    .qx-sys { display: inline-flex; align-items: center; gap: 5px; color: #fff; }
+    .qx-cell { width: 17px; height: 11px; fill: currentColor; }
+    .qx-wifi { width: 16px; height: 11.5px; fill: currentColor; }
+    .qx-batt { width: 25px; height: 12px; fill: currentColor; margin-left: 1px; }
     .qx-home { position: absolute; z-index: 4; bottom: 8px; left: 50%; width: 118px; height: 4.5px; margin-left: -59px; border-radius: 3px; background: rgba(255,255,255,.88); }
 
     /* Pantallas: entran de lado con fundido (solo transform y opacidad) */
@@ -2509,9 +2508,9 @@
                 <span class="qx-time">9:41</span>
                 <span class="qx-island"></span>
                 <span class="qx-sys">
-                  <svg class="qx-cell" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx=".8"/><rect x="5" y="5.5" width="3" height="6.5" rx=".8"/><rect x="10" y="3" width="3" height="9" rx=".8"/><rect x="15" y="0" width="3" height="12" rx=".8"/></svg>
-                  <svg class="qx-wifi" viewBox="0 0 16 12"><path d="M8 2.2c2.4 0 4.6.9 6.2 2.5l1.3-1.3A10.5 10.5 0 0 0 8 .3 10.5 10.5 0 0 0 .5 3.4l1.3 1.3A8.7 8.7 0 0 1 8 2.2Z"/><path d="M8 5.6c1.5 0 2.8.6 3.8 1.5l1.3-1.3A7.2 7.2 0 0 0 8 3.7a7.2 7.2 0 0 0-5.1 2.1l1.3 1.3c1-1 2.3-1.5 3.8-1.5Z"/><path d="M8 9c.6 0 1.1.2 1.5.6L8 11.2 6.5 9.6c.4-.4.9-.6 1.5-.6Z"/></svg>
-                  <span class="qx-batt"><i></i></span>
+                  <svg class="qx-cell" viewBox="0 0 18 12"><rect x="0" y="7.3" width="3.2" height="4.7" rx="1"/><rect x="4.8" y="5" width="3.2" height="7" rx="1"/><rect x="9.6" y="2.6" width="3.2" height="9.4" rx="1"/><rect x="14.4" y="0" width="3.2" height="12" rx="1"/></svg>
+                  <svg class="qx-wifi" viewBox="0 0 17 12"><path d="M8.5 2.3c2.4 0 4.6.9 6.3 2.5.1.1.3.1.4 0l1.2-1.2c.1-.1.1-.3 0-.4A11 11 0 0 0 8.5 0 11 11 0 0 0 .6 3.2c-.1.1-.1.3 0 .4l1.2 1.2c.1.1.3.1.4 0A9 9 0 0 1 8.5 2.3Z"/><path d="M8.5 6c1.3 0 2.5.5 3.5 1.4.1.1.3.1.4 0l1.2-1.2c.1-.1.1-.3 0-.4A7.4 7.4 0 0 0 8.5 3.7a7.4 7.4 0 0 0-5.1 2.1c-.1.1-.1.3 0 .4l1.2 1.2c.1.1.3.1.4 0A5.1 5.1 0 0 1 8.5 6Z"/><path d="M10.8 9.1c.1-.1.1-.3 0-.4a3.4 3.4 0 0 0-4.6 0c-.1.1-.1.3 0 .4l2.1 2.1c.1.1.3.1.4 0l2.1-2.1Z"/></svg>
+                  <svg class="qx-batt" viewBox="0 0 27 13"><rect x=".5" y=".5" width="22" height="12" rx="3.8" fill="none" stroke="currentColor" stroke-opacity=".38"/><rect x="2" y="2" width="19" height="9" rx="2.2"/><path d="M24 4.4v4.2c.9-.3 1.5-1.1 1.5-2.1s-.6-1.8-1.5-2.1Z" fill-opacity=".45"/></svg>
                 </span>
               </div>
 
@@ -2729,9 +2728,9 @@
                 <span class="qx-time">9:41</span>
                 <span class="qx-island"></span>
                 <span class="qx-sys">
-                  <svg class="qx-cell" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx=".8"/><rect x="5" y="5.5" width="3" height="6.5" rx=".8"/><rect x="10" y="3" width="3" height="9" rx=".8"/><rect x="15" y="0" width="3" height="12" rx=".8"/></svg>
-                  <svg class="qx-wifi" viewBox="0 0 16 12"><path d="M8 2.2c2.4 0 4.6.9 6.2 2.5l1.3-1.3A10.5 10.5 0 0 0 8 .3 10.5 10.5 0 0 0 .5 3.4l1.3 1.3A8.7 8.7 0 0 1 8 2.2Z"/><path d="M8 5.6c1.5 0 2.8.6 3.8 1.5l1.3-1.3A7.2 7.2 0 0 0 8 3.7a7.2 7.2 0 0 0-5.1 2.1l1.3 1.3c1-1 2.3-1.5 3.8-1.5Z"/><path d="M8 9c.6 0 1.1.2 1.5.6L8 11.2 6.5 9.6c.4-.4.9-.6 1.5-.6Z"/></svg>
-                  <span class="qx-batt"><i></i></span>
+                  <svg class="qx-cell" viewBox="0 0 18 12"><rect x="0" y="7.3" width="3.2" height="4.7" rx="1"/><rect x="4.8" y="5" width="3.2" height="7" rx="1"/><rect x="9.6" y="2.6" width="3.2" height="9.4" rx="1"/><rect x="14.4" y="0" width="3.2" height="12" rx="1"/></svg>
+                  <svg class="qx-wifi" viewBox="0 0 17 12"><path d="M8.5 2.3c2.4 0 4.6.9 6.3 2.5.1.1.3.1.4 0l1.2-1.2c.1-.1.1-.3 0-.4A11 11 0 0 0 8.5 0 11 11 0 0 0 .6 3.2c-.1.1-.1.3 0 .4l1.2 1.2c.1.1.3.1.4 0A9 9 0 0 1 8.5 2.3Z"/><path d="M8.5 6c1.3 0 2.5.5 3.5 1.4.1.1.3.1.4 0l1.2-1.2c.1-.1.1-.3 0-.4A7.4 7.4 0 0 0 8.5 3.7a7.4 7.4 0 0 0-5.1 2.1c-.1.1-.1.3 0 .4l1.2 1.2c.1.1.3.1.4 0A5.1 5.1 0 0 1 8.5 6Z"/><path d="M10.8 9.1c.1-.1.1-.3 0-.4a3.4 3.4 0 0 0-4.6 0c-.1.1-.1.3 0 .4l2.1 2.1c.1.1.3.1.4 0l2.1-2.1Z"/></svg>
+                  <svg class="qx-batt" viewBox="0 0 27 13"><rect x=".5" y=".5" width="22" height="12" rx="3.8" fill="none" stroke="currentColor" stroke-opacity=".38"/><rect x="2" y="2" width="19" height="9" rx="2.2"/><path d="M24 4.4v4.2c.9-.3 1.5-1.1 1.5-2.1s-.6-1.8-1.5-2.1Z" fill-opacity=".45"/></svg>
                 </span>
               </div>
               <article class="qx-slide is-on" aria-label="Ranking del mes">
@@ -2878,9 +2877,9 @@
                 <span class="qx-time">9:41</span>
                 <span class="qx-island"></span>
                 <span class="qx-sys">
-                  <svg class="qx-cell" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx=".8"/><rect x="5" y="5.5" width="3" height="6.5" rx=".8"/><rect x="10" y="3" width="3" height="9" rx=".8"/><rect x="15" y="0" width="3" height="12" rx=".8"/></svg>
-                  <svg class="qx-wifi" viewBox="0 0 16 12"><path d="M8 2.2c2.4 0 4.6.9 6.2 2.5l1.3-1.3A10.5 10.5 0 0 0 8 .3 10.5 10.5 0 0 0 .5 3.4l1.3 1.3A8.7 8.7 0 0 1 8 2.2Z"/><path d="M8 5.6c1.5 0 2.8.6 3.8 1.5l1.3-1.3A7.2 7.2 0 0 0 8 3.7a7.2 7.2 0 0 0-5.1 2.1l1.3 1.3c1-1 2.3-1.5 3.8-1.5Z"/><path d="M8 9c.6 0 1.1.2 1.5.6L8 11.2 6.5 9.6c.4-.4.9-.6 1.5-.6Z"/></svg>
-                  <span class="qx-batt"><i></i></span>
+                  <svg class="qx-cell" viewBox="0 0 18 12"><rect x="0" y="7.3" width="3.2" height="4.7" rx="1"/><rect x="4.8" y="5" width="3.2" height="7" rx="1"/><rect x="9.6" y="2.6" width="3.2" height="9.4" rx="1"/><rect x="14.4" y="0" width="3.2" height="12" rx="1"/></svg>
+                  <svg class="qx-wifi" viewBox="0 0 17 12"><path d="M8.5 2.3c2.4 0 4.6.9 6.3 2.5.1.1.3.1.4 0l1.2-1.2c.1-.1.1-.3 0-.4A11 11 0 0 0 8.5 0 11 11 0 0 0 .6 3.2c-.1.1-.1.3 0 .4l1.2 1.2c.1.1.3.1.4 0A9 9 0 0 1 8.5 2.3Z"/><path d="M8.5 6c1.3 0 2.5.5 3.5 1.4.1.1.3.1.4 0l1.2-1.2c.1-.1.1-.3 0-.4A7.4 7.4 0 0 0 8.5 3.7a7.4 7.4 0 0 0-5.1 2.1c-.1.1-.1.3 0 .4l1.2 1.2c.1.1.3.1.4 0A5.1 5.1 0 0 1 8.5 6Z"/><path d="M10.8 9.1c.1-.1.1-.3 0-.4a3.4 3.4 0 0 0-4.6 0c-.1.1-.1.3 0 .4l2.1 2.1c.1.1.3.1.4 0l2.1-2.1Z"/></svg>
+                  <svg class="qx-batt" viewBox="0 0 27 13"><rect x=".5" y=".5" width="22" height="12" rx="3.8" fill="none" stroke="currentColor" stroke-opacity=".38"/><rect x="2" y="2" width="19" height="9" rx="2.2"/><path d="M24 4.4v4.2c.9-.3 1.5-1.1 1.5-2.1s-.6-1.8-1.5-2.1Z" fill-opacity=".45"/></svg>
                 </span>
               </div>
               <div class="qx-slide is-on iax-chat" role="img" aria-label="Ejemplo de conversación con Quiro">
