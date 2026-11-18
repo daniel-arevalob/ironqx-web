@@ -1408,7 +1408,7 @@
     .iax-head + .iax-price { margin-top: 20px; }
     .iax-portrait { position: relative; flex: none; width: 96px; height: 96px; margin: 0; border-radius: 50%; overflow: hidden; isolation: isolate;
       background: radial-gradient(circle at 50% 30%, #2c2619, #0a0a0c 72%); border: 1px solid rgba(226,194,122,.5); box-shadow: 0 0 0 6px rgba(226,194,122,.06), 0 18px 40px -14px rgba(226,194,122,.45); }
-    .iax-portrait img { position: relative; z-index: 1; width: 112%; height: 112%; margin: 6px 0 0 -6%; object-fit: cover; }
+    .iax-portrait img { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; margin: 0; object-fit: contain; }
     .iax-halo { position: absolute; inset: -30%; z-index: 0; background: conic-gradient(from 0deg, transparent, rgba(243,220,147,.35), transparent 30%); animation: iax-halo 6s linear infinite; }
     @keyframes iax-halo { to { transform: rotate(360deg); } }
     @media (min-width: 1024px) { .iax-portrait { width: 116px; height: 116px; } }
@@ -1450,7 +1450,7 @@
     .iax-chat { gap: 8px; }
     .iax-av { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; color: #04140c; background: radial-gradient(circle at 30% 30%, #b6ffdc, #5ee9a6 55%, #1f9e63); box-shadow: 0 0 14px rgba(94,233,166,.45); }
     .iax-av { overflow: hidden; background: radial-gradient(circle at 50% 35%, #2a2418, #0b0b0d 70%) !important; border: 1px solid rgba(226,194,122,.45); box-shadow: 0 0 14px rgba(226,194,122,.3) !important; }
-    .iax-av img { width: 118%; height: 118%; margin-top: 4px; object-fit: cover; }
+    .iax-av img { width: 100%; height: 100%; object-fit: contain; }
     .qa-chat-t b em { margin-left: 4px; padding: 1px 5px; border-radius: 5px; font-style: normal; font-size: 8px; font-weight: 700; letter-spacing: .08em; color: #5ee9a6; background: rgba(94,233,166,.12); vertical-align: 2px; }
     .iax-bal { margin-left: auto; display: inline-flex; align-items: center; gap: 5px; padding: 4px 8px; border-radius: 999px; font-size: 10.5px; font-weight: 700; color: #5ee9a6; background: rgba(94,233,166,.1); border: 1px solid rgba(94,233,166,.25); }
     .iax-bal i { width: 5px; height: 5px; border-radius: 50%; background: #5ee9a6; }
@@ -2788,7 +2788,7 @@
       <div class="iax-grid">
         <div class="iax-copy reveal">
           <div class="iax-head">
-            <figure class="iax-portrait" aria-hidden="true"><span class="iax-halo"></span><img src="images/quiro.svg" alt="" width="144" height="144" loading="lazy" /></figure>
+            <figure class="iax-portrait" aria-hidden="true"><span class="iax-halo"></span><img src="images/quiro.svg?v=2" alt="" width="144" height="144" loading="lazy" /></figure>
             <div>
               <div class="section-label-left">
                 <div class="section-label-line" style="width:28px"></div>
@@ -2872,7 +2872,7 @@
               <div class="qx-slide is-on iax-chat" role="img" aria-label="Ejemplo de conversación con Quiro">
                 <header class="qa-chat-head">
                   <span class="qa-back"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></span>
-                  <span class="iax-av" aria-hidden="true"><img src="images/quiro.svg" alt="" width="144" height="144" /></span>
+                  <span class="iax-av" aria-hidden="true"><img src="images/quiro.svg?v=2" alt="" width="144" height="144" /></span>
                   <span class="qa-chat-t"><b>Quiro <em>IronQx AI</em></b><small>Según tu plan vigente</small></span>
                   <span class="iax-bal"><i></i>7</span>
                 </header>
