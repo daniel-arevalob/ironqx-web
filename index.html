@@ -60,7 +60,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Michroma&display=swap" rel="stylesheet" />
 
   <style>
     @font-face {
@@ -204,8 +204,8 @@
     .hero-gradient { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(212,175,55,0.05) 0%, transparent 50%, rgba(212,175,55,0.03) 100%); pointer-events: none; }
     .hero-grid { position: relative; z-index: 10; min-height: 100vh; min-height: 100dvh; display: grid; grid-template-columns: 1fr; }
     @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 1fr; } }
-    .hero-content { display: flex; flex-direction: column; justify-content: center; padding: 100px 20px 40px; order: 2; }
-    @media (min-width: 640px) { .hero-content { padding: 100px 28px 48px; } }
+    .hero-content { display: flex; flex-direction: column; justify-content: center; padding: 28px 20px 40px; order: 2; }
+    @media (min-width: 640px) { .hero-content { padding: 36px 28px 48px; } }
     @media (min-width: 1024px) { .hero-content { padding: 80px 48px 64px; order: 1; } }
     .hero-label { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
     .hero-label-line { width: 32px; height: 1px; background: var(--gold); }
@@ -233,26 +233,21 @@
     .hero-stat-num { font-size: 1.75rem; font-family: 'Cormorant Garamond', serif; color: var(--gold); }
     .hero-stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
 
-    .hero-visual { position: relative; order: 1; width: 100%; aspect-ratio: 9/16; }
+    .hero-visual { position: relative; order: 1; width: 100%; aspect-ratio: 4/5; max-height: 78svh; }
+    @media (min-width: 640px) and (max-width: 1023px) { .hero-visual { aspect-ratio: 1/1; } }
     @media (min-width: 1024px) { .hero-visual { order: 2; aspect-ratio: auto; min-height: 100vh; max-height: none; } }
     .hero-visual-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, #111, #0a0a0a); }
     .hero-visual-fade { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 75%, var(--bg) 100%); z-index: 10; pointer-events: none; }
     @media (min-width: 1024px) { .hero-visual-fade { background: linear-gradient(to right, var(--bg), transparent 40%), linear-gradient(to bottom, transparent 70%, var(--bg)); } }
     .hero-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 
-    .hero-badge { position: absolute; bottom: 20px; left: 16px; z-index: 20; margin-top: 0; background: rgba(8,8,8,0.92); border: 1px solid rgba(212,175,55,0.4); padding: 16px 20px; backdrop-filter: blur(8px); display: inline-block; min-width: 220px; max-width: 80vw; }
+    .hero-badge { position: absolute; bottom: 20px; left: 16px; z-index: 20; margin: 0; background: rgba(8,8,8,0.92); border: 1px solid rgba(212,175,55,0.4); padding: 16px 20px; backdrop-filter: blur(8px); display: inline-block; min-width: 220px; max-width: 80vw; }
     @media (max-width: 767px) { .hero-badge { bottom: 14px; left: 14px; right: 14px; max-width: none; } }
     @media (min-width: 1024px) { .hero-badge { bottom: 40px; left: 0; padding: 20px 24px; min-width: 260px; max-width: 340px; } }
-    .hero-badge-label { font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.25em; margin-bottom: 8px; opacity: 0.8; }
-    .hero-badge-typewriter { font-size: 1rem; font-family: 'Cormorant Garamond', serif; color: var(--silver); line-height: 1.4; min-height: 2.8em; display: block; }
-    @media (min-width: 640px) { .hero-badge-typewriter { font-size: 1.125rem; } }
-    .hero-mobile-primary { display: none; }
-    @media (max-width: 767px) {
-      .hero-mobile-primary { position: absolute; left: 14px; right: 14px; bottom: 126px; z-index: 24; min-height: 46px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 8px; background: linear-gradient(to right, var(--gold), var(--gold-dk)); color: #050505; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Barlow', sans-serif; box-shadow: 0 18px 42px rgba(0,0,0,0.38); }
-      .hero-mobile-primary svg { width: 15px; height: 15px; }
-    }
-    .badge-cursor { display: inline; color: var(--gold); animation: blink-cursor 0.75s step-end infinite; margin-left: 1px; font-weight: 300; }
-    @keyframes blink-cursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .hero-badge-label { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.22em; margin-bottom: 10px; }
+    .hero-badge-label em { font-style: normal; color: rgba(255,255,255,0.45); letter-spacing: 0.18em; }
+    .hero-badge-quote { margin: 0; padding-left: 12px; border-left: 1px solid rgba(212,175,55,0.55); font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; line-height: 1.38; color: var(--silver); }
+    @media (min-width: 640px) { .hero-badge-quote { font-size: 1.125rem; } }
 
     /* Stats Bar */
     .stats-bar { background: #0c0d0e; border-block: 1px solid rgba(255,255,255,0.09); }
@@ -1040,6 +1035,7 @@
     @media (min-width: 640px) { .back-to-top { bottom: 96px; right: 24px; width: 48px; height: 48px; } }
     .back-to-top:hover { background: var(--gold-lt); transform: scale(1.1); box-shadow: 0 6px 20px rgba(212,175,55,0.5); }
     .back-to-top.show { display: flex; animation: slideInBottom 0.3s ease; }
+    @media (max-width: 767px) { .back-to-top.show { display: none; } }
     .back-to-top svg { width: 20px; height: 20px; color: black; }
     @media (min-width: 640px) { .back-to-top svg { width: 24px; height: 24px; } }
 
@@ -1055,6 +1051,342 @@
       .floating-wa { right: max(20px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom)); }
       .back-to-top { right: max(20px, env(safe-area-inset-right)); }
     }
+
+    /* ==================== APP · MOCKUPS iPHONE ==================== */
+    .qx-app-section { position: relative; overflow: hidden; }
+    .qx-app-section::before { content: ""; position: absolute; inset: -20% -10% auto; height: 70%; pointer-events: none;
+      background: radial-gradient(50% 60% at 70% 40%, rgba(212,175,55,.09), transparent 70%); }
+    .qx-app-head { max-width: 600px; grid-area: head; }
+    .qx-app-head .tech-desc { margin-top: 18px; margin-bottom: 0; }
+    .qx-app-stage { display: grid; gap: 36px; grid-template-areas: "head" "device" "tabs"; }
+    .qx-app-stage > .qx-app-tabs { grid-area: tabs; }
+    .qx-app-stage > .qx-device-wrap { grid-area: device; }
+    @media (min-width: 1024px) { .qx-app-stage { grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto 1fr; grid-template-areas: "head device" "tabs device"; column-gap: 88px; row-gap: 34px; align-items: start; } .qx-app-stage > .qx-device-wrap { align-self: center; } }
+
+    /* Lista de pantallas: cada característica elige su pantalla y una línea marca el avance */
+    .qx-app-tabs { display: grid; gap: 4px; }
+    #tecnologia .qx-tab { margin: 0; }
+    .qx-tab { position: relative; display: grid; grid-template-columns: 2px minmax(0, 1fr); gap: 18px; width: 100%; padding: 16px 18px 16px 0; text-align: left;
+      border-radius: 14px; transition: background .35s ease; -webkit-tap-highlight-color: transparent; }
+    .qx-tab:hover { background: rgba(255,255,255,.02); }
+    .qx-tab:focus-visible { outline: 1px solid rgba(212,175,55,.6); outline-offset: 2px; }
+    .qx-tab-bar { position: relative; width: 2px; border-radius: 2px; background: rgba(255,255,255,.08); overflow: hidden; }
+    .qx-tab-bar i { position: absolute; inset: 0; background: linear-gradient(180deg, var(--gold-lt), var(--gold)); transform: scaleY(0); transform-origin: top; }
+    .qx-tab.is-on .qx-tab-bar i { transform: scaleY(1); }
+    .qx-app-tabs.is-auto .qx-tab.is-on .qx-tab-bar i { transform: scaleY(0); animation: qxTabRun var(--qx-dur, 6s) linear forwards; }
+    @keyframes qxTabRun { to { transform: scaleY(1); } }
+    .qx-tab-copy { display: grid; min-width: 0; }
+    .qx-tab .tech-feat-title { display: block; margin: 0; text-transform: none; font-family: 'Barlow', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: .005em; color: rgba(255,255,255,.5); transition: color .35s ease; }
+    .qx-tab.is-on .tech-feat-title { color: #fff; }
+    #tecnologia .qx-tab .tech-feat-desc { color: rgba(255,255,255,.62); }
+    .qx-tab .tech-feat-desc { display: block; max-height: 0; opacity: 0; overflow: hidden; margin: 0; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.62);
+      transition: max-height .5s cubic-bezier(.2,.8,.2,1), opacity .35s ease, margin .4s ease; }
+    .qx-tab.is-on .tech-feat-desc { max-height: 140px; opacity: 1; margin-top: 8px; }
+
+    /* El teléfono */
+    .qx-device-wrap { position: relative; display: grid; justify-items: center; gap: 22px; }
+    .qx-device-glow { position: absolute; top: 8%; left: 50%; width: 420px; height: 70%; transform: translateX(-50%); pointer-events: none; border-radius: 50%;
+      background: radial-gradient(closest-side, rgba(212,175,55,.22), rgba(212,175,55,.06) 55%, transparent); filter: blur(10px); }
+    .qx-iphone { --qx-w: 300px; position: relative; width: calc(var(--qx-w) + 22px); padding: 11px; border-radius: 56px;
+      background: linear-gradient(150deg, #4a4a4e 0%, #232326 18%, #3b3b3f 46%, #1a1a1c 70%, #36363a 100%);
+      box-shadow: inset 0 0 0 1.2px rgba(255,255,255,.22), inset 0 0 0 4px #0c0c0d, inset 0 1px 2px rgba(255,255,255,.35),
+        0 60px 120px -40px rgba(0,0,0,.9), 0 30px 60px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(0,0,0,.6); }
+    .qx-iphone::before { content: ""; position: absolute; inset: 3px; border-radius: 53px; pointer-events: none; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
+    .qx-btn { position: absolute; width: 4px; border-radius: 2px; background: linear-gradient(90deg, #1b1b1d, #4a4a4e 50%, #222225); }
+    .qx-btn-action { left: -3px; top: 118px; height: 30px; }
+    .qx-btn-up { left: -3px; top: 168px; height: 52px; }
+    .qx-btn-down { left: -3px; top: 232px; height: 52px; }
+    .qx-btn-power { right: -3px; top: 190px; height: 84px; }
+    .qx-screen { position: relative; width: var(--qx-w); height: calc(var(--qx-w) * 2.168); border-radius: 45px; overflow: hidden; isolation: isolate;
+      background: radial-gradient(120% 50% at 50% -10%, #17181d, #0a0b0e 60%); color: #ECEEF5;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Manrope', 'Barlow', sans-serif; font-size: 12px; line-height: 1.3; letter-spacing: 0; }
+    .qx-glare { position: absolute; inset: 11px; border-radius: 45px; pointer-events: none; z-index: 3;
+      background: linear-gradient(115deg, rgba(255,255,255,.07) 0%, rgba(255,255,255,0) 28%, rgba(255,255,255,0) 72%, rgba(255,255,255,.03) 100%); }
+
+    /* Barra de estado de iOS */
+    .qx-status { position: absolute; z-index: 4; inset: 0 0 auto; height: 50px; display: flex; align-items: center; justify-content: space-between; padding: 4px 26px 0 34px; pointer-events: none; }
+    .qx-time { font-size: 15.5px; font-weight: 600; letter-spacing: -.01em; color: #fff; font-variant-numeric: tabular-nums; }
+    .qx-island { position: absolute; top: 11px; left: 50%; width: 98px; height: 29px; margin-left: -49px; border-radius: 20px; background: #000;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.03); }
+    .qx-island::after { content: ""; position: absolute; top: 9px; right: 18px; width: 11px; height: 11px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #1d2a44, #05070c 70%); box-shadow: 0 0 0 1.5px #0b0b0d; }
+    .qx-sys { display: inline-flex; align-items: center; gap: 6px; color: #fff; }
+    .qx-cell { width: 18px; height: 12px; fill: currentColor; }
+    .qx-wifi { width: 16px; height: 12px; fill: currentColor; }
+    .qx-batt { position: relative; width: 25px; height: 12px; margin-right: 3px; border-radius: 4px; border: 1.2px solid rgba(255,255,255,.4); padding: 1.5px; }
+    .qx-batt i { display: block; width: 82%; height: 100%; border-radius: 2px; background: #fff; }
+    .qx-batt::after { content: ""; position: absolute; top: 3px; right: -4px; width: 2px; height: 4.5px; border-radius: 0 2px 2px 0; background: rgba(255,255,255,.45); }
+    .qx-home { position: absolute; z-index: 4; bottom: 8px; left: 50%; width: 118px; height: 4.5px; margin-left: -59px; border-radius: 3px; background: rgba(255,255,255,.88); }
+
+    /* Pantallas: entran de lado con fundido (solo transform y opacidad) */
+    .qx-slide { position: absolute; inset: 50px 0 0; padding: 8px 16px 26px; display: flex; flex-direction: column; gap: 10px;
+      opacity: 0; transform: translateX(26px) scale(.985); pointer-events: none; transition: opacity .45s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
+    .qx-slide.is-on { opacity: 1; transform: none; pointer-events: auto; }
+    .qx-slide.is-prev { transform: translateX(-26px) scale(.985); }
+    .qx-slide svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .qx-slide small { font-size: 10px; color: rgba(236,238,245,.55); }
+    .qx-slide b { font-weight: 700; }
+    .qx-slide h4 { margin: 0; font-family: 'Michroma', 'Barlow', sans-serif; font-weight: 400; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; color: #fff; line-height: 1.2; }
+
+    /* Piezas de la app */
+    .qa-top { display: flex; align-items: center; gap: 10px; padding: 2px 0 4px; }
+    .qa-av { width: 34px; height: 34px; flex-shrink: 0; display: grid; place-items: center; border-radius: 50%; font-size: 11.5px; font-weight: 800; color: #1a1406;
+      background: linear-gradient(140deg, #F2D98A, #C9A84C 60%, #8D7224); }
+    .qa-av.is-dr { color: #E8C25A; background: #16171c; box-shadow: inset 0 0 0 1px rgba(232,194,90,.4); }
+    .qa-hello { flex: 1; display: grid; }
+    .qa-hello b { font-size: 15px; letter-spacing: -.01em; }
+    .qa-bell { position: relative; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.07); }
+    .qa-bell svg { width: 16px; height: 16px; }
+    .qa-bell i { position: absolute; top: 7px; right: 8px; width: 7px; height: 7px; border-radius: 50%; background: #E8C25A; box-shadow: 0 0 0 2px #121318; }
+    .qa-day, .qa-ex, .qa-weight, .qa-meal, .qa-nutri, .qa-gauge { position: relative; padding: 14px; border-radius: 20px; overflow: hidden;
+      background: linear-gradient(170deg, #17181d, #0e0f13); border: 1px solid rgba(201,168,76,.2); box-shadow: inset 0 1px 0 rgba(255,255,255,.05); }
+    .qa-day { display: flex; align-items: center; gap: 12px; background: radial-gradient(90% 120% at 100% 0, rgba(201,168,76,.2), transparent 60%), linear-gradient(170deg, #17181d, #0e0f13); }
+    .qa-day-copy { flex: 1; display: grid; gap: 4px; }
+    .qa-day-copy small { color: #E8C25A; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 9px; }
+    .qa-day-copy p { margin: 0; font-size: 11px; color: rgba(236,238,245,.62); line-height: 1.4; }
+    .qa-ring { position: relative; width: 66px; height: 66px; flex-shrink: 0; display: grid; place-items: center; }
+    .qa-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); stroke-width: 6; }
+    .qa-ring circle { fill: none; stroke: rgba(255,255,255,.08); }
+    .qa-ring circle.is-fg { stroke: #E8C25A; stroke-dasharray: 100; stroke-dashoffset: calc(100 - var(--p)); stroke-linecap: round; }
+    .qa-ring b { position: relative; display: grid; justify-items: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 20px; line-height: 1; color: #fff; }
+    .qa-ring b small { font-family: 'Barlow', sans-serif; font-size: 8.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+    .qa-row { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 16px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.06); }
+    .qa-ic { width: 32px; height: 32px; flex-shrink: 0; display: grid; place-items: center; border-radius: 11px; }
+    .qa-ic svg { width: 16px; height: 16px; }
+    .qa-ic.is-gold { color: #E8C25A; background: rgba(232,194,90,.12); }
+    .qa-ic.is-green { color: #4ade80; background: rgba(74,222,128,.12); }
+    .qa-row-t { flex: 1; min-width: 0; display: grid; gap: 3px; }
+    .qa-row-t b { font-size: 12px; }
+    .qa-chip { padding: 5px 10px; border-radius: 999px; font-size: 10px; font-weight: 800; color: #1a1406; background: linear-gradient(140deg, #F2D98A, #C9A84C); }
+    .qa-row-k { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; color: #E8C25A; }
+    .qa-meals { display: flex; gap: 5px; }
+    .qa-meals i { width: 22px; height: 5px; border-radius: 3px; background: rgba(255,255,255,.1); }
+    .qa-meals i.is-done { background: #4ade80; }
+    .qa-meals i.is-now { background: #E8C25A; box-shadow: 0 0 8px rgba(232,194,90,.6); }
+    .qa-week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+    .qa-week span { display: grid; justify-items: center; gap: 3px; padding: 7px 0 6px; border-radius: 12px; background: color-mix(in srgb, var(--c, #666) 9%, #111216); border: 1px solid color-mix(in srgb, var(--c, #666) 26%, transparent); }
+    .qa-week small { font-size: 8.5px; }
+    .qa-week b { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; line-height: 1; color: var(--c, rgba(255,255,255,.4)); }
+    .qa-week i { width: 4px; height: 4px; border-radius: 50%; background: transparent; }
+    .qa-week i.is-done { background: #4ade80; }
+    .qa-week .is-today { border-color: #E8C25A; box-shadow: 0 0 12px rgba(232,194,90,.35); }
+    .qa-week .is-rest { background: transparent; border-style: dashed; border-color: rgba(255,255,255,.12); }
+    .qa-points { display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 16px; background: linear-gradient(120deg, rgba(232,194,90,.14), rgba(232,194,90,.03)); border: 1px solid rgba(232,194,90,.22); }
+    .qa-points > span:nth-child(2) { flex: 1; display: grid; }
+    .qa-points b { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; color: #F2D98A; line-height: 1; }
+    .qa-points-ic { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 10px; color: #1a1406; background: #E8C25A; }
+    .qa-points-ic svg { width: 15px; height: 15px; }
+    .qa-points-rank { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 20px; color: #fff; }
+    .qa-tabbar { margin-top: auto; display: grid; grid-template-columns: repeat(4, 1fr); padding: 7px; border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.04)); border: 1px solid rgba(255,255,255,.1); box-shadow: 0 10px 24px rgba(0,0,0,.4); }
+    .qa-tabbar span { display: grid; justify-items: center; gap: 2px; padding: 5px 0; border-radius: 15px; font-size: 9px; font-weight: 600; color: rgba(236,238,245,.5); }
+    .qa-tabbar span.is-on { color: #E8C25A; background: rgba(232,194,90,.12); }
+    .qa-tabbar svg { width: 17px; height: 17px; }
+
+    .qa-bar { display: flex; align-items: center; gap: 10px; }
+    .qa-back { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 11px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); }
+    .qa-back svg { width: 16px; height: 16px; }
+    .qa-bar-t { flex: 1; display: grid; }
+    .qa-bar-t small { color: #E8C25A; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 8.5px; }
+    .qa-bar-t b { font-family: 'Michroma', sans-serif; font-weight: 400; font-size: 14px; letter-spacing: .06em; }
+    .qa-clock { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; background: rgba(255,255,255,.06); }
+    .qa-clock i { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 0 3px rgba(74,222,128,.2); }
+    .qa-segs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+    .qa-segs i { height: 3px; border-radius: 2px; background: rgba(255,255,255,.1); }
+    .qa-segs i.is-done { background: #E8C25A; }
+    .qa-segs i.is-now { background: linear-gradient(90deg, #E8C25A 40%, rgba(255,255,255,.1) 40%); }
+    .qa-ex { display: grid; gap: 4px; }
+    .qa-ex > small { color: #E8C25A; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 8.5px; }
+    .qa-ex p { margin: 0; font-size: 11px; color: rgba(236,238,245,.55); }
+    .qa-target { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 8px; }
+    .qa-target span { display: grid; justify-items: center; gap: 2px; padding: 7px 2px; border-radius: 12px; background: rgba(0,0,0,.3); border: 1px solid rgba(255,255,255,.06); }
+    .qa-target b { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; line-height: 1; }
+    .qa-sets { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+    .qa-sets li { display: grid; grid-template-columns: 22px 1fr 1fr 1fr 22px; align-items: center; gap: 6px; padding: 9px 10px; border-radius: 14px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.06); }
+    .qa-sets li b { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; }
+    .qa-sets li b small { font-family: 'Barlow', sans-serif; font-size: 9px; }
+    .qa-sets li.is-done { background: rgba(74,222,128,.07); border-color: rgba(74,222,128,.2); }
+    .qa-sets li.is-now { border-color: rgba(232,194,90,.55); box-shadow: 0 0 0 3px rgba(232,194,90,.1); }
+    .qa-sets b.is-field { color: rgba(236,238,245,.4); }
+    .qa-n { width: 22px; height: 22px; display: grid; place-items: center; border-radius: 8px; font-size: 10.5px; font-weight: 800; background: rgba(255,255,255,.07); }
+    .qa-ok { width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; color: #0b0c0f; background: #4ade80; }
+    .qa-sets li.is-now .qa-ok { background: none; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.25); }
+    .qa-ok svg { width: 13px; height: 13px; stroke-width: 3; }
+    .qa-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .qa-actions span { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 6px; border-radius: 13px; font-size: 10.5px; font-weight: 700; color: rgba(236,238,245,.85); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); }
+    .qa-actions svg { width: 14px; height: 14px; color: #E8C25A; }
+    .qa-row.is-next { padding: 9px 12px; }
+    .qa-rest { margin-top: auto; display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 20px; background: linear-gradient(120deg, rgba(232,194,90,.16), rgba(232,194,90,.04)); border: 1px solid rgba(232,194,90,.28); }
+    .qa-ring.is-rest { width: 58px; height: 58px; }
+    .qa-rest-t { flex: 1; display: grid; gap: 3px; }
+    .qa-rest-t > small { color: #E8C25A; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 8.5px; }
+    .qa-rest-t > span { display: flex; gap: 5px; margin-top: 3px; }
+    .qa-rest-t i { padding: 4px 8px; border-radius: 9px; font-style: normal; font-size: 10px; font-weight: 700; background: rgba(255,255,255,.07); }
+    .qa-rest-t i.is-skip { color: #1a1406; background: #E8C25A; }
+
+    .qa-title { display: grid; gap: 3px; padding: 4px 0 2px; }
+    .qa-title small { color: #E8C25A; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 8.5px; }
+    .qa-weight { display: grid; gap: 6px; padding-bottom: 0; }
+    .qa-weight > div { display: flex; align-items: baseline; gap: 8px; }
+    .qa-weight > div b { font-family: 'Barlow Condensed', sans-serif; font-size: 30px; line-height: 1; }
+    .qa-weight > div b small { font-size: 12px; }
+    .qa-delta { margin-left: auto; padding: 3px 8px; border-radius: 999px; font-size: 10px; font-weight: 800; color: #E8C25A; background: rgba(232,194,90,.12); }
+    .qa-spark { width: calc(100% + 28px); height: 70px; margin: 0 -14px; display: block; }
+    .qa-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .qa-tiles span { display: grid; gap: 3px; padding: 10px; border-radius: 14px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.06); }
+    .qa-tiles b { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; line-height: 1; }
+    .qa-tiles b small { font-size: 10px; }
+    .qa-photos { display: grid; gap: 7px; }
+    .qa-photos > div { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .qa-ph { position: relative; aspect-ratio: 3 / 4; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); }
+    .qa-ph.a { background: radial-gradient(30% 22% at 50% 30%, #3a3631, transparent 70%), radial-gradient(40% 46% at 50% 72%, #2d2a26, transparent 72%), linear-gradient(180deg, #1c1d22, #121317); }
+    .qa-ph.b { background: radial-gradient(28% 22% at 50% 30%, #4a4237, transparent 70%), radial-gradient(34% 44% at 50% 72%, #3a3329, transparent 72%), linear-gradient(180deg, #1f2025, #131418); }
+    .qa-ph.c { display: grid; place-items: center; background: rgba(255,255,255,.03); border-style: dashed; color: #E8C25A; font-size: 22px; font-weight: 300; }
+    .qa-ph em { position: absolute; left: 6px; bottom: 6px; padding: 2px 6px; border-radius: 6px; font-style: normal; font-size: 8.5px; font-weight: 700; color: #fff; background: rgba(0,0,0,.55); }
+    .qa-adh { display: grid; gap: 10px; padding: 12px 14px; border-radius: 18px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.06); }
+    .qa-adh-h { display: flex; justify-content: space-between; align-items: baseline; }
+    .qa-adh-h small { color: #E8C25A; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 8.5px; }
+    .qa-adh-h b { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; line-height: 1; }
+    .qa-bars { display: grid; grid-template-columns: repeat(6, 1fr); gap: 7px; align-items: end; height: 54px; }
+    .qa-bars i { height: var(--h); border-radius: 6px 6px 3px 3px; background: linear-gradient(180deg, rgba(232,194,90,.55), rgba(232,194,90,.15)); }
+    .qa-bars i.is-now { background: linear-gradient(180deg, #F2D98A, #C9A84C); box-shadow: 0 0 12px rgba(232,194,90,.4); }
+    .qa-note { margin: auto 0 0; font-size: 9.5px; color: rgba(236,238,245,.4); text-align: center; }
+
+    .qa-nutri { display: flex; align-items: center; gap: 12px; }
+    .qa-ring.is-kcal { width: 84px; height: 84px; }
+    .qa-ring.is-kcal b { font-size: 22px; }
+    .qa-macros { flex: 1; display: grid; gap: 7px; }
+    .qa-macros span { display: grid; grid-template-columns: 1fr auto; gap: 3px 6px; }
+    .qa-macros b { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; }
+    .qa-macros i { grid-column: 1 / -1; position: relative; height: 4px; border-radius: 3px; background: rgba(255,255,255,.08); overflow: hidden; }
+    .qa-macros i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w); border-radius: inherit; }
+    .qa-macros .p i::after { background: #4ade80; } .qa-macros .c i::after { background: #60a5fa; } .qa-macros .g i::after { background: #E8C25A; }
+    .qa-meal { display: grid; gap: 6px; }
+    .qa-meal > small { color: #E8C25A; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 8.5px; }
+    .qa-meal ul { display: grid; gap: 5px; margin: 2px 0 0; padding: 0; list-style: none; }
+    .qa-meal li { display: flex; justify-content: space-between; font-size: 11.5px; color: rgba(236,238,245,.82); }
+    .qa-meal li b { font-family: 'Barlow Condensed', sans-serif; font-size: 13.5px; color: #fff; }
+    .qa-photo-ok { display: flex; align-items: center; gap: 9px; margin-top: 4px; padding: 8px; border-radius: 13px; background: rgba(74,222,128,.08); border: 1px solid rgba(74,222,128,.2); }
+    .qa-photo-ok > span:nth-child(2) { flex: 1; display: grid; }
+    .qa-photo-ok b { font-size: 11px; }
+    .qa-photo-ok svg { width: 16px; height: 16px; color: #4ade80; stroke-width: 3; }
+    .qa-plate { width: 30px; height: 30px; border-radius: 9px; background: radial-gradient(circle at 40% 40%, #e9e1cf 0 22%, #c58b4c 23% 34%, #6b8f3a 35% 48%, #f4f1ea 49% 62%, #2a2b30 63%); }
+    .qa-rail { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+    .qa-rail span { display: grid; gap: 2px; padding: 7px 6px; border-radius: 12px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.06); }
+    .qa-rail b { font-size: 9.5px; line-height: 1.15; }
+    .qa-rail small { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; }
+    .qa-rail .is-done { border-color: rgba(74,222,128,.28); }
+    .qa-rail .is-done small { color: #4ade80; }
+    .qa-rail .is-now { border-color: #E8C25A; background: rgba(232,194,90,.12); }
+    .qa-rail .is-now small { color: #E8C25A; }
+    .qa-report { display: grid; gap: 7px; padding: 12px 14px; border-radius: 18px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.06); }
+    .qa-report > small { color: #E8C25A; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 8.5px; }
+    .qa-report div { display: grid; grid-template-columns: 1fr repeat(5, 14px); gap: 5px; align-items: center; font-size: 11px; }
+    .qa-report i { height: 6px; border-radius: 3px; background: rgba(255,255,255,.1); }
+    .qa-report i.on { background: #E8C25A; }
+
+    .qa-chat-head { display: flex; align-items: center; gap: 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .qa-chat-t { display: grid; }
+    .qa-chat-t b { font-size: 13px; }
+    .qa-msgs { flex: 1; display: flex; flex-direction: column; gap: 8px; padding-top: 4px; }
+    .qa-day-pill { align-self: center; padding: 3px 10px; border-radius: 999px; font-size: 9.5px; font-weight: 700; color: rgba(236,238,245,.55); background: rgba(255,255,255,.05); }
+    .qa-msg { position: relative; max-width: 84%; margin: 0; padding: 9px 12px 18px; border-radius: 18px; font-size: 12px; line-height: 1.4; }
+    .qa-msg small { position: absolute; right: 10px; bottom: 5px; font-size: 8.5px; }
+    .qa-msg.me { align-self: flex-end; color: #1a1406; background: linear-gradient(140deg, #F2D98A, #D8B65A); border-bottom-right-radius: 6px; }
+    .qa-msg.me small { color: rgba(26,20,6,.55); }
+    .qa-msg.dr { align-self: flex-start; background: #1b1c22; border: 1px solid rgba(255,255,255,.07); border-bottom-left-radius: 6px; }
+    .qa-msg.is-photo { padding-top: 5px; }
+    .qa-msg-photo { display: block; width: 168px; height: 104px; margin: 0 -7px 7px; border-radius: 14px;
+      background: radial-gradient(circle at 34% 46%, #e9dfc6 0 13%, transparent 14%), radial-gradient(circle at 60% 40%, #c27f3f 0 15%, transparent 16%), radial-gradient(circle at 52% 66%, #5f8a34 0 18%, transparent 19%), radial-gradient(circle at 50% 52%, #f3efe6 0 44%, #d9d3c6 45% 47%, transparent 48%), linear-gradient(140deg, #6a4a2c, #3b2a1a); }
+    .qa-input { display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 14px; border-radius: 22px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); }
+    .qa-input span { flex: 1; font-size: 11.5px; color: rgba(236,238,245,.4); }
+    .qa-input i { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; color: #1a1406; background: #E8C25A; }
+    .qa-input svg { width: 15px; height: 15px; stroke-width: 2.6; }
+
+    .qa-gauge { display: flex; align-items: center; gap: 12px; }
+    .qa-ring.is-level { width: 80px; height: 80px; }
+    .qa-ring.is-level b { font-size: 19px; }
+    .qa-gauge-t { display: grid; gap: 3px; }
+    .qa-gauge-t > b { font-family: 'Michroma', sans-serif; font-weight: 400; font-size: 14px; letter-spacing: .05em; text-transform: uppercase; color: #E8C25A; }
+    .qa-gauge-t span { font-size: 10.5px; color: rgba(236,238,245,.6); }
+    .qa-gauge-t em { color: #fff; font-style: normal; font-weight: 700; }
+    .qa-podium { display: grid; grid-template-columns: 1fr 1.1fr 1fr; align-items: end; gap: 6px; padding-top: 8px; }
+    .qa-podium span { position: relative; display: grid; justify-items: center; gap: 4px; padding: 10px 4px 8px; border-radius: 16px 16px 10px 10px;
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.08); }
+    .qa-podium span.p1 { padding-top: 22px; background: linear-gradient(180deg, rgba(232,194,90,.22), rgba(232,194,90,.03)); border-color: rgba(232,194,90,.4); }
+    .qa-podium span > svg { position: absolute; top: -10px; width: 20px; height: 20px; color: #E8C25A; fill: rgba(232,194,90,.25); }
+    .qa-podium i { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; font-style: normal; font-size: 11px; font-weight: 800; background: #24252c; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.12); }
+    .qa-podium .p1 i { width: 40px; height: 40px; color: #1a1406; background: linear-gradient(140deg, #F2D98A, #C9A84C); box-shadow: 0 0 16px rgba(232,194,90,.45); }
+    .qa-podium b { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; line-height: 1; }
+    .qa-you { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 15px; background: rgba(255,255,255,.04); border: 1px solid rgba(232,194,90,.3); }
+    .qa-you > span:last-child { display: grid; }
+    .qa-you .qa-av { width: 28px; height: 28px; font-size: 10px; }
+    .qa-split { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+    .qa-split span { display: grid; justify-items: center; gap: 1px; padding: 7px 2px; border-radius: 12px; background: rgba(255,255,255,.035); border-top: 2px solid; }
+    .qa-split b { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; line-height: 1; }
+    .qa-split small { font-size: 8.5px; }
+    .qa-split .t { border-color: #E8C25A; } .qa-split .n { border-color: #4ade80; } .qa-split .o { border-color: #60a5fa; } .qa-split .i { border-color: #f472b6; }
+    .qa-prize-banner { margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 16px; color: #1a1406;
+      background: linear-gradient(120deg, #F2D98A, #C9A84C 60%, #A38530); box-shadow: 0 10px 26px rgba(201,168,76,.35); }
+    .qa-prize-banner svg { width: 22px; height: 22px; stroke-width: 1.8; }
+    .qa-prize-banner span { display: grid; }
+    .qa-prize-banner small { color: rgba(26,20,6,.65); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; font-size: 8.5px; }
+    .qa-prize-banner b { font-size: 13px; }
+
+    .qx-dots { display: flex; gap: 8px; }
+    .qx-dots button { width: 7px; height: 7px; padding: 0; border-radius: 4px; background: rgba(255,255,255,.2); transition: width .35s cubic-bezier(.2,.8,.2,1), background .3s ease; }
+    .qx-dots button.is-on { width: 22px; background: var(--gold); }
+    .qx-mock-note { margin: -8px 0 0; font-size: 11px; color: rgba(255,255,255,.35); letter-spacing: .02em; }
+
+    /* Acceso a la app, en una línea */
+    .qx-app-access { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 18px 22px; margin-top: 64px; padding: 22px 24px; border-radius: 22px;
+      background: linear-gradient(120deg, rgba(212,175,55,.08), rgba(255,255,255,.02)); border: 1px solid rgba(212,175,55,.18); }
+    .qx-app-access .app-logo { width: 58px; height: 58px; margin: 0; }
+    .qx-app-access .app-title { margin: 0; font-size: 1.6rem; }
+    .qx-app-access .app-subtitle { margin: 2px 0 6px; }
+    .qx-app-access .app-access-note { margin: 0; text-align: left; }
+    .qx-app-access .app-access-btn { grid-column: 1 / -1; justify-self: stretch; }
+    @media (min-width: 768px) { .qx-app-access { grid-template-columns: auto minmax(0, 1fr) auto; } .qx-app-access .app-access-btn { grid-column: auto; justify-self: end; } }
+
+    /* ==================== PREMIOS ==================== */
+    .qx-prize-section { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--bg), #0b0a06 50%, var(--bg)); }
+    .qx-prize-section::before { content: ""; position: absolute; left: -10%; top: 20%; width: 60%; height: 70%; pointer-events: none;
+      background: radial-gradient(closest-side, rgba(212,175,55,.1), transparent); }
+    .qx-prize-grid { position: relative; display: grid; gap: 48px; align-items: center; }
+    @media (min-width: 1024px) { .qx-prize-grid { grid-template-columns: auto minmax(0, 1fr); gap: 84px; } }
+    .qx-prize-copy { order: -1; }
+    @media (min-width: 1024px) { .qx-prize-copy { order: 0; } }
+    .qx-prize-lead { margin-top: 18px; max-width: 560px; color: rgba(255,255,255,.66); font-size: 1.02rem; line-height: 1.75; }
+    .qx-prizes { display: grid; gap: 10px; margin: 30px 0 0; padding: 0; list-style: none; }
+    .qx-prizes li { display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 16px; padding: 16px 18px; border-radius: 18px;
+      background: linear-gradient(120deg, rgba(255,255,255,.04), rgba(255,255,255,.01)); border: 1px solid rgba(255,255,255,.07); }
+    .qx-prizes li.is-1 { background: linear-gradient(120deg, rgba(212,175,55,.18), rgba(212,175,55,.03)); border-color: rgba(212,175,55,.38); box-shadow: 0 20px 50px -30px rgba(212,175,55,.6); }
+    .qx-place { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 600; line-height: 1; color: rgba(255,255,255,.55); }
+    .qx-prizes li.is-1 .qx-place { background: linear-gradient(160deg, var(--gold-lt), var(--gold) 55%, var(--gold-dk)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .qx-place sup { font-size: .42em; vertical-align: top; position: relative; top: .25em; margin-left: 1px; }
+    .qx-prizes li > span:last-child { display: grid; gap: 2px; }
+    .qx-prizes b { font-size: 1.05rem; font-weight: 600; color: #fff; }
+    .qx-prizes small { color: rgba(255,255,255,.55); font-size: .88rem; }
+    .qx-earn { margin-top: 28px; }
+    .qx-earn-h { display: block; margin-bottom: 12px; font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+    .qx-earn ul { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    @media (min-width: 640px) { .qx-earn ul { grid-template-columns: 1fr 1fr; } }
+    .qx-earn li { display: grid; grid-template-columns: 10px auto 1fr; align-items: baseline; gap: 8px; font-size: .92rem; color: rgba(255,255,255,.6); }
+    .qx-earn li b { color: #fff; font-weight: 600; }
+    .qx-earn li i { width: 8px; height: 8px; border-radius: 50%; align-self: center; }
+    .qx-earn i.t { background: #E8C25A; } .qx-earn i.n { background: #4ade80; } .qx-earn i.o { background: #60a5fa; } .qx-earn i.i { background: #f472b6; }
+    .qx-levels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 28px; }
+    .qx-levels span { position: relative; padding-top: 12px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+    .qx-levels span::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; border-radius: 2px; background: rgba(255,255,255,.1); }
+    .qx-levels span:nth-child(1)::before { background: #9AA6BA; } .qx-levels span:nth-child(2)::before { background: #4F8DFF; }
+    .qx-levels span:nth-child(3)::before { background: #A574F2; } .qx-levels span.is-top::before { background: linear-gradient(90deg, #E8C25A, #F2D98A); }
+    .qx-levels span.is-top { color: var(--gold-lt); }
+    .qx-prize-fine { margin-top: 24px; max-width: 560px; font-size: .85rem; line-height: 1.6; color: rgba(255,255,255,.42); }
+
+    @media (min-width: 1024px) { .qx-device-wrap .qx-iphone { transform: perspective(1600px) rotateY(-7deg) rotateX(2deg); } .qx-device-wrap.is-ranking .qx-iphone { transform: perspective(1600px) rotateY(7deg) rotateX(2deg); } }
+    @media (max-width: 380px) { .qx-iphone { --qx-w: 270px; } }
+    @media (prefers-reduced-motion: reduce) { .qx-slide, .qx-tab-bar i, .qx-dots button { transition: none; animation: none !important; } }
+
   </style>
 </head>
 <body>
@@ -1070,9 +1402,9 @@
       <div class="nav-links" id="navLinks">
         <button class="nav-link" data-section="consulta">Consulta</button>
         <button class="nav-link" data-section="planes">Protocolos</button>
-        <button class="nav-link" data-section="autoridad">Autoridad</button>
         <button class="nav-link" data-section="metodologia">Método</button>
-        <button class="nav-link" data-section="tecnologia">Tecnología</button>
+        <button class="nav-link" data-section="tecnologia">App</button>
+        <button class="nav-link" data-section="premios">Premios</button>
         <button class="nav-link" data-section="ia-bot">IronQx AI</button>
         <button class="nav-link" data-section="contacto">Contacto</button>
       </div>
@@ -1137,13 +1469,21 @@
         <button class="mobile-link touch-scale" data-section="tecnologia">
           <span class="mobile-link-index">05</span>
           <span>
-            <span class="mobile-link-title">Tecnología</span>
-            <span class="mobile-link-desc">App, seguimiento y reportes</span>
+            <span class="mobile-link-title">App</span>
+            <span class="mobile-link-desc">Tu plan, tu progreso y el chat conmigo</span>
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="mobile-link touch-scale" data-section="premios">
+          <span class="mobile-link-index">06</span>
+          <span>
+            <span class="mobile-link-title">Premios</span>
+            <span class="mobile-link-desc">La constancia del mes tiene recompensa</span>
           </span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
         <button class="mobile-link touch-scale" data-section="ia-bot">
-          <span class="mobile-link-index">06</span>
+          <span class="mobile-link-index">07</span>
           <span>
             <span class="mobile-link-title">IronQx AI</span>
             <span class="mobile-link-desc">Tu plan, alternativas y VISION</span>
@@ -1151,7 +1491,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
         <button class="mobile-link touch-scale" data-section="contacto">
-          <span class="mobile-link-index">07</span>
+          <span class="mobile-link-index">08</span>
           <span>
             <span class="mobile-link-title">Contacto</span>
             <span class="mobile-link-desc">Consulta o protocolo por WhatsApp</span>
@@ -1226,14 +1566,10 @@
         <div class="hero-visual-bg"></div>
         <div class="hero-visual-fade"></div>
         <img src="images/hero-main.jpeg" alt="Dr. Daniel Arévalo - Médico y atleta" loading="eager" fetchpriority="high" width="896" height="1592" />
-        <div class="hero-badge reveal stagger-2" id="heroBadge">
-          <div class="hero-badge-label">Hola! Soy el Dr. Daniel Arévalo</div>
-          <div class="hero-badge-typewriter" id="badgeTypewriter"><span id="badgeText"></span><span class="badge-cursor">|</span></div>
-        </div>
-        <a href="https://wa.me/593963252197?text=Hola,%20quiero%20agendar%20una%20consulta%20medica%20con%20el%20Dr.%20Daniel%20Arevalo.%20Me%20interesa%20orientacion%20sobre%20metabolismo,%20composicion%20corporal%20o%20rendimiento." target="_blank" rel="noopener noreferrer" class="hero-mobile-primary touch-scale">
-          Agendar consulta médica
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
+        <figure class="hero-badge reveal stagger-2" id="heroBadge">
+          <figcaption class="hero-badge-label"><span>Dr. Daniel Arévalo</span><em>Médico y atleta</em></figcaption>
+          <blockquote class="hero-badge-quote">No todo estancamiento se resuelve con más entrenamiento. Consulta puntual o protocolo continuo: primero reviso tu caso.</blockquote>
+        </figure>
       </div>
     </div>
   </section>
@@ -1286,301 +1622,6 @@
           <div class="authority-proof">
             <strong>Biomecánica del Ejercicio</strong>
             <span>Especialización por la IFBB</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Calculadora -->
-  <section id="calculadora" class="section calculadora">
-    <div class="calculadora-gradient"></div>
-    <div class="section-inner" style="position:relative;z-index:10">
-      <div class="section-header reveal">
-        <div class="section-label">
-          <div class="section-label-line"></div>
-          <span class="section-label-text">Estimación inicial</span>
-          <div class="section-label-line"></div>
-        </div>
-        <h2>Antes de elegir un plan, <em>mide tu punto de partida.</em></h2>
-        <p class="section-desc">
-          Esta calculadora separa actividad cotidiana y entrenamiento para evitar contar dos veces el ejercicio.
-          Obtendrás una estimación inicial que después valido con tu respuesta real.
-        </p>
-      </div>
-
-      <details class="calc-disclosure reveal" id="calcDisclosure">
-        <summary class="calc-disclosure-summary">
-          <span class="calc-disclosure-icon" aria-hidden="true">
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-          </span>
-          <span class="calc-disclosure-copy">
-            <strong>Calculadora científica de punto de partida</strong>
-            <span>Opcional · ábrela solo si quieres estimar calorías y macronutrientes.</span>
-          </span>
-          <span class="calc-toggle-action" aria-hidden="true">
-            <span class="calc-toggle-closed">Abrir</span>
-            <span class="calc-toggle-open">Cerrar</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-          </span>
-        </summary>
-        <div class="calc-disclosure-body">
-          <div class="calc-grid">
-          <div class="calc-card">
-            <div class="calc-card-header">
-              <div class="calc-card-title">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-                Datos para la estimación
-              </div>
-            </div>
-            <form class="calc-card-body" id="calcForm" novalidate>
-              <div class="form-row">
-                <div>
-                  <label class="form-label" for="calcWeight">Peso (kg)</label>
-                  <input type="number" class="form-input" id="calcWeight" placeholder="Ej: 70" inputmode="decimal" step="any" min="30" max="300" required />
-                </div>
-                <div>
-                  <label class="form-label" for="calcHeight">Altura (cm)</label>
-                  <input type="number" class="form-input" id="calcHeight" placeholder="Ej: 170" inputmode="decimal" step="any" min="120" max="230" required />
-                </div>
-              </div>
-              <div class="form-row">
-                <div>
-                  <label class="form-label" for="calcAge">Edad</label>
-                  <input type="number" class="form-input" id="calcAge" placeholder="Ej: 30" inputmode="numeric" min="16" max="90" required />
-                </div>
-                <div>
-                  <label class="form-label" for="calcGender">Sexo biológico</label>
-                  <select class="form-select" id="calcGender">
-                    <option value="male">Hombre</option>
-                    <option value="female">Mujer</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="calcActivity">Actividad cotidiana (sin contar el entrenamiento)</label>
-                <select class="form-select" id="calcActivity" aria-describedby="calcActivityHint">
-                  <option value="1.25" selected>Sedentario · &lt;5.000 pasos</option>
-                  <option value="1.35">Poco activo · 5.000–7.500</option>
-                  <option value="1.45">Activo · 7.500–10.000</option>
-                  <option value="1.60">Muy activo · &gt;10.000 pasos</option>
-                </select>
-                <span class="form-hint" id="calcActivityHint">Pasos de un día normal. Un trabajo físico cuenta como muy activo; el ejercicio se calcula aparte.</span>
-              </div>
-              <div class="form-row">
-                <div>
-                  <label class="form-label" for="calcSessions">Sesiones por semana</label>
-                  <input type="number" class="form-input" id="calcSessions" value="4" inputmode="numeric" min="0" max="14" />
-                </div>
-                <div>
-                  <label class="form-label" for="calcMinutes">Minutos por sesión</label>
-                  <input type="number" class="form-input" id="calcMinutes" value="60" inputmode="numeric" min="0" max="240" />
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="calcIntensity">Intensidad habitual del entrenamiento</label>
-                <select class="form-select" id="calcIntensity" aria-describedby="calcIntensityHint">
-                  <option value="light">Ligera</option>
-                  <option value="moderate" selected>Moderada</option>
-                  <option value="vigorous">Alta</option>
-                </select>
-                <span class="form-hint" id="calcIntensityHint"><strong>Ligera:</strong> movilidad, yoga o caminata. <strong>Moderada:</strong> pesas con descansos completos. <strong>Alta:</strong> circuitos, HIIT o deportes intensos. Si dudas, elige moderada.</span>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="calcGoal">Objetivo</label>
-                <select class="form-select" id="calcGoal">
-                  <option value="lose">Pérdida de grasa</option>
-                  <option value="recomp">Recomposición corporal</option>
-                  <option value="maintain" selected>Mantenimiento</option>
-                  <option value="gain">Ganancia muscular controlada</option>
-                  <option value="performance">Rendimiento</option>
-                  <option value="metabolic">Salud metabólica</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="calcBodyFat">% Grasa Corporal <span class="optional-badge">Opcional</span></label>
-                <input type="number" class="form-input" id="calcBodyFat" placeholder="Ej: 18" inputmode="decimal" step="any" min="3" max="60" aria-describedby="calcBodyFatHint" />
-                <span class="form-hint" id="calcBodyFatHint">Con un dato de InBody o DEXA, la proteína se calcula sobre tu masa magra.</span>
-              </div>
-
-              <div class="calc-method-note">
-                <strong>Cómo calcula IRONQx:</strong> metabolismo basal × actividad cotidiana + costo neto promedio del entrenamiento según su intensidad. El objetivo se aplica como porcentaje, no como una resta o suma fija para todos, y nunca inicia por debajo de tu metabolismo basal.
-              </div>
-
-              <div class="profile-section">
-                <div class="profile-section-label">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                  Perfil de Intervención
-                </div>
-
-                <div class="profile-question">
-                  <span class="profile-question-text">Tengo diagnóstico de alguna patología (diabetes, HTA, dislipidemia, tiroides, etc.)</span>
-                  <label class="toggle-switch">
-                    <input type="checkbox" id="profilePatologia" />
-                    <span class="toggle-slider"></span>
-                  </label>
-                </div>
-
-                <div class="profile-question">
-                  <span class="profile-question-text">Mi objetivo incluye competir en algún deporte o categoría</span>
-                  <label class="toggle-switch">
-                    <input type="checkbox" id="profileCompetir" />
-                    <span class="toggle-slider"></span>
-                  </label>
-                </div>
-
-                <div class="profile-question">
-                  <span class="profile-question-text">Requiero supervisión médica por edad o condición especial</span>
-                  <label class="toggle-switch">
-                    <input type="checkbox" id="profileSupervision" />
-                    <span class="toggle-slider"></span>
-                  </label>
-                </div>
-
-                <div class="profile-question">
-                  <span class="profile-question-text">He tenido seguimiento nutricional previo</span>
-                  <label class="toggle-switch">
-                    <input type="checkbox" id="profileExperiencia" />
-                    <span class="toggle-slider"></span>
-                  </label>
-                </div>
-              </div>
-
-              <p class="calc-form-error" id="calcFormError" role="alert" hidden></p>
-
-              <button type="submit" class="calc-submit btn-lift touch-scale" id="calcBtn" style="margin-top:20px">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-                Calcular punto de partida
-              </button>
-            </form>
-          </div>
-
-          <div class="calc-card results-card results-hidden" id="calcResults" aria-live="polite">
-            <div class="calc-card-header">
-              <div class="calc-card-title">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                Estimación y siguiente paso
-              </div>
-            </div>
-            <div class="calc-card-body">
-              <div class="result-box">
-                <div class="result-row">
-                  <span class="result-label">IMC orientativo</span>
-                  <span class="result-badge" id="bmiBadge">-</span>
-                </div>
-                <div class="result-value gold-text" id="bmiValue">-</div>
-                <div class="bmi-scale" aria-hidden="true">
-                  <div class="bmi-scale-track"></div>
-                  <div class="bmi-marker" id="bmiMarker"></div>
-                </div>
-                <div class="bmi-scale-labels" aria-hidden="true"><span>15</span><span>18,5</span><span>25</span><span>30</span><span>40</span></div>
-              </div>
-
-              <div class="cals-grid">
-                <div class="cal-box">
-                  <div class="cal-box-label">Metabolismo Basal</div>
-                  <div class="cal-box-value" style="color:var(--silver)" id="bmrValue">-</div>
-                  <div class="cal-box-unit">kcal/día</div>
-                </div>
-                <div class="cal-box">
-                  <div class="cal-box-label">Gasto estimado</div>
-                  <div class="cal-box-value" style="color:var(--gold)" id="tdeeValue">-</div>
-                  <div class="cal-box-unit">kcal/día</div>
-                </div>
-                <div class="cal-box" style="grid-column:1 / -1">
-                  <div class="cal-box-label">Entrenamiento añadido al promedio diario</div>
-                  <div class="cal-box-value" style="color:var(--silver)" id="trainingValue">-</div>
-                  <div class="cal-box-unit" id="trainingUnit">kcal netas/día estimadas</div>
-                </div>
-              </div>
-
-              <div class="target-box">
-                <div class="target-header">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
-                  <span id="goalLabel">-</span>
-                </div>
-                <div class="target-value gold-text" id="targetValue">-</div>
-                <div class="target-unit">kcal iniciales por día</div>
-                <p class="calc-safety-note" id="calcSafetyNote" hidden>Ajusté el déficit para no iniciar por debajo de tu metabolismo basal ni de un mínimo seguro. Un déficit mayor solo se plantea con supervisión.</p>
-              </div>
-
-              <div>
-                <div class="macro-section-label">Distribución de Macronutrientes</div>
-                <div class="macro-row">
-                  <div class="macro-row-header">
-                    <span style="color:var(--silver)">Proteínas</span>
-                    <span><span style="color:var(--gold)" id="proteinVal">-</span> <small class="macro-pct" id="proteinPct"></small></span>
-                  </div>
-                  <div class="macro-bar-track">
-                    <div class="macro-bar-fill" id="proteinBar" style="width:0%;background:var(--gold)"></div>
-                  </div>
-                  <div class="macro-note" id="proteinPerKg"></div>
-                </div>
-                <div class="macro-row">
-                  <div class="macro-row-header">
-                    <span style="color:var(--silver)">Carbohidratos</span>
-                    <span><span style="color:var(--silver)" id="carbsVal">-</span> <small class="macro-pct" id="carbsPct"></small></span>
-                  </div>
-                  <div class="macro-bar-track">
-                    <div class="macro-bar-fill" id="carbsBar" style="width:0%;background:var(--silver)"></div>
-                  </div>
-                </div>
-                <div class="macro-row">
-                  <div class="macro-row-header">
-                    <span style="color:var(--silver)">Grasas</span>
-                    <span><span style="color:var(--gold-dk)" id="fatsVal">-</span> <small class="macro-pct" id="fatsPct"></small></span>
-                  </div>
-                  <div class="macro-bar-track">
-                    <div class="macro-bar-fill" id="fatsBar" style="width:0%;background:var(--gold-dk)"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div id="ffmiSection" style="display:none">
-                <div class="ffmi-box">
-                  <div class="ffmi-header">
-                    <span class="ffmi-label">FFMI normalizado orientativo</span>
-                    <span class="result-badge" id="ffmiBadge">-</span>
-                  </div>
-                  <div class="ffmi-value gold-text" id="ffmiValue">-</div>
-                  <div class="ffmi-scale">
-                    <div class="ffmi-scale-seg" id="ffmiSeg1" style="background:#3b82f6;opacity:0.3"></div>
-                    <div class="ffmi-scale-seg" id="ffmiSeg2" style="background:#22c55e;opacity:0.3"></div>
-                    <div class="ffmi-scale-seg" id="ffmiSeg3" style="background:#eab308;opacity:0.3"></div>
-                    <div class="ffmi-scale-seg" id="ffmiSeg4" style="background:#f97316;opacity:0.3"></div>
-                    <div class="ffmi-scale-seg" id="ffmiSeg5" style="background:#ef4444;opacity:0.3"></div>
-                  </div>
-                  <div class="ffmi-classification">
-                    <span id="ffmiLabel1">Bajo<small id="ffmiRange1"></small></span>
-                    <span id="ffmiLabel2">Medio<small id="ffmiRange2"></small></span>
-                    <span id="ffmiLabel3">Alto<small id="ffmiRange3"></small></span>
-                    <span id="ffmiLabel4">Muy alto<small id="ffmiRange4"></small></span>
-                    <span id="ffmiLabel5">Extremo<small id="ffmiRange5"></small></span>
-                  </div>
-                  <p class="ffmi-note" id="ffmiNote"></p>
-                </div>
-              </div>
-
-              <div id="planRecommendation" style="display:none">
-                <div class="plan-recommendation">
-                  <div class="plan-rec-label">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    Ruta de acompañamiento sugerida
-                  </div>
-                  <div class="plan-rec-name" id="recPlanName">-</div>
-                  <div class="plan-rec-price" id="recPlanPrice">-</div>
-                  <p class="plan-rec-reason" id="recPlanReason">-</p>
-                  <a class="plan-rec-cta touch-scale" id="recPlanCta" href="#" target="_blank" rel="noopener noreferrer">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <span id="recPlanCtaText">Aplicar con este plan</span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="calc-footer">
-                Estimación orientativa basada en Mifflin–St Jeor, actividad cotidiana y costo neto del entrenamiento según el Compendium of Physical Activities. No es diagnóstico ni prescripción médica. El porcentaje de grasa autoinformado y la intensidad real del ejercicio modifican la precisión; el punto de partida se valida con evolución, adherencia, hambre, energía, sueño, digestión y rendimiento.
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -1962,87 +2003,642 @@
     </div>
   </section>
 
-  <!-- Tecnología -->
-  <section id="tecnologia" class="section">
-    <div class="section-inner">
-      <div class="tech-grid">
-        <div class="reveal">
-          <div class="section-label-left">
-            <div class="section-label-line" style="width:28px"></div>
-            <span class="section-label-text">IRONQx App</span>
+  <!-- Calculadora -->
+  <section id="calculadora" class="section calculadora">
+    <div class="calculadora-gradient"></div>
+    <div class="section-inner" style="position:relative;z-index:10">
+      <div class="section-header reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Estimación inicial</span>
+          <div class="section-label-line"></div>
+        </div>
+        <h2>Antes de elegir un plan, <em>mide tu punto de partida.</em></h2>
+        <p class="section-desc">
+          Esta calculadora separa actividad cotidiana y entrenamiento para evitar contar dos veces el ejercicio.
+          Obtendrás una estimación inicial que después valido con tu respuesta real.
+        </p>
+      </div>
+
+      <details class="calc-disclosure reveal" id="calcDisclosure">
+        <summary class="calc-disclosure-summary">
+          <span class="calc-disclosure-icon" aria-hidden="true">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+          </span>
+          <span class="calc-disclosure-copy">
+            <strong>Calculadora científica de punto de partida</strong>
+            <span>Opcional · ábrela solo si quieres estimar calorías y macronutrientes.</span>
+          </span>
+          <span class="calc-toggle-action" aria-hidden="true">
+            <span class="calc-toggle-closed">Abrir</span>
+            <span class="calc-toggle-open">Cerrar</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="calc-disclosure-body">
+          <div class="calc-grid">
+          <div class="calc-card">
+            <div class="calc-card-header">
+              <div class="calc-card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+                Datos para la estimación
+              </div>
+            </div>
+            <form class="calc-card-body" id="calcForm" novalidate>
+              <div class="form-row">
+                <div>
+                  <label class="form-label" for="calcWeight">Peso (kg)</label>
+                  <input type="number" class="form-input" id="calcWeight" placeholder="Ej: 70" inputmode="decimal" step="any" min="30" max="300" required />
+                </div>
+                <div>
+                  <label class="form-label" for="calcHeight">Altura (cm)</label>
+                  <input type="number" class="form-input" id="calcHeight" placeholder="Ej: 170" inputmode="decimal" step="any" min="120" max="230" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label class="form-label" for="calcAge">Edad</label>
+                  <input type="number" class="form-input" id="calcAge" placeholder="Ej: 30" inputmode="numeric" min="16" max="90" required />
+                </div>
+                <div>
+                  <label class="form-label" for="calcGender">Sexo biológico</label>
+                  <select class="form-select" id="calcGender">
+                    <option value="male">Hombre</option>
+                    <option value="female">Mujer</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="calcActivity">Actividad cotidiana (sin contar el entrenamiento)</label>
+                <select class="form-select" id="calcActivity" aria-describedby="calcActivityHint">
+                  <option value="1.25" selected>Sedentario · &lt;5.000 pasos</option>
+                  <option value="1.35">Poco activo · 5.000–7.500</option>
+                  <option value="1.45">Activo · 7.500–10.000</option>
+                  <option value="1.60">Muy activo · &gt;10.000 pasos</option>
+                </select>
+                <span class="form-hint" id="calcActivityHint">Pasos de un día normal. Un trabajo físico cuenta como muy activo; el ejercicio se calcula aparte.</span>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label class="form-label" for="calcSessions">Sesiones por semana</label>
+                  <input type="number" class="form-input" id="calcSessions" value="4" inputmode="numeric" min="0" max="14" />
+                </div>
+                <div>
+                  <label class="form-label" for="calcMinutes">Minutos por sesión</label>
+                  <input type="number" class="form-input" id="calcMinutes" value="60" inputmode="numeric" min="0" max="240" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="calcIntensity">Intensidad habitual del entrenamiento</label>
+                <select class="form-select" id="calcIntensity" aria-describedby="calcIntensityHint">
+                  <option value="light">Ligera</option>
+                  <option value="moderate" selected>Moderada</option>
+                  <option value="vigorous">Alta</option>
+                </select>
+                <span class="form-hint" id="calcIntensityHint"><strong>Ligera:</strong> movilidad, yoga o caminata. <strong>Moderada:</strong> pesas con descansos completos. <strong>Alta:</strong> circuitos, HIIT o deportes intensos. Si dudas, elige moderada.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="calcGoal">Objetivo</label>
+                <select class="form-select" id="calcGoal">
+                  <option value="lose">Pérdida de grasa</option>
+                  <option value="recomp">Recomposición corporal</option>
+                  <option value="maintain" selected>Mantenimiento</option>
+                  <option value="gain">Ganancia muscular controlada</option>
+                  <option value="performance">Rendimiento</option>
+                  <option value="metabolic">Salud metabólica</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="calcBodyFat">% Grasa Corporal <span class="optional-badge">Opcional</span></label>
+                <input type="number" class="form-input" id="calcBodyFat" placeholder="Ej: 18" inputmode="decimal" step="any" min="3" max="60" aria-describedby="calcBodyFatHint" />
+                <span class="form-hint" id="calcBodyFatHint">Con un dato de InBody o DEXA, la proteína se calcula sobre tu masa magra.</span>
+              </div>
+
+              <div class="calc-method-note">
+                <strong>Cómo calcula IRONQx:</strong> metabolismo basal × actividad cotidiana + costo neto promedio del entrenamiento según su intensidad. El objetivo se aplica como porcentaje, no como una resta o suma fija para todos, y nunca inicia por debajo de tu metabolismo basal.
+              </div>
+
+              <div class="profile-section">
+                <div class="profile-section-label">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  Perfil de Intervención
+                </div>
+
+                <div class="profile-question">
+                  <span class="profile-question-text">Tengo diagnóstico de alguna patología (diabetes, HTA, dislipidemia, tiroides, etc.)</span>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="profilePatologia" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="profile-question">
+                  <span class="profile-question-text">Mi objetivo incluye competir en algún deporte o categoría</span>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="profileCompetir" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="profile-question">
+                  <span class="profile-question-text">Requiero supervisión médica por edad o condición especial</span>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="profileSupervision" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="profile-question">
+                  <span class="profile-question-text">He tenido seguimiento nutricional previo</span>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="profileExperiencia" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <p class="calc-form-error" id="calcFormError" role="alert" hidden></p>
+
+              <button type="submit" class="calc-submit btn-lift touch-scale" id="calcBtn" style="margin-top:20px">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+                Calcular punto de partida
+              </button>
+            </form>
           </div>
 
-          <h2>Tu protocolo y tu progreso.<br><em>En el mismo lugar.</em></h2>
+          <div class="calc-card results-card results-hidden" id="calcResults" aria-live="polite">
+            <div class="calc-card-header">
+              <div class="calc-card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                Estimación y siguiente paso
+              </div>
+            </div>
+            <div class="calc-card-body">
+              <div class="result-box">
+                <div class="result-row">
+                  <span class="result-label">IMC orientativo</span>
+                  <span class="result-badge" id="bmiBadge">-</span>
+                </div>
+                <div class="result-value gold-text" id="bmiValue">-</div>
+                <div class="bmi-scale" aria-hidden="true">
+                  <div class="bmi-scale-track"></div>
+                  <div class="bmi-marker" id="bmiMarker"></div>
+                </div>
+                <div class="bmi-scale-labels" aria-hidden="true"><span>15</span><span>18,5</span><span>25</span><span>30</span><span>40</span></div>
+              </div>
 
-          <p class="tech-desc">
-            <strong>IRONQx App</strong> reúne tu alimentación, entrenamiento, progreso y chat conmigo.
-            Consulta lo que te toca, registra cómo vas y recibe los ajustes de tu protocolo. Incluida en tu plan mensual.
-          </p>
+              <div class="cals-grid">
+                <div class="cal-box">
+                  <div class="cal-box-label">Metabolismo Basal</div>
+                  <div class="cal-box-value" style="color:var(--silver)" id="bmrValue">-</div>
+                  <div class="cal-box-unit">kcal/día</div>
+                </div>
+                <div class="cal-box">
+                  <div class="cal-box-label">Gasto estimado</div>
+                  <div class="cal-box-value" style="color:var(--gold)" id="tdeeValue">-</div>
+                  <div class="cal-box-unit">kcal/día</div>
+                </div>
+                <div class="cal-box" style="grid-column:1 / -1">
+                  <div class="cal-box-label">Entrenamiento añadido al promedio diario</div>
+                  <div class="cal-box-value" style="color:var(--silver)" id="trainingValue">-</div>
+                  <div class="cal-box-unit" id="trainingUnit">kcal netas/día estimadas</div>
+                </div>
+              </div>
 
-          <div>
-            <div class="tech-feat touch-scale">
-              <div class="tech-feat-dot"></div>
-              <div>
-                <div class="tech-feat-title">Alimentación y entrenamiento a mano</div>
-                <p class="tech-feat-desc">Menús, porciones y horarios a mano. En rutinas compatibles, registra cargas, repeticiones y RIR (las repeticiones que te quedan) y consulta tus descansos.</p>
+              <div class="target-box">
+                <div class="target-header">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                  <span id="goalLabel">-</span>
+                </div>
+                <div class="target-value gold-text" id="targetValue">-</div>
+                <div class="target-unit">kcal iniciales por día</div>
+                <p class="calc-safety-note" id="calcSafetyNote" hidden>Ajusté el déficit para no iniciar por debajo de tu metabolismo basal ni de un mínimo seguro. Un déficit mayor solo se plantea con supervisión.</p>
               </div>
-            </div>
-            <div class="tech-feat touch-scale">
-              <div class="tech-feat-dot"></div>
+
               <div>
-                <div class="tech-feat-title">Progreso más allá de la báscula</div>
-                <p class="tech-feat-desc">Peso, medidas, fotos y composición corporal cuando hay mediciones disponibles. Reviso el conjunto, no solo lo que marca la báscula.</p>
+                <div class="macro-section-label">Distribución de Macronutrientes</div>
+                <div class="macro-row">
+                  <div class="macro-row-header">
+                    <span style="color:var(--silver)">Proteínas</span>
+                    <span><span style="color:var(--gold)" id="proteinVal">-</span> <small class="macro-pct" id="proteinPct"></small></span>
+                  </div>
+                  <div class="macro-bar-track">
+                    <div class="macro-bar-fill" id="proteinBar" style="width:0%;background:var(--gold)"></div>
+                  </div>
+                  <div class="macro-note" id="proteinPerKg"></div>
+                </div>
+                <div class="macro-row">
+                  <div class="macro-row-header">
+                    <span style="color:var(--silver)">Carbohidratos</span>
+                    <span><span style="color:var(--silver)" id="carbsVal">-</span> <small class="macro-pct" id="carbsPct"></small></span>
+                  </div>
+                  <div class="macro-bar-track">
+                    <div class="macro-bar-fill" id="carbsBar" style="width:0%;background:var(--silver)"></div>
+                  </div>
+                </div>
+                <div class="macro-row">
+                  <div class="macro-row-header">
+                    <span style="color:var(--silver)">Grasas</span>
+                    <span><span style="color:var(--gold-dk)" id="fatsVal">-</span> <small class="macro-pct" id="fatsPct"></small></span>
+                  </div>
+                  <div class="macro-bar-track">
+                    <div class="macro-bar-fill" id="fatsBar" style="width:0%;background:var(--gold-dk)"></div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="tech-feat touch-scale">
-              <div class="tech-feat-dot"></div>
-              <div>
-                <div class="tech-feat-title">Reportes que dan contexto</div>
-                <p class="tech-feat-desc">Reporta cómo sigues el plan, tu hambre, energía y descanso. Si activo las fotos de comidas, puedes compartirlas para que las revise y te comente.</p>
+
+              <div id="ffmiSection" style="display:none">
+                <div class="ffmi-box">
+                  <div class="ffmi-header">
+                    <span class="ffmi-label">FFMI normalizado orientativo</span>
+                    <span class="result-badge" id="ffmiBadge">-</span>
+                  </div>
+                  <div class="ffmi-value gold-text" id="ffmiValue">-</div>
+                  <div class="ffmi-scale">
+                    <div class="ffmi-scale-seg" id="ffmiSeg1" style="background:#3b82f6;opacity:0.3"></div>
+                    <div class="ffmi-scale-seg" id="ffmiSeg2" style="background:#22c55e;opacity:0.3"></div>
+                    <div class="ffmi-scale-seg" id="ffmiSeg3" style="background:#eab308;opacity:0.3"></div>
+                    <div class="ffmi-scale-seg" id="ffmiSeg4" style="background:#f97316;opacity:0.3"></div>
+                    <div class="ffmi-scale-seg" id="ffmiSeg5" style="background:#ef4444;opacity:0.3"></div>
+                  </div>
+                  <div class="ffmi-classification">
+                    <span id="ffmiLabel1">Bajo<small id="ffmiRange1"></small></span>
+                    <span id="ffmiLabel2">Medio<small id="ffmiRange2"></small></span>
+                    <span id="ffmiLabel3">Alto<small id="ffmiRange3"></small></span>
+                    <span id="ffmiLabel4">Muy alto<small id="ffmiRange4"></small></span>
+                    <span id="ffmiLabel5">Extremo<small id="ffmiRange5"></small></span>
+                  </div>
+                  <p class="ffmi-note" id="ffmiNote"></p>
+                </div>
               </div>
-            </div>
-            <div class="tech-feat touch-scale">
-              <div class="tech-feat-dot"></div>
-              <div>
-                <div class="tech-feat-title">Un chat directo conmigo</div>
-                <p class="tech-feat-desc">Tus dudas y mis respuestas quedan en la conversación. Con las notificaciones activadas, recibes avisos de mensajes, actualizaciones y seguimiento.</p>
+
+              <div id="planRecommendation" style="display:none">
+                <div class="plan-recommendation">
+                  <div class="plan-rec-label">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Ruta de acompañamiento sugerida
+                  </div>
+                  <div class="plan-rec-name" id="recPlanName">-</div>
+                  <div class="plan-rec-price" id="recPlanPrice">-</div>
+                  <p class="plan-rec-reason" id="recPlanReason">-</p>
+                  <a class="plan-rec-cta touch-scale" id="recPlanCta" href="#" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span id="recPlanCtaText">Aplicar con este plan</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="calc-footer">
+                Estimación orientativa basada en Mifflin–St Jeor, actividad cotidiana y costo neto del entrenamiento según el Compendium of Physical Activities. No es diagnóstico ni prescripción médica. El porcentaje de grasa autoinformado y la intensidad real del ejercicio modifican la precisión; el punto de partida se valida con evolución, adherencia, hambre, energía, sueño, digestión y rendimiento.
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="reveal">
-          <div class="app-card">
-            <div class="app-card-line"></div>
-            <div class="app-logo">
-              <img src="images/app-logo.webp" alt="IRONQx App" loading="lazy" width="862" height="862" />
-            </div>
-            <h3 class="app-title">
-              <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">IRONQx App</a>
-            </h3>
-            <p class="app-subtitle">Tu plan. Tu progreso. Mi acompañamiento.</p>
-            <figure class="app-mockup-figure" aria-label="Vista previa de IRONQx App">
-              <img class="app-mockup-img" src="images/mockup-app.webp" alt="Pantalla de inicio de IRONQx App con estado del plan, membresía activa y progreso del paciente" loading="lazy" width="752" height="1502" />
-            </figure>
-            <!-- Platform Access Badge -->
-            <div class="app-access-badge">
-              <div class="app-access-divider">
-                <div class="app-access-divider-line"></div>
-                <span class="app-access-divider-text">Acceso Plataforma</span>
-                <div class="app-access-divider-line-r"></div>
-              </div>
-              <div class="app-access-btn-wrap">
-              <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer" class="app-access-btn touch-scale" aria-label="Abrir IRONQx App">
-                <div class="app-access-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                </div>
-                <div class="app-access-name">Abrir IRONQx App</div>
-              </a>
-              </div>
-              <p class="app-access-note">Para pacientes con acceso activo.<br>Ábrela en el navegador o añádela a tu pantalla de inicio.</p>
-            </div>
-
+  <!-- Tecnología -->
+  <section id="tecnologia" class="section qx-app-section">
+    <div class="section-inner">
+      <div class="qx-app-stage">
+        <div class="qx-app-head reveal">
+          <div class="section-label-left">
+            <div class="section-label-line" style="width:28px"></div>
+            <span class="section-label-text">IRONQx App</span>
           </div>
+          <h2>Tu protocolo y tu progreso.<br><em>En el mismo lugar.</em></h2>
+          <p class="tech-desc">
+            <strong>IRONQx App</strong> reúne tu alimentación, entrenamiento, progreso y chat conmigo.
+            Consulta lo que te toca, registra cómo vas y recibe los ajustes de tu protocolo. Incluida en tu plan mensual.
+          </p>
+        </div>
+
+        <div class="qx-app-tabs reveal" role="tablist" aria-label="Pantallas de IRONQx App">
+          <button type="button" class="qx-tab tech-feat is-on" role="tab" aria-selected="true" aria-controls="qxScreen0" data-slide="0">
+            <span class="qx-tab-bar"><i></i></span>
+            <span class="qx-tab-copy">
+              <span class="tech-feat-title">Tu día, de un vistazo</span>
+              <span class="tech-feat-desc">Al abrir la app ves qué entrenamiento te toca y cuántas comidas llevas. Sin buscar entre menús.</span>
+            </span>
+          </button>
+          <button type="button" class="qx-tab tech-feat" role="tab" aria-selected="false" aria-controls="qxScreen1" data-slide="1">
+            <span class="qx-tab-bar"><i></i></span>
+            <span class="qx-tab-copy">
+              <span class="tech-feat-title">Alimentación y entrenamiento a mano</span>
+              <span class="tech-feat-desc">Menús, porciones y horarios a mano. En rutinas compatibles, registra cargas, repeticiones y RIR (las repeticiones que te quedan) y consulta tus descansos.</span>
+            </span>
+          </button>
+          <button type="button" class="qx-tab tech-feat" role="tab" aria-selected="false" aria-controls="qxScreen2" data-slide="2">
+            <span class="qx-tab-bar"><i></i></span>
+            <span class="qx-tab-copy">
+              <span class="tech-feat-title">Progreso más allá de la báscula</span>
+              <span class="tech-feat-desc">Peso, medidas, fotos y composición corporal cuando hay mediciones disponibles. Reviso el conjunto, no solo lo que marca la báscula.</span>
+            </span>
+          </button>
+          <button type="button" class="qx-tab tech-feat" role="tab" aria-selected="false" aria-controls="qxScreen3" data-slide="3">
+            <span class="qx-tab-bar"><i></i></span>
+            <span class="qx-tab-copy">
+              <span class="tech-feat-title">Reportes que dan contexto</span>
+              <span class="tech-feat-desc">Reporta cómo sigues el plan, tu hambre, energía y descanso. Si activo las fotos de comidas, puedes compartirlas para que las revise y te comente.</span>
+            </span>
+          </button>
+          <button type="button" class="qx-tab tech-feat" role="tab" aria-selected="false" aria-controls="qxScreen4" data-slide="4">
+            <span class="qx-tab-bar"><i></i></span>
+            <span class="qx-tab-copy">
+              <span class="tech-feat-title">Un chat directo conmigo</span>
+              <span class="tech-feat-desc">Tus dudas y mis respuestas quedan en la conversación. Con las notificaciones activadas, recibes avisos de mensajes, actualizaciones y seguimiento.</span>
+            </span>
+          </button>
+        </div>
+
+        <div class="qx-device-wrap reveal">
+          <div class="qx-device-glow" aria-hidden="true"></div>
+          <div class="qx-iphone" id="qxPhone">
+            <span class="qx-btn qx-btn-action" aria-hidden="true"></span>
+            <span class="qx-btn qx-btn-up" aria-hidden="true"></span>
+            <span class="qx-btn qx-btn-down" aria-hidden="true"></span>
+            <span class="qx-btn qx-btn-power" aria-hidden="true"></span>
+            <div class="qx-screen" id="qxScreens" aria-live="polite">
+              <div class="qx-status" aria-hidden="true">
+                <span class="qx-time">9:41</span>
+                <span class="qx-island"></span>
+                <span class="qx-sys">
+                  <svg class="qx-cell" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx=".8"/><rect x="5" y="5.5" width="3" height="6.5" rx=".8"/><rect x="10" y="3" width="3" height="9" rx=".8"/><rect x="15" y="0" width="3" height="12" rx=".8"/></svg>
+                  <svg class="qx-wifi" viewBox="0 0 16 12"><path d="M8 2.2c2.4 0 4.6.9 6.2 2.5l1.3-1.3A10.5 10.5 0 0 0 8 .3 10.5 10.5 0 0 0 .5 3.4l1.3 1.3A8.7 8.7 0 0 1 8 2.2Z"/><path d="M8 5.6c1.5 0 2.8.6 3.8 1.5l1.3-1.3A7.2 7.2 0 0 0 8 3.7a7.2 7.2 0 0 0-5.1 2.1l1.3 1.3c1-1 2.3-1.5 3.8-1.5Z"/><path d="M8 9c.6 0 1.1.2 1.5.6L8 11.2 6.5 9.6c.4-.4.9-.6 1.5-.6Z"/></svg>
+                  <span class="qx-batt"><i></i></span>
+                </span>
+              </div>
+
+              <!-- 0 · Tu día -->
+              <article class="qx-slide is-on" id="qxScreen0" role="tabpanel" aria-label="Inicio: tu día">
+                <header class="qa-top">
+                  <span class="qa-av">AM</span>
+                  <span class="qa-hello"><small>Buenas tardes</small><b>Andrea</b></span>
+                  <span class="qa-bell"><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg><i></i></span>
+                </header>
+                <div class="qa-day">
+                  <div class="qa-day-copy">
+                    <small>Martes, 18 nov</small>
+                    <h4>Hoy toca Pull</h4>
+                    <p>Llevas 2 de 4 comidas. Sigue con la media tarde.</p>
+                  </div>
+                  <div class="qa-ring" style="--p:62"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="27"/><circle class="is-fg" cx="32" cy="32" r="27" pathLength="100"/></svg><b>62<small>%</small></b></div>
+                </div>
+                <div class="qa-row">
+                  <span class="qa-ic is-gold"><svg viewBox="0 0 24 24"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/></svg></span>
+                  <span class="qa-row-t"><b>Pull · espalda y bíceps</b><small>5 ejercicios · ≈ 1 h 05</small></span>
+                  <span class="qa-chip">Empezar</span>
+                </div>
+                <div class="qa-row">
+                  <span class="qa-ic is-green"><svg viewBox="0 0 24 24"><path d="M7 3v8M4.5 3v5.5A2.5 2.5 0 0 0 7 11a2.5 2.5 0 0 0 2.5-2.5V3M7 11v10M17 3v18M17 3c2.2 1.6 3.5 4.1 3.5 7 0 2.2-1.3 3.5-3.5 3.5"/></svg></span>
+                  <span class="qa-row-t"><b>Comidas de hoy</b>
+                    <span class="qa-meals"><i class="is-done"></i><i class="is-done"></i><i class="is-now"></i><i></i></span></span>
+                  <span class="qa-row-k">17:00</span>
+                </div>
+                <div class="qa-week" aria-hidden="true">
+                  <span style="--c:#C9A84C"><small>Lun</small><b>01</b><i class="is-done"></i></span>
+                  <span class="is-today" style="--c:#60a5fa"><small>Mar</small><b>02</b><i></i></span>
+                  <span style="--c:#4ade80"><small>Mié</small><b>03</b><i></i></span>
+                  <span style="--c:#a78bfa"><small>Jue</small><b>04</b><i></i></span>
+                  <span style="--c:#fb923c"><small>Vie</small><b>05</b><i></i></span>
+                  <span style="--c:#22d3ee"><small>Sáb</small><b>06</b><i></i></span>
+                  <span class="is-rest"><small>Dom</small><b>—</b><i></i></span>
+                </div>
+                <div class="qa-points">
+                  <span class="qa-points-ic"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span>
+                  <span><b>+128 pts</b><small>esta semana · nivel Constante</small></span>
+                  <span class="qa-points-rank">#3</span>
+                </div>
+                <nav class="qa-tabbar" aria-hidden="true">
+                  <span class="is-on"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg>Inicio</span>
+                  <span><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>Plan</span>
+                  <span><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</span>
+                  <span><svg viewBox="0 0 24 24"><path d="M5 20.5V6.5A2.5 2.5 0 0 1 7.5 4h9A2.5 2.5 0 0 1 19 6.5v8a2.5 2.5 0 0 1-2.5 2.5H9.2Z"/></svg>Chat</span>
+                </nav>
+              </article>
+
+              <!-- 1 · Modo entrenamiento -->
+              <article class="qx-slide" id="qxScreen1" role="tabpanel" aria-label="Modo entrenamiento">
+                <header class="qa-bar">
+                  <span class="qa-back"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span>
+                  <span class="qa-bar-t"><small>Mantenimiento</small><b>PULL</b></span>
+                  <span class="qa-clock"><i></i>24:18</span>
+                </header>
+                <div class="qa-segs"><i class="is-done"></i><i class="is-done"></i><i class="is-now"></i><i></i><i></i></div>
+                <div class="qa-ex">
+                  <small>Ejercicio 3 de 5</small>
+                  <h4>Remo en máquina</h4>
+                  <p>Dorsal ancho · Romboides</p>
+                  <div class="qa-target"><span><small>Series</small><b>3</b></span><span><small>Reps</small><b>10–12</b></span><span><small>RIR</small><b>2</b></span><span><small>Descanso</small><b>1:30</b></span></div>
+                </div>
+                <ol class="qa-sets">
+                  <li class="is-done"><span class="qa-n">1</span><b>60 <small>kg</small></b><b>12 <small>reps</small></b><b>RIR 2</b><span class="qa-ok"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></li>
+                  <li class="is-done"><span class="qa-n">2</span><b>62,5 <small>kg</small></b><b>11 <small>reps</small></b><b>RIR 2</b><span class="qa-ok"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></li>
+                  <li class="is-now"><span class="qa-n">3</span><b>62,5 <small>kg</small></b><b class="is-field">— <small>reps</small></b><b class="is-field">RIR —</b><span class="qa-ok"></span></li>
+                </ol>
+                <div class="qa-actions"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l5.5-3.5z"/></svg>Ver técnica</span><span><svg viewBox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"/></svg>Cambiar ejercicio</span></div>
+                <div class="qa-row is-next"><span class="qa-ic is-gold"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="qa-row-t"><small>Siguiente</small><b>Face pull con cuerda</b></span><span class="qa-row-k">3 × 15</span></div>
+                <div class="qa-rest">
+                  <div class="qa-ring is-rest" style="--p:20"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="27"/><circle class="is-fg" cx="32" cy="32" r="27" pathLength="100"/></svg><b>1:12</b></div>
+                  <div class="qa-rest-t"><small>Descanso</small><b>Sigue: serie 3</b><span><i>−15</i><i>+15</i><i class="is-skip">Saltar</i></span></div>
+                </div>
+              </article>
+
+              <!-- 2 · Progreso -->
+              <article class="qx-slide" id="qxScreen2" role="tabpanel" aria-label="Progreso">
+                <header class="qa-title"><small>Tu progreso</small><h4>Seis semanas</h4></header>
+                <div class="qa-weight">
+                  <div><small>Peso</small><b>78,4 <small>kg</small></b><span class="qa-delta">−2,1 kg</span></div>
+                  <svg class="qa-spark" viewBox="0 0 220 70" preserveAspectRatio="none" aria-hidden="true">
+                    <defs><linearGradient id="qxSparkFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#E8C25A" stop-opacity=".35"/><stop offset="1" stop-color="#E8C25A" stop-opacity="0"/></linearGradient></defs>
+                    <path d="M0 14 L30 20 L60 18 L90 30 L120 34 L150 42 L180 47 L220 56 L220 70 L0 70 Z" fill="url(#qxSparkFill)"/>
+                    <path d="M0 14 L30 20 L60 18 L90 30 L120 34 L150 42 L180 47 L220 56" fill="none" stroke="#E8C25A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+                    <circle cx="220" cy="56" r="3.5" fill="#E8C25A"/>
+                  </svg>
+                </div>
+                <div class="qa-tiles">
+                  <span><small>Cintura</small><b>−4 <small>cm</small></b></span>
+                  <span><small>Grasa</small><b>18,2 <small>%</small></b></span>
+                  <span><small>Músculo</small><b>+0,8 <small>kg</small></b></span>
+                </div>
+                <div class="qa-photos">
+                  <small>Fotos de control</small>
+                  <div><i class="qa-ph a"><em>Sem 1</em></i><i class="qa-ph b"><em>Sem 6</em></i><i class="qa-ph c"><span>+</span></i></div>
+                </div>
+                <div class="qa-adh">
+                  <div class="qa-adh-h"><small>Adherencia · 6 semanas</small><b>86 %</b></div>
+                  <div class="qa-bars"><i style="--h:58%"></i><i style="--h:72%"></i><i style="--h:66%"></i><i style="--h:84%"></i><i style="--h:91%"></i><i class="is-now" style="--h:88%"></i></div>
+                </div>
+                <p class="qa-note">Composición corporal cuando hay medición InBody.</p>
+              </article>
+
+              <!-- 3 · Nutrición y reporte -->
+              <article class="qx-slide" id="qxScreen3" role="tabpanel" aria-label="Nutrición y reporte">
+                <header class="qa-bar">
+                  <span class="qa-back"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span>
+                  <span class="qa-bar-t"><small>Mi plan</small><b>NUTRICIÓN</b></span>
+                </header>
+                <div class="qa-nutri">
+                  <div class="qa-ring is-kcal" style="--p:58"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="27"/><circle class="is-fg" cx="32" cy="32" r="27" pathLength="100"/></svg><b>1953<small>kcal</small></b></div>
+                  <div class="qa-macros">
+                    <span class="p"><small>Proteína</small><b>163 g</b><i style="--w:70%"></i></span>
+                    <span class="c"><small>Carbohidratos</small><b>180 g</b><i style="--w:52%"></i></span>
+                    <span class="g"><small>Grasas</small><b>62 g</b><i style="--w:44%"></i></span>
+                  </div>
+                </div>
+                <div class="qa-meal">
+                  <small>Ahora te toca · 17:00</small>
+                  <h4>Media tarde</h4>
+                  <ul>
+                    <li><span>Queso cottage 2 %</span><b>150 g</b></li>
+                    <li><span>Manzana</span><b>1 ud</b></li>
+                    <li><span>Almendras</span><b>15 g</b></li>
+                  </ul>
+                  <div class="qa-photo-ok"><span class="qa-plate"></span><span><b>Foto enviada</b><small>Almuerzo · 13:20</small></span><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+                </div>
+                <div class="qa-rail" aria-hidden="true">
+                  <span class="is-done"><small>07:00</small><b>Desayuno</b></span>
+                  <span class="is-done"><small>13:00</small><b>Almuerzo</b></span>
+                  <span class="is-now"><small>17:00</small><b>Media tarde</b></span>
+                  <span><small>20:00</small><b>Cena</b></span>
+                </div>
+                <div class="qa-report">
+                  <small>Reporte de hoy</small>
+                  <div><span>Hambre</span><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+                  <div><span>Energía</span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+                  <div><span>Descanso</span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+                </div>
+              </article>
+
+              <!-- 4 · Chat -->
+              <article class="qx-slide" id="qxScreen4" role="tabpanel" aria-label="Chat de seguimiento">
+                <header class="qa-chat-head">
+                  <span class="qa-back"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></span>
+                  <span class="qa-av is-dr">DA</span>
+                  <span class="qa-chat-t"><b>Dr. Daniel Arévalo</b><small>Tu seguimiento</small></span>
+                </header>
+                <div class="qa-msgs">
+                  <span class="qa-day-pill">Hoy</span>
+                  <p class="qa-msg me">Hoy no conseguí pechuga. ¿La cambio por tilapia?<small>12:41</small></p>
+                  <p class="qa-msg dr">Sí: 180 g de tilapia cruda en lugar de 150 g de pechuga. El resto del almuerzo queda igual.<small>12:58</small></p>
+                  <p class="qa-msg me is-photo"><span class="qa-msg-photo" aria-hidden="true"></span>Listo. Ya subí la foto del almuerzo.<small>13:21</small></p>
+                  <p class="qa-msg dr">Perfecto, la porción está bien. Esta semana subimos 2,5 kg en remo.<small>13:40</small></p>
+                </div>
+                <div class="qa-input"><span>Escribe un mensaje…</span><i><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></i></div>
+              </article>
+
+              <span class="qx-home" aria-hidden="true"></span>
+            </div>
+            <span class="qx-glare" aria-hidden="true"></span>
+          </div>
+          <div class="qx-dots" role="group" aria-label="Elegir pantalla">
+            <button type="button" class="is-on" data-slide="0" aria-label="Tu día"></button>
+            <button type="button" data-slide="1" aria-label="Modo entrenamiento"></button>
+            <button type="button" data-slide="2" aria-label="Progreso"></button>
+            <button type="button" data-slide="3" aria-label="Nutrición y reporte"></button>
+            <button type="button" data-slide="4" aria-label="Chat"></button>
+          </div>
+          <p class="qx-mock-note">Pantallas ilustrativas con datos de ejemplo.</p>
+        </div>
+      </div>
+
+      <div class="qx-app-access reveal">
+        <div class="app-logo">
+          <img src="images/app-logo.webp" alt="IRONQx App" loading="lazy" width="862" height="862" />
+        </div>
+        <div class="qx-app-access-copy">
+          <h3 class="app-title"><a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer">IRONQx App</a></h3>
+          <p class="app-subtitle">Tu plan. Tu progreso. Mi acompañamiento.</p>
+          <p class="app-access-note">Para pacientes con acceso activo.<br>Ábrela en el navegador o añádela a tu pantalla de inicio.</p>
+        </div>
+        <a href="https://app.ironqx.fit" target="_blank" rel="noopener noreferrer" class="app-access-btn touch-scale" aria-label="Abrir IRONQx App">
+          <div class="app-access-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="app-access-name">Abrir IRONQx App</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premios -->
+  <section id="premios" class="section qx-prize-section">
+    <div class="section-inner">
+      <div class="qx-prize-grid">
+        <div class="qx-device-wrap is-ranking reveal">
+          <div class="qx-device-glow" aria-hidden="true"></div>
+          <div class="qx-iphone">
+            <span class="qx-btn qx-btn-action" aria-hidden="true"></span>
+            <span class="qx-btn qx-btn-up" aria-hidden="true"></span>
+            <span class="qx-btn qx-btn-down" aria-hidden="true"></span>
+            <span class="qx-btn qx-btn-power" aria-hidden="true"></span>
+            <div class="qx-screen">
+              <div class="qx-status" aria-hidden="true">
+                <span class="qx-time">9:41</span>
+                <span class="qx-island"></span>
+                <span class="qx-sys">
+                  <svg class="qx-cell" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx=".8"/><rect x="5" y="5.5" width="3" height="6.5" rx=".8"/><rect x="10" y="3" width="3" height="9" rx=".8"/><rect x="15" y="0" width="3" height="12" rx=".8"/></svg>
+                  <svg class="qx-wifi" viewBox="0 0 16 12"><path d="M8 2.2c2.4 0 4.6.9 6.2 2.5l1.3-1.3A10.5 10.5 0 0 0 8 .3 10.5 10.5 0 0 0 .5 3.4l1.3 1.3A8.7 8.7 0 0 1 8 2.2Z"/><path d="M8 5.6c1.5 0 2.8.6 3.8 1.5l1.3-1.3A7.2 7.2 0 0 0 8 3.7a7.2 7.2 0 0 0-5.1 2.1l1.3 1.3c1-1 2.3-1.5 3.8-1.5Z"/><path d="M8 9c.6 0 1.1.2 1.5.6L8 11.2 6.5 9.6c.4-.4.9-.6 1.5-.6Z"/></svg>
+                  <span class="qx-batt"><i></i></span>
+                </span>
+              </div>
+              <article class="qx-slide is-on" aria-label="Ranking del mes">
+                <header class="qa-title"><small>Ranking · noviembre</small><h4>Constancia del mes</h4></header>
+                <div class="qa-gauge">
+                  <div class="qa-ring is-level" style="--p:63"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="27"/><circle class="is-fg" cx="32" cy="32" r="27" pathLength="100"/></svg><b>1 640<small>pts</small></b></div>
+                  <div class="qa-gauge-t"><small>Tu nivel</small><b>Constante</b><span><b>360</b> pts para <em>Élite</em></span></div>
+                </div>
+                <div class="qa-podium" aria-hidden="true">
+                  <span class="p2"><i>MR</i><b>2</b><small>2 180</small></span>
+                  <span class="p1"><svg viewBox="0 0 24 24"><path d="m3 8 4.5 4L12 5l4.5 7L21 8l-2 11H5L3 8Z"/></svg><i>JC</i><b>1</b><small>2 410</small></span>
+                  <span class="p3"><i>LP</i><b>3</b><small>1 960</small></span>
+                </div>
+                <div class="qa-you"><span class="qa-n">4</span><span class="qa-av">AM</span><span><b>Tú</b><small>Te faltan 320 pts para el #3</small></span></div>
+                <div class="qa-split">
+                  <span class="t"><b>820</b><small>Entreno</small></span>
+                  <span class="n"><b>560</b><small>Nutrición</small></span>
+                  <span class="o"><b>200</b><small>Constancia</small></span>
+                  <span class="i"><b>60</b><small>Instagram</small></span>
+                </div>
+                <div class="qa-row is-today"><span class="qa-ic is-gold"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span><span class="qa-row-t"><b>+45 pts hoy</b><small>Entreno de Pull y foto del almuerzo</small></span></div>
+                <div class="qa-prize-banner"><svg viewBox="0 0 24 24"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7Zm0 0h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7Z"/></svg><span><small>Premio de noviembre</small><b>50% de tu mensualidad</b></span></div>
+              </article>
+              <span class="qx-home" aria-hidden="true"></span>
+            </div>
+            <span class="qx-glare" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="qx-prize-copy reveal">
+          <div class="section-label-left">
+            <div class="section-label-line" style="width:28px"></div>
+            <span class="section-label-text">Constancia premiada</span>
+          </div>
+          <h2>Cumplir tu plan suma.<br><em>Cada mes, se premia.</em></h2>
+          <p class="qx-prize-lead">El progreso se construye con lo que haces cada día. Por eso, en la app, cada entrenamiento registrado y cada comida que fotografías suman puntos. Al cerrar el mes, quien fue más constante gana.</p>
+
+          <ol class="qx-prizes">
+            <li class="is-1"><span class="qx-place">1<sup>.º</sup></span><span><b>50% de tu mensualidad</b><small>Para quien cierra el mes en el primer puesto.</small></span></li>
+            <li class="is-2"><span class="qx-place">2<sup>.º</sup></span><span><b>Suplementación</b><small>Un suplemento de la selección del mes.</small></span></li>
+            <li class="is-3"><span class="qx-place">3<sup>.º</sup></span><span><b>Producto seleccionado</b><small>Accesorios y productos para tu entrenamiento.</small></span></li>
+          </ol>
+
+          <div class="qx-earn">
+            <span class="qx-earn-h">Así se suman puntos</span>
+            <ul>
+              <li><i class="t"></i><b>Entreno</b><span>cada sesión que registras</span></li>
+              <li><i class="n"></i><b>Nutrición</b><span>días con foto de tus comidas</span></li>
+              <li><i class="o"></i><b>Constancia</b><span>entrar a la app, hasta 4 veces al día</span></li>
+              <li><i class="i"></i><b>Instagram</b><span>+30 al compartir tu entrenamiento</span></li>
+            </ul>
+          </div>
+
+          <div class="qx-levels" aria-label="Niveles del mes">
+            <span>En marcha</span><span>Activo</span><span>Constante</span><span class="is-top">Élite</span>
+          </div>
+
+          <p class="qx-prize-fine">El premio de cada mes se anuncia en la app. En el ranking ves tu puesto y el podio; tus medidas y tus datos de salud nunca forman parte de él.</p>
         </div>
       </div>
     </div>
@@ -2304,6 +2900,12 @@
               <li><a href="#metodologia">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
                 Método</a></li>
+              <li><a href="#tecnologia">
+                <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+                App</a></li>
+              <li><a href="#premios">
+                <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4ZM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>
+                Premios</a></li>
               <li><a href="#ia-bot">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 IronQx AI</a></li>
@@ -2578,6 +3180,57 @@
       }
     }, { passive: true });
 
+    // ==================== APP SHOWCASE ====================
+    // Pantallas de la app en el iPhone: la lista de características elige la pantalla; avanza
+    // sola mientras está a la vista y se detiene en cuanto la persona toca o desliza.
+    (function () {
+      var screens = document.getElementById('qxScreens');
+      if (!screens) return;
+      var slides = Array.prototype.slice.call(screens.querySelectorAll('.qx-slide'));
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.qx-tab'));
+      var dots = Array.prototype.slice.call(document.querySelectorAll('.qx-dots button'));
+      var list = document.querySelector('.qx-app-tabs');
+      var DUR = 6000, cur = 0, timer = 0, visible = false;
+      var auto = !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+      if (list) { list.style.setProperty('--qx-dur', DUR + 'ms'); if (auto) list.classList.add('is-auto'); }
+
+      function schedule() {
+        clearTimeout(timer);
+        if (auto && visible) timer = setTimeout(function () { go(cur + 1, false); }, DUR);
+      }
+      function stopAuto() { auto = false; clearTimeout(timer); if (list) list.classList.remove('is-auto'); }
+      function go(i, byUser) {
+        i = (i + slides.length) % slides.length;
+        slides.forEach(function (s, k) { s.classList.toggle('is-on', k === i); s.classList.toggle('is-prev', k < i); s.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
+        tabs.forEach(function (t, k) { t.classList.toggle('is-on', k === i); t.setAttribute('aria-selected', k === i ? 'true' : 'false'); t.tabIndex = k === i ? 0 : -1; });
+        dots.forEach(function (d, k) { d.classList.toggle('is-on', k === i); d.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+        cur = i;
+        if (byUser) stopAuto();
+        else if (list && auto) { list.classList.remove('is-auto'); void list.offsetWidth; list.classList.add('is-auto'); }
+        schedule();
+      }
+      tabs.forEach(function (t) { t.addEventListener('click', function () { go(+t.dataset.slide, true); }); });
+      dots.forEach(function (d) { d.addEventListener('click', function () { go(+d.dataset.slide, true); }); });
+      if (list) list.addEventListener('keydown', function (e) {
+        var k = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+        if (!k) return;
+        e.preventDefault(); go(cur + k, true); tabs[cur].focus();
+      });
+      // Deslizar sobre la pantalla del teléfono
+      var sx = null, sy = 0;
+      screens.addEventListener('pointerdown', function (e) { sx = e.clientX; sy = e.clientY; });
+      screens.addEventListener('pointerup', function (e) {
+        if (sx === null) return;
+        var dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) go(cur + (dx < 0 ? 1 : -1), true);
+      });
+      screens.addEventListener('pointercancel', function () { sx = null; });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; schedule(); }, { threshold: 0.35 }).observe(screens);
+      }
+      go(0, false);
+    })();
+
     // ==================== ACTIVE NAV LINK ====================
     const sections = document.querySelectorAll('section[id]');
     const navLinkElements = document.querySelectorAll('.nav-link');
@@ -2598,49 +3251,6 @@
     }, { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' });
 
     sections.forEach(section => sectionObserver.observe(section));
-
-    // ==================== HERO BADGE TYPEWRITER ====================
-    (function() {
-      const phrases = [
-        "Soy médico, y mi campo es el rendimiento, el metabolismo y el músculo.",
-        "No todo estancamiento se resuelve con más entrenamiento.",
-        "A veces el cuerpo necesita diagnóstico, no otro plan genérico.",
-        "Tu metabolismo, tus exámenes y tus síntomas también cuentan.",
-        "La nutrición y el entrenamiento funcionan mejor con criterio clínico.",
-        "Consulta puntual o protocolo continuo: primero reviso tu caso.",
-        "IronQX une medicina, composición corporal y rendimiento con precisión.",
-      ];
-      const el = document.getElementById('badgeText');
-      if (!el) return;
-      let phraseIdx = 0, charIdx = 0, deleting = false, pauseTimer = null;
-
-      function type() {
-        const phrase = phrases[phraseIdx];
-        if (!deleting) {
-          charIdx++;
-          el.textContent = phrase.slice(0, charIdx);
-          if (charIdx === phrase.length) {
-            deleting = true;
-            pauseTimer = setTimeout(type, 2800);
-            return;
-          }
-          setTimeout(type, 38);
-        } else {
-          charIdx--;
-          el.textContent = phrase.slice(0, charIdx);
-          if (charIdx === 0) {
-            deleting = false;
-            phraseIdx = (phraseIdx + 1) % phrases.length;
-            setTimeout(type, 400);
-            return;
-          }
-          setTimeout(type, 18);
-        }
-      }
-
-      // Start after badge reveal delay
-      setTimeout(type, 1200);
-    })();
 
     // ==================== CAPACIDAD AGREGADA ====================
     (async function syncCapacity() {
