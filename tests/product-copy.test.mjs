@@ -27,7 +27,7 @@ test('las capacidades visuales y equivalencias no prometen exactitud ni edicion 
 
 test('acceso individual, consentimiento y creditos reemplazan promesas ilimitadas', () => {
   for (const text of ['Habilito el acceso de forma individual', 'proveedores de IA',
-    '50 créditos por semana', 'modo sin cifras']) assert.ok(ai.includes(text), text);
+    '10 créditos cada día', 'modo sin cifras']) assert.ok(ai.includes(text), text);
   assert.doesNotMatch(html, /24\/7|precisión clínica de IronQx|Acceso prioritario a app/);
 });
 
@@ -43,7 +43,7 @@ test('Daniel habla en primera persona sin sugerir un equipo de atencion', () => 
 test('las herramientas conservan su identidad y no se presentan como el medico', () => {
   assert.ok(section('autoridad').includes('Diseño y reviso tu protocolo personalmente'));
   assert.ok(ai.includes('el contacto conmigo sigue aparte'));
-  assert.ok(ai.includes('Soy <strong>IronQx AI</strong>'));
+  assert.ok(ai.includes('Soy <strong>Quiro</strong>'));
   assert.ok(ai.includes('no cambia tu prescripción ni sustituye una valoración médica'));
   const assistant=fs.readFileSync(new URL('../assistant.js',import.meta.url),'utf8');
   assert.ok(assistant.includes('Hola, soy IronQx Assistant.'));

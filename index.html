@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
   <title>IRONQx | Medicina, nutrición y entrenamiento personalizado</title>
-  <meta name="description" content="Soy el Dr. Daniel Arévalo. Nutrición y entrenamiento en Cuenca y online, con mi seguimiento en IRONQx App y apoyo opcional de IronQx AI + VISION." />
+  <meta name="description" content="Soy el Dr. Daniel Arévalo. Nutrición y entrenamiento en Cuenca y online, con mi seguimiento en IRONQx App y apoyo opcional de Quiro, mi asistente con IronQx AI + VISION." />
   <meta name="theme-color" content="#050505" />
   <link rel="canonical" href="https://ironqx.fit/" />
   <link rel="icon" type="image/webp" href="https://ironqx.fit/images/app-logo.webp" />
@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="IRONQx | Medicina, nutrición y entrenamiento personalizado" />
-  <meta property="og:description" content="Te acompaño con nutrición, entrenamiento y seguimiento en IRONQx App. IronQx AI te ayuda a entender tu plan; VISION estima alimentos y lee etiquetas." />
+  <meta property="og:description" content="Te acompaño con nutrición, entrenamiento y seguimiento en IRONQx App. Quiro, mi asistente con IronQx AI, te ayuda a entender tu plan; VISION estima alimentos y lee etiquetas." />
   <meta property="og:image" content="https://ironqx.fit/images/hero-main.jpeg" />
   <meta property="og:url" content="https://ironqx.fit/" />
   <meta property="og:locale" content="es_EC" />
@@ -1403,6 +1403,17 @@
     /* ==================== IA + VISION ==================== */
     .iax-grid { position: relative; display: grid; gap: 56px; align-items: center; }
     @media (min-width: 1024px) { .iax-grid { grid-template-columns: minmax(0, 1fr) auto; gap: 88px; } }
+    .iax-head { display: flex; align-items: center; gap: 20px; }
+    .iax-head h2 { margin-bottom: 0; }
+    .iax-head + .iax-price { margin-top: 20px; }
+    .iax-portrait { position: relative; flex: none; width: 96px; height: 96px; margin: 0; border-radius: 50%; overflow: hidden; isolation: isolate;
+      background: radial-gradient(circle at 50% 30%, #2c2619, #0a0a0c 72%); border: 1px solid rgba(226,194,122,.5); box-shadow: 0 0 0 6px rgba(226,194,122,.06), 0 18px 40px -14px rgba(226,194,122,.45); }
+    .iax-portrait img { position: relative; z-index: 1; width: 112%; height: 112%; margin: 6px 0 0 -6%; object-fit: cover; }
+    .iax-halo { position: absolute; inset: -30%; z-index: 0; background: conic-gradient(from 0deg, transparent, rgba(243,220,147,.35), transparent 30%); animation: iax-halo 6s linear infinite; }
+    @keyframes iax-halo { to { transform: rotate(360deg); } }
+    @media (min-width: 1024px) { .iax-portrait { width: 116px; height: 116px; } }
+    @media (max-width: 420px) { .iax-head { gap: 14px; } .iax-portrait { width: 74px; height: 74px; } }
+    @media (prefers-reduced-motion: reduce) { .iax-halo { animation: none; } }
     .iax-copy h2 { margin-bottom: 18px; }
     .iax-price { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 22px; font-size: 12px; }
     .iax-price b { font-family: 'Michroma', sans-serif; font-weight: 400; font-size: 15px; letter-spacing: .04em; color: #5ee9a6; text-shadow: 0 0 18px rgba(94,233,166,.35); margin-right: 6px; }
@@ -1438,7 +1449,9 @@
     .iax-note { max-width: 320px; text-align: center; line-height: 1.6; }
     .iax-chat { gap: 8px; }
     .iax-av { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; color: #04140c; background: radial-gradient(circle at 30% 30%, #b6ffdc, #5ee9a6 55%, #1f9e63); box-shadow: 0 0 14px rgba(94,233,166,.45); }
-    .iax-av svg { width: 15px; height: 15px; fill: currentColor; }
+    .iax-av { overflow: hidden; background: radial-gradient(circle at 50% 35%, #2a2418, #0b0b0d 70%) !important; border: 1px solid rgba(226,194,122,.45); box-shadow: 0 0 14px rgba(226,194,122,.3) !important; }
+    .iax-av img { width: 118%; height: 118%; margin-top: 4px; object-fit: cover; }
+    .qa-chat-t b em { margin-left: 4px; padding: 1px 5px; border-radius: 5px; font-style: normal; font-size: 8px; font-weight: 700; letter-spacing: .08em; color: #5ee9a6; background: rgba(94,233,166,.12); vertical-align: 2px; }
     .iax-bal { margin-left: auto; display: inline-flex; align-items: center; gap: 5px; padding: 4px 8px; border-radius: 999px; font-size: 10.5px; font-weight: 700; color: #5ee9a6; background: rgba(94,233,166,.1); border: 1px solid rgba(94,233,166,.25); }
     .iax-bal i { width: 5px; height: 5px; border-radius: 50%; background: #5ee9a6; }
     .iax-chat .qa-msgs { gap: 7px; }
@@ -1518,7 +1531,7 @@
         <button class="nav-link" data-section="metodologia">Método</button>
         <button class="nav-link" data-section="tecnologia">App</button>
         <button class="nav-link" data-section="premios">Premios</button>
-        <button class="nav-link" data-section="ia-bot">IronQx AI</button>
+        <button class="nav-link" data-section="ia-bot">Quiro</button>
         <button class="nav-link" data-section="contacto">Contacto</button>
       </div>
 
@@ -1598,7 +1611,7 @@
         <button class="mobile-link touch-scale" data-section="ia-bot">
           <span class="mobile-link-index">07</span>
           <span>
-            <span class="mobile-link-title">IronQx AI</span>
+            <span class="mobile-link-title">Quiro · IA</span>
             <span class="mobile-link-desc">Tu plan, alternativas y VISION</span>
           </span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
@@ -1829,7 +1842,7 @@
         <p class="section-desc">
           Los tres protocolos integran nutrición, entrenamiento interactivo, seguimiento y acceso a la app.
           Lo que cambia es la frecuencia de atención 1 a 1 y el nivel de complejidad clínica o deportiva.
-          IronQx AI + VISION es opcional: +$10 al mes.
+          Quiro, mi asistente con IronQx AI + VISION, es opcional: +$10 al mes.
         </p>
       </div>
 
@@ -1935,17 +1948,17 @@
               <span class="addon-optional">Opcional</span>
             </div>
             <div class="addon-content">
-              <h4 class="addon-title" id="addon-ai-title">IronQx <span>AI + VISION</span></h4>
-              <p class="addon-description">Tu plan, más fácil de llevar al día a día. Pregunta, encuentra alternativas y entiende tus comidas con una foto.</p>
+              <h4 class="addon-title" id="addon-ai-title">Quiro <span>AI + VISION</span></h4>
+              <p class="addon-description">Mi asistente personal y mano derecha, con todo el conocimiento de IronQx. Pregunta, encuentra alternativas y entiende tus comidas con una foto.</p>
               <ul class="addon-features">
-                <li><strong>Tu contexto</strong><span>Dudas de comidas, horarios y ejercicios según tu plan vigente.</span></li>
-                <li><strong>Alternativas</strong><span>Porciones equivalentes por calorías, con cantidades claras.</span></li>
+                <li><strong>Al instante</strong><span>Dudas de comidas, horarios y ejercicios según tu plan vigente.</span></li>
+                <li><strong>Lectura profunda</strong><span>Tus últimas 4 semanas y tres acciones para la semana.</span></li>
                 <li><strong>VISION</strong><span>Alimentos y etiquetas: estimaciones que puedes revisar y corregir.</span></li>
               </ul>
-              <p class="addon-note">Yo activo tu acceso. Créditos visibles en la app; no sustituye una valoración médica.</p>
+              <p class="addon-note">Yo activo tu acceso. 10 créditos al día, visibles en la app; no sustituye una valoración médica.</p>
               <div class="addon-footer">
                 <div class="addon-price"><strong>+$10</strong><small>/mes adicional</small></div>
-                <a class="addon-cta" href="#ia-bot">Conocer AI + VISION</a>
+                <a class="addon-cta" href="#ia-bot">Conocer a Quiro</a>
               </div>
             </div>
           </article>
@@ -2774,17 +2787,22 @@
     <div class="section-inner">
       <div class="iax-grid">
         <div class="iax-copy reveal">
-          <div class="section-label-left">
-            <div class="section-label-line" style="width:28px"></div>
-            <span class="section-label-text">IronQx AI + VISION</span>
+          <div class="iax-head">
+            <figure class="iax-portrait" aria-hidden="true"><span class="iax-halo"></span><img src="images/quiro.svg" alt="" width="144" height="144" loading="lazy" /></figure>
+            <div>
+              <div class="section-label-left">
+                <div class="section-label-line" style="width:28px"></div>
+                <span class="section-label-text">Quiro · IronQx AI + VISION</span>
+              </div>
+              <h2>Conoce a Quiro.<br><em>Mi mano derecha en tu plan.</em></h2>
+            </div>
           </div>
-          <h2>Entiende tu plan.<br><em>Resuelve lo cotidiano.</em></h2>
           <p class="iax-price"><span class="iax-spark" aria-hidden="true"></span><b>+$10/mes</b><span>Opcional</span><span>7 días de prueba</span></p>
 
           <p class="ia-bot-desc">
-            <strong>IronQx AI</strong> usa tu plan vigente para responder dudas de comidas, horarios y ejercicios.
-            Tiene su propio chat: el contacto conmigo sigue aparte. La IA te ayuda a aplicar el plan;
-            no cambia tu prescripción ni sustituye una valoración médica.
+            <strong>Quiro</strong> es mi asistente personal y mi mano derecha. Conoce IronQx a fondo, lee tu plan vigente
+            y responde al instante tus dudas de comidas, horarios y ejercicios. Tiene su propio chat: el contacto conmigo sigue aparte.
+            Quiro te ayuda a aplicar el plan; no cambia tu prescripción ni sustituye una valoración médica.
           </p>
 
           <ul class="iax-feats">
@@ -2804,25 +2822,25 @@
               <span>Series, repeticiones, RIR y descansos según tu rutina. Dolor, lesiones y cambios importantes: revísalos conmigo.</span>
             </li>
             <li>
-              <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6M9 17h4"/></svg></i>
-              <b>Contexto, no memoria</b>
-              <span>Consulta tus documentos vigentes, restricciones y horarios. Si falta un dato, te lo pide.</span>
+              <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></i>
+              <b>Lectura profunda</b>
+              <span>Revisa tus últimas 4 semanas (composición, adherencia y entrenamiento) y te deja tres acciones para la semana.</span>
             </li>
           </ul>
 
           <div class="iax-credits">
             <div class="iax-credits-top">
-              <div><b>50</b><small>créditos por semana</small></div>
-              <div class="iax-meter" aria-hidden="true"><i style="--w:76%"></i></div>
+              <div><b>10</b><small>créditos cada día</small></div>
+              <div class="iax-meter" aria-hidden="true"><i style="--w:70%"></i></div>
             </div>
             <dl class="iax-costs">
               <div><dt>Mensaje</dt><dd>1</dd></div>
-              <div><dt>Lectura VISION</dt><dd>2</dd></div>
-              <div><dt>Cada 5 horas</dt><dd>hasta 10</dd></div>
+              <div><dt>Lectura VISION</dt><dd>3</dd></div>
+              <div><dt>Lectura profunda</dt><dd>5</dd></div>
             </dl>
             <p>
-              Tienes 50 créditos por semana; el saldo y la recuperación se ven en la app.
-              Habilito el acceso de forma individual. Aceptas el tratamiento de texto e imágenes por proveedores de IA;
+              Tienes 10 créditos cada día y se renuevan a medianoche, hora de Ecuador. Si Quiro te hace una pregunta,
+              tu respuesta no gasta crédito. Habilito el acceso de forma individual. Aceptas el tratamiento de texto e imágenes por proveedores de IA;
               en modo sin cifras no expone tus datos corporales numéricos. No atiende urgencias.
             </p>
           </div>
@@ -2851,15 +2869,15 @@
                   <span class="qx-batt"><i></i></span>
                 </span>
               </div>
-              <div class="qx-slide is-on iax-chat" role="img" aria-label="Ejemplo de conversación con IronQx AI">
+              <div class="qx-slide is-on iax-chat" role="img" aria-label="Ejemplo de conversación con Quiro">
                 <header class="qa-chat-head">
                   <span class="qa-back"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></span>
-                  <span class="iax-av" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/></svg></span>
-                  <span class="qa-chat-t"><b>IronQx AI</b><small>Según tu plan vigente</small></span>
-                  <span class="iax-bal"><i></i>38</span>
+                  <span class="iax-av" aria-hidden="true"><img src="images/quiro.svg" alt="" width="144" height="144" /></span>
+                  <span class="qa-chat-t"><b>Quiro <em>IronQx AI</em></b><small>Según tu plan vigente</small></span>
+                  <span class="iax-bal"><i></i>7</span>
                 </header>
                 <div class="qa-msgs">
-                  <p class="qa-msg ai">Hola. Soy <strong>IronQx AI</strong>. ¿Qué necesitas hoy?</p>
+                  <p class="qa-msg ai">Hola, Andrea. Soy <strong>Quiro</strong>. ¿Qué necesitas hoy?</p>
                   <p class="qa-msg me">No tengo arroz para el almuerzo. ¿Con qué lo cambio?</p>
                   <p class="qa-msg ai">Por calorías, tus <strong>120 g de arroz cocido</strong> equivalen a <strong>180 g de papa cocida</strong> o <strong>40 g de avena</strong>. El resto del almuerzo queda igual.</p>
                   <div class="iax-vision">
@@ -2873,13 +2891,13 @@
                     <span class="iax-vision-edit">Corregir porciones</span>
                   </div>
                 </div>
-                <div class="qa-input"><span>Pregúntale a IronQx AI…</span><i class="iax-cam"><svg viewBox="0 0 24 24"><path d="M3 9a2 2 0 0 1 2-2h1.5l1.4-2h8.2l1.4 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="3.5"/></svg></i></div>
+                <div class="qa-input"><span>Pregúntale a Quiro…</span><i class="iax-cam"><svg viewBox="0 0 24 24"><path d="M3 9a2 2 0 0 1 2-2h1.5l1.4-2h8.2l1.4 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="3.5"/></svg></i></div>
               </div>
               <span class="qx-home" aria-hidden="true"></span>
             </div>
             <span class="qx-glare" aria-hidden="true"></span>
           </div>
-          <p class="qx-mock-note iax-note">Ejemplo ilustrativo. VISION ofrece estimaciones revisables; la IA no diagnostica ni modifica tu protocolo automáticamente.</p>
+          <p class="qx-mock-note iax-note">Ejemplo ilustrativo. VISION ofrece estimaciones revisables; Quiro no diagnostica ni modifica tu protocolo automáticamente.</p>
         </div>
       </div>
       <div class="ia-admission">
@@ -3038,7 +3056,7 @@
                 Premios</a></li>
               <li><a href="#ia-bot">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                IronQx AI</a></li>
+                Quiro · IA</a></li>
               <li><a href="#privacidad">
                 <svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
                 Privacidad</a></li>
