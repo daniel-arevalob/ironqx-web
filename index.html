@@ -143,6 +143,13 @@
     /* Navbar */
     .navbar { position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 1000; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); background: transparent; }
     .navbar.scrolled { border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
+    /* Al bajar: el fondo oscuro de .glass no llegaba (.navbar lo deja transparente) y quedaba solo el desenfoque,
+       que en iPhone pinta una franja clara en el borde inferior al pasar sobre la foto. Fondo casi opaco y el
+       desenfoque en una capa propia recortada a la barra. */
+    .navbar.glass { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; isolation: isolate; }
+    .navbar::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0; transition: opacity 0.3s ease;
+      background: rgba(5, 5, 5, 0.92); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); -webkit-transform: translateZ(0); transform: translateZ(0); }
+    .navbar.glass::before { opacity: 1; }
     .navbar-inner { max-width: 1400px; margin: 0 auto; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; height: 64px; }
     @media (min-width: 640px) { .navbar-inner { padding: 0 24px; } }
     @media (min-width: 1024px) { .navbar-inner { padding: 0 32px; } }
