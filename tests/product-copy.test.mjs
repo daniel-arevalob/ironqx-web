@@ -32,7 +32,7 @@ test('acceso individual, consentimiento y creditos reemplazan promesas ilimitada
 });
 
 test('Daniel habla en primera persona sin sugerir un equipo de atencion', () => {
-  const editorial=['autoridad','calculadora','consulta','planes','entrega','filosofia','metodologia','tecnologia','ia-bot','contacto'].map(section).join('\n');
+  const editorial=['autoridad','calculadora','consulta','planes','entrega','metodologia','tecnologia','ia-bot','contacto'].map(section).join('\n');
   assert.doesNotMatch(editorial,/\b(?:Separamos|entendemos|Calculamos|Cuantificamos|Definimos|Integramos|preguntamos|nosotros|nuestro equipo)\b/i);
   assert.doesNotMatch(editorial,/Daniel (?:revisa|activa|habilita|coordina|confirma)|chat con Daniel|contacto con Daniel|sus respuestas|sus comentarios/);
   for(const [id,text] of [['autoridad','Diseño y reviso tu protocolo'],['consulta','En consulta reviso tu caso'],['entrega','Calculo cada ingrediente'],['metodologia','Ajusto tu protocolo'],['tecnologia','Tus dudas y mis respuestas'],['ia-bot','Confirmo personalmente']]) assert.ok(section(id).includes(text),id);
@@ -98,8 +98,7 @@ test('la portada conserva su foto original y los retratos nuevos viven en presen
   }
   assert.match(section('hero'),/hero-main.jpeg" alt="[^"]+" loading="eager" fetchpriority="high" width="896" height="1592"/);
   assert.doesNotMatch(section('hero'),/clinical-/);
-  assert.match(section('autoridad'),/standing-v1.webp" alt="[^"]+" loading="lazy" decoding="async" width="1024" height="1280"/);
-  assert.match(section('filosofia'),/seated-v1.webp" alt="[^"]+" loading="lazy" decoding="async" width="1024" height="1280"/);
+  assert.match(section('autoridad'),/seated-v1.webp" alt="[^"]+" width="880" height="1100"/);
   assert.equal((html.match(/https:\/\/ironqx.fit\/images\/hero-main.jpeg/g)||[]).length,3);
 });
 
@@ -111,7 +110,7 @@ test('el seguimiento no depende de la disponibilidad ni de un fallo de API', () 
 });
 
 test('la franja muestra 100 transformaciones y modalidades sin cifras animadas ni atributos repetidos', () => {
-  const stats=html.split('id="statsBar"')[1].split('<!-- Autoridad compacta -->')[0];
+  const stats=html.split('id="statsBar"')[1].split('<!-- Quién soy: presentación y trayectoria en un solo bloque -->')[0];
   assert.match(stats, /class="stat-number">100\+<\/strong>/);
   for(const text of ['Transformaciones acompañadas','Cuenca','Consulta presencial','Online','Protocolos a distancia']) assert.ok(stats.includes(text),text);
   assert.equal((stats.match(/class="stat-number"/g)||[]).length,3);
@@ -119,14 +118,14 @@ test('la franja muestra 100 transformaciones y modalidades sin cifras animadas n
   assert.doesNotMatch(html,/statsObserver|data-count="50"|authority-compact-card/);
 });
 
-test('la formacion y la trayectoria tienen contenidos distintos sin credenciales duplicadas', () => {
-  const authority=section('autoridad'), trajectory=section('filosofia');
-  for(const name of ['Universidad de Cuenca','Universidad Autónoma de Chile','Especialización por la IFBB']) {
-    assert.ok(authority.includes(name)); assert.ok(!trajectory.includes(name));
-  }
-  assert.equal((authority.match(/class="authority-proof"/g)||[]).length,3);
-  assert.doesNotMatch(authority,/App|IA|Mr\. Cuenca|authority-field-note/);
-  for(const text of ['más de 10 años','Campeón Mr. Cuenca / Top 2 Mr. Ecuador','Creador y desarrollador de IRONQx App']) assert.ok(trajectory.includes(text),text);
+test('quien soy une presentacion y trayectoria en un solo bloque sin credenciales repetidas', () => {
+  const who=section('autoridad');
+  assert.ok(!html.includes('id="filosofia"'));
+  assert.equal((html.match(/id="qx-deck"/g)||[]).length,1);
+  for(const text of ['Quién soy · Dr. Daniel Arévalo','De la competición','más de 10 años','Campeón Mr. Cuenca · Top 2 Mr. Ecuador','Creador y desarrollador']) assert.ok(who.includes(text),text);
+  for(const name of ['Universidad de Cuenca','Universidad Autónoma de Chile','Especialización por la IFBB']) assert.equal(who.split(name).length-1,1,name);
+  assert.equal((who.match(/class="authority-proof"/g)||[]).length,5);
+  assert.doesNotMatch(who,/Conoce mi trayectoria|authority-portrait/);
 });
 
 test('nutricion aporta detalles practicos y la metodologia es una secuencia no interactiva', () => {

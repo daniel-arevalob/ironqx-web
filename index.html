@@ -286,29 +286,11 @@
       .stat-item--result { grid-column: auto; border-bottom: 0; }
     }
 
-    /* Autoridad compacta */
-    .authority-compact { background: var(--bg); padding: 48px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    @media (min-width: 768px) { .authority-compact { padding: 64px 0; } }
-    .authority-compact-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    @media (min-width: 640px) { .authority-compact-inner { padding: 0 24px; } }
-    .authority-layout { display: grid; gap: 30px; letter-spacing: 0; }
-    @media (min-width: 900px) { .authority-layout { grid-template-columns: 1fr 1fr; align-items: start; gap: 64px; } }
-    .authority-identity { display: grid; grid-template-columns: 88px minmax(0,1fr); gap: 18px; align-items: start; }
-    .authority-portrait { width: 88px; aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; border: 1px solid rgba(212,175,55,0.24); background: #111; }
-    @media (min-width: 640px) { .authority-identity { grid-template-columns: 116px minmax(0,1fr); gap: 24px; } .authority-portrait { width: 116px; } }
-    @media (max-width: 359px) { .authority-identity { grid-template-columns: 72px minmax(0,1fr); gap: 14px; } .authority-portrait { width: 72px; } }
-    .authority-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
-    .authority-kicker { color: var(--gold-lt); font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 600; margin-bottom: 8px; }
-    .authority-name { color: var(--text); font-size: 26px; line-height: 1.15; margin-bottom: 12px; }
-    @media (min-width: 640px) { .authority-name { font-size: 32px; } }
-    .authority-role { color: #bfc2c6; font-family: 'Manrope', sans-serif; font-size: 13px; line-height: 1.7; }
-    .authority-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 8px; color: var(--gold-lt); font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 600; }
-    .authority-link:hover { color: var(--gold); }
+    /* Quién soy: credenciales */
     .authority-proof-grid { display: grid; border-top: 1px solid rgba(255,255,255,0.12); }
     .authority-proof { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: start; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.12); font-family: 'Manrope', sans-serif; }
     .authority-proof strong { color: #e8e9eb; font-size: 13px; font-weight: 600; line-height: 1.5; }
     .authority-proof span { color: #b3b6bb; font-size: 12px; line-height: 1.6; }
-    .authority-link:focus-visible { outline: 2px solid var(--gold-lt); outline-offset: 4px; border-radius: 4px; }
 
     /* Gallery */
     .gallery-strip { display: grid; grid-template-columns: 1fr; min-height: 250px; }
@@ -402,7 +384,8 @@
     .cred-list li { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--silver); margin-bottom: 10px; }
     @media (min-width: 640px) { .cred-list li { font-size: 14px; margin-bottom: 12px; gap: 12px; } }
     .cred-bullet { color: var(--gold); font-size: 11px; }
-    #filosofia .bio-text p { color: #b3b6bb; }
+    #autoridad .bio-text p { color: #b3b6bb; }
+    .quien-soy .authority-proof-grid { margin-top: 28px; }
     #entrega .section-desc, #metodologia .section-desc { color: #b3b6bb; font-family: 'Manrope', sans-serif; font-size: 14px; letter-spacing: 0; }
 
     /* Metodologia */
@@ -1764,34 +1747,67 @@
     </div>
   </div>
 
-  <!-- Autoridad compacta -->
-  <section id="autoridad" class="authority-compact">
-    <div class="authority-compact-inner">
-      <div class="authority-layout reveal">
-        <div class="authority-identity">
-          <div class="authority-portrait">
-            <img src="images/daniel-clinical-standing-v1.webp" alt="Retrato del Dr. Daniel Arévalo" loading="lazy" decoding="async" width="1024" height="1280" />
-          </div>
-          <div>
-            <div class="authority-kicker">Quién soy</div>
-            <h2 class="authority-name">Dr. Daniel Arévalo</h2>
-            <p class="authority-role">Soy médico y atleta. Diseño y reviso tu protocolo personalmente.</p>
-            <a class="authority-link" href="#filosofia">Conoce mi trayectoria <span aria-hidden="true">→</span></a>
+  <!-- Quién soy: presentación y trayectoria en un solo bloque -->
+  <section id="autoridad" class="section filosofia quien-soy">
+    <div class="filosofia-gradient"></div>
+    <div class="section-inner">
+      <div class="filosofia-grid">
+        <div class="reveal">
+          <div class="qx-deck" id="qx-deck" role="group" aria-roledescription="carrusel" aria-label="Fotos del Dr. Daniel Arévalo como médico y competidor. Desliza o toca para ver la siguiente">
+            <div class="qx-deck-cards">
+              <figure class="qx-deck-card" data-label="En la clínica"><img src="images/daniel-bata-medica.webp" alt="Dr. Daniel Arévalo con bata médica" width="880" height="1100" style="object-position:50% 20%" decoding="async" draggable="false" /></figure>
+              <figure class="qx-deck-card" data-label="Trofeo al campeón · ASOFICULP"><img src="images/daniel-trofeo-campeon.webp" alt="Daniel en tarima con el trofeo al campeón y la medalla de oro" width="880" height="1100" style="object-position:50% 30%" loading="lazy" decoding="async" draggable="false" /></figure>
+              <figure class="qx-deck-card" data-label="En consulta"><img src="images/daniel-clinical-seated-v1.webp" alt="Dr. Daniel Arévalo, médico y creador de IronQx" width="880" height="1100" style="object-position:50% 25%" loading="lazy" decoding="async" draggable="false" /></figure>
+              <figure class="qx-deck-card" data-label="En tarima · competencia"><img src="images/daniel-tarima-clasico.webp" alt="Daniel posando en tarima durante una competencia de fisicoculturismo" width="880" height="1100" style="object-position:50% 30%" loading="lazy" decoding="async" draggable="false" /></figure>
+              <figure class="qx-deck-card" data-label="Nutrición y entrenamiento"><img src="images/daniel-consulta-pijama.webp" alt="Dr. Daniel Arévalo con pijama médico, una mancuerna y una manzana" width="880" height="1100" style="object-position:50% 25%" loading="lazy" decoding="async" draggable="false" /></figure>
+              <figure class="qx-deck-card" data-label="Podio nacional · Ecuador"><img src="images/daniel-podio-ecuador.webp" alt="Daniel en el podio con su medalla, junto a los jueces" width="880" height="1100" style="object-position:50% 30%" loading="lazy" decoding="async" draggable="false" /></figure>
+              <figure class="qx-deck-card" data-label="Medalla y trofeo · detrás de escena"><img src="images/daniel-backstage-medalla.webp" alt="Daniel detrás de escena con su medalla y su trofeo" width="880" height="1100" style="object-position:50% 22%" loading="lazy" decoding="async" draggable="false" /></figure>
+            </div>
+            <div class="qx-deck-bar"><span class="qx-deck-label" id="qx-deck-label" aria-live="polite">En la clínica</span><span class="qx-deck-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="qx-deck-hint">Desliza o toca</span></div>
           </div>
         </div>
 
-        <div class="authority-proof-grid" aria-label="Credenciales profesionales">
-          <div class="authority-proof">
-            <strong>Médico</strong>
-            <span>Universidad de Cuenca</span>
+        <div class="reveal">
+          <div class="section-label-left">
+            <div class="section-label-line" style="width:28px"></div>
+            <span class="section-label-text">Quién soy · Dr. Daniel Arévalo</span>
           </div>
-          <div class="authority-proof">
-            <strong>Máster en Nutrición Clínica y Deportiva</strong>
-            <span>Universidad Autónoma de Chile</span>
+
+          <h2>De la competición <em>a la consulta.</em></h2>
+
+          <div class="bio-text">
+            <p>
+              Soy médico y atleta. Llevo más de 10 años en fitness competitivo: entrenar y competir me ha enseñado
+              lo que implica sostener un proceso, preparar comidas, gestionar la fatiga y ser constante.
+            </p>
+            <p>
+              En consulta combino esa experiencia con mi formación médica. Reviso antecedentes,
+              síntomas y exámenes cuando corresponde; el objetivo deportivo nunca desplaza tu salud.
+              Diseño y reviso tu protocolo personalmente.
+            </p>
           </div>
-          <div class="authority-proof">
-            <strong>Biomecánica del Ejercicio</strong>
-            <span>Especialización por la IFBB</span>
+
+          <div class="authority-proof-grid" aria-label="Formación y trayectoria">
+            <div class="authority-proof">
+              <strong>Médico</strong>
+              <span>Universidad de Cuenca</span>
+            </div>
+            <div class="authority-proof">
+              <strong>Máster en Nutrición Clínica y Deportiva</strong>
+              <span>Universidad Autónoma de Chile</span>
+            </div>
+            <div class="authority-proof">
+              <strong>Biomecánica del Ejercicio</strong>
+              <span>Especialización por la IFBB</span>
+            </div>
+            <div class="authority-proof">
+              <strong>Fisicoculturismo</strong>
+              <span>Campeón Mr. Cuenca · Top 2 Mr. Ecuador</span>
+            </div>
+            <div class="authority-proof">
+              <strong>IRONQx App</strong>
+              <span>Creador y desarrollador</span>
+            </div>
           </div>
         </div>
       </div>
@@ -2084,54 +2100,6 @@
             <h4>La ensalada también cuenta</h4>
             <p>Defino una porción visual o un presupuesto vegetal según sus ingredientes. El aderezo se contempla aparte, sin obligarte a pesar cada hoja.</p>
           </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Filosofía -->
-  <section id="filosofia" class="section filosofia">
-    <div class="filosofia-gradient"></div>
-    <div class="section-inner">
-      <div class="filosofia-grid">
-        <div class="reveal">
-          <div class="qx-deck" id="qx-deck" role="group" aria-roledescription="carrusel" aria-label="Fotos del Dr. Daniel Arévalo como médico y competidor. Desliza o toca para ver la siguiente">
-            <div class="qx-deck-cards">
-              <figure class="qx-deck-card" data-label="Médico · Universidad de Cuenca"><img src="images/daniel-bata-medica.webp" alt="Dr. Daniel Arévalo con bata médica" width="880" height="1100" style="object-position:50% 20%" decoding="async" draggable="false" /></figure>
-              <figure class="qx-deck-card" data-label="Trofeo al campeón · ASOFICULP"><img src="images/daniel-trofeo-campeon.webp" alt="Daniel en tarima con el trofeo al campeón y la medalla de oro" width="880" height="1100" style="object-position:50% 30%" loading="lazy" decoding="async" draggable="false" /></figure>
-              <figure class="qx-deck-card" data-label="En consulta"><img src="images/daniel-clinical-seated-v1.webp" alt="Dr. Daniel Arévalo, médico y creador de IronQx" width="880" height="1100" style="object-position:50% 25%" loading="lazy" decoding="async" draggable="false" /></figure>
-              <figure class="qx-deck-card" data-label="En tarima · competencia"><img src="images/daniel-tarima-clasico.webp" alt="Daniel posando en tarima durante una competencia de fisicoculturismo" width="880" height="1100" style="object-position:50% 30%" loading="lazy" decoding="async" draggable="false" /></figure>
-              <figure class="qx-deck-card" data-label="Nutrición y entrenamiento"><img src="images/daniel-consulta-pijama.webp" alt="Dr. Daniel Arévalo con pijama médico, una mancuerna y una manzana" width="880" height="1100" style="object-position:50% 25%" loading="lazy" decoding="async" draggable="false" /></figure>
-              <figure class="qx-deck-card" data-label="Podio nacional · Ecuador"><img src="images/daniel-podio-ecuador.webp" alt="Daniel en el podio con su medalla, junto a los jueces" width="880" height="1100" style="object-position:50% 30%" loading="lazy" decoding="async" draggable="false" /></figure>
-              <figure class="qx-deck-card" data-label="Medalla y trofeo · detrás de escena"><img src="images/daniel-backstage-medalla.webp" alt="Daniel detrás de escena con su medalla y su trofeo" width="880" height="1100" style="object-position:50% 22%" loading="lazy" decoding="async" draggable="false" /></figure>
-            </div>
-            <div class="qx-deck-bar"><span class="qx-deck-label" id="qx-deck-label" aria-live="polite">Médico · Universidad de Cuenca</span><span class="qx-deck-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="qx-deck-hint">Desliza o toca</span></div>
-          </div>
-        </div>
-
-        <div class="reveal">
-          <div class="section-label-left">
-            <div class="section-label-line" style="width:28px"></div>
-            <span class="section-label-text">Trayectoria y criterio</span>
-          </div>
-
-          <h2>De la competición <em>a la consulta.</em></h2>
-
-          <div class="bio-text">
-            <p>
-              Llevo más de 10 años en fitness competitivo. Entrenar y competir me ha enseñado
-              lo que implica sostener un proceso: preparar comidas, gestionar la fatiga y ser constante.
-            </p>
-            <p>
-              En consulta combino esa experiencia con mi formación médica. Reviso antecedentes,
-              síntomas y exámenes cuando corresponde; el objetivo deportivo nunca desplaza tu salud.
-            </p>
-          </div>
-
-          <ul class="cred-list">
-            <li><span class="cred-bullet">&#10022;</span> Campeón Mr. Cuenca / Top 2 Mr. Ecuador</li>
-            <li><span class="cred-bullet">&#10022;</span> Creador y desarrollador de IRONQx App</li>
-          </ul>
         </div>
       </div>
     </div>
@@ -3428,7 +3396,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
-          const navId = id === 'filosofia' ? 'autoridad' : id;
+          const navId = id;
           navLinkElements.forEach(link => {
             link.classList.remove('active');
             if (link.dataset.section === navId) {
